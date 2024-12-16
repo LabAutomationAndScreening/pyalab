@@ -22,3 +22,6 @@ dev = [
     "pytest-cov>=6.0.0",
     "pytest-randomly>=3.16.0"
 ]
+
+[tool.uv]
+package = true
