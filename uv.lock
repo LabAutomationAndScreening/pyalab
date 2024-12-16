@@ -59,19 +59,21 @@ wheels = [
 name = "pyalab"
 version = "0.1.0"
 source = { virtual = "." }
+dependencies = [
+    { name = "pydantic" },
+]
 
 [package.dev-dependencies]
 dev = [
-    { name = "pydantic" },
     { name = "pyright" },
     { name = "pytest" },
 ]
 
 [package.metadata]
+requires-dist = [{ name = "pydantic", specifier = ">=2.10.3" }]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "pydantic", specifier = ">=2.10.3" },
     { name = "pyright", specifier = ">=1.1.390" },
     { name = "pytest", specifier = ">=8.3.4" },
 ]
