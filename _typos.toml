@@ -1,0 +1,3 @@
+[default.extend-words]
+# `astroid` is the name of a python library, and it is used in pylint configuration. should not be corrected to asteroid
+astroid = "astroid"

@@ -1,0 +1,33 @@
+[tool.pylint.messages_control]
+disable = "all"
+enable = [
+  # these are always needed to ensure that a crash within pylint itself appropriately causes a failure
+  "astroid-error",
+  "fatal",
+  # rules relating to errors found parsing this config file
+  "config-parse-error",
+  "unknown-option-value",
+  "useless-option-value",
+  # general rules for pylint being used correctly in the code
+  "unrecognized-inline-option",
+  "useless-suppression",
+  # rules we actually care about
+  "duplicate-code",
+]
+
+[tool.pylint.similarities]
+# Minimum lines number of a similarity.
+min-similarity-lines = 4
+
+# Ignore comments when computing similarities.
+ignore-comments = "yes"
+
+# Ignore docstrings when computing similarities.
+ignore-docstrings = "no"
+
+# Ignore imports when computing similarities.
+ignore-imports = "yes"
+
+# Ignore code of dubious quality that we need to include that came straight from a vendor
+[tool.pylint.MAIN]
+ignore-paths = '^(.+/)?vendor_files/.*'

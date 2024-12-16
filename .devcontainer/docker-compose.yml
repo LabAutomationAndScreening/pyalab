@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  devcontainer:
+    build: .
+    # can run `devcontainer-info content-url` in codespaces to see what image base is
+    volumes:
+      - ..:/workspaces/pyalab:cached
+    command: sleep infinity
+    ports:
+      - "56475:2222"
+    environment:
+      - AWS_PROFILE=localstack

@@ -1,0 +1,20 @@
+[project]
+name = ""
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12.8"
+dependencies = [
+
+]
+
+
+[dependency-groups]
+dev = [
+    # Specific to this template
+
+
+    # Managed by upstream template
+    "pyright>=1.1.390",
+    "pytest>=8.3.4"
+]
