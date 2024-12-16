@@ -7,12 +7,6 @@ omit =
 [report]
 # Regexes for lines to exclude from consideration
 exclude_also =
-    # Skip any pass lines such as may be used for @abstractmethod
-    pass
-
-    # in-line directive
-    coverage: disable
-
     # Don't complain if tests don't hit defensive assertion code:
     raise NotImplementedError
     raise AssertionError
