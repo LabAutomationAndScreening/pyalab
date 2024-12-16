@@ -14,7 +14,7 @@ input="${1:-$default_version}"
 export UV_PYTHON="$input"
 export UV_PYTHON_PREFERENCE=only-system
 
-uv tool install 'copier==' --with 'copier-templates-extensions=='
+uv tool install 'copier==9.4.1' --with 'copier-templates-extensions==0.3.0'
 
 uv tool install 'pre-commit==4.0.1'
 

@@ -1,6 +1,7 @@
 # Changes here will be overwritten by Copier
-_commit: 1880c5a
+_commit: d3a7679
 _src_path: gh:LabAutomationAndScreening/copier-python-package-template.git
+package_name: pyalab
 python_ci_versions:
 - 3.12.8
 - 3.13.1
