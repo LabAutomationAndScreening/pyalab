@@ -1,5 +1,5 @@
 # Changes here will be overwritten by Copier
-_commit: 47b98dd
+_commit: 4d45252
 _src_path: gh:LabAutomationAndScreening/copier-python-package-template.git
 package_name: pyalab
 python_ci_versions:

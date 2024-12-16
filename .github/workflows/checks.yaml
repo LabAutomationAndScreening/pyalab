@@ -1,0 +1,84 @@
+name: Checks
+
+on:
+  push:
+    branches-ignore:
+      - 'gh-readonly-queue/**' # don't run (again) when on these special branches created during merge groups; the `on: merge_group` already triggers it.
+  merge_group:
+
+env:
+  PYTHONUNBUFFERED: True
+  PRE_COMMIT_HOME: ${{ github.workspace }}/.precommit_cache
+
+permissions:
+    id-token: write
+    contents: write # needed for mutex
+
+jobs:
+  lint:
+    name: Pre-commit
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Install latest versions of python packages
+        uses: ./.github/actions/install_deps_uv
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Set up mutex # Github concurrency management is horrible, things get arbitrarily cancelled if queued up. So using mutex until github fixes itself. When multiple jobs are modifying cache at once, weird things can happen.  possible issue is https://github.com/actions/toolkit/issues/658
+        if: ${{ runner.os != 'Windows' }} # we're just gonna have to YOLO on Windows, because this action doesn't support it yet https://github.com/ben-z/gh-action-mutex/issues/14
+        uses: ben-z/gh-action-mutex@d3d5b354d460d4b6a1e3ee5b7951678658327812 # v1.0.0-alpha.9
+        with:
+          branch: mutex-venv-${{ matrix.os }}-${{ matrix.python-version }}
+        timeout-minutes: 30 # this is the amount of time this action will wait to attempt to acquire the mutex lock before failing, e.g. if other jobs are queued up in front of it
+
+      - name: Cache Pre-commit hooks
+        uses: actions/cache@v4.2.0
+        env:
+          cache-name: cache-pre-commit-hooks
+        with:
+          path: ${{ env.PRE_COMMIT_HOME }}
+          key: ${{ matrix.os }}-${{ matrix.python-version }}-build-${{ env.cache-name }}-${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: |
+            ${{ matrix.os }}-${{ matrix.python-version }}-build-${{ env.cache-name }}-
+
+      - name: Run pre-commit
+        run:  pre-commit run -a
+
+  test:
+    needs: [ lint ]
+    strategy:
+      matrix:
+        os:
+          - "ubuntu-24.04"
+        python-version:
+
+          - 3.12.8
+
+          - 3.13.1
+
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Install python tooling
+        uses: ./.github/actions/install_deps_uv
+        with:
+          python-version: ${{ matrix.python-version }}
+
+
+
+  required-check:
+    runs-on: ubuntu-24.04
+    needs: [ test ]
+    if: always()
+    steps:
+      - name: fail if prior job failure
+        if: needs.test.result != 'success'
+        run: |
+          exit 1
