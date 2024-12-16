@@ -13,6 +13,7 @@ dependencies = [
 dev = [
     # Specific to this template
 
+    "pydantic>=2.10.3",
 
     # Managed by upstream template
     "pyright>=1.1.390",
