@@ -16,8 +16,9 @@ dev = [
     # Specific to this template
 
 
-
     # Managed by upstream template
     "pyright>=1.1.390",
-    "pytest>=8.3.4"
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "pytest-randomly>=3.16.0"
 ]
