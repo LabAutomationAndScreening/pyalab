@@ -1,6 +1,7 @@
 from enum import Enum
 
-from pydantic import BaseModel
+from .integra_xml import LibraryComponent
+from .integra_xml import LibraryComponentType
 
 
 class StandardDeck(Enum):
@@ -8,5 +9,6 @@ class StandardDeck(Enum):
     FOUR_POSITION = "4 Position Portrait Deck V02"
 
 
-class Deck(BaseModel):
-    name: str | StandardDeck
+class Deck(LibraryComponent):
+    type = LibraryComponentType.DECK
+    name: str
