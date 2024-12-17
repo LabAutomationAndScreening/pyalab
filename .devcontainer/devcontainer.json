@@ -16,19 +16,22 @@
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
-        "ms-python.python@2024.14.1",
-        "ms-python.vscode-pylance@2024.9.2",
-        "ms-vscode-remote.remote-containers@0.383.0",
-        "tamasfe.even-better-toml@0.19.2",
-        "emilast.LogFileHighlighter@3.3.3",
+        // basic tooling
         "eamodio.gitlens@15.5.1",
         "ms-vscode.live-server@0.5.2024091601",
         "MS-vsliveshare.vsliveshare@1.0.5905",
-        "bierner.markdown-mermaid@1.25.0",
         "github.copilot@1.234.0",
         "github.copilot-chat@0.20.2",
-        "samuelcolvin.jinjahtml@0.20.0",
+        // Python
+        "ms-python.python@2024.14.1",
+        "ms-python.vscode-pylance@2024.9.2",
+        "ms-vscode-remote.remote-containers@0.383.0",
         "charliermarsh.ruff@2024.54.0",
+        // Misc file formats
+        "bierner.markdown-mermaid@1.25.0",
+        "samuelcolvin.jinjahtml@0.20.0",
+        "tamasfe.even-better-toml@0.19.2",
+        "emilast.LogFileHighlighter@3.3.3",
       ],
       "settings": {
         "editor.accessibilitySupport": "off", // turn off annoying sounds
