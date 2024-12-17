@@ -1,6 +1,7 @@
 import re
 from enum import Enum
 from pathlib import Path
+from typing import ClassVar
 
 from lxml import etree
 from lxml.etree import _Element
@@ -22,7 +23,7 @@ class IntegraLibraryObjectNotFoundError(OSError):
 
 
 class LibraryComponent(BaseModel):
-    type: LibraryComponentType
+    type: ClassVar[LibraryComponentType]
     name: str
     xml_file_version: str | None = None
     _xml_root: _Element | None = None
