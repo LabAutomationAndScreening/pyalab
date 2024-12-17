@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlexSystem xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<FlexSystem Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>2</DataVersion>
   <Name>Dual Reservoir Adapter with 2 x Divided Reservoirs</Name>
   <Manufacturer>INTEGRA</Manufacturer>
@@ -8,18 +8,18 @@
   <IconPath>Dual Reservoir Adapter with 2 x Divided Reservoirs.PNG</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>8570</FootprintLengthMM>
     <FootprintWidthMM>14600</FootprintWidthMM>
     <HeightMM>4000</HeightMM>
   </Measurements>
-  <Wells />
+  <Wells></Wells>
   <FlexBaseType>Overplapping_Individual</FlexBaseType>
   <Sections>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S1   -   5 - 50 ml tubes / 25 ml reservoir</Name>
-      <Description />
+      <Name>S1 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4285</Width>
@@ -31,33 +31,31 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S3   -   5 ml divided reservoir</Name>
-      <Description />
+      <Name>S3 - 5 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4285</Width>
       <OrderIndexForConfigurationDialog>3</OrderIndexForConfigurationDialog>
       <Length>5590</Length>
       <Depth>-3995</Depth>
-      <Content xsi:type="Reservoir" Version="2">
+      <Content Version="2" xsi:type="Reservoir">
         <DataVersion>3</DataVersion>
         <Name>Divided Reagent Reservoir 5 ml compartment (Insert)</Name>
         <Manufacturer>INTEGRA</Manufacturer>
         <PartNumber>4304, 4351, 4352, 4356, 4357</PartNumber>
-        <Description>Polystyrene or Polypropylene
-
-use with Dual Reservoir Adapter (ON 4547) only</Description>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (ON 4547) only</Description>
         <IconPath>Reservoir_5ml_1_DRAPart.png</IconPath>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <FootprintLengthMM>4285</FootprintLengthMM>
           <FootprintWidthMM>5600</FootprintWidthMM>
           <HeightMM>3870</HeightMM>
         </Measurements>
         <Wells Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <Angle>0</Angle>
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
@@ -103,8 +101,8 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S7   -   10 ml reservoir</Name>
-      <Description />
+      <Name>S7 - 10 ml reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>900</Location_Y>
       <Width>4285</Width>
@@ -115,33 +113,31 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S5   -   10 ml divided reservoir</Name>
-      <Description />
+      <Name>S5 - 10 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>5605</Location_Y>
       <Width>4285</Width>
       <OrderIndexForConfigurationDialog>5</OrderIndexForConfigurationDialog>
       <Length>8995</Length>
       <Depth>-3995</Depth>
-      <Content xsi:type="Reservoir" Version="2">
+      <Content Version="2" xsi:type="Reservoir">
         <DataVersion>3</DataVersion>
         <Name>Divided Reagent Reservoir 10 ml compartment (Insert)</Name>
         <Manufacturer>INTEGRA</Manufacturer>
         <PartNumber>4304, 4351, 4352, 4356, 4357</PartNumber>
-        <Description>Polystyrene or Polypropylene
-
-use with Dual Reservoir Adapter (ON 4547) only</Description>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (ON 4547) only</Description>
         <IconPath>Reservoir_10ml_1_DRAPart.png</IconPath>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <FootprintLengthMM>4285</FootprintLengthMM>
           <FootprintWidthMM>9000</FootprintWidthMM>
           <HeightMM>3870</HeightMM>
         </Measurements>
         <Wells Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <Angle>0</Angle>
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
@@ -195,8 +191,8 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S2   -   5 - 50 ml tubes / 25 ml reservoir</Name>
-      <Description />
+      <Name>S2 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4270</Width>
@@ -208,33 +204,31 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S4   -   5 ml divided reservoir</Name>
-      <Description />
+      <Name>S4 - 5 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4270</Width>
       <OrderIndexForConfigurationDialog>4</OrderIndexForConfigurationDialog>
       <Length>5600</Length>
       <Depth>-3995</Depth>
-      <Content xsi:type="Reservoir" Version="2">
+      <Content Version="2" xsi:type="Reservoir">
         <DataVersion>3</DataVersion>
         <Name>Divided Reagent Reservoir 5 ml compartment (Insert)</Name>
         <Manufacturer>INTEGRA</Manufacturer>
         <PartNumber>4304, 4351, 4352, 4356, 4357</PartNumber>
-        <Description>Polystyrene or Polypropylene
-
-use with Dual Reservoir Adapter (ON 4547) only</Description>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (ON 4547) only</Description>
         <IconPath>Reservoir_5ml_1_DRAPart.png</IconPath>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <FootprintLengthMM>4285</FootprintLengthMM>
           <FootprintWidthMM>5600</FootprintWidthMM>
           <HeightMM>3870</HeightMM>
         </Measurements>
         <Wells Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <Angle>0</Angle>
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
@@ -280,8 +274,8 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S8   -   10 ml reservoir</Name>
-      <Description />
+      <Name>S8 - 10 ml reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>900</Location_Y>
       <Width>4270</Width>
@@ -292,33 +286,31 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S6   -   10 ml divided reservoir</Name>
-      <Description />
+      <Name>S6 - 10 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>5605</Location_Y>
       <Width>4280</Width>
       <OrderIndexForConfigurationDialog>6</OrderIndexForConfigurationDialog>
       <Length>8995</Length>
       <Depth>-3995</Depth>
-      <Content xsi:type="Reservoir" Version="2">
+      <Content Version="2" xsi:type="Reservoir">
         <DataVersion>3</DataVersion>
         <Name>Divided Reagent Reservoir 10 ml compartment (Insert)</Name>
         <Manufacturer>INTEGRA</Manufacturer>
         <PartNumber>4304, 4351, 4352, 4356, 4357</PartNumber>
-        <Description>Polystyrene or Polypropylene
-
-use with Dual Reservoir Adapter (ON 4547) only</Description>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (ON 4547) only</Description>
         <IconPath>Reservoir_10ml_1_DRAPart.png</IconPath>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <FootprintLengthMM>4285</FootprintLengthMM>
           <FootprintWidthMM>9000</FootprintWidthMM>
           <HeightMM>3870</HeightMM>
         </Measurements>
         <Wells Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <Angle>0</Angle>
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
@@ -371,12 +363,12 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
       <RotateType>None</RotateType>
     </FlexBaseSection>
   </Sections>
-  <DrawingSection />
-  <AbsoluteSectionPosition />
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
   <OriginalHeight>0</OriginalHeight>
   <MinimalClearanceHeight>0</MinimalClearanceHeight>
   <DeltaHeightSections>0</DeltaHeightSections>
   <Location_X_End_Inclined>0</Location_X_End_Inclined>
   <Angle>0</Angle>
-  <LabwareWells />
+  <LabwareWells></LabwareWells>
 </FlexSystem>

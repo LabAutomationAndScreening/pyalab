@@ -60,6 +60,7 @@ repos:
                 template/.copier-answers.yml.jinja|
                 .devcontainer/devcontainer-lock.json|
                 .copier-answers.yml|
+                .*\.xml|
             )$
       - id: pretty-format-json
         exclude: |
@@ -80,6 +81,12 @@ repos:
         - --in-place
         - --wrap-summaries=150
         - --wrap-descriptions=150
+
+-   repo: https://github.com/pamoller/xmlformatter
+    rev: v.0.2.8
+    hooks:
+      - id: xml-formatter
+
 
 # Invalid File Checks
 -   repo: https://github.com/pre-commit/pre-commit-hooks

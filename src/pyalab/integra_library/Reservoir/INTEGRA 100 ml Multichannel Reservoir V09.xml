@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Reservoir xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2">
+<?xml version="1.0" encoding="utf-8"?>
+<Reservoir Version="2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>9</DataVersion>
   <Name>Multichannel Reservoir</Name>
   <Manufacturer>INTEGRA</Manufacturer>
@@ -8,14 +8,14 @@
   <IconPath>Reservoir_100ml_1.png</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>8410</FootprintLengthMM>
     <FootprintWidthMM>16143</FootprintWidthMM>
     <HeightMM>4025</HeightMM>
   </Measurements>
   <Wells Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <Angle>0</Angle>
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>

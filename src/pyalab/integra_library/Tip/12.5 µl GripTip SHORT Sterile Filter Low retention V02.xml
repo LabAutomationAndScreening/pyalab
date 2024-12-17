@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Tip xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Favorite="true">
+<?xml version="1.0" encoding="utf-8"?>
+<Tip Favorite="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>2</DataVersion>
-<TipID>7</TipID>
+  <TipID>7</TipID>
   <Name>12.5 µl GripTip, SHORT, Sterile, Filter, Low retention</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>6575</PartNumber>

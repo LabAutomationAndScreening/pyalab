@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>7</DataVersion>
   <Name>Rack for 1.5 ml microcentrifuge tubes with snap caps</Name>
@@ -7,14 +7,14 @@
   <Description>6x8 1.5 ml microcentrifuge tubes</Description>
   <Measurements>
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12800</FootprintLengthMM>
     <FootprintWidthMM>14320</FootprintWidthMM>
     <HeightMM>4950</HeightMM>
   </Measurements>
   <Wells>
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <BottomShape>VShape</BottomShape>
     <ColumnCount>6</ColumnCount>
     <ColumnGap>2140</ColumnGap>

@@ -1,25 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlexBase xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>1</DataVersion>
   <Name>Slider base plate for 4 sliders</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4561</PartNumber>
   <IconPath>ON 4561_Slider base plate for 4 slider.png</IconPath>
-  <Description />
+  <Description></Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>8560</FootprintLengthMM>
     <FootprintWidthMM>14600</FootprintWidthMM>
     <HeightMM>1100</HeightMM>
   </Measurements>
-  <Wells />
+  <Wells></Wells>
   <FlexBaseType>Overplapping_Individual</FlexBaseType>
   <Sections>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S5   -   5 - 50 ml tubes / 25 ml reservoir</Name>
-      <Description />
+      <Name>S5 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4265</Width>
@@ -30,8 +30,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S8   -   5 ml divided reservoir</Name>
-      <Description />
+      <Name>S8 - 5 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4265</Width>
@@ -42,8 +42,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S1   -   0.2 - 2 ml tubes</Name>
-      <Description />
+      <Name>S1 - 0.2 - 2 ml tubes</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>10</Location_Y>
       <Width>2120</Width>
@@ -54,8 +54,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S14   -   10 ml reservoir</Name>
-      <Description />
+      <Name>S14 - 10 ml reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>900</Location_Y>
       <Width>4265</Width>
@@ -66,8 +66,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S11   -   10 ml divided reservoir</Name>
-      <Description />
+      <Name>S11 - 10 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>5600</Location_Y>
       <Width>4265</Width>
@@ -78,8 +78,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S6   -   5 - 50 ml tubes / 25 ml reservoir</Name>
-      <Description />
+      <Name>S6 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
       <Location_X>2140</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4245</Width>
@@ -90,8 +90,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S9   -   5 ml divided reservoir</Name>
-      <Description />
+      <Name>S9 - 5 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>2140</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4245</Width>
@@ -102,8 +102,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S2   -   0.2 - 2 ml tubes</Name>
-      <Description />
+      <Name>S2 - 0.2 - 2 ml tubes</Name>
+      <Description></Description>
       <Location_X>2140</Location_X>
       <Location_Y>10</Location_Y>
       <Width>2110</Width>
@@ -114,8 +114,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S15   -   10 ml reservoir</Name>
-      <Description />
+      <Name>S15 - 10 ml reservoir</Name>
+      <Description></Description>
       <Location_X>2140</Location_X>
       <Location_Y>900</Location_Y>
       <Width>4245</Width>
@@ -126,8 +126,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S12   -   10 ml divided reservoir</Name>
-      <Description />
+      <Name>S12 - 10 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>2140</Location_X>
       <Location_Y>5600</Location_Y>
       <Width>4245</Width>
@@ -138,8 +138,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S7   -   5 - 50 ml tubes / 25 ml reservoir</Name>
-      <Description />
+      <Name>S7 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
       <Location_X>4270</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4265</Width>
@@ -150,8 +150,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S10   -   5 ml divided reservoir</Name>
-      <Description />
+      <Name>S10 - 5 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>4270</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4265</Width>
@@ -162,8 +162,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S3   -   0.2 - 2 ml tubes</Name>
-      <Description />
+      <Name>S3 - 0.2 - 2 ml tubes</Name>
+      <Description></Description>
       <Location_X>4270</Location_X>
       <Location_Y>10</Location_Y>
       <Width>2110</Width>
@@ -174,8 +174,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S16   -   10 ml reservoir</Name>
-      <Description />
+      <Name>S16 - 10 ml reservoir</Name>
+      <Description></Description>
       <Location_X>4270</Location_X>
       <Location_Y>900</Location_Y>
       <Width>4265</Width>
@@ -186,8 +186,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S13   -   10 ml divided reservoir</Name>
-      <Description />
+      <Name>S13 - 10 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>4270</Location_X>
       <Location_Y>5600</Location_Y>
       <Width>4265</Width>
@@ -198,8 +198,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S4   -   0.2 - 2 ml tubes</Name>
-      <Description />
+      <Name>S4 - 0.2 - 2 ml tubes</Name>
+      <Description></Description>
       <Location_X>6400</Location_X>
       <Location_Y>10</Location_Y>
       <Width>2110</Width>
@@ -209,12 +209,12 @@
       <RotateType>None</RotateType>
     </FlexBaseSection>
   </Sections>
-  <DrawingSection />
-  <AbsoluteSectionPosition />
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
   <OriginalHeight>0</OriginalHeight>
   <MinimalClearanceHeight>0</MinimalClearanceHeight>
   <DeltaHeightSections>0</DeltaHeightSections>
   <Location_X_End_Inclined>0</Location_X_End_Inclined>
   <Angle>0</Angle>
-  <LabwareWells />
+  <LabwareWells></LabwareWells>
 </FlexBase>

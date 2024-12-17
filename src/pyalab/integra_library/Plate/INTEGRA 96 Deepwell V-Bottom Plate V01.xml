@@ -1,20 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Plate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>1</DataVersion>
   <Name>96 Deepwell V-Bottom Plate</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>6353</PartNumber>
-  <Description />
+  <Description></Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12775</FootprintLengthMM>
     <FootprintWidthMM>8550</FootprintWidthMM>
     <HeightMM>4410</HeightMM>
   </Measurements>
   <Wells Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <Angle>0</Angle>
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>

@@ -1,26 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlexBase xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>0</DataVersion>
   <Name>HeatPAC no Adapter</Name>
   <Manufacturer>INHECO</Manufacturer>
   <PartNumber>7900046</PartNumber>
-  <Description>- HeatPAC without adapter
-- module for active heating
-- temperature range: ambient - 135°C</Description>
+  <Description>- HeatPAC without adapter - module for active heating - temperature range: ambient - 135°C</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12776</FootprintLengthMM>
     <FootprintWidthMM>8548</FootprintWidthMM>
     <HeightMM>5055</HeightMM>
   </Measurements>
-  <Wells />
+  <Wells></Wells>
   <FlexBaseType>Array</FlexBaseType>
   <Sections>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
       <Name>Section 1</Name>
-      <Description />
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>12776</Width>
@@ -29,12 +27,12 @@
       <RotateType>None</RotateType>
     </FlexBaseSection>
   </Sections>
-  <DrawingSection />
-  <AbsoluteSectionPosition />
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
   <OriginalHeight>0</OriginalHeight>
   <MinimalClearanceHeight>0</MinimalClearanceHeight>
   <DeltaHeightSections>0</DeltaHeightSections>
   <Location_X_End_Inclined>0</Location_X_End_Inclined>
   <Angle>0</Angle>
-  <LabwareWells />
+  <LabwareWells></LabwareWells>
 </FlexBase>

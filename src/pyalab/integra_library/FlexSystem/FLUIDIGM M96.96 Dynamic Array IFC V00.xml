@@ -1,44 +1,44 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlexSystem xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<FlexSystem Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>0</DataVersion>
   <Name>M96.96 Dynamic Array IFC</Name>
   <Manufacturer>FLUIDIGM</Manufacturer>
   <PartNumber>BMK-M-96.96</PartNumber>
-  <Description />
+  <Description></Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12776</FootprintLengthMM>
     <FootprintWidthMM>8548</FootprintWidthMM>
     <HeightMM>1390</HeightMM>
   </Measurements>
-  <Wells />
+  <Wells></Wells>
   <FlexBaseType>Individual</FlexBaseType>
   <Sections>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
       <Name>Section 0</Name>
-      <Description />
+      <Description></Description>
       <Location_X>875</Location_X>
       <Location_Y>600</Location_Y>
       <Width>2750</Width>
       <Length>7250</Length>
       <Depth>-1375</Depth>
-      <Content xsi:type="Plate" Version="1">
+      <Content Version="1" xsi:type="Plate">
         <DataVersion>0</DataVersion>
         <Name>Fluidigm - 96 well_square</Name>
-        <Manufacturer />
-        <Description />
+        <Manufacturer></Manufacturer>
+        <Description></Description>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <FootprintLengthMM>2750</FootprintLengthMM>
           <FootprintWidthMM>7250</FootprintWidthMM>
           <HeightMM>530</HeightMM>
         </Measurements>
         <Wells Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <Angle>0</Angle>
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
@@ -61,27 +61,27 @@
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
       <Name>Section 1</Name>
-      <Description />
+      <Description></Description>
       <Location_X>9000</Location_X>
       <Location_Y>600</Location_Y>
       <Width>2750</Width>
       <Length>7250</Length>
       <Depth>-1375</Depth>
-      <Content xsi:type="Plate" Version="1">
+      <Content Version="1" xsi:type="Plate">
         <DataVersion>0</DataVersion>
         <Name>Fluidigm - 96 well_square</Name>
-        <Manufacturer />
-        <Description />
+        <Manufacturer></Manufacturer>
+        <Description></Description>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <FootprintLengthMM>2750</FootprintLengthMM>
           <FootprintWidthMM>7250</FootprintWidthMM>
           <HeightMM>530</HeightMM>
         </Measurements>
         <Wells Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <Angle>0</Angle>
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
@@ -102,8 +102,8 @@
       </Content>
     </FlexBaseSection>
   </Sections>
-  <DrawingSection />
-  <AbsoluteSectionPosition />
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
   <OriginalHeight>0</OriginalHeight>
   <MinimalClearanceHeight>0</MinimalClearanceHeight>
   <DeltaHeightSections>0</DeltaHeightSections>

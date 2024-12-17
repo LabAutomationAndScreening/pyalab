@@ -1,49 +1,47 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlexSystem xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<FlexSystem Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>1</DataVersion>
   <Name>HeatPAC with Dual Reservoir Adapter with 2 x 25 ml Reservoirs</Name>
   <Manufacturer>INHECO</Manufacturer>
-  <PartNumber>7900046, 7900094 </PartNumber>
+  <PartNumber>7900046, 7900094</PartNumber>
   <Description>- holds 2 x 25 ml Multichannel Reagent Reservoirs</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>8570</FootprintLengthMM>
     <FootprintWidthMM>14600</FootprintWidthMM>
     <HeightMM>7460</HeightMM>
   </Measurements>
-  <Wells />
+  <Wells></Wells>
   <FlexBaseType>Overplapping_Individual</FlexBaseType>
   <Sections>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S1   -   5 - 50 ml tubes / 25 ml reservoir</Name>
-      <Description />
+      <Name>S1 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4285</Width>
       <OrderIndexForConfigurationDialog>1</OrderIndexForConfigurationDialog>
       <Length>14600</Length>
       <Depth>-3995</Depth>
-      <Content xsi:type="Reservoir" Version="2">
+      <Content Version="2" xsi:type="Reservoir">
         <DataVersion>4</DataVersion>
         <Name>25 ml Multichannel Reagent Reservoir (Insert)</Name>
         <Manufacturer>INTEGRA</Manufacturer>
         <PartNumber>4310, 4311, 4312, 4315, 4316, 4317, 4380, 4381, 4382</PartNumber>
-        <Description>Polystyrene or Polypropylene
-
-use with Dual Reservoir Adapter (ON 4547) only</Description>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (ON 4547) only</Description>
         <IconPath>Reservoir_25ml_1_DRA.png</IconPath>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <FootprintLengthMM>4285</FootprintLengthMM>
           <FootprintWidthMM>14600</FootprintWidthMM>
           <HeightMM>3870</HeightMM>
         </Measurements>
         <Wells Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <Angle>0</Angle>
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
@@ -93,8 +91,8 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S3   -   5 ml divided reservoir</Name>
-      <Description />
+      <Name>S3 - 5 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4285</Width>
@@ -105,8 +103,8 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S5   -   10 ml divided reservoir</Name>
-      <Description />
+      <Name>S5 - 10 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>5605</Location_Y>
       <Width>4285</Width>
@@ -117,33 +115,31 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S2   -   5 - 50 ml tubes / 25 ml reservoir</Name>
-      <Description />
+      <Name>S2 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4270</Width>
       <OrderIndexForConfigurationDialog>2</OrderIndexForConfigurationDialog>
       <Length>14600</Length>
       <Depth>-3995</Depth>
-      <Content xsi:type="Reservoir" Version="2">
+      <Content Version="2" xsi:type="Reservoir">
         <DataVersion>4</DataVersion>
         <Name>25 ml Multichannel Reagent Reservoir (Insert)</Name>
         <Manufacturer>INTEGRA</Manufacturer>
         <PartNumber>4310, 4311, 4312, 4315, 4316, 4317, 4380, 4381, 4382</PartNumber>
-        <Description>Polystyrene or Polypropylene
-
-use with Dual Reservoir Adapter (ON 4547) only</Description>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (ON 4547) only</Description>
         <IconPath>Reservoir_25ml_1_DRA.png</IconPath>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <FootprintLengthMM>4285</FootprintLengthMM>
           <FootprintWidthMM>14600</FootprintWidthMM>
           <HeightMM>3870</HeightMM>
         </Measurements>
         <Wells Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <Angle>0</Angle>
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
@@ -193,8 +189,8 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S4   -   5 ml divided reservoir</Name>
-      <Description />
+      <Name>S4 - 5 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4270</Width>
@@ -205,8 +201,8 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S6   -   10 ml divided reservoir</Name>
-      <Description />
+      <Name>S6 - 10 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>5605</Location_Y>
       <Width>4280</Width>
@@ -216,12 +212,12 @@ use with Dual Reservoir Adapter (ON 4547) only</Description>
       <RotateType>None</RotateType>
     </FlexBaseSection>
   </Sections>
-  <DrawingSection />
-  <AbsoluteSectionPosition />
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
   <OriginalHeight>0</OriginalHeight>
   <MinimalClearanceHeight>0</MinimalClearanceHeight>
   <DeltaHeightSections>0</DeltaHeightSections>
   <Location_X_End_Inclined>0</Location_X_End_Inclined>
   <Angle>0</Angle>
-  <LabwareWells />
+  <LabwareWells></LabwareWells>
 </FlexSystem>

@@ -1,20 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>0</DataVersion>
   <Name>FluidX 96-Format, 0.7 ml Internal Thread</Name>
   <Manufacturer>BROOKS LIFE SCIENCES</Manufacturer>
   <PartNumber>66-62319-Y6</PartNumber>
-  <Description />
+  <Description></Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12776</FootprintLengthMM>
     <FootprintWidthMM>8548</FootprintWidthMM>
     <HeightMM>4640</HeightMM>
   </Measurements>
   <Wells Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <Angle>0</Angle>
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>

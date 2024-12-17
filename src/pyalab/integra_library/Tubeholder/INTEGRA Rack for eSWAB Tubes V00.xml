@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>0</DataVersion>
   <Name>Rack for eSWAB Tubes</Name>
   <Manufacturer>INTEGRA</Manufacturer>
@@ -7,14 +7,14 @@
   <Description>6x8 Tubes, eSwab 480C or UTM-RT Mini Copan</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12800</FootprintLengthMM>
     <FootprintWidthMM>12800</FootprintWidthMM>
     <HeightMM>9890</HeightMM>
   </Measurements>
   <Wells Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <Angle>0</Angle>
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>

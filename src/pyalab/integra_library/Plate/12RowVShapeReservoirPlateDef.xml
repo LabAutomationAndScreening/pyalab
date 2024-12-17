@@ -1,21 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Plate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>0</DataVersion>
   <Name>12 Well Reagent Reservoir</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4360</PartNumber>
-  <Description />
+  <Description></Description>
   <IconPath>12 Well Reagent Reservoir Plate.PNG</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>5072</FootprintLengthMM>
     <FootprintWidthMM>15012</FootprintWidthMM>
     <HeightMM>2775</HeightMM>
   </Measurements>
   <Wells Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <Angle>0</Angle>
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>

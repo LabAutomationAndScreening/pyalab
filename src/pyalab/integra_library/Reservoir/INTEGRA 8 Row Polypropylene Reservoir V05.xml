@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Reservoir xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Reservoir Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>5</DataVersion>
   <Name>8 Row Polypropylene Reservoir</Name>
   <Manufacturer>INTEGRA</Manufacturer>
@@ -8,14 +8,14 @@
   <IconPath>Reservoir_32ml_8_Well.png</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>8560</FootprintLengthMM>
     <FootprintWidthMM>12780</FootprintWidthMM>
     <HeightMM>4400</HeightMM>
   </Measurements>
   <Wells Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <BottomShape>Circle</BottomShape>
     <ColumnCount>8</ColumnCount>
     <ColumnGap>900</ColumnGap>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>4</DataVersion>
   <Name>Rack for 15 ml centrifuge tubes</Name>
@@ -7,14 +7,14 @@
   <Description>4x6 centrifuge tubes (15 ml) in SLAS/ANSI format</Description>
   <Measurements>
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12776</FootprintLengthMM>
     <FootprintWidthMM>8548</FootprintWidthMM>
     <HeightMM>12070</HeightMM>
   </Measurements>
   <Wells>
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <BottomShape>VShape</BottomShape>
     <ColumnCount>6</ColumnCount>
     <ColumnGap>1980</ColumnGap>

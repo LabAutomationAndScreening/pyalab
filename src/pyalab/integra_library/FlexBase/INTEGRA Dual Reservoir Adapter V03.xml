@@ -1,30 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlexBase xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>3</DataVersion>
   <Name>Dual Reservoir Adapter</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4547</PartNumber>
-  <Description>- compatible with
-     10 ml Multichannel Reagent Reservoirs
-     25 ml Multichannel Reagent Reservoirs
-     12 Well Reagent Reservoirs
-     Divided Reagent Reservoirs
-- holds up to 2 reservoirs (of the same or different type)</Description>
+  <Description>- compatible with 10 ml Multichannel Reagent Reservoirs 25 ml Multichannel Reagent Reservoirs 12 Well Reagent Reservoirs Divided Reagent Reservoirs - holds up to 2 reservoirs (of the same or different type)</Description>
   <IconPath>Dual Reservoir Adapter.PNG</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>8570</FootprintLengthMM>
     <FootprintWidthMM>14600</FootprintWidthMM>
     <HeightMM>4000</HeightMM>
   </Measurements>
-  <Wells />
+  <Wells></Wells>
   <FlexBaseType>Overplapping_Individual</FlexBaseType>
   <Sections>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S1   -   5 - 50 ml tubes / 25 ml reservoir</Name>
-      <Description />
+      <Name>S1 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4285</Width>
@@ -36,8 +31,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S3   -   5 ml divided reservoir</Name>
-      <Description />
+      <Name>S3 - 5 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4285</Width>
@@ -48,8 +43,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S7   -   10 ml reservoir</Name>
-      <Description />
+      <Name>S7 - 10 ml reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>900</Location_Y>
       <Width>4285</Width>
@@ -60,8 +55,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S5   -   10 ml divided reservoir</Name>
-      <Description />
+      <Name>S5 - 10 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>5605</Location_Y>
       <Width>4285</Width>
@@ -72,8 +67,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S2   -   5 - 50 ml tubes / 25 ml reservoir</Name>
-      <Description />
+      <Name>S2 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4270</Width>
@@ -85,8 +80,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S4   -   5 ml divided reservoir</Name>
-      <Description />
+      <Name>S4 - 5 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>0</Location_Y>
       <Width>4270</Width>
@@ -97,8 +92,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S8   -   10 ml reservoir</Name>
-      <Description />
+      <Name>S8 - 10 ml reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>900</Location_Y>
       <Width>4270</Width>
@@ -109,8 +104,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S6   -   10 ml divided reservoir</Name>
-      <Description />
+      <Name>S6 - 10 ml divided reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>5605</Location_Y>
       <Width>4280</Width>
@@ -120,12 +115,12 @@
       <RotateType>None</RotateType>
     </FlexBaseSection>
   </Sections>
-  <DrawingSection />
-  <AbsoluteSectionPosition />
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
   <OriginalHeight>0</OriginalHeight>
   <MinimalClearanceHeight>0</MinimalClearanceHeight>
   <DeltaHeightSections>0</DeltaHeightSections>
   <Location_X_End_Inclined>0</Location_X_End_Inclined>
   <Angle>0</Angle>
-  <LabwareWells />
+  <LabwareWells></LabwareWells>
 </FlexBase>

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Deck xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Deck Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>12</DataVersion>
   <Name>3 Position Universal Deck</Name>
   <Manufacturer>INTEGRA</Manufacturer>
@@ -244,17 +244,17 @@
       <OrientationExtended>Landscape</OrientationExtended>
       <ContentOrientation>Landscape</ContentOrientation>
     </Section>
-	<Section>
-	    <Name>C</Name>
-	    <Location_X>23340</Location_X>
-	    <Location_Y>475</Location_Y>
-	    <Width>16350</Width>
-	    <Length>12820</Length>
-	    <Depth>0</Depth>
-	    <IsWaste>false</IsWaste>
-	    <OrientationExtended>Landscape</OrientationExtended>
-	    <ContentOrientation>Landscape</ContentOrientation>
-	  </Section>
+    <Section>
+      <Name>C</Name>
+      <Location_X>23340</Location_X>
+      <Location_Y>475</Location_Y>
+      <Width>16350</Width>
+      <Length>12820</Length>
+      <Depth>0</Depth>
+      <IsWaste>false</IsWaste>
+      <OrientationExtended>Landscape</OrientationExtended>
+      <ContentOrientation>Landscape</ContentOrientation>
+    </Section>
     <Section>
       <Name>D</Name>
       <Location_X>37045</Location_X>
@@ -263,7 +263,7 @@
       <Length>2000</Length>
       <Depth>-500</Depth>
       <IsWaste>true</IsWaste>
-      <Content xsi:type="Reservoir" Version="1">
+      <Content Version="1" xsi:type="Reservoir">
         <DataVersion>6</DataVersion>
         <Name>Waste block</Name>
         <Manufacturer>INTEGRA</Manufacturer>
@@ -272,14 +272,14 @@
         <IconPath>Reservoir_25ml_1.png</IconPath>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <FootprintLengthMM>2000</FootprintLengthMM>
           <FootprintWidthMM>16350</FootprintWidthMM>
           <HeightMM>11000</HeightMM>
         </Measurements>
         <Wells Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <Angle>0</Angle>
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>

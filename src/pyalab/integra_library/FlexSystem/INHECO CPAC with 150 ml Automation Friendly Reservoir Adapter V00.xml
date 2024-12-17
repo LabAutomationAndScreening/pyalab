@@ -1,52 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlexSystem xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<FlexSystem Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>0</DataVersion>
   <Name>CPAC with 150 ml Automation Friendly Reservoir Adapter</Name>
   <Manufacturer>INHECO</Manufacturer>
   <PartNumber>7000166, 7000190, 7900056</PartNumber>
-  <Description>-active heating &amp; Cooling device
--including adapter for INTEGRA 150 ml Automation Friendly   Reservoirs
-
-
-INHECO adapter 7900056 placed on CPAC
-</Description>
+  <Description>-active heating &amp; Cooling device -including adapter for INTEGRA 150 ml Automation Friendly Reservoirs INHECO adapter 7900056 placed on CPAC</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12776</FootprintLengthMM>
     <FootprintWidthMM>8548</FootprintWidthMM>
     <HeightMM>8705</HeightMM>
   </Measurements>
-  <Wells />
+  <Wells></Wells>
   <FlexBaseType>Array</FlexBaseType>
   <Sections>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
       <Name>Section 1</Name>
-      <Description />
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>12776</Width>
       <Length>8548</Length>
       <Depth>0</Depth>
-      <Content xsi:type="Reservoir" Version="1">
+      <Content Version="1" xsi:type="Reservoir">
         <DataVersion>5</DataVersion>
         <Name>Automation Friendly Reservoir</Name>
         <Manufacturer>INTEGRA</Manufacturer>
         <PartNumber>6301, 6302, 6303, 6317, 6318</PartNumber>
-        <Description>Automatically rotated
-</Description>
+        <Description>Automatically rotated</Description>
         <IconPath>Reservoir_150ml_AFR.png</IconPath>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <FootprintLengthMM>12776</FootprintLengthMM>
           <FootprintWidthMM>8548</FootprintWidthMM>
           <HeightMM>2600</HeightMM>
         </Measurements>
         <Wells Version="0">
           <DataVersion>0</DataVersion>
-          <Description />
+          <Description></Description>
           <Angle>0</Angle>
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
@@ -68,8 +62,8 @@ INHECO adapter 7900056 placed on CPAC
       </Content>
     </FlexBaseSection>
   </Sections>
-  <DrawingSection />
-  <AbsoluteSectionPosition />
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
   <OriginalHeight>0</OriginalHeight>
   <MinimalClearanceHeight>0</MinimalClearanceHeight>
   <DeltaHeightSections>0</DeltaHeightSections>

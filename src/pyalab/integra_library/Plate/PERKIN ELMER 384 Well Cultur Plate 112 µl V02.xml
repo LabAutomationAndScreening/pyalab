@@ -1,25 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>2</DataVersion>
   <Name>384 Well Cultur Plate</Name>
   <Manufacturer>PERKIN ELMER</Manufacturer>
-  <PartNumber>6007680, 6007660, 6007650, 6007290, 6005620, 6007270,
-6005520, 6007640, 6007500,
-6005350, 6057690, 6005310, 6007688, 6007668, 6007658, 6007299, 6005629, 6007689,
-6007279, 6005529, 6007669,
-6007649, 6007509, 6007659,
-6005359, 6057699, 6005300</PartNumber>
-  <Description />
+  <PartNumber>6007680, 6007660, 6007650, 6007290, 6005620, 6007270, 6005520, 6007640, 6007500, 6005350, 6057690, 6005310, 6007688, 6007668, 6007658, 6007299, 6005629, 6007689, 6007279, 6005529, 6007669, 6007649, 6007509, 6007659, 6005359, 6057699, 6005300</PartNumber>
+  <Description></Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12776</FootprintLengthMM>
     <FootprintWidthMM>8547</FootprintWidthMM>
     <HeightMM>1440</HeightMM>
   </Measurements>
   <Wells Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <Angle>0</Angle>
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>

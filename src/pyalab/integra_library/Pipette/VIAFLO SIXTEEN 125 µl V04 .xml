@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Pipette xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Favorite="false">
+<?xml version="1.0" encoding="utf-8"?>
+<Pipette Favorite="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>4</DataVersion>
   <Channels>16</Channels>
   <Manufacturer>INTEGRA</Manufacturer>
@@ -12,10 +12,10 @@
   <ColorText>#FFF2C75C</ColorText>
   <ValidTipIDs>
     <Tip>14</Tip>
-	  <Tip>15</Tip>
-	  <Tip>16</Tip>
-	  <Tip>17</Tip>
-	  <Tip>18</Tip>
+    <Tip>15</Tip>
+    <Tip>16</Tip>
+    <Tip>17</Tip>
+    <Tip>18</Tip>
     <Tip>19</Tip>
   </ValidTipIDs>
 </Pipette>

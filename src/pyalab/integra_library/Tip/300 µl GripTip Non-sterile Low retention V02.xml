@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Tip xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Favorite="false">
+<?xml version="1.0" encoding="utf-8"?>
+<Tip Favorite="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>2</DataVersion>
-<TipID>25</TipID>
+  <TipID>25</TipID>
   <Name>300 µl GripTip, Non-sterile, Low retention</Name>
   <Manufacturer>INTEGRA</Manufacturer>
-<PartNumber>6533</PartNumber>
+  <PartNumber>6533</PartNumber>
   <Volume>30000</Volume>
   <ColorText>#FF9AB9AD</ColorText>
   <Length>Standard</Length>

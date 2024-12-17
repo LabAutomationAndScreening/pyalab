@@ -1,22 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>4</DataVersion>
   <Name>Rack for 0.5 ml microcentrifuge tubes (Skirted)</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4540</PartNumber>
-  <Description>6x8 0.5 ml microcentrifuge tubes (Skirted)
-
-e.g. STARLAB ON E1405-2130</Description>
+  <Description>6x8 0.5 ml microcentrifuge tubes (Skirted) e.g. STARLAB ON E1405-2130</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12800</FootprintLengthMM>
     <FootprintWidthMM>14550</FootprintWidthMM>
     <HeightMM>5380</HeightMM>
   </Measurements>
   <Wells Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <BottomShape>VShape</BottomShape>
     <ColumnCount>6</ColumnCount>
     <ColumnGap>2140</ColumnGap>

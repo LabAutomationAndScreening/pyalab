@@ -1,20 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>2</DataVersion>
   <Name>BioCoat or Falcon 96 Well Clear Flat Bottom Microplates</Name>
   <Manufacturer>CORNING</Manufacturer>
-  <PartNumber>354409, 354410, 354596, 354657, 353075, 351172, 354670, </PartNumber>
-  <Description />
+  <PartNumber>354409, 354410, 354596, 354657, 353075, 351172, 354670,</PartNumber>
+  <Description></Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12764</FootprintLengthMM>
     <FootprintWidthMM>8560</FootprintWidthMM>
     <HeightMM>1430</HeightMM>
   </Measurements>
   <Wells Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <Angle>0</Angle>
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>

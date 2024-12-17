@@ -1,20 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>2</DataVersion>
-  <Name>Rack for 5 ml test tubes (12x75 mm) </Name>
+  <Name>Rack for 5 ml test tubes (12x75 mm)</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4543</PartNumber>
   <Description>6x8 5 ml test tubes 12x75mm in SLAS/ANSI format</Description>
   <Measurements>
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12776</FootprintLengthMM>
     <FootprintWidthMM>8548</FootprintWidthMM>
     <HeightMM>7570</HeightMM>
   </Measurements>
   <Wells>
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <BottomShape>Circle</BottomShape>
     <ColumnCount>8</ColumnCount>
     <ColumnGap>1350</ColumnGap>

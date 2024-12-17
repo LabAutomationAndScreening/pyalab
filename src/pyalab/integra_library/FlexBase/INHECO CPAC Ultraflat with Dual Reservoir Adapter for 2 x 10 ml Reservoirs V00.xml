@@ -1,28 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlexBase xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>0</DataVersion>
   <Name>CPAC Ultraflat with Dual Reservoir Adapter for 2 x 10 ml Reservoirs</Name>
   <Manufacturer>INHECO</Manufacturer>
   <PartNumber>7000166, 7000190, 7900095</PartNumber>
-  <Description>- module for active heating and cooling
-- temperature range ON 7000166: 4°C -110°C
-- temperature range ON 7000190: 4°C -70°C
-- including dual reservoir adapter for 10 ml multichannel reagent reservoirs
-- holds up to 2 reservoirs (of the same or different type)</Description>
+  <Description>- module for active heating and cooling - temperature range ON 7000166: 4°C -110°C - temperature range ON 7000190: 4°C -70°C - including dual reservoir adapter for 10 ml multichannel reagent reservoirs - holds up to 2 reservoirs (of the same or different type)</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>8570</FootprintLengthMM>
     <FootprintWidthMM>14600</FootprintWidthMM>
     <HeightMM>11300</HeightMM>
   </Measurements>
-  <Wells />
+  <Wells></Wells>
   <FlexBaseType>Overplapping_Individual</FlexBaseType>
   <Sections>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S1   -   10 ml reservoir</Name>
-      <Description />
+      <Name>S1 - 10 ml reservoir</Name>
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>900</Location_Y>
       <Width>4280</Width>
@@ -33,8 +29,8 @@
     </FlexBaseSection>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
-      <Name>S2   -   10 ml reservoir</Name>
-      <Description />
+      <Name>S2 - 10 ml reservoir</Name>
+      <Description></Description>
       <Location_X>4290</Location_X>
       <Location_Y>900</Location_Y>
       <Width>4270</Width>
@@ -44,12 +40,12 @@
       <RotateType>None</RotateType>
     </FlexBaseSection>
   </Sections>
-  <DrawingSection />
-  <AbsoluteSectionPosition />
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
   <OriginalHeight>0</OriginalHeight>
   <MinimalClearanceHeight>0</MinimalClearanceHeight>
   <DeltaHeightSections>0</DeltaHeightSections>
   <Location_X_End_Inclined>0</Location_X_End_Inclined>
   <Angle>0</Angle>
-  <LabwareWells />
+  <LabwareWells></LabwareWells>
 </FlexBase>

@@ -1,22 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>0</DataVersion>
   <Name>Slider for 0.2 ml PCR tubes</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4565</PartNumber>
-  <Description>Reference Tube:
-Star Labs 8-Strip PCR Tubes
-Catalog No. I1402-3500</Description>
+  <Description>Reference Tube: Star Labs 8-Strip PCR Tubes Catalog No. I1402-3500</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>2130</FootprintLengthMM>
     <FootprintWidthMM>12780</FootprintWidthMM>
     <HeightMM>4950</HeightMM>
   </Measurements>
   <Wells Version="1">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <Angle>0</Angle>
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>

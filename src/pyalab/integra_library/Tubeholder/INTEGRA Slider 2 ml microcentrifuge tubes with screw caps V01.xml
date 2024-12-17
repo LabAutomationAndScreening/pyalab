@@ -1,21 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>1</DataVersion>
   <Name>Slider 2 ml microcentrifuge tubes with screw caps</Name>
   <Manufacturer>INTEGRA</Manufacturer>
-	<PartNumber>4562</PartNumber>
-  <Description>Slider for 2 ml microcentrifuge tubes (see ON 4540)
-Reference Tube: Greiner ON 722201</Description>
+  <PartNumber>4562</PartNumber>
+  <Description>Slider for 2 ml microcentrifuge tubes (see ON 4540) Reference Tube: Greiner ON 722201</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>2130</FootprintLengthMM>
     <FootprintWidthMM>12780</FootprintWidthMM>
     <HeightMM>4300</HeightMM>
   </Measurements>
   <Wells Version="1">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <Angle>0</Angle>
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>

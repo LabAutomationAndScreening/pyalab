@@ -1,26 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlexBase xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>2</DataVersion>
   <Name>Teleshake F-bottom Adapter</Name>
   <Manufacturer>Thermo Electron GmbH</Manufacturer>
-  <PartNumber />
-  <Description>- module for shaking
-- shaking range: 100 -2000 rpm</Description>
+  <PartNumber></PartNumber>
+  <Description>- module for shaking - shaking range: 100 -2000 rpm</Description>
   <IconPath>Teleshake F-bottom Adapter.PNG</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12776</FootprintLengthMM>
     <FootprintWidthMM>8548</FootprintWidthMM>
     <HeightMM>3200</HeightMM>
   </Measurements>
-  <Wells />
+  <Wells></Wells>
   <FlexBaseType>Array</FlexBaseType>
   <Sections>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
       <Name>Section 1</Name>
-      <Description />
+      <Description></Description>
       <Location_X>0</Location_X>
       <Location_Y>0</Location_Y>
       <Width>12776</Width>

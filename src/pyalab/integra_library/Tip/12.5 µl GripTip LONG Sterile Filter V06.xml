@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Tip xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Favorite="true">
+<?xml version="1.0" encoding="utf-8"?>
+<Tip Favorite="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>6</DataVersion>
-<TipID>4</TipID>
+  <TipID>4</TipID>
   <Name>12.5 µl GripTip, LONG, Sterile, Filter</Name>
   <Manufacturer>INTEGRA</Manufacturer>
-<PartNumber>6405</PartNumber>
+  <PartNumber>6405</PartNumber>
   <Volume>2000</Volume>
   <ColorText>#FFC1A0DA</ColorText>
   <Length>Long</Length>

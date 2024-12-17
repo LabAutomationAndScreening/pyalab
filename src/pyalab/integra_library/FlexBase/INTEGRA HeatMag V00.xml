@@ -1,27 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FlexBase xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>0</DataVersion>
   <Name>HEATMAG no Adapter</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4901</PartNumber>
-	<Description>- HEATMAG without adapter
-- module for heating and magnetic bead separation
-- temperature range: ambient - 65°C</Description>
-	<IconPath>ExternalModules/HEATMAG_solo.PNG</IconPath>
+  <Description>- HEATMAG without adapter - module for heating and magnetic bead separation - temperature range: ambient - 65°C</Description>
+  <IconPath>ExternalModules/HEATMAG_solo.PNG</IconPath>
   <Measurements Version="1">
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>12790</FootprintLengthMM>
     <FootprintWidthMM>8570</FootprintWidthMM>
     <HeightMM>6950</HeightMM>
   </Measurements>
-  <Wells />
+  <Wells></Wells>
   <FlexBaseType>Array</FlexBaseType>
   <Sections>
     <FlexBaseSection Version="0">
       <DataVersion>0</DataVersion>
       <Name>Section 1</Name>
-      <Description />
+      <Description></Description>
       <Location_X>150</Location_X>
       <Location_Y>0</Location_Y>
       <Width>12590</Width>
@@ -30,8 +28,8 @@
       <RotateType>None</RotateType>
     </FlexBaseSection>
   </Sections>
-  <DrawingSection />
-  <AbsoluteSectionPosition />
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
   <OriginalHeight>0</OriginalHeight>
   <MinimalClearanceHeight>0</MinimalClearanceHeight>
   <DeltaHeightSections>0</DeltaHeightSections>

@@ -1,21 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Reservoir xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DataVersion>3</DataVersion>
   <Name>96 Open Well Polypropylene Reservoir</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>6351, 6352</PartNumber>
-  <Description />
+  <Description></Description>
   <IconPath>Reservoir_300ml_Well.png</IconPath>
   <Measurements>
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <FootprintLengthMM>8540</FootprintLengthMM>
     <FootprintWidthMM>12747</FootprintWidthMM>
     <HeightMM>4327</HeightMM>
   </Measurements>
   <Wells>
     <DataVersion>0</DataVersion>
-    <Description />
+    <Description></Description>
     <BottomShape>Circle</BottomShape>
     <ColumnCount>1</ColumnCount>
     <ColumnGap>0</ColumnGap>
