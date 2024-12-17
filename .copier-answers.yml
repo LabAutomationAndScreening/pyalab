@@ -1,0 +1,11 @@
+# Changes here will be overwritten by Copier
+_commit: 63f7af1
+_src_path: gh:LabAutomationAndScreening/copier-python-package-template.git
+package_name: pyalab
+python_ci_versions:
+- 3.12.8
+- 3.13.1
+python_version: 3.12.8
+repo_name: pyalab
+ssh_port_number: 56475
+

@@ -1,0 +1,29 @@
+# Section managed by upstream copier template
+name: 🐛 Bug report
+description: Report a bug in this project to help us fix it
+labels: ["T: bug 🐞"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The more information you can provide, the easier it will be to reproduce the issue and find a fix.
+
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue for this?
+      description: Please search existing issues to avoid creating duplicates.
+      options:
+        - label: I have searched the existing issues
+          required: true
+
+# TODO: add question about whether using devcontainer
+
+  - type: textarea
+    attributes:
+      label: What you expected to see, versus what you actually saw
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+
+
+# Questions specific to this repository

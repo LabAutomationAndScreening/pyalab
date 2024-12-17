@@ -1,0 +1,38 @@
+name: Install requirements
+description: Setup python, and install dependencies using uv
+inputs:
+  python-version:
+    type: string
+    description: Python version to install
+  uv-sync:
+    required: false
+    default: true
+    type: boolean
+    description: Install the python packages with uv sync
+
+
+runs:
+  using: composite
+  steps:
+    - name: Get version of python
+      # TODO: be able to pull the default version from the devcontainer.json file
+      run: |
+        PYTHON_VERSION="${{ inputs.python-version }}"
+        echo "PYTHON_VERSION=$PYTHON_VERSION" >> "$GITHUB_ENV"
+      shell: bash
+
+    - name: Setup python
+      uses: actions/setup-python@v5.3.0
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    - name: Install Tooling
+      run: sh .devcontainer/install-ci-tooling.sh ${{ env.PYTHON_VERSION }}
+      shell: bash
+
+    - name: Install Dependencies
+      if: ${{ inputs.uv-sync }}
+      run: |
+        uv sync --frozen
+        uv pip list
+      shell: bash

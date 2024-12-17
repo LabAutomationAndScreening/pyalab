@@ -1,0 +1,61 @@
+# IDE
+.vscode/
+.idea/
+.~c9*
+.history/
+*~
+
+# CI caches
+.npm_cache/
+.precommit_cache/
+.pipenv_cache/
+.cache/
+.mypy_cache/
+.ruff_cache/
+.pipx_cache/
+
+# Vendor build/make
+dkms.conf
+
+# Python
+*.py[cod]
+__pycache__/
+
+# Venv
+.venv/
+venv/
+*.egg-info
+
+# Build folders
+dist/
+build/
+
+# sphinx html
+docs/build
+
+# Testing
+.pytest_cache/
+tests/**/snapshots/*_actual.png
+tests/**/snapshots/*_diff.png
+pytest.log
+
+# test coverage
+tests/__coverage__
+test/__coverage__
+coverage-report-pytest
+.pytest_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+
+# test profiling
+prof/
+
+# Infrastructure as Code
+.terraform/
+*.terraform.lock.hcl
+.pulumi/
+
+# Logs
+*.log
+**/logs/log*.txt

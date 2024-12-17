@@ -1,0 +1,18 @@
+extend = "./ruff.toml"
+
+[lint]
+ignore = [
+    "D100", # no module docstrings needed for tests
+    "D101", # no class docstrings needed for tests
+    "D102", # no method docstrings needed for tests
+    "D103", # no function docstrings needed for tests
+    "D104", # no package docstrings needed for tests
+    "FBT001", # booleans are often used in parametrized test cases as positional arguments, and test function argument specifications cannot usually easily include keyword arguments anyway
+    "N802", # test function naming conventions differ from source code
+    "S101", # assert is definitely needed in test cases
+    "TID252", # sometimes you can't use absolute imports in test cases for importing things within the tests, because they're not a true package or have conflicting namespaces
+    "TRY003", # tests dont need to create a custom exception classes, generally you want to throw an AssertionError with a message anyway
+]
+
+[lint.flake8-pytest-style]
+raises-require-match-for = ["*"] # ensures we always have a match for our raises statements so that we validate tests fail for the right reason
