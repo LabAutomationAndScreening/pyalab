@@ -43,7 +43,7 @@ repos:
 
 # Reformatting (should generally come before any file format or other checks, because reformatting can change things)
 -   repo: https://github.com/crate-ci/typos
-    rev: d628af3f90d261d70feacdd55ff2e9a631c5165f  # frozen: v1.28.3
+    rev: 0fa392de4a080a8f22469c05415090ee3addf4fb  # frozen: v1.28.4
     hooks:
       - id: typos
 -   repo: https://github.com/pre-commit/pre-commit-hooks
@@ -51,6 +51,7 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+        # the XML formatter hook doesn't leave a blank line at the end, so excluding XML files from this hook to avoid conflicts
         exclude: | # the extra trailing newline in the pull request template makes it easier to click there in the github console. The CLI that programmatically generates devcontainer-lock.json always ends the file incompatible with this hook.
             (?x)^(
                 .github/pull_request_template.md|
@@ -60,6 +61,7 @@ repos:
                 template/.copier-answers.yml.jinja|
                 .devcontainer/devcontainer-lock.json|
                 .copier-answers.yml|
+                .*\.xml|
             )$
       - id: pretty-format-json
         exclude: |
@@ -80,6 +82,12 @@ repos:
         - --in-place
         - --wrap-summaries=150
         - --wrap-descriptions=150
+
+-   repo: https://github.com/pamoller/xmlformatter
+    rev: 47ae0fb9cf2a515f8a2666050fac66fd719ae530  # frozen: v0.2.8
+    hooks:
+      - id: xml-formatter
+
 
 # Invalid File Checks
 -   repo: https://github.com/pre-commit/pre-commit-hooks

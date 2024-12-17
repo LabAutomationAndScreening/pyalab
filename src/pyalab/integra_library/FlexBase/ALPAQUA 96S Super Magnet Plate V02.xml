@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>96S Super Magnet Plate</Name>
+  <Manufacturer>ALPAQUA</Manufacturer>
+  <PartNumber>A001322</PartNumber>
+  <IconPath>96S Super Magnet Plate.PNG</IconPath>
+  <Description></Description>
+  <LabwareWells>
+    <CompatibleItem>96</CompatibleItem>
+  </LabwareWells>
+  <Measurements Version="1">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12790</FootprintLengthMM>
+    <FootprintWidthMM>8570</FootprintWidthMM>
+    <HeightMM>1650</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Array</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 1</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>0</Location_Y>
+      <Width>12790</Width>
+      <Length>8570</Length>
+      <Depth>-470</Depth>
+    </FlexBaseSection>
+  </Sections>
+</FlexBase>

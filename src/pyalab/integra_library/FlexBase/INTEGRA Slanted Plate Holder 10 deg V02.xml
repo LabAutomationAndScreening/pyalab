@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>Slanted Plate Holder 10°</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4510</PartNumber>
+  <Description>- Slanted Plate Holder tilted at 10° - microplates in ANSI/SLAS format can be accommodated in landscape or portrait orientation</Description>
+  <IconPath>Slanted Plate Holder 10deg.PNG</IconPath>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>12776</FootprintWidthMM>
+    <HeightMM>3765</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Overplapping_Individual</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Landscape</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>2106</Location_Y>
+      <Width>12760</Width>
+      <Length>8548</Length>
+      <Depth>-50</Depth>
+      <Group>A</Group>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Portrait</Name>
+      <Description></Description>
+      <Location_X>2106</Location_X>
+      <Location_Y>0</Location_Y>
+      <Width>8548</Width>
+      <Length>12760</Length>
+      <Depth>-50</Depth>
+      <Group>B</Group>
+    </FlexBaseSection>
+  </Sections>
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
+  <OriginalHeight>0</OriginalHeight>
+  <MinimalClearanceHeight>0</MinimalClearanceHeight>
+  <DeltaHeightSections>0</DeltaHeightSections>
+  <Location_X_End_Inclined>0</Location_X_End_Inclined>
+  <Angle>10</Angle>
+</FlexBase>

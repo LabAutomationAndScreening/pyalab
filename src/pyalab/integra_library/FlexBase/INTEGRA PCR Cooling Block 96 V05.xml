@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>5</DataVersion>
+  <Name>PCR Cooling Block 96</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>6250</PartNumber>
+  <Description></Description>
+  <LabwareWells>
+    <CompatibleItem>96</CompatibleItem>
+  </LabwareWells>
+  <IconPath>PCR Cooling Block 96.PNG</IconPath>
+  <Measurements Version="1">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12790</FootprintLengthMM>
+    <FootprintWidthMM>8570</FootprintWidthMM>
+    <HeightMM>3000</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Array</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 1</Name>
+      <Description></Description>
+      <Location_X>150</Location_X>
+      <Location_Y>0</Location_Y>
+      <Width>12590</Width>
+      <Length>8570</Length>
+      <Depth>-1210</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+  </Sections>
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
+  <OriginalHeight>0</OriginalHeight>
+  <MinimalClearanceHeight>0</MinimalClearanceHeight>
+  <DeltaHeightSections>0</DeltaHeightSections>
+  <Location_X_End_Inclined>0</Location_X_End_Inclined>
+  <Angle>0</Angle>
+  <LabwareWells>
+    <CompatibleItem>96</CompatibleItem>
+  </LabwareWells>
+</FlexBase>

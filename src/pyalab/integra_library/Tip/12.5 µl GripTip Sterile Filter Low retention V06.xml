@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tip Favorite="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>6</DataVersion>
+  <TipID>11</TipID>
+  <Name>12.5 µl GripTip, Sterile, Filter, Low retention</Name>
+  <PartNumber>6555</PartNumber>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <Volume>1250</Volume>
+  <ColorText>#FFC1A0DA</ColorText>
+  <Length>Standard</Length>
+  <LengthMM>3556</LengthMM>
+  <TipSpecial>LowRetention</TipSpecial>
+  <TipType>Sterile</TipType>
+  <HasFilter>true</HasFilter>
+</Tip>

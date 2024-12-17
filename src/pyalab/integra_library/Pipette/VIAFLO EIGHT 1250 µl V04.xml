@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Pipette Favorite="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>4</DataVersion>
+  <Channels>8</Channels>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <Name>VIAFLO</Name>
+  <PartNumber>4624</PartNumber>
+  <PipetteDefaultVolume>125000</PipetteDefaultVolume>
+  <IsVoyager>false</IsVoyager>
+  <MinSpacing>900</MinSpacing>
+  <MaxSpacing>900</MaxSpacing>
+  <ColorText>#FF69B3E7</ColorText>
+  <ValidTipIDs>
+    <Tip>30</Tip>
+    <Tip>31</Tip>
+    <Tip>32</Tip>
+    <Tip>33</Tip>
+    <Tip>34</Tip>
+    <Tip>35</Tip>
+    <Tip>36</Tip>
+    <Tip>37</Tip>
+    <Tip>38</Tip>
+    <Tip>39</Tip>
+    <Tip>47</Tip>
+    <Tip>48</Tip>
+    <Tip>49</Tip>
+    <Tip>50</Tip>
+    <Tip>51</Tip>
+    <Tip>52</Tip>
+    <Tip>53</Tip>
+    <Tip>101</Tip>
+    <Tip>102</Tip>
+    <Tip>103</Tip>
+    <Tip>104</Tip>
+    <Tip>105</Tip>
+    <Tip>106</Tip>
+    <Tip>107</Tip>
+    <Tip>108</Tip>
+    <Tip>109</Tip>
+    <Tip>110</Tip>
+  </ValidTipIDs>
+</Pipette>

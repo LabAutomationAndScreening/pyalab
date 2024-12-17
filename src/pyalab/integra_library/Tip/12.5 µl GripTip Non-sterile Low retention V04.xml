@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tip Favorite="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>4</DataVersion>
+  <TipID>13</TipID>
+  <Name>12.5 µl GripTip, Non-sterile, Low retention</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>6553</PartNumber>
+  <Volume>1250</Volume>
+  <ColorText>#FFC1A0DA</ColorText>
+  <Length>Standard</Length>
+  <LengthMM>3556</LengthMM>
+  <TipSpecial>LowRetention</TipSpecial>
+  <TipType>NonSterile</TipType>
+</Tip>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>4</DataVersion>
+  <Name>PCR Cooling Block 384</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>6255</PartNumber>
+  <Description></Description>
+  <LabwareWells>
+    <CompatibleItem>384</CompatibleItem>
+  </LabwareWells>
+  <IconPath>PCR Cooling Block 384.PNG</IconPath>
+  <Measurements Version="1">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12790</FootprintLengthMM>
+    <FootprintWidthMM>8570</FootprintWidthMM>
+    <HeightMM>2400</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Array</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 1</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>0</Location_Y>
+      <Width>12790</Width>
+      <Length>8570</Length>
+      <Depth>-550</Depth>
+    </FlexBaseSection>
+  </Sections>
+</FlexBase>

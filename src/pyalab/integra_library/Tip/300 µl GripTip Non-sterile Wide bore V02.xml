@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tip Favorite="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <TipID>28</TipID>
+  <Name>300 µl GripTip, Non-sterile, Wide bore</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>6633</PartNumber>
+  <Volume>30000</Volume>
+  <ColorText>#FF9AB9AD</ColorText>
+  <Length>Standard</Length>
+  <LengthMM>6096</LengthMM>
+  <TipSpecial>WideBore</TipSpecial>
+  <TipType>NonSterile</TipType>
+</Tip>

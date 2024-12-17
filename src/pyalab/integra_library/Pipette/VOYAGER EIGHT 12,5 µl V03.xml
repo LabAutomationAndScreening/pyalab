@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Pipette Favorite="false" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>3</DataVersion>
+  <Channels>8</Channels>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <Name>VOYAGER</Name>
+  <PartNumber>4721</PartNumber>
+  <PipetteDefaultVolume>1250</PipetteDefaultVolume>
+  <IsVoyager>true</IsVoyager>
+  <MinSpacing>450</MinSpacing>
+  <MaxSpacing>1400</MaxSpacing>
+  <ColorText>#FFC1A0DA</ColorText>
+  <ValidTipIDs>
+    <Tip>1</Tip>
+    <Tip>2</Tip>
+    <Tip>3</Tip>
+    <Tip>4</Tip>
+    <Tip>5</Tip>
+    <Tip>6</Tip>
+    <Tip>7</Tip>
+    <Tip>8</Tip>
+    <Tip>9</Tip>
+    <Tip>10</Tip>
+    <Tip>11</Tip>
+    <Tip>12</Tip>
+    <Tip>13</Tip>
+  </ValidTipIDs>
+</Pipette>

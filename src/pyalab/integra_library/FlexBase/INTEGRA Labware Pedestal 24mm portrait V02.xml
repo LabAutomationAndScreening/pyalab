@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>Labware Pedestal (+24mm), portrait</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4551</PartNumber>
+  <Description>Deckposition A Adapter</Description>
+  <IconPath>Labware_Pedestal_24mm_portrait.png</IconPath>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>8600</FootprintLengthMM>
+    <FootprintWidthMM>16400</FootprintWidthMM>
+    <HeightMM>2900</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Overplapping_Individual</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 0</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>0</Location_Y>
+      <Width>8600</Width>
+      <Length>16350</Length>
+      <Depth>-500</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 1</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>1785</Location_Y>
+      <Width>8600</Width>
+      <Length>12800</Length>
+      <Depth>-500</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 2</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>1785</Location_Y>
+      <Width>8600</Width>
+      <Length>14600</Length>
+      <Depth>-500</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 3</Name>
+      <Description></Description>
+      <Location_X>1700</Location_X>
+      <Location_Y>600</Location_Y>
+      <Width>5200</Width>
+      <Length>15150</Length>
+      <Depth>-800</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 4</Name>
+      <Description></Description>
+      <Location_X>1975</Location_X>
+      <Location_Y>2380</Location_Y>
+      <Width>4650</Width>
+      <Length>11370</Length>
+      <Depth>-800</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+  </Sections>
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
+  <OriginalHeight>0</OriginalHeight>
+  <MinimalClearanceHeight>0</MinimalClearanceHeight>
+  <DeltaHeightSections>0</DeltaHeightSections>
+  <Location_X_End_Inclined>0</Location_X_End_Inclined>
+  <Angle>0</Angle>
+  <LabwareWells></LabwareWells>
+</FlexBase>
