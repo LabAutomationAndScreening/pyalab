@@ -13,6 +13,9 @@ from .constants import PATH_TO_INCLUDED_XML_FILES
 class LibraryComponentType(Enum):
     DECK = "Deck"
     PLATE = "Plate"
+    RESERVOIR = "Reservoir"
+    PIPETTE = "Pipette"
+    TIP = "Tip"
 
 
 class IntegraLibraryObjectNotFoundError(OSError):
@@ -48,5 +51,25 @@ class LibraryComponent(BaseModel):
 
     @property
     def xml_root(self) -> _Element:
+        self.load_xml()  # issues were encountered when trying to generate the Deck portion of a program with not always reloading the XML...something must be mutating it when it should be mutating a copy...or not mutating it at all
         assert isinstance(self._xml_root, _Element)
         return self._xml_root
+
+    def create_xml_for_program(self) -> _Element:
+        self.load_xml()
+        is_content = self.type in [LibraryComponentType.PLATE, LibraryComponentType.RESERVOIR]
+        root = etree.Element(
+            "Content"
+            if is_content
+            else self.type.value,  # TODO: confirm that all object types use the file directory as the XML tag name too
+            Version=str(1),  # TODO: confirm that no objects are using version other than 1
+        )
+        if is_content:
+            root.set(
+                etree.QName("http://www.w3.org/2001/XMLSchema-instance", "type"),
+                self.type.value,  # TODO: confirm that all object types use the file directory as the xsi:type too
+            )
+
+        for subelement in self.xml_root:
+            root.append(subelement)
+        return root
