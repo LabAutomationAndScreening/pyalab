@@ -1,3 +1,4 @@
+# Section managed by upstream copier template
 name: 🐛 Bug report
 description: Report a bug in this project to help us fix it
 labels: ["T: bug 🐞"]
@@ -23,3 +24,6 @@ body:
       description: A clear and concise description of what you expected to happen.
     validations:
       required: true
+
+
+# Questions specific to this repository

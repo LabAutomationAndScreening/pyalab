@@ -1,3 +1,4 @@
+# Section managed by upstream copier template
 name: 🚀 Feature request
 description: Suggest an idea for this project
 labels: "T: feature-request"
@@ -16,3 +17,6 @@ body:
       description: Describe the feature you'd like.
     validations:
       required: true
+
+
+# Questions specific to this repository
