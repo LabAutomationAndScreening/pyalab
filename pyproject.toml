@@ -6,7 +6,8 @@ readme = "README.md"
 requires-python = ">=3.12.8"
 dependencies = [
 
-    "pydantic>=2.10.3"
+    "pydantic>=2.10.3",
+    "lxml>=5.3.0"
 
 ]
 
@@ -14,7 +15,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     # Specific to this template
-
+    "lxml-stubs>=0.5.1",
 
     # Managed by upstream template
     "pyright>=1.1.390",
