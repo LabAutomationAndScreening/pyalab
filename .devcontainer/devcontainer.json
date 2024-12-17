@@ -8,7 +8,7 @@
     },
     "ghcr.io/devcontainers/features/python:1": { // https://github.com/devcontainers/features/tree/main/src/python
       "version": "3.12.8",
-      "installTools": false, // we have to set this to true in order for even pipx to be installed
+      "installTools": false,
       "optimize": true
     },
   },

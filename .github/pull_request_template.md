@@ -1,4 +1,4 @@
- ## Link to Jira issue or Slack thread
+ ## Link to Issue or Slack thread
 
 
 

@@ -1,6 +1,7 @@
 #!/bin/bash
+set -ex
 
-mkdir ~/.aws
+mkdir -p ~/.aws
 cat >> ~/.aws/config <<EOF
 [profile localstack]
 region=us-east-1
