@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>2</DataVersion>
+  <Name>384 Well OpenArray Plate</Name>
+  <Manufacturer>APPLIED BIOSYSTEMS</Manufacturer>
+  <PartNumber>4453929</PartNumber>
+  <Description />
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>1435</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <ColumnCount>24</ColumnCount>
+    <ColumnGap>450</ColumnGap>
+    <Depth>360</Depth>
+    <NominalWellVolume>2000</NominalWellVolume>
+    <VShapeDepth>60</VShapeDepth>
+    <FirstHolePositionText>1213;899</FirstHolePositionText>
+    <RowCount>16</RowCount>
+    <RowGap>450</RowGap>
+    <Shape>Square</Shape>
+    <Size>250</Size>
+    <Length>250</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Plate>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+	<DataVersion>4</DataVersion>
+	<Name>96 Well Optical Reaction Plate</Name>
+	<Manufacturer>APPLIED BIOSYSTEMS</Manufacturer>
+	<PartNumber>N8010560</PartNumber>
+	<Description />
+	<Measurements Version="0">
+		<DataVersion>0</DataVersion>
+		<Description />
+		<FootprintLengthMM>12776</FootprintLengthMM>
+		<FootprintWidthMM>8548</FootprintWidthMM>
+		<HeightMM>2000</HeightMM>
+	</Measurements>
+	<Wells Version="0">
+		<DataVersion>0</DataVersion>
+		<Description />
+		<Angle>0</Angle>
+		<SectionHeightCorrection>0</SectionHeightCorrection>
+		<DeltaHmax>0</DeltaHmax>
+		<BottomShape>VShape</BottomShape>
+		<ColumnCount>12</ColumnCount>
+		<ColumnGap>900</ColumnGap>
+		<Depth>1940</Depth>
+		<NominalWellVolume>20000</NominalWellVolume>
+		<VShapeDepth>1620</VShapeDepth>
+		<FirstHolePositionText>1437;1123</FirstHolePositionText>
+		<RowCount>8</RowCount>
+		<RowGap>900</RowGap>
+		<Shape>Circle</Shape>
+		<Size>549</Size>
+		<Length>549</Length>
+		<SizeBottom>0</SizeBottom>
+	</Wells>
+</Plate>

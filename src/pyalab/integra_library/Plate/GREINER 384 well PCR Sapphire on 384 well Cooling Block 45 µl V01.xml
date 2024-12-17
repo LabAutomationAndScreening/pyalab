@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>1</DataVersion>
+  <Name>384 Well PCR Sapphire On 384 Well Cooling Block</Name>
+  <Manufacturer>GREINER</Manufacturer>
+  <PartNumber>785201</PartNumber>
+  <Description />
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>2780</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <ColumnCount>24</ColumnCount>
+    <ColumnGap>450</ColumnGap>
+    <Depth>905</Depth>
+    <NominalWellVolume>4500</NominalWellVolume>
+    <VShapeDepth>310</VShapeDepth>
+    <FirstHolePositionText>1213;899</FirstHolePositionText>
+    <RowCount>16</RowCount>
+    <RowGap>450</RowGap>
+    <Shape>Circle</Shape>
+    <Size>320</Size>
+    <Length>320</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Plate>

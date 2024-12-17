@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TipBox xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>0</DataVersion>
+  <Name>TipBox_384</Name>
+  <Manufacturer>CORNING</Manufacturer>
+  <PartNumber></PartNumber>
+  <Description />
+  <TipBoxSize>Small</TipBoxSize>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>12780</FootprintLengthMM>
+    <FootprintWidthMM>8550</FootprintWidthMM>
+    <HeightMM>1420</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <BottomShape>Circle</BottomShape>
+    <ColumnCount>24</ColumnCount>
+    <ColumnGap>450</ColumnGap>
+    <Depth>658</Depth>
+    <NominalWellVolume>3500</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1212;899</FirstHolePositionText>
+    <RowCount>16</RowCount>
+    <RowGap>450</RowGap>
+    <Shape>Circle</Shape>
+    <Size>330</Size>
+    <Length>330</Length>
+    <SizeBottom>202</SizeBottom>
+  </Wells>
+</TipBox>

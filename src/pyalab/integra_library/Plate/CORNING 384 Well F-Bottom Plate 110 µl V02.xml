@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>2</DataVersion>
+  <Name>384 Well F-Bottom Plate</Name>
+  <Manufacturer>CORNING</Manufacturer>
+  <PartNumber>3544, 3643, 3653, 3655, 3663, 3664, 3763, 3765, 3767, 3769, 3762, 3764, 3766, 3768, 3769, 3770, 4588, 4690, 4696, 4589</PartNumber>
+  <Description />
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>12780</FootprintLengthMM>
+    <FootprintWidthMM>8550</FootprintWidthMM>
+    <HeightMM>1435</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Square</BottomShape>
+    <ColumnCount>24</ColumnCount>
+    <ColumnGap>450</ColumnGap>
+    <Depth>1156</Depth>
+    <NominalWellVolume>11050</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1213;899</FirstHolePositionText>
+    <RowCount>16</RowCount>
+    <RowGap>450</RowGap>
+    <Shape>Circle</Shape>
+    <Size>363</Size>
+    <Length>363</Length>
+    <SizeBottom>282</SizeBottom>
+  </Wells>
+</Plate>

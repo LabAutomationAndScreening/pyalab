@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>2</DataVersion>
+  <Name>96 Well Malaghan Non-Skirted PCR Plate</Name>
+  <Manufacturer>BIO-RAD</Manufacturer>
+  <PartNumber>MJ0600, MLP9601</PartNumber>
+  <Description />
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>2020</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <ColumnCount>12</ColumnCount>
+    <ColumnGap>900</ColumnGap>
+    <Depth>1964</Depth>
+    <NominalWellVolume>33000</NominalWellVolume>
+    <VShapeDepth>840</VShapeDepth>
+    <FirstHolePositionText>1438;1124</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>547</Size>
+    <Length>547</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Plate>

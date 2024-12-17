@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>3</DataVersion>
+  <Name>96 Deepwell U-Bottom Plate</Name>
+  <Manufacturer>NUNC</Manufacturer>
+  <PartNumber>260251, 260252</PartNumber>
+  <Description />
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>3160</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Circle</BottomShape>
+    <ColumnCount>12</ColumnCount>
+    <ColumnGap>900</ColumnGap>
+    <Depth>2910</Depth>
+    <NominalWellVolume>130000</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1438;1124</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>850</Size>
+    <Length>850</Length>
+    <SizeBottom>840</SizeBottom>
+  </Wells>
+</Plate>

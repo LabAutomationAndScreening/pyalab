@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>2</DataVersion>
+  <Name>96 Well C-Bottom Plate</Name>
+  <Manufacturer>CORNING</Manufacturer>
+  <PartNumber>3368, 3369</PartNumber>
+  <Description />
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>12780</FootprintLengthMM>
+    <FootprintWidthMM>8550</FootprintWidthMM>
+    <HeightMM>1420</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>CShape</BottomShape>
+    <ColumnCount>12</ColumnCount>
+    <ColumnGap>900</ColumnGap>
+    <Depth>1067</Depth>
+    <NominalWellVolume>36000</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1430;1120</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>686</Size>
+    <Length>686</Length>
+    <SizeBottom>457</SizeBottom>
+  </Wells>
+</Plate>

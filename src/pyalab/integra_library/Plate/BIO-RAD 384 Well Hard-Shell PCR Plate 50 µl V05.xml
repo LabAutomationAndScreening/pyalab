@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>5</DataVersion>
+  <Name>384 Well Hard-Shell PCR Plate</Name>
+  <Manufacturer>BIO-RAD</Manufacturer>
+  <PartNumber>HSP3801, HSP3805</PartNumber>
+  <Description />
+	<Measurements Version="0">
+		<DataVersion>0</DataVersion>
+		<Description />
+		<FootprintLengthMM>12776</FootprintLengthMM>
+		<FootprintWidthMM>8548</FootprintWidthMM>
+		<HeightMM>1020</HeightMM>
+	</Measurements>
+	<Wells Version="0">
+		<DataVersion>0</DataVersion>
+		<Description />
+		<Angle>0</Angle>
+		<SectionHeightCorrection>0</SectionHeightCorrection>
+		<DeltaHmax>0</DeltaHmax>
+		<BottomShape>VShape</BottomShape>
+		<ColumnCount>24</ColumnCount>
+		<ColumnGap>450</ColumnGap>
+		<Depth>930</Depth>
+		<NominalWellVolume>5000</NominalWellVolume>
+		<VShapeDepth>400</VShapeDepth>
+		<FirstHolePositionText>1213;899</FirstHolePositionText>
+		<RowCount>16</RowCount>
+		<RowGap>450</RowGap>
+		<Shape>Circle</Shape>
+		<Size>310</Size>
+		<Length>310</Length>
+		<SizeBottom>0</SizeBottom>
+	</Wells>
+</Plate>

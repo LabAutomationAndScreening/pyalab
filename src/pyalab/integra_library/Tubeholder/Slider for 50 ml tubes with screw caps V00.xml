@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1">
+  <DataVersion>0</DataVersion>
+  <Name>Slider for 50 ml tubes with screw caps</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4567</PartNumber>
+  <Description>Reference Tube:
+Eppendorf Tubes® BioBased 50 mL
+Catalog No. 0030122542</Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>4260</FootprintLengthMM>
+    <FootprintWidthMM>14600</FootprintWidthMM>
+    <HeightMM>11300</HeightMM>
+  </Measurements>
+  <Wells Version="1">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <ColumnCount>1</ColumnCount>
+    <ColumnGap>4280</ColumnGap>
+    <Depth>11250</Depth>
+    <NominalWellVolume>5000000</NominalWellVolume>
+    <VShapeDepth>1500</VShapeDepth>
+    <FirstHolePositionText>2520;1750</FirstHolePositionText>
+    <RowCount>4</RowCount>
+    <RowGap>3300</RowGap>
+    <Shape>Circle</Shape>
+    <Size>2500</Size>
+    <Length>2500</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Tubeholder>

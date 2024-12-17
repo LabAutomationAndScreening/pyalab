@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>3</DataVersion>
+  <Name>96 Well Semi-Skirted PCR Plate with Upstand, ABI Style</Name>
+  <Manufacturer>4TITUDE</Manufacturer>
+  <PartNumber>4ti-0735, 4ti-0736</PartNumber>
+  <Description />
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>12600</FootprintLengthMM>
+    <FootprintWidthMM>8600</FootprintWidthMM>
+    <HeightMM>2210</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <ColumnCount>12</ColumnCount>
+    <ColumnGap>900</ColumnGap>
+    <Depth>2020</Depth>
+    <NominalWellVolume>30000</NominalWellVolume>
+    <VShapeDepth>1110</VShapeDepth>
+    <FirstHolePositionText>1350;1150</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>546</Size>
+    <Length>546</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Plate>

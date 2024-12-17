@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>3</DataVersion>
+  <Name>96 Well PCR No Skirt F-Bottom Plate</Name>
+  <Manufacturer>CORNING</Manufacturer>
+  <PartNumber>PCR-96-FLT</PartNumber>
+  <Description />
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>11958</FootprintLengthMM>
+    <FootprintWidthMM>7962</FootprintWidthMM>
+    <HeightMM>2046</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <ColumnCount>12</ColumnCount>
+    <ColumnGap>900</ColumnGap>
+    <Depth>1977</Depth>
+    <NominalWellVolume>20000</NominalWellVolume>
+    <VShapeDepth>1620</VShapeDepth>
+    <FirstHolePositionText>1040;819</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>533</Size>
+    <Length>533</Length>
+    <SizeBottom>241</SizeBottom>
+  </Wells>
+</Plate>

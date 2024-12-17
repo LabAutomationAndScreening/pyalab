@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0">
+  <DataVersion>3</DataVersion>
+  <Name>384 Well V-Bottom Plate (A)</Name>
+  <Manufacturer>NUNC</Manufacturer>
+  <PartNumber>4305, 4306, 4307, 4308, 4309, 4312, </PartNumber>
+  <Description />
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>1440</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <ColumnCount>24</ColumnCount>
+    <ColumnGap>450</ColumnGap>
+    <Depth>1170</Depth>
+    <NominalWellVolume>14500</NominalWellVolume>
+    <VShapeDepth>160</VShapeDepth>
+    <FirstHolePositionText>1213;899</FirstHolePositionText>
+    <RowCount>16</RowCount>
+    <RowGap>450</RowGap>
+    <Shape>Square</Shape>
+    <Size>370</Size>
+    <Length>370</Length>
+    <SizeBottom>300</SizeBottom>
+  </Wells>
+</Plate>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="0">
+  <DataVersion>0</DataVersion>
+  <Name>48 well XLX 2000 External Thread</Name>
+  <Manufacturer>LVL TECHNOLOGIES</Manufacturer>
+  <PartNumber>2DSC-X20-BL-NS-SLP-L, 2DSC-X20-BL-PS-SLP-L</PartNumber>
+  <Description />
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>4430</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description />
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Circle</BottomShape>
+    <ColumnCount>8</ColumnCount>
+    <ColumnGap>1350</ColumnGap>
+    <Depth>4223</Depth>
+    <NominalWellVolume>200000</NominalWellVolume>
+    <VShapeDepth>2111</VShapeDepth>
+    <FirstHolePositionText>1650;875</FirstHolePositionText>
+    <RowCount>6</RowCount>
+    <RowGap>1350</RowGap>
+    <Shape>Circle</Shape>
+    <Size>800</Size>
+    <Length>800</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Tubeholder>
