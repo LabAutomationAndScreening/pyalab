@@ -32,6 +32,8 @@ exclude = [
 line-length = 120
 indent-width = 4
 
+target-version = "py312" # TODO: dynamically update this with a copier Task
+
 [lint]
 select = ["ALL"]
 ignore = [
