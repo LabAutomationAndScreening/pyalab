@@ -4,7 +4,7 @@
   <Name>Rack for 2 ml microcentrifuge tubes with screw caps</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4540</PartNumber>
-  <Description>6x8 2 ml microcentrifuge tubes Reference Tube: Greiner ON 722201</Description>
+  <Description>6x8 2 ml microcentrifuge tubes Reference Tube: Greiner PN 722201</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
     <Description></Description>
@@ -19,8 +19,8 @@
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>
     <BottomShape>Circle</BottomShape>
-    <ColumnCount>6</ColumnCount>
-    <ColumnGap>2140</ColumnGap>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>2140</CollumnGap>
     <Depth>3930</Depth>
     <NominalWellVolume>200000</NominalWellVolume>
     <VShapeDepth>570</VShapeDepth>

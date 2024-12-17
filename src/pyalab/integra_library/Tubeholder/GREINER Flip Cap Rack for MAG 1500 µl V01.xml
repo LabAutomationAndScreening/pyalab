@@ -4,7 +4,7 @@
   <Name>Adapter for 1.5 ml tubes with snap caps (MAG)</Name>
   <Manufacturer>GREINER</Manufacturer>
   <PartNumber>616201</PartNumber>
-  <Description>Reference tube Greiner 1.5 ml tube ON 616201</Description>
+  <Description>Reference tube Greiner 1.5 ml tube PN 616201</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
     <Description></Description>
@@ -19,8 +19,8 @@
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>
     <BottomShape>VShape</BottomShape>
-    <ColumnCount>6</ColumnCount>
-    <ColumnGap>1800</ColumnGap>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>1800</CollumnGap>
     <Depth>3800</Depth>
     <NominalWellVolume>150000</NominalWellVolume>
     <VShapeDepth>1800</VShapeDepth>

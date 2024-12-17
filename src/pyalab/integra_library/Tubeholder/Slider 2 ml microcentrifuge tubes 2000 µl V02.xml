@@ -4,7 +4,7 @@
   <Name>Slider 2 ml microcentrifuge tubes</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4562</PartNumber>
-  <Description>Slider for 2 ml microcentrifuge tubes (see ON 4540)</Description>
+  <Description>Slider for 2 ml microcentrifuge tubes (see PN 4540)</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
     <Description></Description>
@@ -16,8 +16,8 @@
     <DataVersion>0</DataVersion>
     <Description></Description>
     <BottomShape>Circle</BottomShape>
-    <ColumnCount>1</ColumnCount>
-    <ColumnGap>900</ColumnGap>
+    <CollumnCount>1</CollumnCount>
+    <CollumnGap>900</CollumnGap>
     <Depth>3550</Depth>
     <NominalWellVolume>200000</NominalWellVolume>
     <VShapeDepth>0</VShapeDepth>

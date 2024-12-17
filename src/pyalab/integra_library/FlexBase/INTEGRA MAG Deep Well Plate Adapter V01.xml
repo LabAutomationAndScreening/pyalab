@@ -4,7 +4,7 @@
   <Name>MAG Deep Well Plate Adapter</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4900</PartNumber>
-  <Description>MAG module + adapter for INTEGRA deepwell plates (ON 4907) Reference plate: 96 Deepwell V-Bottom plate (6353)</Description>
+  <Description>MAG module + adapter for INTEGRA deepwell plates (PN 4907) Reference plate: 96 Deepwell V-Bottom plate (6353)</Description>
   <IconPath>ExternalModules/MAG_DWP.PNG</IconPath>
   <Measurements Version="1">
     <DataVersion>0</DataVersion>

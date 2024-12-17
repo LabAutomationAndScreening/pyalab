@@ -5,7 +5,7 @@
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4900</PartNumber>
   <IconPath>ExternalModules/MAG_1_5ml_Tube.PNG</IconPath>
-  <Description>- MAG with adapter for 24 x 1.5 ml tubes with snap caps, format 4 x 6 (ON 4905) - module for magnetic bead separation</Description>
+  <Description>- MAG with adapter for 24 x 1.5 ml tubes with snap caps, format 4 x 6 (PN 4905) - module for magnetic bead separation</Description>
   <Measurements Version="1">
     <DataVersion>0</DataVersion>
     <Description></Description>

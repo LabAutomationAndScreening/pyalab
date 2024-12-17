@@ -4,7 +4,7 @@
   <Name>Slider 0.5 ml microcentrifuge tubes (Self-Standing, Skirted)</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4563</PartNumber>
-  <Description>Slider for 0.5 ml microcentrifuge tubes (Self-Standing, Skirted) (see ON 4540) e.g. STARLAB ON E1405-2120</Description>
+  <Description>Slider for 0.5 ml microcentrifuge tubes (Self-Standing, Skirted) (see PN 4540) e.g. STARLAB PN E1405-2120</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
     <Description></Description>
@@ -16,8 +16,8 @@
     <DataVersion>0</DataVersion>
     <Description></Description>
     <BottomShape>VShape</BottomShape>
-    <ColumnCount>1</ColumnCount>
-    <ColumnGap>900</ColumnGap>
+    <CollumnCount>1</CollumnCount>
+    <CollumnGap>900</CollumnGap>
     <Depth>2440</Depth>
     <NominalWellVolume>50000</NominalWellVolume>
     <VShapeDepth>830</VShapeDepth>

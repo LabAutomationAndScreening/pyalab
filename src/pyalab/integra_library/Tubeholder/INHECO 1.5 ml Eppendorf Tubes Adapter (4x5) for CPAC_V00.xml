@@ -19,8 +19,8 @@
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>
     <BottomShape>VShape</BottomShape>
-    <ColumnCount>5</ColumnCount>
-    <ColumnGap>2100</ColumnGap>
+    <CollumnCount>5</CollumnCount>
+    <CollumnGap>2100</CollumnGap>
     <Depth>3500</Depth>
     <NominalWellVolume>150000</NominalWellVolume>
     <VShapeDepth>1690</VShapeDepth>

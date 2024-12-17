@@ -4,8 +4,8 @@
   <Name>4 Position Portrait Deck</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4521</PartNumber>
-  <Description>ON 4521</Description>
-  <IconPath>ON 4521_4 position portrait Deck.PNG</IconPath>
+  <Description>PN 4521</Description>
+  <IconPath>PN 4521_4 position portrait Deck.PNG</IconPath>
   <Width>17300</Width>
   <Length>39500</Length>
   <Depth>1000</Depth>
@@ -179,8 +179,8 @@
           <Description></Description>
           <Angle>0</Angle>
           <BottomShape>Circle</BottomShape>
-          <ColumnCount>1</ColumnCount>
-          <ColumnGap>3600</ColumnGap>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>3600</CollumnGap>
           <Depth>10500</Depth>
           <NominalWellVolume>2500000</NominalWellVolume>
           <VShapeDepth>0</VShapeDepth>

@@ -4,7 +4,7 @@
   <Name>Rack for 1.5 ml microcentrifuge tubes with screw caps</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4540</PartNumber>
-  <Description>6x8 1.5 ml microcentrifuge tubes with screw caps e.g. Greiner ON 716201</Description>
+  <Description>6x8 1.5 ml microcentrifuge tubes with screw caps e.g. Greiner PN 716201</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
     <Description></Description>
@@ -19,8 +19,8 @@
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>
     <BottomShape>VShape</BottomShape>
-    <ColumnCount>6</ColumnCount>
-    <ColumnGap>2140</ColumnGap>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>2140</CollumnGap>
     <Depth>4030</Depth>
     <NominalWellVolume>150000</NominalWellVolume>
     <VShapeDepth>1790</VShapeDepth>

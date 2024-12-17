@@ -16,8 +16,8 @@
     <DataVersion>0</DataVersion>
     <Description></Description>
     <BottomShape>Circle</BottomShape>
-    <ColumnCount>6</ColumnCount>
-    <ColumnGap>2140</ColumnGap>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>2140</CollumnGap>
     <Depth>3930</Depth>
     <NominalWellVolume>200000</NominalWellVolume>
     <VShapeDepth>570</VShapeDepth>

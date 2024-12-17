@@ -4,7 +4,7 @@
   <Name>COLDPLATE 96 Well PCR Plate Adapter</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4950</PartNumber>
-  <Description>- COLDPLATE with adapter for 96 well PCR plates (ON 4954) - module for active heating and cooling - temperature range: 0°C - 99.9°C</Description>
+  <Description>- COLDPLATE with adapter for 96 well PCR plates (PN 4954) - module for active heating and cooling - temperature range: 0°C - 99.9°C</Description>
   <IconPath>ExternalModules/ColdPlate_96PCR.png</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>

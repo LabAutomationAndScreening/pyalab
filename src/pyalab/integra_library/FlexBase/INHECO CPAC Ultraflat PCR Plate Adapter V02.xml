@@ -4,7 +4,7 @@
   <Name>CPAC Ultraflat 96 Well PCR Plates</Name>
   <Manufacturer>INHECO</Manufacturer>
   <PartNumber>7000166, 7000190</PartNumber>
-  <Description>- module for active heating and cooling - temperature range ON 7000166: 4°C -110°C - temperature range ON 7000190: 4°C -70°C - including PCR Plate adapter (ON 3200203)</Description>
+  <Description>- module for active heating and cooling - temperature range PN 7000166: 4°C -110°C - temperature range PN 7000190: 4°C -70°C - including PCR Plate adapter (PN 3200203)</Description>
   <IconPath>CPAC Ultraflat PCR Plate Adapter.PNG</IconPath>
   <LabwareWells>
     <CompatibleItem>96</CompatibleItem>

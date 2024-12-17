@@ -5,7 +5,7 @@
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4900</PartNumber>
   <IconPath>ExternalModules/MAG_96wellPCR.PNG</IconPath>
-  <Description>- MAG with adapter for 96 well PCR plates (ON 4906) - module for magnetic bead separation</Description>
+  <Description>- MAG with adapter for 96 well PCR plates (PN 4906) - module for magnetic bead separation</Description>
   <Measurements Version="1">
     <DataVersion>0</DataVersion>
     <Description></Description>

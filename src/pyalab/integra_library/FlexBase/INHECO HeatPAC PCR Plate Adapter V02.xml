@@ -4,7 +4,7 @@
   <Name>HeatPAC 96 Well PCR Plate Adapter</Name>
   <Manufacturer>INHECO</Manufacturer>
   <PartNumber>7900046</PartNumber>
-  <Description>- module for active heating - temperature range: ambient - 135°C - including PCR plate adapter (ON 3200203)</Description>
+  <Description>- module for active heating - temperature range: ambient - 135°C - including PCR plate adapter (PN 3200203)</Description>
   <IconPath>HeatPAC PCR Plate Adapter.PNG</IconPath>
   <LabwareWells>
     <CompatibleItem>96</CompatibleItem>

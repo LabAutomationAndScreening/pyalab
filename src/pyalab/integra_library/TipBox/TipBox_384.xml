@@ -18,8 +18,8 @@
     <Description></Description>
     <Angle>0</Angle>
     <BottomShape>Circle</BottomShape>
-    <ColumnCount>24</ColumnCount>
-    <ColumnGap>450</ColumnGap>
+    <CollumnCount>24</CollumnCount>
+    <CollumnGap>450</CollumnGap>
     <Depth>658</Depth>
     <NominalWellVolume>3500</NominalWellVolume>
     <VShapeDepth>0</VShapeDepth>

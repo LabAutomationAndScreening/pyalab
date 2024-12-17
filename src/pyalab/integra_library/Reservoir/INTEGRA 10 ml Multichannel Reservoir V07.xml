@@ -17,8 +17,8 @@
     <DataVersion>0</DataVersion>
     <Description></Description>
     <BottomShape>VShape</BottomShape>
-    <ColumnCount>1</ColumnCount>
-    <ColumnGap>3000</ColumnGap>
+    <CollumnCount>1</CollumnCount>
+    <CollumnGap>3000</CollumnGap>
     <Depth>2178</Depth>
     <NominalWellVolume>1000000</NominalWellVolume>
     <VShapeDepth>0</VShapeDepth>

@@ -4,7 +4,7 @@
   <Name>Divided Reagent Reservoir 10 ml compartment (Insert)</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4304, 4351, 4352, 4356, 4357</PartNumber>
-  <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (ON 4547) only</Description>
+  <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (PN 4547) only</Description>
   <IconPath>Reservoir_10ml_1_DRAPart.png</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
@@ -20,8 +20,8 @@
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>
     <BottomShape>VShape</BottomShape>
-    <ColumnCount>1</ColumnCount>
-    <ColumnGap>4200</ColumnGap>
+    <CollumnCount>1</CollumnCount>
+    <CollumnGap>4200</CollumnGap>
     <Depth>2170</Depth>
     <NominalWellVolume>1000000</NominalWellVolume>
     <VShapeDepth>2170</VShapeDepth>

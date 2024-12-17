@@ -4,7 +4,7 @@
   <Name>2 ml screw tubes (HCS Modules INTEGRA)</Name>
   <Manufacturer>GREINER</Manufacturer>
   <PartNumber>722201</PartNumber>
-  <Description>Reference tube Greiner 2.0 ml tube ON 722201</Description>
+  <Description>Reference tube Greiner 2.0 ml tube PN 722201</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
     <Description></Description>
@@ -19,8 +19,8 @@
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>
     <BottomShape>VShape</BottomShape>
-    <ColumnCount>6</ColumnCount>
-    <ColumnGap>1800</ColumnGap>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>1800</CollumnGap>
     <Depth>4425</Depth>
     <NominalWellVolume>200000</NominalWellVolume>
     <VShapeDepth>250</VShapeDepth>

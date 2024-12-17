@@ -5,7 +5,7 @@
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4900</PartNumber>
   <IconPath>ExternalModules/MAG_384well.PNG</IconPath>
-  <Description>- MAG with adapter for 384 well PCR plates (ON 4908) - module for magnetic bead separation</Description>
+  <Description>- MAG with adapter for 384 well PCR plates (PN 4908) - module for magnetic bead separation</Description>
   <Measurements Version="1">
     <DataVersion>0</DataVersion>
     <Description></Description>

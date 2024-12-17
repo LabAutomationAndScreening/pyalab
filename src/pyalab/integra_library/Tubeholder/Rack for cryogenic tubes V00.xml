@@ -4,7 +4,7 @@
   <Name>Rack for cryogenic tubes</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4544</PartNumber>
-  <Description>6x8 Cryogenic Vials (CORNING) 2 ml, internal thread (ON 430488, 431386) in SLAS/ANSI format</Description>
+  <Description>6x8 Cryogenic Vials (CORNING) 2 ml, internal thread (PN 430488, 431386) in SLAS/ANSI format</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
     <Description></Description>
@@ -16,8 +16,8 @@
     <DataVersion>0</DataVersion>
     <Description></Description>
     <BottomShape>Circle</BottomShape>
-    <ColumnCount>8</ColumnCount>
-    <ColumnGap>1400</ColumnGap>
+    <CollumnCount>8</CollumnCount>
+    <CollumnGap>1400</CollumnGap>
     <Depth>3676</Depth>
     <NominalWellVolume>200000</NominalWellVolume>
     <VShapeDepth>0</VShapeDepth>

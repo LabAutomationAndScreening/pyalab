@@ -4,7 +4,7 @@
   <Name>HEATMAG 96 Well PCR Plate Adapter</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4901</PartNumber>
-  <Description>- HEATMAG with adapter for 96 well PCR plates (ON 4906) - module for heating and magnetic bead separation - temperature range: ambient - 65°C</Description>
+  <Description>- HEATMAG with adapter for 96 well PCR plates (PN 4906) - module for heating and magnetic bead separation - temperature range: ambient - 65°C</Description>
   <IconPath>ExternalModules/HEATMAG_96wellPCR.PNG</IconPath>
   <Measurements Version="1">
     <DataVersion>0</DataVersion>

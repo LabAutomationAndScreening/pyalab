@@ -4,8 +4,8 @@
   <Name>3 Position Universal Deck</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4520</PartNumber>
-  <IconPath>ON 4520_3 position universel Deck.PNG</IconPath>
-  <Description>ON 4520</Description>
+  <IconPath>PN 4520_3 position universel Deck.PNG</IconPath>
+  <Description>PN 4520</Description>
   <Width>17300</Width>
   <Length>39500</Length>
   <Depth>1000</Depth>
@@ -284,8 +284,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>Circle</BottomShape>
-          <ColumnCount>1</ColumnCount>
-          <ColumnGap>3600</ColumnGap>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>3600</CollumnGap>
           <Depth>10500</Depth>
           <NominalWellVolume>2500000</NominalWellVolume>
           <VShapeDepth>0</VShapeDepth>

@@ -4,7 +4,7 @@
   <Name>1.5 ml screw tubes (HCS Modules INTEGRA)</Name>
   <Manufacturer>GREINER</Manufacturer>
   <PartNumber>716201</PartNumber>
-  <Description>Reference tube Greiner 1.5 ml screw tube ON 716201</Description>
+  <Description>Reference tube Greiner 1.5 ml screw tube PN 716201</Description>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
     <Description></Description>
@@ -19,8 +19,8 @@
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>
     <BottomShape>VShape</BottomShape>
-    <ColumnCount>6</ColumnCount>
-    <ColumnGap>1800</ColumnGap>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>1800</CollumnGap>
     <Depth>4420</Depth>
     <NominalWellVolume>150000</NominalWellVolume>
     <VShapeDepth>1800</VShapeDepth>

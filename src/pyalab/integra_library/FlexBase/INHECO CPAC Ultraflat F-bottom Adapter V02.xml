@@ -4,7 +4,7 @@
   <Name>CPAC Ultraflat F-Bottom Adapter</Name>
   <Manufacturer>INHECO</Manufacturer>
   <PartNumber>7000166, 7000190</PartNumber>
-  <Description>- module for active heating and cooling - temperature range ON 7000166: 4°C -110°C - temperature range ON 7000190: 4°C -70°C - including flat bottom adapter (ON 7900050) Note: Use an Offset for the deck position, where this labware is used (X: -1 mm, Y: -1 mm)</Description>
+  <Description>- module for active heating and cooling - temperature range PN 7000166: 4°C -110°C - temperature range PN 7000190: 4°C -70°C - including flat bottom adapter (PN 7900050) Note: Use an Offset for the deck position, where this labware is used (X: -1 mm, Y: -1 mm)</Description>
   <IconPath>CPAC Ultraflat F-bottom Adapter.PNG</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>

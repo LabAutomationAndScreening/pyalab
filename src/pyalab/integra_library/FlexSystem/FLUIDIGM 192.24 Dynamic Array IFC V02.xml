@@ -42,8 +42,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>Circle</BottomShape>
-          <ColumnCount>1</ColumnCount>
-          <ColumnGap>900</ColumnGap>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>900</CollumnGap>
           <Depth>790</Depth>
           <NominalWellVolume>5300</NominalWellVolume>
           <VShapeDepth>250</VShapeDepth>
@@ -85,8 +85,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>Circle</BottomShape>
-          <ColumnCount>6</ColumnCount>
-          <ColumnGap>450</ColumnGap>
+          <CollumnCount>6</CollumnCount>
+          <CollumnGap>450</CollumnGap>
           <Depth>790</Depth>
           <NominalWellVolume>5253</NominalWellVolume>
           <VShapeDepth>450</VShapeDepth>
@@ -128,8 +128,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>Circle</BottomShape>
-          <ColumnCount>3</ColumnCount>
-          <ColumnGap>440</ColumnGap>
+          <CollumnCount>3</CollumnCount>
+          <CollumnGap>440</CollumnGap>
           <Depth>790</Depth>
           <NominalWellVolume>5253</NominalWellVolume>
           <VShapeDepth>450</VShapeDepth>
@@ -171,8 +171,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>Circle</BottomShape>
-          <ColumnCount>3</ColumnCount>
-          <ColumnGap>440</ColumnGap>
+          <CollumnCount>3</CollumnCount>
+          <CollumnGap>440</CollumnGap>
           <Depth>790</Depth>
           <NominalWellVolume>5253</NominalWellVolume>
           <VShapeDepth>450</VShapeDepth>
@@ -214,8 +214,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>Circle</BottomShape>
-          <ColumnCount>3</ColumnCount>
-          <ColumnGap>440</ColumnGap>
+          <CollumnCount>3</CollumnCount>
+          <CollumnGap>440</CollumnGap>
           <Depth>790</Depth>
           <NominalWellVolume>5253</NominalWellVolume>
           <VShapeDepth>450</VShapeDepth>
@@ -257,8 +257,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>Circle</BottomShape>
-          <ColumnCount>3</ColumnCount>
-          <ColumnGap>440</ColumnGap>
+          <CollumnCount>3</CollumnCount>
+          <CollumnGap>440</CollumnGap>
           <Depth>790</Depth>
           <NominalWellVolume>5253</NominalWellVolume>
           <VShapeDepth>450</VShapeDepth>
@@ -300,8 +300,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>Circle</BottomShape>
-          <ColumnCount>6</ColumnCount>
-          <ColumnGap>450</ColumnGap>
+          <CollumnCount>6</CollumnCount>
+          <CollumnGap>450</CollumnGap>
           <Depth>790</Depth>
           <NominalWellVolume>5253</NominalWellVolume>
           <VShapeDepth>450</VShapeDepth>
@@ -343,8 +343,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>Circle</BottomShape>
-          <ColumnCount>1</ColumnCount>
-          <ColumnGap>900</ColumnGap>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>900</CollumnGap>
           <Depth>790</Depth>
           <NominalWellVolume>5300</NominalWellVolume>
           <VShapeDepth>250</VShapeDepth>

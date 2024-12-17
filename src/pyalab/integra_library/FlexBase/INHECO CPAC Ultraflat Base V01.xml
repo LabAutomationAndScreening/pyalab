@@ -4,7 +4,7 @@
   <Name>CPAC Ultraflat no Adapter</Name>
   <Manufacturer>INHECO</Manufacturer>
   <PartNumber>7000166, 7000190</PartNumber>
-  <Description>- CPAC without adapter - module for active heating and cooling - temperature range ON 7000166: 4°C -110°C - temperature range ON 7000190: 4°C -70°C</Description>
+  <Description>- CPAC without adapter - module for active heating and cooling - temperature range PN 7000166: 4°C -110°C - temperature range PN 7000190: 4°C -70°C</Description>
   <IconPath>CPAC Ultraflat Base.PNG</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>

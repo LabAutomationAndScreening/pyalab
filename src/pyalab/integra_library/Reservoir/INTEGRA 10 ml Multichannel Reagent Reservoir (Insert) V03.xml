@@ -4,7 +4,7 @@
   <Name>10 ml Multichannel Reagent Reservoir (Insert)</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4330, 4331, 4332, 4335, 4336, 4337, 4370, 4371, 4372</PartNumber>
-  <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (ON 4547) only</Description>
+  <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (PN 4547) only</Description>
   <IconPath>Reservoir_10ml_1_DRA.png</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
@@ -20,8 +20,8 @@
     <SectionHeightCorrection>0</SectionHeightCorrection>
     <DeltaHmax>0</DeltaHmax>
     <BottomShape>VShape</BottomShape>
-    <ColumnCount>1</ColumnCount>
-    <ColumnGap>4200</ColumnGap>
+    <CollumnCount>1</CollumnCount>
+    <CollumnGap>4200</CollumnGap>
     <Depth>2170</Depth>
     <NominalWellVolume>1000000</NominalWellVolume>
     <VShapeDepth>2170</VShapeDepth>

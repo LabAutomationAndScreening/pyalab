@@ -4,7 +4,7 @@
   <Name>Dual Reservoir Adapter with 2 x 25 ml Reservoirs</Name>
   <Manufacturer>INTEGRA</Manufacturer>
   <PartNumber>4547</PartNumber>
-  <Description>Dual Reservoir Adapter (ON 4547) with 2 x 25 ml Multichannel Reagent Reservoirs</Description>
+  <Description>Dual Reservoir Adapter (PN 4547) with 2 x 25 ml Multichannel Reagent Reservoirs</Description>
   <IconPath>Dual Reservoir Adapter with 2 x 25 ml Reservoirs.PNG</IconPath>
   <Measurements Version="0">
     <DataVersion>0</DataVersion>
@@ -31,7 +31,7 @@
         <Name>25 ml Multichannel Reagent Reservoir (Insert)</Name>
         <Manufacturer>INTEGRA</Manufacturer>
         <PartNumber>4310, 4311, 4312, 4315, 4316, 4317, 4380, 4381, 4382</PartNumber>
-        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (ON 4547) only</Description>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (PN 4547) only</Description>
         <IconPath>Reservoir_25ml_1_DRA.png</IconPath>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
@@ -47,8 +47,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>VShape</BottomShape>
-          <ColumnCount>1</ColumnCount>
-          <ColumnGap>4200</ColumnGap>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>4200</CollumnGap>
           <Depth>2170</Depth>
           <NominalWellVolume>2500000</NominalWellVolume>
           <VShapeDepth>2000</VShapeDepth>
@@ -142,7 +142,7 @@
         <Name>25 ml Multichannel Reagent Reservoir (Insert)</Name>
         <Manufacturer>INTEGRA</Manufacturer>
         <PartNumber>4310, 4311, 4312, 4315, 4316, 4317, 4380, 4381, 4382</PartNumber>
-        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (ON 4547) only</Description>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (PN 4547) only</Description>
         <IconPath>Reservoir_25ml_1_DRA.png</IconPath>
         <Measurements Version="0">
           <DataVersion>0</DataVersion>
@@ -158,8 +158,8 @@
           <SectionHeightCorrection>0</SectionHeightCorrection>
           <DeltaHmax>0</DeltaHmax>
           <BottomShape>VShape</BottomShape>
-          <ColumnCount>1</ColumnCount>
-          <ColumnGap>4200</ColumnGap>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>4200</CollumnGap>
           <Depth>2170</Depth>
           <NominalWellVolume>2500000</NominalWellVolume>
           <VShapeDepth>2000</VShapeDepth>
