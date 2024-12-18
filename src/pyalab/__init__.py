@@ -12,8 +12,10 @@ from .pipette import Pipette
 from .pipette import Tip
 from .plate import Plate
 from .program import Program
+from .steps import SetInitialVolume
 from .steps import SetVolume
 from .steps import Step
+from .steps import Transfer
 
 __all__ = [
     "PATH_TO_INCLUDED_XML_FILES",
@@ -28,8 +30,10 @@ __all__ = [
     "Pipette",
     "Plate",
     "Program",
+    "SetInitialVolume",
     "SetVolume",
     "StandardDeckNames",
     "Step",
     "Tip",
+    "Transfer",
 ]

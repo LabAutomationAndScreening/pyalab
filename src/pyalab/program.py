@@ -1,6 +1,5 @@
 import re
 import uuid
-from collections.abc import Iterable
 from pathlib import Path
 from xml.dom import minidom
 
@@ -11,16 +10,28 @@ from pydantic import Field
 from .deck import DeckLayout
 from .pipette import Pipette
 from .pipette import Tip
+from .plate import Plate
 from .steps import Step
 
 
 class Program(BaseModel):
-    deck_layouts: Iterable[DeckLayout] = Field(min_length=1)  # TODO: validate that all layouts use the same base Deck
+    deck_layouts: list[DeckLayout] = Field(min_length=1)  # TODO: validate that all layouts use the same base Deck
     display_name: str  # TODO: validate length and character classes
     description: str  # TODO: validate length and character classes
     pipette: Pipette
     tip: Tip
     steps: list[Step] = Field(default_factory=list)
+
+    def add_step(self, step: Step) -> None:
+        self.steps.append(step)
+
+    def get_section_index_for_plate(self, plate: Plate) -> int:
+        # TODO: support multiple deck layouts
+        first_deck_layout = self.deck_layouts[0]
+        for deck_position, iter_plate in first_deck_layout.labware.items():
+            if iter_plate == plate:
+                return deck_position.section_index(first_deck_layout.deck)
+        raise NotImplementedError("Plate not found in any deck position")
 
     def dump_xml(self, file_path: Path) -> None:
         config_version = 4
@@ -50,7 +61,7 @@ class Program(BaseModel):
         tips_node.append(self.tip.create_xml_for_program())
 
         # TODO: handle multiple deck layouts
-        first_deck_layout = next(iter(self.deck_layouts))
+        first_deck_layout = self.deck_layouts[0]
         root.append(first_deck_layout.create_xml_for_program(layout_num=1))
         decks_node = etree.SubElement(root, "AllDecks")
         decks_node.append(first_deck_layout.create_xml_for_program(layout_num=1))

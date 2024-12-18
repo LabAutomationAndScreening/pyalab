@@ -48,9 +48,12 @@ class DeckPosition(BaseModel, frozen=True):
             name = section.find("Name")
             width = section.find("Width")
             length = section.find("Length")
-            if width is not None and length is not None and name is not None:
-                if name.text == self.name and width.text == str(self.xml_width) and length.text == str(self.xml_length):
-                    return idx  # TODO: confirm that Integra does not allow any duplicates inherently
+            assert width is not None
+            assert length is not None
+            assert name is not None
+
+            if name.text == self.name and width.text == str(self.xml_width) and length.text == str(self.xml_length):
+                return idx  # TODO: confirm that Integra does not allow any duplicates inherently
 
         raise DeckPositionNotFoundError(
             deck_name=deck.name, deck_position_name=self.name, width=self.xml_width, length=self.xml_length
@@ -85,10 +88,18 @@ class DeckLayout(BaseModel):
                             # Insert the new element right after <IsWaste>
                             children.insert(index + 1, plate_xml)
                             break
+                    else:
+                        raise NotImplementedError(
+                            "Could not find <IsWaste> element in the section...this should never happen so there's no implementation to handle it"
+                        )
                     # Clear existing children and re-insert the updated list
                     section.clear()
                     section.extend(children)
 
                     break
+            else:
+                raise NotImplementedError(
+                    f"Could not find section with index {section_idx} in the deck XML...this should never happen so there's no implementation to handle it"
+                )
 
         return root

@@ -1,13 +1,16 @@
+import uuid
 from typing import override
 
 from lxml import etree
 from lxml.etree import _Element
+from pydantic import Field
 
 from .integra_xml import LibraryComponent
 from .integra_xml import LibraryComponentType
 
 
 class Plate(LibraryComponent):
+    id: uuid.UUID = Field(default_factory=uuid.uuid4)
     type = LibraryComponentType.PLATE
     display_name: str = ""  # TODO: If left as blank, then set the display name to the name of the plate type # TODO: validate length and character class requirements
 
