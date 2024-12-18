@@ -50,10 +50,29 @@ class TestSimpleTransferProgramSnapshots:
             "transfer_volume",
             "display_name",
             "description",
+            "tip",
         ),
         [
-            pytest.param(3, 8, 100, 50, "simple-transfer", "One transfer within a 96-well plate", id="arbitrary1"),
-            pytest.param(5, 1, 132.21, 37.5, "wakka_wakka", "doing science!", id="arbitrary2"),
+            pytest.param(
+                3,
+                8,
+                100,
+                50,
+                "simple-transfer",
+                "One transfer within a 96-well plate",
+                Tip(name="300 µl GripTip Sterile Filter Low retention"),
+                id="arbitrary1",
+            ),
+            pytest.param(
+                5,
+                1,
+                132.21,
+                37.5,
+                "wakka_wakka",
+                "doing science!",
+                Tip(name="300 µl GripTip Sterile Filter"),
+                id="arbitrary2",
+            ),
         ],
     )
     def test_arbitrary_params(  # noqa: PLR0913 # this is a lot of arguments to parametrize, but it makes it more efficient to not generate a bunch of separate snapshot files
@@ -64,6 +83,7 @@ class TestSimpleTransferProgramSnapshots:
         transfer_volume: float,
         display_name: str,
         description: str,
+        tip: Tip,
     ):
         pcr_plate = Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates", display_name="PCR Plate")
         program = Program(
@@ -76,7 +96,7 @@ class TestSimpleTransferProgramSnapshots:
             display_name=display_name,
             description=description,
             pipette=Pipette(name="VOYAGER EIGHT 300 µl"),
-            tip=Tip(name="300 µl GripTip Sterile Filter Low retention"),
+            tip=tip,
         )
         pcr_plate_section_index = program.get_section_index_for_plate(pcr_plate)
 
