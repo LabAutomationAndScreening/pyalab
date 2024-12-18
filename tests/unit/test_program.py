@@ -13,6 +13,7 @@ from pyalab import SetInitialVolume
 from pyalab import StandardDeckNames
 from pyalab import Tip
 from pyalab import Transfer
+from syrupy.assertion import SnapshotAssertion
 
 
 def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error():
@@ -35,7 +36,7 @@ def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error()
         _ = program.get_section_index_for_plate(desired_plate)
 
 
-def test_simple_transfer_program_matches_snapshot():
+def test_simple_transfer_program_matches_snapshot(snapshot_xml: SnapshotAssertion):
     source_column_index = 3  # arbitrary
     destination_column_index = 8
     pcr_plate = Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates", display_name="PCR Plate")
@@ -76,4 +77,5 @@ def test_simple_transfer_program_matches_snapshot():
         )
     )
 
-    program.dump_xml(Path(__file__).parent / "simple_transfer_program.xml")
+    assert program.generate_xml() == snapshot_xml
+    # program.dump_xml(Path(__file__).parent / "simple_transfer_program.xml")
