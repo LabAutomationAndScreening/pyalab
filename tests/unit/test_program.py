@@ -1,6 +1,8 @@
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import pytest
+from syrupy.assertion import SnapshotAssertion
 
 from pyalab import Deck
 from pyalab import DeckLayout
@@ -13,7 +15,6 @@ from pyalab import SetInitialVolume
 from pyalab import StandardDeckNames
 from pyalab import Tip
 from pyalab import Transfer
-from syrupy.assertion import SnapshotAssertion
 
 
 def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error():
@@ -77,5 +78,9 @@ def test_simple_transfer_program_matches_snapshot(snapshot_xml: SnapshotAssertio
         )
     )
 
-    assert program.generate_xml() == snapshot_xml
-    # program.dump_xml(Path(__file__).parent / "simple_transfer_program.xml")
+    with TemporaryDirectory() as temp_dir:
+        file_path = Path(temp_dir) / "simple_transfer_program.iaa"
+        program.dump_xml(file_path)
+        xml_str = file_path.read_text()
+
+    assert xml_str == snapshot_xml
