@@ -88,6 +88,10 @@ repos:
     rev: 47ae0fb9cf2a515f8a2666050fac66fd719ae530  # frozen: v0.2.8
     hooks:
       - id: xml-formatter
+        exclude: |
+            (?x)^(
+                .*/__snapshots__/.*|
+            )$
 
 
 # Invalid File Checks
