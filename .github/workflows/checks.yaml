@@ -84,7 +84,7 @@ jobs:
         if: matrix.IS_FASTEST_JOB == true
         uses: codecov/codecov-action@v5.1.1
         with:
-          file: ./coverage.xml
+          files: ./coverage.xml
           flags: unittests
           env_vars: OS,PYTHON
           name: codecov-umbrella
