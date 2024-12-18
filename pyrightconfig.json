@@ -99,5 +99,12 @@
     "reportMatchNotExhaustive": true,
     "reportImplicitOverride": true,
     "reportShadowedImports": true,
-    "pythonPlatform": "Linux"
+    "pythonPlatform": "Linux",
+    "executionEnvironments": [
+        {
+          "root": "tests",
+          // reportUninitializedInstanceVariable doesn't make any sense for test cases. See https://github.com/microsoft/pyright/discussions/4834#discussioncomment-8496931
+          "reportUninitializedInstanceVariable": false,
+        }
+    ]
   }
