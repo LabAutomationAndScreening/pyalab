@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexSystem Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>1</DataVersion>
+  <Name>HeatPAC with Dual Reservoir Adapter with 2 x 10 ml Reservoirs</Name>
+  <Manufacturer>INHECO</Manufacturer>
+  <PartNumber>7900046, 7900095</PartNumber>
+  <Description>- holds 2 x 10 ml Multichannel Reagent Reservoirs</Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>8570</FootprintLengthMM>
+    <FootprintWidthMM>14600</FootprintWidthMM>
+    <HeightMM>7010</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Overplapping_Individual</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>S1 - 10 ml reservoir</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>900</Location_Y>
+      <Width>4285</Width>
+      <OrderIndexForConfigurationDialog>1</OrderIndexForConfigurationDialog>
+      <Length>11000</Length>
+      <Depth>-3995</Depth>
+      <Content Version="2" xsi:type="Reservoir">
+        <DataVersion>3</DataVersion>
+        <Name>10 ml Multichannel Reagent Reservoir (Insert)</Name>
+        <Manufacturer>INTEGRA</Manufacturer>
+        <PartNumber>4330, 4331, 4332, 4335, 4336, 4337, 4370, 4371, 4372</PartNumber>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (PN 4547) only</Description>
+        <IconPath>Reservoir_10ml_1_DRA.png</IconPath>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>4285</FootprintLengthMM>
+          <FootprintWidthMM>11000</FootprintWidthMM>
+          <HeightMM>3870</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>VShape</BottomShape>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>4200</CollumnGap>
+          <Depth>2170</Depth>
+          <NominalWellVolume>1000000</NominalWellVolume>
+          <VShapeDepth>2170</VShapeDepth>
+          <FirstHolePositionText>650;1700</FirstHolePositionText>
+          <RowCount>1</RowCount>
+          <RowGap>7600</RowGap>
+          <Shape>Rectangle</Shape>
+          <Size>2950</Size>
+          <Length>7600</Length>
+          <SizeBottom>0</SizeBottom>
+          <HeightVolumeLookupTable>
+            <HeightVolume>
+              <Height>310</Height>
+              <Volume>100000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>490</Height>
+              <Volume>200000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>640</Height>
+              <Volume>300000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>740</Height>
+              <Volume>400000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>890</Height>
+              <Volume>500000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>1070</Height>
+              <Volume>700000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>1140</Height>
+              <Volume>800000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>1340</Height>
+              <Volume>1000000</Volume>
+            </HeightVolume>
+          </HeightVolumeLookupTable>
+          <Type>V_Shape_10</Type>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>S2 - 10 ml reservoir</Name>
+      <Description></Description>
+      <Location_X>4290</Location_X>
+      <Location_Y>900</Location_Y>
+      <Width>4270</Width>
+      <OrderIndexForConfigurationDialog>2</OrderIndexForConfigurationDialog>
+      <Length>11000</Length>
+      <Depth>-3995</Depth>
+      <Content Version="2" xsi:type="Reservoir">
+        <DataVersion>3</DataVersion>
+        <Name>10 ml Multichannel Reagent Reservoir (Insert)</Name>
+        <Manufacturer>INTEGRA</Manufacturer>
+        <PartNumber>4330, 4331, 4332, 4335, 4336, 4337, 4370, 4371, 4372</PartNumber>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (PN 4547) only</Description>
+        <IconPath>Reservoir_10ml_1_DRA.png</IconPath>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>4285</FootprintLengthMM>
+          <FootprintWidthMM>11000</FootprintWidthMM>
+          <HeightMM>3870</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>VShape</BottomShape>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>4200</CollumnGap>
+          <Depth>2170</Depth>
+          <NominalWellVolume>1000000</NominalWellVolume>
+          <VShapeDepth>2170</VShapeDepth>
+          <FirstHolePositionText>650;1700</FirstHolePositionText>
+          <RowCount>1</RowCount>
+          <RowGap>7600</RowGap>
+          <Shape>Rectangle</Shape>
+          <Size>2950</Size>
+          <Length>7600</Length>
+          <SizeBottom>0</SizeBottom>
+          <HeightVolumeLookupTable>
+            <HeightVolume>
+              <Height>310</Height>
+              <Volume>100000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>490</Height>
+              <Volume>200000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>640</Height>
+              <Volume>300000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>740</Height>
+              <Volume>400000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>890</Height>
+              <Volume>500000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>1070</Height>
+              <Volume>700000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>1140</Height>
+              <Volume>800000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>1340</Height>
+              <Volume>1000000</Volume>
+            </HeightVolume>
+          </HeightVolumeLookupTable>
+          <Type>V_Shape_10</Type>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+  </Sections>
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
+  <OriginalHeight>0</OriginalHeight>
+  <MinimalClearanceHeight>0</MinimalClearanceHeight>
+  <DeltaHeightSections>0</DeltaHeightSections>
+  <Location_X_End_Inclined>0</Location_X_End_Inclined>
+  <Angle>0</Angle>
+  <LabwareWells></LabwareWells>
+</FlexSystem>

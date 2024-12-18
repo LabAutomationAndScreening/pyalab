@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexSystem Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>0</DataVersion>
+  <Name>HeatPAC with 150 ml Automation Friendly Reservoir Adapter</Name>
+  <Manufacturer>INHECO</Manufacturer>
+  <PartNumber>7900046, 7900056</PartNumber>
+  <Description>- active heating device - temperature range: room temperature - 135°C - including adapter for INTEGRA 150 ml Automation Friendly Reservoirs</Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>5055</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Array</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 1</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>0</Location_Y>
+      <Width>12776</Width>
+      <Length>8548</Length>
+      <Depth>0</Depth>
+      <Content Version="1" xsi:type="Reservoir">
+        <DataVersion>5</DataVersion>
+        <Name>Automation Friendly Reservoir</Name>
+        <Manufacturer>INTEGRA</Manufacturer>
+        <PartNumber>6301, 6302, 6303, 6317, 6318</PartNumber>
+        <Description>Automatically rotated</Description>
+        <IconPath>Reservoir_150ml_AFR.png</IconPath>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>12776</FootprintLengthMM>
+          <FootprintWidthMM>8548</FootprintWidthMM>
+          <HeightMM>2600</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>11200</CollumnGap>
+          <Depth>2200</Depth>
+          <NominalWellVolume>15000000</NominalWellVolume>
+          <VShapeDepth>0</VShapeDepth>
+          <FirstHolePositionText>788;674</FirstHolePositionText>
+          <RowCount>1</RowCount>
+          <RowGap>7200</RowGap>
+          <Shape>Circle</Shape>
+          <Size>11200</Size>
+          <Length>7200</Length>
+          <SizeBottom>0</SizeBottom>
+          <Type>Block</Type>
+        </Wells>
+      </Content>
+    </FlexBaseSection>
+  </Sections>
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
+  <OriginalHeight>0</OriginalHeight>
+  <MinimalClearanceHeight>0</MinimalClearanceHeight>
+  <DeltaHeightSections>0</DeltaHeightSections>
+  <Location_X_End_Inclined>0</Location_X_End_Inclined>
+  <Angle>0</Angle>
+</FlexSystem>

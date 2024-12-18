@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>4</DataVersion>
+  <Name>48 Deepwell V-Bottom Plate</Name>
+  <Manufacturer>AXYGEN CORNING</Manufacturer>
+  <PartNumber>P-5ML-48-C</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>5640</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>1800</CollumnGap>
+    <Depth>5240</Depth>
+    <NominalWellVolume>700000</NominalWellVolume>
+    <VShapeDepth>10</VShapeDepth>
+    <FirstHolePositionText>1830;1080</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Rectangle</Shape>
+    <Size>1680</Size>
+    <Length>780</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Plate>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TipBox Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>0</DataVersion>
+  <Name>TipBox_96</Name>
+  <Manufacturer></Manufacturer>
+  <PartNumber></PartNumber>
+  <Description></Description>
+  <TipBoxSize>Big</TipBoxSize>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12780</FootprintLengthMM>
+    <FootprintWidthMM>8550</FootprintWidthMM>
+    <HeightMM>1420</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <BottomShape>Circle</BottomShape>
+    <CollumnCount>12</CollumnCount>
+    <CollumnGap>900</CollumnGap>
+    <Depth>1130</Depth>
+    <NominalWellVolume>36000</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1430;1120</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>686</Size>
+    <Length>686</Length>
+    <SizeBottom>635</SizeBottom>
+  </Wells>
+</TipBox>

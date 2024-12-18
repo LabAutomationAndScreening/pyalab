@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>4</DataVersion>
+  <Name>Rack for 0.5 ml microcentrifuge tubes (Self-Standing, Skirted)</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4540</PartNumber>
+  <Description>6x8 0.5 ml microcentrifuge tubes (Self-Standing, Skirted) e.g. STARLAB PN E1405-2120</Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12800</FootprintLengthMM>
+    <FootprintWidthMM>14550</FootprintWidthMM>
+    <HeightMM>5550</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>2140</CollumnGap>
+    <Depth>2440</Depth>
+    <NominalWellVolume>50000</NominalWellVolume>
+    <VShapeDepth>830</VShapeDepth>
+    <FirstHolePositionText>650;1675</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>1350</RowGap>
+    <Shape>Circle</Shape>
+    <Size>749</Size>
+    <Length>749</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Tubeholder>

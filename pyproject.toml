@@ -1,12 +1,13 @@
 [project]
 name = "pyalab"
 version = "0.1.0"
-description = "Add your description here"
+description = "Generating programs for ViaLab to control an Integra Assist Plus liquid handling robot"
 readme = "README.md"
 requires-python = ">=3.12.8"
 dependencies = [
 
-    "pydantic>=2.10.3"
+    "pydantic>=2.10.3",
+    "lxml>=5.3.0"
 
 ]
 
@@ -15,9 +16,10 @@ dependencies = [
 dev = [
     # Specific to this template
 
+    "lxml-stubs>=0.5.1",
 
     # Managed by upstream template
-    "pyright>=1.1.390",
+    "pyright>=1.1.391",
     "pytest>=8.3.4",
     "pytest-cov>=6.0.0",
     "pytest-randomly>=3.16.0"

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>Falcon 96 Well Black Flat Bottom TC-Treated Microplate</Name>
+  <Manufacturer>CORNING</Manufacturer>
+  <PartNumber>353376</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>1440</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Square</BottomShape>
+    <CollumnCount>12</CollumnCount>
+    <CollumnGap>900</CollumnGap>
+    <Depth>1090</Depth>
+    <NominalWellVolume>39200</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1438;1124</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>696</Size>
+    <Length>696</Length>
+    <SizeBottom>658</SizeBottom>
+  </Wells>
+</Plate>

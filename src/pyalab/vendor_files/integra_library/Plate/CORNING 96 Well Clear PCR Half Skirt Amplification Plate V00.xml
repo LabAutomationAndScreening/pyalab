@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>0</DataVersion>
+  <Name>96 Well Clear PCR Half Skirt Amplification Plate</Name>
+  <Manufacturer>CORNING</Manufacturer>
+  <PartNumber>PCR-96-M2-HS-C</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12579</FootprintLengthMM>
+    <FootprintWidthMM>8545</FootprintWidthMM>
+    <HeightMM>2108</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>12</CollumnCount>
+    <CollumnGap>900</CollumnGap>
+    <Depth>2045</Depth>
+    <NominalWellVolume>20000</NominalWellVolume>
+    <VShapeDepth>2010</VShapeDepth>
+    <FirstHolePositionText>1339;1122</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>605</Size>
+    <Length>605</Length>
+    <SizeBottom>226</SizeBottom>
+  </Wells>
+</Plate>

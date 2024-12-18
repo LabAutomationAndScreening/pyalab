@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>Slider 0.5 ml microcentrifuge tubes</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4563</PartNumber>
+  <Description>Slider for 0.5 ml microcentrifuge tubes (see PN 4541)</Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>2130</FootprintLengthMM>
+    <FootprintWidthMM>12780</FootprintWidthMM>
+    <HeightMM>4100</HeightMM>
+  </Measurements>
+  <Wells Version="1">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>1</CollumnCount>
+    <CollumnGap>900</CollumnGap>
+    <Depth>2750</Depth>
+    <NominalWellVolume>50000</NominalWellVolume>
+    <VShapeDepth>1180</VShapeDepth>
+    <FirstHolePositionText>650;1675</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>1350</RowGap>
+    <Shape>Circle</Shape>
+    <Size>650</Size>
+    <Length>650</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Tubeholder>

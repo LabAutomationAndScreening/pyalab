@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexSystem Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>192.24 Dynamic Array IFC</Name>
+  <Manufacturer>FLUIDIGM</Manufacturer>
+  <PartNumber>100.6266</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>925</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Individual</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 0</Name>
+      <Description></Description>
+      <Location_X>350</Location_X>
+      <Location_Y>600</Location_Y>
+      <Width>500</Width>
+      <Length>7250</Length>
+      <Depth>-900</Depth>
+      <Content Version="1" xsi:type="Plate">
+        <DataVersion>0</DataVersion>
+        <Name>Fluidigm part 1 - 16 well</Name>
+        <Description></Description>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>525</FootprintLengthMM>
+          <FootprintWidthMM>7250</FootprintWidthMM>
+          <HeightMM>920</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>900</CollumnGap>
+          <Depth>790</Depth>
+          <NominalWellVolume>5300</NominalWellVolume>
+          <VShapeDepth>250</VShapeDepth>
+          <FirstHolePositionText>260;250</FirstHolePositionText>
+          <RowCount>16</RowCount>
+          <RowGap>450</RowGap>
+          <Shape>Circle</Shape>
+          <Size>280</Size>
+          <Length>280</Length>
+          <SizeBottom>0</SizeBottom>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 1</Name>
+      <Description></Description>
+      <Location_X>975</Location_X>
+      <Location_Y>600</Location_Y>
+      <Width>2750</Width>
+      <Length>7250</Length>
+      <Depth>-900</Depth>
+      <Content Version="1" xsi:type="Plate">
+        <DataVersion>0</DataVersion>
+        <Name>Fluidigm part 2 - 96 well</Name>
+        <Description></Description>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>2750</FootprintLengthMM>
+          <FootprintWidthMM>7250</FootprintWidthMM>
+          <HeightMM>920</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>6</CollumnCount>
+          <CollumnGap>450</CollumnGap>
+          <Depth>790</Depth>
+          <NominalWellVolume>5253</NominalWellVolume>
+          <VShapeDepth>450</VShapeDepth>
+          <FirstHolePositionText>250;250</FirstHolePositionText>
+          <RowCount>16</RowCount>
+          <RowGap>450</RowGap>
+          <Shape>Circle</Shape>
+          <Size>280</Size>
+          <Length>280</Length>
+          <SizeBottom>0</SizeBottom>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 2</Name>
+      <Description></Description>
+      <Location_X>3675</Location_X>
+      <Location_Y>150</Location_Y>
+      <Width>1400</Width>
+      <Length>1400</Length>
+      <Depth>-900</Depth>
+      <Content Version="1" xsi:type="Plate">
+        <DataVersion>0</DataVersion>
+        <Name>Fluidigm part 3 - 9 well</Name>
+        <Description></Description>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>1400</FootprintLengthMM>
+          <FootprintWidthMM>1400</FootprintWidthMM>
+          <HeightMM>920</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>3</CollumnCount>
+          <CollumnGap>440</CollumnGap>
+          <Depth>790</Depth>
+          <NominalWellVolume>5253</NominalWellVolume>
+          <VShapeDepth>450</VShapeDepth>
+          <FirstHolePositionText>260;250</FirstHolePositionText>
+          <RowCount>3</RowCount>
+          <RowGap>450</RowGap>
+          <Shape>Circle</Shape>
+          <Size>280</Size>
+          <Length>280</Length>
+          <SizeBottom>0</SizeBottom>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 3</Name>
+      <Description></Description>
+      <Location_X>3675</Location_X>
+      <Location_Y>6900</Location_Y>
+      <Width>1400</Width>
+      <Length>1400</Length>
+      <Depth>-900</Depth>
+      <Content Version="1" xsi:type="Plate">
+        <DataVersion>0</DataVersion>
+        <Name>Fluidigm part 3 - 9 well</Name>
+        <Description></Description>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>1400</FootprintLengthMM>
+          <FootprintWidthMM>1400</FootprintWidthMM>
+          <HeightMM>920</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>3</CollumnCount>
+          <CollumnGap>440</CollumnGap>
+          <Depth>790</Depth>
+          <NominalWellVolume>5253</NominalWellVolume>
+          <VShapeDepth>450</VShapeDepth>
+          <FirstHolePositionText>260;250</FirstHolePositionText>
+          <RowCount>3</RowCount>
+          <RowGap>450</RowGap>
+          <Shape>Circle</Shape>
+          <Size>280</Size>
+          <Length>280</Length>
+          <SizeBottom>0</SizeBottom>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 4</Name>
+      <Description></Description>
+      <Location_X>7725</Location_X>
+      <Location_Y>150</Location_Y>
+      <Width>1400</Width>
+      <Length>1400</Length>
+      <Depth>-900</Depth>
+      <Content Version="1" xsi:type="Plate">
+        <DataVersion>0</DataVersion>
+        <Name>Fluidigm part 3 - 9 well</Name>
+        <Description></Description>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>1400</FootprintLengthMM>
+          <FootprintWidthMM>1400</FootprintWidthMM>
+          <HeightMM>920</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>3</CollumnCount>
+          <CollumnGap>440</CollumnGap>
+          <Depth>790</Depth>
+          <NominalWellVolume>5253</NominalWellVolume>
+          <VShapeDepth>450</VShapeDepth>
+          <FirstHolePositionText>260;250</FirstHolePositionText>
+          <RowCount>3</RowCount>
+          <RowGap>450</RowGap>
+          <Shape>Circle</Shape>
+          <Size>280</Size>
+          <Length>280</Length>
+          <SizeBottom>0</SizeBottom>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 5</Name>
+      <Description></Description>
+      <Location_X>7725</Location_X>
+      <Location_Y>6900</Location_Y>
+      <Width>1400</Width>
+      <Length>1400</Length>
+      <Depth>-900</Depth>
+      <Content Version="1" xsi:type="Plate">
+        <DataVersion>0</DataVersion>
+        <Name>Fluidigm part 3 - 9 well</Name>
+        <Description></Description>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>1400</FootprintLengthMM>
+          <FootprintWidthMM>1400</FootprintWidthMM>
+          <HeightMM>920</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>3</CollumnCount>
+          <CollumnGap>440</CollumnGap>
+          <Depth>790</Depth>
+          <NominalWellVolume>5253</NominalWellVolume>
+          <VShapeDepth>450</VShapeDepth>
+          <FirstHolePositionText>260;250</FirstHolePositionText>
+          <RowCount>3</RowCount>
+          <RowGap>450</RowGap>
+          <Shape>Circle</Shape>
+          <Size>280</Size>
+          <Length>280</Length>
+          <SizeBottom>0</SizeBottom>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 6</Name>
+      <Description></Description>
+      <Location_X>9075</Location_X>
+      <Location_Y>600</Location_Y>
+      <Width>2750</Width>
+      <Length>7250</Length>
+      <Depth>-900</Depth>
+      <Content Version="1" xsi:type="Plate">
+        <DataVersion>0</DataVersion>
+        <Name>Fluidigm part 2 - 96 well</Name>
+        <Description></Description>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>2750</FootprintLengthMM>
+          <FootprintWidthMM>7250</FootprintWidthMM>
+          <HeightMM>920</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>6</CollumnCount>
+          <CollumnGap>450</CollumnGap>
+          <Depth>790</Depth>
+          <NominalWellVolume>5253</NominalWellVolume>
+          <VShapeDepth>450</VShapeDepth>
+          <FirstHolePositionText>250;250</FirstHolePositionText>
+          <RowCount>16</RowCount>
+          <RowGap>450</RowGap>
+          <Shape>Circle</Shape>
+          <Size>280</Size>
+          <Length>280</Length>
+          <SizeBottom>0</SizeBottom>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 7</Name>
+      <Description></Description>
+      <Location_X>12000</Location_X>
+      <Location_Y>600</Location_Y>
+      <Width>525</Width>
+      <Length>7250</Length>
+      <Depth>-900</Depth>
+      <Content Version="1" xsi:type="Plate">
+        <DataVersion>0</DataVersion>
+        <Name>Fluidigm part 1 - 16 well</Name>
+        <Description></Description>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>525</FootprintLengthMM>
+          <FootprintWidthMM>7250</FootprintWidthMM>
+          <HeightMM>920</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>900</CollumnGap>
+          <Depth>790</Depth>
+          <NominalWellVolume>5300</NominalWellVolume>
+          <VShapeDepth>250</VShapeDepth>
+          <FirstHolePositionText>260;250</FirstHolePositionText>
+          <RowCount>16</RowCount>
+          <RowGap>450</RowGap>
+          <Shape>Circle</Shape>
+          <Size>280</Size>
+          <Length>280</Length>
+          <SizeBottom>0</SizeBottom>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+  </Sections>
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
+  <OriginalHeight>0</OriginalHeight>
+  <MinimalClearanceHeight>0</MinimalClearanceHeight>
+  <DeltaHeightSections>0</DeltaHeightSections>
+  <Location_X_End_Inclined>0</Location_X_End_Inclined>
+  <Angle>0</Angle>
+  <LabwareWells></LabwareWells>
+</FlexSystem>

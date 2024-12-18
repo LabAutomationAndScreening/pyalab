@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>96 Chimney Well F-bottom TC-Treated Plate</Name>
+  <Manufacturer>GREINER</Manufacturer>
+  <PartNumber>655160, 655162, 655180, 655182, 655185, 655080, 65081, 655940, 655930, 655950, 655073, 655083, 655075, 655074, 655079, 655086, 655076, 655077, 655088, 655098, 655095, 655094, 655944, 655087, 655090, 655096, 655097, 655946, 655948, 655936, 655956, 96120096, 96000024, 655892, 655801</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>1440</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Square</BottomShape>
+    <CollumnCount>12</CollumnCount>
+    <CollumnGap>900</CollumnGap>
+    <Depth>1090</Depth>
+    <NominalWellVolume>39200</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1438;1124</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>696</Size>
+    <Length>696</Length>
+    <SizeBottom>658</SizeBottom>
+  </Wells>
+</Plate>

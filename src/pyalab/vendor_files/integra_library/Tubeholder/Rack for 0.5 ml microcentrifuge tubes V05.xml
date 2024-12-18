@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>5</DataVersion>
+  <Name>Rack for 0.5 ml microcentrifuge tubes</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4541</PartNumber>
+  <Description>6x8 0.5 ml microcentrifuge tubes</Description>
+  <Measurements>
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12800</FootprintLengthMM>
+    <FootprintWidthMM>14320</FootprintWidthMM>
+    <HeightMM>4950</HeightMM>
+  </Measurements>
+  <Wells>
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>2140</CollumnGap>
+    <Depth>2850</Depth>
+    <NominalWellVolume>50000</NominalWellVolume>
+    <VShapeDepth>1180</VShapeDepth>
+    <FirstHolePositionText>650;1675</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>1350</RowGap>
+    <Shape>Circle</Shape>
+    <Size>650</Size>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Tubeholder>

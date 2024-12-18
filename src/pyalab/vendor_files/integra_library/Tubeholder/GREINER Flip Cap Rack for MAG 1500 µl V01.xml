@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>1</DataVersion>
+  <Name>Adapter for 1.5 ml tubes with snap caps (MAG)</Name>
+  <Manufacturer>GREINER</Manufacturer>
+  <PartNumber>616201</PartNumber>
+  <Description>Reference tube Greiner 1.5 ml tube PN 616201</Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>11810</FootprintLengthMM>
+    <FootprintWidthMM>8220</FootprintWidthMM>
+    <HeightMM>3900</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>1800</CollumnGap>
+    <Depth>3800</Depth>
+    <NominalWellVolume>150000</NominalWellVolume>
+    <VShapeDepth>1800</VShapeDepth>
+    <FirstHolePositionText>840;880</FirstHolePositionText>
+    <RowCount>4</RowCount>
+    <RowGap>1800</RowGap>
+    <Shape>Circle</Shape>
+    <Size>912</Size>
+    <Length>912</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Tubeholder>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>1</DataVersion>
+  <Name>1536 Well HiBase Plate</Name>
+  <Manufacturer>GREINER</Manufacturer>
+  <PartNumber>782180, 782101, 782061, 782073, 782080, 782075, 782074, 782078, 782086, 782076, 782077, 782093, 782095, 782094, 782092, 782096, 782097, 782892</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>1040</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Square</BottomShape>
+    <CollumnCount>48</CollumnCount>
+    <CollumnGap>225</CollumnGap>
+    <Depth>500</Depth>
+    <NominalWellVolume>1500</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1101;787</FirstHolePositionText>
+    <RowCount>32</RowCount>
+    <RowGap>225</RowGap>
+    <Shape>Square</Shape>
+    <Size>170</Size>
+    <Length>170</Length>
+    <SizeBottom>153</SizeBottom>
+  </Wells>
+</Plate>

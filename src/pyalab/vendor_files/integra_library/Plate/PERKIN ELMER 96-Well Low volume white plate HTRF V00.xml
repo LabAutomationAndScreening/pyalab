@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>0</DataVersion>
+  <Name>96-Well Low volume white plate HTRF</Name>
+  <Manufacturer>PERKIN ELMER</Manufacturer>
+  <PartNumber>66PL96001, 66PL96005, 66PL96025, 66PL96100</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>1200</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>12</CollumnCount>
+    <CollumnGap>900</CollumnGap>
+    <Depth>700</Depth>
+    <NominalWellVolume>4000</NominalWellVolume>
+    <VShapeDepth>620</VShapeDepth>
+    <FirstHolePositionText>1437;1123</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>425</Size>
+    <Length>425</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Plate>

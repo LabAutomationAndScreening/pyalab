@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexSystem Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>1</DataVersion>
+  <Name>CPAC with Dual Reservoir Adapter with 2 x 25 ml Reservoirs</Name>
+  <Manufacturer>INHECO</Manufacturer>
+  <PartNumber>7000166, 7000190, 7900094</PartNumber>
+  <Description>- holds 2 x 25 ml Multichannel Reagent Reservoirs</Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>8570</FootprintLengthMM>
+    <FootprintWidthMM>14600</FootprintWidthMM>
+    <HeightMM>11300</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Overplapping_Individual</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>S1 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>0</Location_Y>
+      <Width>4285</Width>
+      <OrderIndexForConfigurationDialog>1</OrderIndexForConfigurationDialog>
+      <Length>14600</Length>
+      <Depth>-3995</Depth>
+      <Content Version="2" xsi:type="Reservoir">
+        <DataVersion>4</DataVersion>
+        <Name>25 ml Multichannel Reagent Reservoir (Insert)</Name>
+        <Manufacturer>INTEGRA</Manufacturer>
+        <PartNumber>4310, 4311, 4312, 4315, 4316, 4317, 4380, 4381, 4382</PartNumber>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (PN 4547) only</Description>
+        <IconPath>Reservoir_25ml_1_DRA.png</IconPath>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>4285</FootprintLengthMM>
+          <FootprintWidthMM>14600</FootprintWidthMM>
+          <HeightMM>3870</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>VShape</BottomShape>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>4200</CollumnGap>
+          <Depth>2170</Depth>
+          <NominalWellVolume>2500000</NominalWellVolume>
+          <VShapeDepth>2000</VShapeDepth>
+          <FirstHolePositionText>740;950</FirstHolePositionText>
+          <RowCount>1</RowCount>
+          <RowGap>12810</RowGap>
+          <Shape>Rectangle</Shape>
+          <Size>2869</Size>
+          <Length>12810</Length>
+          <SizeBottom>0</SizeBottom>
+          <HeightVolumeLookupTable>
+            <HeightVolume>
+              <Height>300</Height>
+              <Volume>200000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>350</Height>
+              <Volume>400000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>450</Height>
+              <Volume>600000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>540</Height>
+              <Volume>800000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>1040</Height>
+              <Volume>1800000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>1240</Height>
+              <Volume>2500000</Volume>
+            </HeightVolume>
+          </HeightVolumeLookupTable>
+          <Type>V_Shape_25_Div</Type>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>S3 - 5 ml divided reservoir</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>0</Location_Y>
+      <Width>4285</Width>
+      <OrderIndexForConfigurationDialog>3</OrderIndexForConfigurationDialog>
+      <Length>5590</Length>
+      <Depth>-3995</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>S5 - 10 ml divided reservoir</Name>
+      <Description></Description>
+      <Location_X>0</Location_X>
+      <Location_Y>5605</Location_Y>
+      <Width>4285</Width>
+      <OrderIndexForConfigurationDialog>5</OrderIndexForConfigurationDialog>
+      <Length>8995</Length>
+      <Depth>-3995</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>S2 - 5 - 50 ml tubes / 25 ml reservoir</Name>
+      <Description></Description>
+      <Location_X>4290</Location_X>
+      <Location_Y>0</Location_Y>
+      <Width>4270</Width>
+      <OrderIndexForConfigurationDialog>2</OrderIndexForConfigurationDialog>
+      <Length>14600</Length>
+      <Depth>-3995</Depth>
+      <Content Version="2" xsi:type="Reservoir">
+        <DataVersion>4</DataVersion>
+        <Name>25 ml Multichannel Reagent Reservoir (Insert)</Name>
+        <Manufacturer>INTEGRA</Manufacturer>
+        <PartNumber>4310, 4311, 4312, 4315, 4316, 4317, 4380, 4381, 4382</PartNumber>
+        <Description>Polystyrene or Polypropylene use with Dual Reservoir Adapter (PN 4547) only</Description>
+        <IconPath>Reservoir_25ml_1_DRA.png</IconPath>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>4285</FootprintLengthMM>
+          <FootprintWidthMM>14600</FootprintWidthMM>
+          <HeightMM>3870</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>VShape</BottomShape>
+          <CollumnCount>1</CollumnCount>
+          <CollumnGap>4200</CollumnGap>
+          <Depth>2170</Depth>
+          <NominalWellVolume>2500000</NominalWellVolume>
+          <VShapeDepth>2000</VShapeDepth>
+          <FirstHolePositionText>740;950</FirstHolePositionText>
+          <RowCount>1</RowCount>
+          <RowGap>12810</RowGap>
+          <Shape>Rectangle</Shape>
+          <Size>2869</Size>
+          <Length>12810</Length>
+          <SizeBottom>0</SizeBottom>
+          <HeightVolumeLookupTable>
+            <HeightVolume>
+              <Height>300</Height>
+              <Volume>200000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>350</Height>
+              <Volume>400000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>450</Height>
+              <Volume>600000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>540</Height>
+              <Volume>800000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>1040</Height>
+              <Volume>1800000</Volume>
+            </HeightVolume>
+            <HeightVolume>
+              <Height>1240</Height>
+              <Volume>2500000</Volume>
+            </HeightVolume>
+          </HeightVolumeLookupTable>
+          <Type>V_Shape_25_Div</Type>
+        </Wells>
+      </Content>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>S4 - 5 ml divided reservoir</Name>
+      <Description></Description>
+      <Location_X>4290</Location_X>
+      <Location_Y>0</Location_Y>
+      <Width>4270</Width>
+      <OrderIndexForConfigurationDialog>4</OrderIndexForConfigurationDialog>
+      <Length>5600</Length>
+      <Depth>-3995</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>S6 - 10 ml divided reservoir</Name>
+      <Description></Description>
+      <Location_X>4290</Location_X>
+      <Location_Y>5605</Location_Y>
+      <Width>4280</Width>
+      <OrderIndexForConfigurationDialog>6</OrderIndexForConfigurationDialog>
+      <Length>8995</Length>
+      <Depth>-3995</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+  </Sections>
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
+  <OriginalHeight>0</OriginalHeight>
+  <MinimalClearanceHeight>0</MinimalClearanceHeight>
+  <DeltaHeightSections>0</DeltaHeightSections>
+  <Location_X_End_Inclined>0</Location_X_End_Inclined>
+  <Angle>0</Angle>
+  <LabwareWells></LabwareWells>
+</FlexSystem>

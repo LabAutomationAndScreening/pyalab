@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexSystem Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>0</DataVersion>
+  <Name>M96.96 Dynamic Array IFC</Name>
+  <Manufacturer>FLUIDIGM</Manufacturer>
+  <PartNumber>BMK-M-96.96</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>1390</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Individual</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 0</Name>
+      <Description></Description>
+      <Location_X>875</Location_X>
+      <Location_Y>600</Location_Y>
+      <Width>2750</Width>
+      <Length>7250</Length>
+      <Depth>-1375</Depth>
+      <Content Version="1" xsi:type="Plate">
+        <DataVersion>0</DataVersion>
+        <Name>Fluidigm - 96 well_square</Name>
+        <Manufacturer></Manufacturer>
+        <Description></Description>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>2750</FootprintLengthMM>
+          <FootprintWidthMM>7250</FootprintWidthMM>
+          <HeightMM>530</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>6</CollumnCount>
+          <CollumnGap>450</CollumnGap>
+          <Depth>350</Depth>
+          <NominalWellVolume>4000</NominalWellVolume>
+          <VShapeDepth>450</VShapeDepth>
+          <FirstHolePositionText>250;250</FirstHolePositionText>
+          <RowCount>16</RowCount>
+          <RowGap>450</RowGap>
+          <Shape>Square</Shape>
+          <Size>360</Size>
+          <Length>360</Length>
+          <SizeBottom>0</SizeBottom>
+        </Wells>
+      </Content>
+    </FlexBaseSection>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 1</Name>
+      <Description></Description>
+      <Location_X>9000</Location_X>
+      <Location_Y>600</Location_Y>
+      <Width>2750</Width>
+      <Length>7250</Length>
+      <Depth>-1375</Depth>
+      <Content Version="1" xsi:type="Plate">
+        <DataVersion>0</DataVersion>
+        <Name>Fluidigm - 96 well_square</Name>
+        <Manufacturer></Manufacturer>
+        <Description></Description>
+        <Measurements Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <FootprintLengthMM>2750</FootprintLengthMM>
+          <FootprintWidthMM>7250</FootprintWidthMM>
+          <HeightMM>530</HeightMM>
+        </Measurements>
+        <Wells Version="0">
+          <DataVersion>0</DataVersion>
+          <Description></Description>
+          <Angle>0</Angle>
+          <SectionHeightCorrection>0</SectionHeightCorrection>
+          <DeltaHmax>0</DeltaHmax>
+          <BottomShape>Circle</BottomShape>
+          <CollumnCount>6</CollumnCount>
+          <CollumnGap>450</CollumnGap>
+          <Depth>350</Depth>
+          <NominalWellVolume>4000</NominalWellVolume>
+          <VShapeDepth>450</VShapeDepth>
+          <FirstHolePositionText>250;250</FirstHolePositionText>
+          <RowCount>16</RowCount>
+          <RowGap>450</RowGap>
+          <Shape>Square</Shape>
+          <Size>360</Size>
+          <Length>360</Length>
+          <SizeBottom>0</SizeBottom>
+        </Wells>
+      </Content>
+    </FlexBaseSection>
+  </Sections>
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
+  <OriginalHeight>0</OriginalHeight>
+  <MinimalClearanceHeight>0</MinimalClearanceHeight>
+  <DeltaHeightSections>0</DeltaHeightSections>
+  <Location_X_End_Inclined>0</Location_X_End_Inclined>
+  <Angle>0</Angle>
+</FlexSystem>

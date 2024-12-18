@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>1</DataVersion>
+  <Name>Slider 2 ml microcentrifuge tubes with screw caps</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4562</PartNumber>
+  <Description>Slider for 2 ml microcentrifuge tubes (see PN 4540) Reference Tube: Greiner PN 722201</Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>2130</FootprintLengthMM>
+    <FootprintWidthMM>12780</FootprintWidthMM>
+    <HeightMM>4300</HeightMM>
+  </Measurements>
+  <Wells Version="1">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Circle</BottomShape>
+    <CollumnCount>1</CollumnCount>
+    <CollumnGap>900</CollumnGap>
+    <Depth>3800</Depth>
+    <NominalWellVolume>200000</NominalWellVolume>
+    <VShapeDepth>1825</VShapeDepth>
+    <FirstHolePositionText>650;1675</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>1350</RowGap>
+    <Shape>Circle</Shape>
+    <Size>840</Size>
+    <Length>840</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Tubeholder>

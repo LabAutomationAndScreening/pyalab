@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>48 Well F-Bottom Plate</Name>
+  <Manufacturer>GREINER</Manufacturer>
+  <PartNumber>677102, 677180</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>1900</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Square</BottomShape>
+    <CollumnCount>8</CollumnCount>
+    <CollumnGap>1300</CollumnGap>
+    <Depth>1650</Depth>
+    <NominalWellVolume>170000</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1838;1024</FirstHolePositionText>
+    <RowCount>6</RowCount>
+    <RowGap>1300</RowGap>
+    <Shape>Circle</Shape>
+    <Size>1195</Size>
+    <Length>1195</Length>
+    <SizeBottom>1137</SizeBottom>
+  </Wells>
+</Plate>

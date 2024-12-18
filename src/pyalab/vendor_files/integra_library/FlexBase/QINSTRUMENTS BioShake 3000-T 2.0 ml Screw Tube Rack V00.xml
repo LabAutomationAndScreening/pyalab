@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FlexBase Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>0</DataVersion>
+  <Name>BIOSHAKE 3000-T 2.0 ml Screw Tube Adapter</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4952</PartNumber>
+  <Description>-BIOSHAKE 3000-T with adapter for 2.0 ml screw tubes, format 4 x 6 (PN 4962) - module for active heating and shaking - temperature range: ambient - 99°C</Description>
+  <IconPath>ExternalModules/BioShake_3000-T_2_0_tube.png</IconPath>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>14200</FootprintLengthMM>
+    <FootprintWidthMM>9940</FootprintWidthMM>
+    <HeightMM>6290</HeightMM>
+  </Measurements>
+  <Wells></Wells>
+  <FlexBaseType>Individual</FlexBaseType>
+  <Sections>
+    <FlexBaseSection Version="0">
+      <DataVersion>0</DataVersion>
+      <Name>Section 0</Name>
+      <Description></Description>
+      <Location_X>700</Location_X>
+      <Location_Y>600</Location_Y>
+      <Width>12780</Width>
+      <Length>8550</Length>
+      <Depth>-20</Depth>
+      <RotateType>None</RotateType>
+    </FlexBaseSection>
+  </Sections>
+  <DrawingSection></DrawingSection>
+  <AbsoluteSectionPosition></AbsoluteSectionPosition>
+  <OriginalHeight>0</OriginalHeight>
+  <MinimalClearanceHeight>0</MinimalClearanceHeight>
+  <DeltaHeightSections>0</DeltaHeightSections>
+  <Location_X_End_Inclined>0</Location_X_End_Inclined>
+  <Angle>0</Angle>
+  <LabwareWells></LabwareWells>
+</FlexBase>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>0</DataVersion>
+  <Name>Rack for 4 ml Vacuette Tubes</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4552</PartNumber>
+  <Description>6x8 Tubes, 4ml blood tubes, in SLAS/ANSI format</Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>7550</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Circle</BottomShape>
+    <CollumnCount>8</CollumnCount>
+    <CollumnGap>1400</CollumnGap>
+    <Depth>7230</Depth>
+    <NominalWellVolume>400000</NominalWellVolume>
+    <VShapeDepth>3625</VShapeDepth>
+    <FirstHolePositionText>1475;899</FirstHolePositionText>
+    <RowCount>6</RowCount>
+    <RowGap>1350</RowGap>
+    <Shape>Circle</Shape>
+    <Size>1050</Size>
+    <Length>1050</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Tubeholder>

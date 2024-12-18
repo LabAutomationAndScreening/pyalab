@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>96 Deepwell Plate</Name>
+  <Manufacturer>EPPENDORF</Manufacturer>
+  <PartNumber>0030 501.101, 0030 501.110, 0030 501.136, 0030 501.144, 0030 502.108, 0030 502.116, 0030 502.132, 0030 502.140, 0030 503.104, 0030 503.147, 0030 504.100, 0030 504.119, 0030 507.100 0030 505.107, 0030 506.103</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12780</FootprintLengthMM>
+    <FootprintWidthMM>8550</FootprintWidthMM>
+    <HeightMM>2710</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Circle</BottomShape>
+    <CollumnCount>12</CollumnCount>
+    <CollumnGap>900</CollumnGap>
+    <Depth>2408</Depth>
+    <NominalWellVolume>70000</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1440;1120</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>700</Size>
+    <Length>700</Length>
+    <SizeBottom>640</SizeBottom>
+  </Wells>
+</Plate>

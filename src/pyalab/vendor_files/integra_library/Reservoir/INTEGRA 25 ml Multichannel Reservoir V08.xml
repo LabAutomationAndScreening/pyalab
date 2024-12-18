@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Reservoir Version="2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>8</DataVersion>
+  <Name>Multichannel Reservoir</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4310, 4311, 4312, 4315, 4316, 4317, 4380, 4381, 4382</PartNumber>
+  <Description>Polystyrene or Polypropylene</Description>
+  <IconPath>Reservoir_25ml_1.png</IconPath>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>5072</FootprintLengthMM>
+    <FootprintWidthMM>15012</FootprintWidthMM>
+    <HeightMM>2775</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>1</CollumnCount>
+    <CollumnGap>3000</CollumnGap>
+    <Depth>2365</Depth>
+    <NominalWellVolume>2500000</NominalWellVolume>
+    <VShapeDepth>2365</VShapeDepth>
+    <FirstHolePositionText>1101;1101</FirstHolePositionText>
+    <RowCount>1</RowCount>
+    <RowGap>12810</RowGap>
+    <Shape>Rectangle</Shape>
+    <Size>2869</Size>
+    <Length>12810</Length>
+    <SizeBottom>0</SizeBottom>
+    <HeightVolumeLookupTable>
+      <HeightVolume>
+        <Height>240</Height>
+        <Volume>200000</Volume>
+      </HeightVolume>
+      <HeightVolume>
+        <Height>340</Height>
+        <Volume>400000</Volume>
+      </HeightVolume>
+      <HeightVolume>
+        <Height>440</Height>
+        <Volume>600000</Volume>
+      </HeightVolume>
+      <HeightVolume>
+        <Height>540</Height>
+        <Volume>800000</Volume>
+      </HeightVolume>
+      <HeightVolume>
+        <Height>1040</Height>
+        <Volume>1800000</Volume>
+      </HeightVolume>
+      <HeightVolume>
+        <Height>1240</Height>
+        <Volume>2500000</Volume>
+      </HeightVolume>
+    </HeightVolumeLookupTable>
+    <Type>V_Shape_25</Type>
+  </Wells>
+</Reservoir>

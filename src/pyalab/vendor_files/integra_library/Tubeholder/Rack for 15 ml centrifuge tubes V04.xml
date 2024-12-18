@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>4</DataVersion>
+  <Name>Rack for 15 ml centrifuge tubes</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>4542</PartNumber>
+  <Description>4x6 centrifuge tubes (15 ml) in SLAS/ANSI format</Description>
+  <Measurements>
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>12070</HeightMM>
+  </Measurements>
+  <Wells>
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>1980</CollumnGap>
+    <Depth>11900</Depth>
+    <NominalWellVolume>1500000</NominalWellVolume>
+    <VShapeDepth>2150</VShapeDepth>
+    <FirstHolePositionText>1438;1304</FirstHolePositionText>
+    <RowCount>4</RowCount>
+    <RowGap>1980</RowGap>
+    <Shape>Circle</Shape>
+    <Size>1360</Size>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Tubeholder>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tubeholder Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>1</DataVersion>
+  <Name>1.5 ml screw tubes (HCS Modules INTEGRA)</Name>
+  <Manufacturer>GREINER</Manufacturer>
+  <PartNumber>716201</PartNumber>
+  <Description>Reference tube Greiner 1.5 ml screw tube PN 716201</Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>11810</FootprintLengthMM>
+    <FootprintWidthMM>8220</FootprintWidthMM>
+    <HeightMM>4550</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>1800</CollumnGap>
+    <Depth>4420</Depth>
+    <NominalWellVolume>150000</NominalWellVolume>
+    <VShapeDepth>1800</VShapeDepth>
+    <FirstHolePositionText>1210;1190</FirstHolePositionText>
+    <RowCount>4</RowCount>
+    <RowGap>1800</RowGap>
+    <Shape>Circle</Shape>
+    <Size>850</Size>
+    <Length>850</Length>
+    <SizeBottom>0</SizeBottom>
+  </Wells>
+</Tubeholder>

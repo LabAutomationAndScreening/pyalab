@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>12 Well F-Bottom Plate</Name>
+  <Manufacturer>TPP</Manufacturer>
+  <PartNumber>92012, 92412, 92112</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12780</FootprintLengthMM>
+    <FootprintWidthMM>8550</FootprintWidthMM>
+    <HeightMM>2020</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Square</BottomShape>
+    <CollumnCount>4</CollumnCount>
+    <CollumnGap>2490</CollumnGap>
+    <Depth>1695</Depth>
+    <NominalWellVolume>632500</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>2655;1785</FirstHolePositionText>
+    <RowCount>3</RowCount>
+    <RowGap>2490</RowGap>
+    <Shape>Circle</Shape>
+    <Size>2220</Size>
+    <Length>2220</Length>
+    <SizeBottom>2140</SizeBottom>
+  </Wells>
+</Plate>

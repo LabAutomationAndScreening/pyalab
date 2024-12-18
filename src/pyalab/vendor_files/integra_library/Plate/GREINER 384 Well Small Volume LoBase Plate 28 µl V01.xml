@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>1</DataVersion>
+  <Name>384 Well Small Volume LoBase Plate</Name>
+  <Manufacturer>GREINER</Manufacturer>
+  <PartNumber>788 860-906</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8548</FootprintWidthMM>
+    <HeightMM>750</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Square</BottomShape>
+    <CollumnCount>24</CollumnCount>
+    <CollumnGap>450</CollumnGap>
+    <Depth>550</Depth>
+    <NominalWellVolume>2800</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1213;899</FirstHolePositionText>
+    <RowCount>16</RowCount>
+    <RowGap>450</RowGap>
+    <Shape>Circle</Shape>
+    <Size>306</Size>
+    <Length>306</Length>
+    <SizeBottom>252</SizeBottom>
+  </Wells>
+</Plate>

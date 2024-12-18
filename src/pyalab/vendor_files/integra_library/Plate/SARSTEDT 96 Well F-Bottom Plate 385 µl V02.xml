@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>96 Well F-Bottom Plate</Name>
+  <Manufacturer>SARSTEDT</Manufacturer>
+  <PartNumber>82.1581.210, 82.1581.220, 82.1581.120, 82.1581.110, 82.1581.100, 82.1581.200</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12780</FootprintLengthMM>
+    <FootprintWidthMM>8520</FootprintWidthMM>
+    <HeightMM>1435</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Square</BottomShape>
+    <CollumnCount>12</CollumnCount>
+    <CollumnGap>900</CollumnGap>
+    <Depth>1120</Depth>
+    <NominalWellVolume>38500</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1440;1110</FirstHolePositionText>
+    <RowCount>8</RowCount>
+    <RowGap>900</RowGap>
+    <Shape>Circle</Shape>
+    <Size>690</Size>
+    <Length>690</Length>
+    <SizeBottom>670</SizeBottom>
+  </Wells>
+</Plate>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>0</DataVersion>
+  <Name>24 Well Deep Well Plate with Rectangular Wells</Name>
+  <Manufacturer>CORNING</Manufacturer>
+  <PartNumber>P-DW-10ML-24-C</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12789</FootprintLengthMM>
+    <FootprintWidthMM>8560</FootprintWidthMM>
+    <HeightMM>4404</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>6</CollumnCount>
+    <CollumnGap>1930</CollumnGap>
+    <Depth>4201</Depth>
+    <NominalWellVolume>1000000</NominalWellVolume>
+    <VShapeDepth>1200</VShapeDepth>
+    <FirstHolePositionText>1552;1384</FirstHolePositionText>
+    <RowCount>4</RowCount>
+    <RowGap>1930</RowGap>
+    <Shape>Square</Shape>
+    <Size>1715</Size>
+    <Length>1715</Length>
+    <SizeBottom>1562</SizeBottom>
+  </Wells>
+</Plate>

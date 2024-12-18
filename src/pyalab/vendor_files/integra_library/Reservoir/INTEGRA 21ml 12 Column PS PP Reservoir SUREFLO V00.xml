@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Reservoir Version="2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>0</DataVersion>
+  <Name>12 Column PS PP Reservoir SUREFLO</Name>
+  <Manufacturer>INTEGRA</Manufacturer>
+  <PartNumber>6363, 6364</PartNumber>
+  <Description>Polystyrene, Polypropylene</Description>
+  <IconPath>Reservoir_21ml_12_Well.png</IconPath>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12780</FootprintLengthMM>
+    <FootprintWidthMM>8560</FootprintWidthMM>
+    <HeightMM>4400</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>VShape</BottomShape>
+    <CollumnCount>12</CollumnCount>
+    <CollumnGap>900</CollumnGap>
+    <Depth>3920</Depth>
+    <NominalWellVolume>2149094</NominalWellVolume>
+    <VShapeDepth>355</VShapeDepth>
+    <FirstHolePositionText>1040;691</FirstHolePositionText>
+    <RowCount>1</RowCount>
+    <RowGap>7178</RowGap>
+    <Shape>Rectangle</Shape>
+    <Size>800</Size>
+    <Length>7178</Length>
+    <SizeBottom>0</SizeBottom>
+    <Type>Custom_V_Shape</Type>
+  </Wells>
+</Reservoir>

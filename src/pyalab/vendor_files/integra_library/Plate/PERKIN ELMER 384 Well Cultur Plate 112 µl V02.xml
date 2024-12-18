@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plate Version="0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataVersion>2</DataVersion>
+  <Name>384 Well Cultur Plate</Name>
+  <Manufacturer>PERKIN ELMER</Manufacturer>
+  <PartNumber>6007680, 6007660, 6007650, 6007290, 6005620, 6007270, 6005520, 6007640, 6007500, 6005350, 6057690, 6005310, 6007688, 6007668, 6007658, 6007299, 6005629, 6007689, 6007279, 6005529, 6007669, 6007649, 6007509, 6007659, 6005359, 6057699, 6005300</PartNumber>
+  <Description></Description>
+  <Measurements Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <FootprintLengthMM>12776</FootprintLengthMM>
+    <FootprintWidthMM>8547</FootprintWidthMM>
+    <HeightMM>1440</HeightMM>
+  </Measurements>
+  <Wells Version="0">
+    <DataVersion>0</DataVersion>
+    <Description></Description>
+    <Angle>0</Angle>
+    <SectionHeightCorrection>0</SectionHeightCorrection>
+    <DeltaHmax>0</DeltaHmax>
+    <BottomShape>Square</BottomShape>
+    <CollumnCount>24</CollumnCount>
+    <CollumnGap>450</CollumnGap>
+    <Depth>1045</Depth>
+    <NominalWellVolume>11200</NominalWellVolume>
+    <VShapeDepth>0</VShapeDepth>
+    <FirstHolePositionText>1214;899</FirstHolePositionText>
+    <RowCount>16</RowCount>
+    <RowGap>450</RowGap>
+    <Shape>Square</Shape>
+    <Size>365</Size>
+    <Length>365</Length>
+    <SizeBottom>300</SizeBottom>
+  </Wells>
+</Plate>
