@@ -32,6 +32,7 @@ build/
 
 # sphinx html
 docs/build
+docs/_build
 
 # Testing
 .pytest_cache/
