@@ -17,7 +17,7 @@ class StandardDeckNames(Enum):
     FOUR_POSITION = "4 Position Portrait Deck"
 
 
-class Deck(LibraryComponent):
+class Deck(LibraryComponent, frozen=True):
     type: ClassVar[LibraryComponentType] = LibraryComponentType.DECK
 
 
@@ -43,7 +43,7 @@ class DeckPosition(BaseModel, frozen=True):
         return int(round(self.length * 100, 0))
 
     def section_index(self, deck: Deck) -> int:
-        root = deck.xml_root
+        root = deck.load_xml()
         for idx, section in enumerate(root.findall("./Sections/Section")):
             name = section.find("Name")
             width = section.find("Width")

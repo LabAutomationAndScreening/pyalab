@@ -25,13 +25,12 @@ class IntegraLibraryObjectNotFoundError(OSError):
         super().__init__(f"Could not find {component_type.value} with name {name} while looking in {paths_searched}")
 
 
-class LibraryComponent(BaseModel):
+class LibraryComponent(BaseModel, frozen=True):
     type: ClassVar[LibraryComponentType]
     name: str
     xml_file_version: str | None = None
-    _xml_root: _Element | None = None
 
-    def load_xml(self) -> None:
+    def load_xml(self) -> _Element:
         directory = PATH_TO_INCLUDED_XML_FILES / self.type.value
         xml_files = directory.glob("*.xml")
         regex_pattern = re.compile(rf"{self.name}\ V\d+\.xml")
@@ -47,16 +46,9 @@ class LibraryComponent(BaseModel):
         tree = etree.parse(file, parser)  # noqa: S320 # using this custom parser should mitigate security concerns about untrusted XML files. And defusedxml is end of life anyway
         root = tree.getroot()
         assert isinstance(root, _Element), f"Expected root to be an Element, but got type {type(root)} for {root}"
-        self._xml_root = root
-
-    @property
-    def xml_root(self) -> _Element:
-        self.load_xml()  # issues were encountered when trying to generate the Deck portion of a program with not always reloading the XML...something must be mutating it when it should be mutating a copy...or not mutating it at all
-        assert isinstance(self._xml_root, _Element)
-        return self._xml_root
+        return root
 
     def create_xml_for_program(self) -> _Element:
-        self.load_xml()
         is_content = self.type in [LibraryComponentType.PLATE, LibraryComponentType.RESERVOIR]
         root = etree.Element(
             "Content"
@@ -70,6 +62,6 @@ class LibraryComponent(BaseModel):
                 self.type.value,  # TODO: confirm that all object types use the file directory as the xsi:type too
             )
 
-        for subelement in self.xml_root:
+        for subelement in self.load_xml():
             root.append(subelement)
         return root

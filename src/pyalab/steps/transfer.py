@@ -105,7 +105,7 @@ class Transfer(Step):
                                 "DeckSection": self.destination_section_index,
                                 "SubSection": -1,
                                 "Volume": ul_to_xml(self.volume),
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                                 "Multiplier": 1,
                                 "TotalVolume": ul_to_xml(
                                     self.volume
@@ -125,7 +125,7 @@ class Transfer(Step):
                                 "AirgapVolume": 0,
                                 "AspirationSpeed": 8,
                                 "DispenseSpeed": 8,
-                                "TipID": 23,
+                                "TipID": self.tip_id,
                             }
                         ]
                     ),
@@ -154,7 +154,7 @@ class Transfer(Step):
                                 "SubSection": -1,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
                                 "EndHeight": 325,
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                             }
                         ]
                     ),
@@ -181,7 +181,7 @@ class Transfer(Step):
                                 "DeckSection": self.source_section_index,
                                 "SubSection": -1,
                                 "WellBottomOffset": 200,
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                             }
                         ]
                     ),
@@ -201,7 +201,7 @@ class Transfer(Step):
                                 "SubSection": -1,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
                                 "EndHeight": 325,
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                             }
                         ]
                     ),
@@ -228,7 +228,7 @@ class Transfer(Step):
                                 "DeckSection": self.destination_section_index,
                                 "SubSection": -1,
                                 "WellBottomOffset": 200,
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                             }
                         ]
                     ),
@@ -254,7 +254,7 @@ class Transfer(Step):
                         obj=[
                             {
                                 "MixSpeed": 8,
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                             }
                         ]
                     ),
@@ -269,7 +269,7 @@ class Transfer(Step):
                                 "DeckSection": self.source_section_index,
                                 "SubSection": -1,
                                 "Volume": 5000,  # TODO: implement mixing volume
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                                 "Multiplier": 1,
                                 "TotalVolume": 5000,  # TODO: figure out when/if this needs to differ from Volume
                             }
@@ -303,7 +303,7 @@ class Transfer(Step):
                                 "SubSection": -1,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
                                 "EndHeight": 0,
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                             }
                         ]
                     ),
@@ -321,7 +321,7 @@ class Transfer(Step):
                         obj=[
                             {
                                 "MixSpeed": 8,
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                             }
                         ]
                     ),
@@ -336,7 +336,7 @@ class Transfer(Step):
                                 "DeckSection": self.destination_section_index,
                                 "SubSection": -1,
                                 "Volume": 5000,  # TODO: implement mixing volume
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                                 "Multiplier": 1,
                                 "TotalVolume": 5000,  # TODO: figure out when/if this needs to differ from Volume
                             }
@@ -370,7 +370,7 @@ class Transfer(Step):
                                 "SubSection": -1,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
                                 "EndHeight": 0,
-                                "TipID": 23,  # TODO: figure out how to get this from the Tip
+                                "TipID": self.tip_id,
                             }
                         ]
                     ),
