@@ -1,8 +1,11 @@
 from pathlib import Path
 
+import pytest
+
 from pyalab import Deck
 from pyalab import DeckLayout
 from pyalab import DeckPositions
+from pyalab import LabwareNotInDeckLayoutError
 from pyalab import Pipette
 from pyalab import Plate
 from pyalab import Program
@@ -10,6 +13,26 @@ from pyalab import SetInitialVolume
 from pyalab import StandardDeckNames
 from pyalab import Tip
 from pyalab import Transfer
+
+
+def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error():
+    other_plate = Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates", display_name="not my plate")
+    program = Program(
+        deck_layouts=[
+            DeckLayout(
+                deck=Deck(name=StandardDeckNames.THREE_POSITION.value),
+                labware={DeckPositions.B_PLATE_LANDSCAPE.value: other_plate},
+            )
+        ],
+        display_name="arbitrary",
+        description="arbitrary",
+        pipette=Pipette(name="VOYAGER EIGHT 300 µl"),  # arbitrary
+        tip=Tip(name="300 µl GripTip Sterile Filter Low retention"),  # arbitrary
+    )
+    desired_plate = Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates", display_name="PCR Plate")
+
+    with pytest.raises(LabwareNotInDeckLayoutError, match=rf"{desired_plate.name}.*{desired_plate.display_name}"):
+        _ = program.get_section_index_for_plate(desired_plate)
 
 
 def test_simple_transfer_program_matches_snapshot():

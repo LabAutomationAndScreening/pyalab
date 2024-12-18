@@ -11,6 +11,7 @@ from .integra_xml import LibraryComponentType
 from .pipette import Pipette
 from .pipette import Tip
 from .plate import Plate
+from .program import LabwareNotInDeckLayoutError
 from .program import Program
 from .steps import SetInitialVolume
 from .steps import SetVolume
@@ -25,6 +26,7 @@ __all__ = [
     "DeckPositionNotFoundError",
     "DeckPositions",
     "IntegraLibraryObjectNotFoundError",
+    "LabwareNotInDeckLayoutError",
     "LibraryComponent",
     "LibraryComponentType",
     "Pipette",

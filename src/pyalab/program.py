@@ -14,6 +14,11 @@ from .plate import Plate
 from .steps import Step
 
 
+class LabwareNotInDeckLayoutError(Exception):
+    def __init__(self, plate: Plate):
+        super().__init__(f"Could not find {plate.name} (called {plate.display_name}) in the deck layout")
+
+
 class Program(BaseModel):
     deck_layouts: list[DeckLayout] = Field(min_length=1)  # TODO: validate that all layouts use the same base Deck
     display_name: str  # TODO: validate length and character classes
@@ -31,7 +36,8 @@ class Program(BaseModel):
         for deck_position, iter_plate in first_deck_layout.labware.items():
             if iter_plate == plate:
                 return deck_position.section_index(first_deck_layout.deck)
-        raise NotImplementedError("Plate not found in any deck position")
+
+        raise LabwareNotInDeckLayoutError(plate)
 
     def dump_xml(self, file_path: Path) -> None:
         config_version = 4
