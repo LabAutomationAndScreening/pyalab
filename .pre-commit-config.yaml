@@ -148,6 +148,8 @@ repos:
     rev: 501f3d60cee13c712492103343bc23efdc7b3d1f #v1.0.1
     hooks:
     -   id: rst-linter
+        # this hook fails on Sphinx documentation https://github.com/Lucas-C/pre-commit-hooks-markup/issues/13
+        exclude: docs/.*\.rst$
 
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     rev: fc6ef5d0dd21a2a98a7fc6956e4f16166cb6562a  # frozen: v0.8.3
