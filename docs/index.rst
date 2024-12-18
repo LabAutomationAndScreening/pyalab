@@ -6,11 +6,23 @@
 pyalab documentation
 ====================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+Pyalab allows you to use Python to generate programs for ViaLab to control an Integra Assist Plus liquid handling robot.
+
+Once generated, the files can be simulated within ViaLab and further edited if needed.
+
+At the moment, a limited subset of the full functionality of ViaLab is implemented, but more is being added each day.
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   example
+   steps
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
