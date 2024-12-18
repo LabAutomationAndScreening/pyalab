@@ -9,14 +9,23 @@ from .base import ul_to_xml
 
 
 class Transfer(Step):
+    """Simple transfer from one column to another."""
+
     type = "Transfer"
     source: Plate
+    """The source plate to aspirate from."""
     destination: Plate
+    """The destination plate to dispense into."""
     source_section_index: int | None = None
+    """The section index on the Deck of the source plate."""
     source_column_index: int
+    """The column index to aspirate from."""
     destination_section_index: int | None = None
+    """The section index on the Deck of the destination plate."""
     destination_column_index: int
+    """The column index to dispense into."""
     volume: float
+    """The volume to transfer."""
 
     @override
     def _add_value_groups(self) -> None:

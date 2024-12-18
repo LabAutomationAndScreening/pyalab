@@ -11,6 +11,8 @@
 [![Documentation Status](https://readthedocs.org/projects/pyalab/badge/?version=latest)](https://pyalab.readthedocs.io/en/latest/?badge=latest)
 
 # Usage
+Pyalab is a way to use Python generate programs for Vialab---the software that controls the Integra ASSIST Plus automated liquid handling robot.
+
 Documentation is hosted on [ReadTheDocs](https://pyalab.readthedocs.io/en/latest/?badge=latest).
 
 Coming soon: a MyBinder-hosted online environment to generate your ViaLab programs---you don't need to worry about installing Python yourself.

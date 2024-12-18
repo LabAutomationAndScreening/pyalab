@@ -1,6 +1,6 @@
 [project]
 name = "pyalab"
-version = "0.1.0"
+version = "0.1.1"
 description = "Generating programs for ViaLab to control an Integra Assist Plus liquid handling robot"
 authors = [
     {name = "Eli Fine"},
@@ -30,6 +30,7 @@ dev = [
     "syrupy>=4.8.0",
     "pytest-mock>=3.14.0",
     "faker>=31.1.0",
+    "autodoc_pydantic==2.2.0",
 
     # Managed by upstream template
     "pyright>=1.1.391",
