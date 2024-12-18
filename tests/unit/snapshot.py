@@ -1,9 +1,10 @@
-from syrupy.extensions.single_file import SingleFileSnapshotExtension, WriteMode
-import pytest, uuid
+import uuid
 
-from syrupy.assertion import SnapshotAssertion
+import pytest
 from pytest_mock import MockerFixture
-from faker import Faker
+from syrupy.assertion import SnapshotAssertion
+from syrupy.extensions.single_file import SingleFileSnapshotExtension
+from syrupy.extensions.single_file import WriteMode
 
 
 class SingleFileXmlSnapshot(SingleFileSnapshotExtension):

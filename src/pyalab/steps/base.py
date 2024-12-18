@@ -1,3 +1,4 @@
+import json
 import uuid
 from abc import ABC
 from abc import abstractmethod
@@ -7,9 +8,11 @@ from lxml import etree
 from lxml.etree import _Element
 from pydantic import BaseModel
 
+from pyalab.pipette import Tip
+
 
 def ul_to_xml(volume: float) -> int:
-    # ViaLab uses 0.01 uL as the base unit for volume
+    # ViaLab uses 0.01 uL as the base unit for volume, so convert from uL
     return int(round(volume * 100, 0))
 
 
@@ -18,6 +21,19 @@ SPECIAL_CHARS = ('"', "[", "]", "{", "}")
 
 class Step(BaseModel, ABC):
     type: ClassVar[str]
+    _tip: Tip | None = None
+
+    def set_tip(self, tip: Tip) -> None:
+        self._tip = tip
+
+    @property
+    def tip(self) -> Tip:
+        assert self._tip is not None
+        return self._tip
+
+    @property
+    def tip_id(self) -> int:
+        return self.tip.tip_id
 
     def create_xml_for_program(self) -> _Element:
         root = etree.Element("Step")
@@ -25,7 +41,7 @@ class Step(BaseModel, ABC):
             ("Type", self.type),
             ("IsEnabled", "true"),
             ("ID", str(uuid.uuid4())),
-            ("IsNew", "false"),
+            ("IsNew", json.dumps(obj=False)),
             (
                 "DeckID",
                 "00000000-0000-0000-0000-000000000000",

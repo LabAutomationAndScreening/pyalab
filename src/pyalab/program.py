@@ -1,3 +1,4 @@
+import json
 import re
 import uuid
 from pathlib import Path
@@ -28,6 +29,7 @@ class Program(BaseModel):
     steps: list[Step] = Field(default_factory=list)
 
     def add_step(self, step: Step) -> None:
+        step.set_tip(self.tip)
         self.steps.append(step)
 
     def get_section_index_for_plate(self, plate: Plate) -> int:
@@ -85,7 +87,16 @@ class Program(BaseModel):
             ("AfterTipEjectMonitoring", "true"),
             ("AfterTipLoadMonitoring", "false"),
             ("BeforeTipEjectMonitoring", "true"),
-            ("TipTypeRequiredTips", '{"23":0}'),  # TODO: get this from the Tip
+            (
+                "TipTypeRequiredTips",
+                json.dumps(
+                    {
+                        str(
+                            self.tip.tip_id
+                        ): 0  # there seems to be no negative impact of not calculating the required tips, ViaLab will do it automatically when the program is first loaded
+                    }
+                ),
+            ),
             ("WasteAsTargetOption", "false"),
             ("LabwareReintegration", "false"),
             ("CopyHeightAdjustment", "false"),

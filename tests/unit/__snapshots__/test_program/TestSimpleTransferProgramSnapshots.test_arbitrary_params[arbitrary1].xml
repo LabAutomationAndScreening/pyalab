@@ -921,7 +921,7 @@
       <Value Key="AfterTipEjectMonitoring">true</Value>
       <Value Key="AfterTipLoadMonitoring">false</Value>
       <Value Key="BeforeTipEjectMonitoring">true</Value>
-      <Value Key="TipTypeRequiredTips"><![CDATA[{"23":0}]]></Value>
+      <Value Key="TipTypeRequiredTips"><![CDATA[{"23": 0}]]></Value>
       <Value Key="WasteAsTargetOption">false</Value>
       <Value Key="LabwareReintegration">false</Value>
       <Value Key="CopyHeightAdjustment">false</Value>
