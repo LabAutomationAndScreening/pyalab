@@ -37,50 +37,78 @@ def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error()
         _ = program.get_section_index_for_plate(desired_plate)
 
 
-def test_simple_transfer_program_matches_snapshot(snapshot_xml: SnapshotAssertion):
-    source_column_index = 3  # arbitrary
-    destination_column_index = 8
-    pcr_plate = Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates", display_name="PCR Plate")
-    program = Program(
-        deck_layouts=[
-            DeckLayout(
-                deck=Deck(name=StandardDeckNames.THREE_POSITION.value),
-                labware={DeckPositions.B_PLATE_LANDSCAPE.value: pcr_plate},
-            )
+class TestSimpleTransferProgramSnapshots:
+    @pytest.fixture(autouse=True)
+    def _setup(self, snapshot_xml: SnapshotAssertion):
+        self.snapshot_xml = snapshot_xml
+
+    @pytest.mark.parametrize(
+        (
+            "source_column_index",
+            "destination_column_index",
+            "starting_volume",
+            "transfer_volume",
+            "display_name",
+            "description",
+        ),
+        [
+            pytest.param(3, 8, 100, 50, "simple-transfer", "One transfer within a 96-well plate", id="arbitrary1"),
+            pytest.param(5, 1, 132.21, 37.5, "wakka_wakka", "doing science!", id="arbitrary2"),
         ],
-        display_name="simple-transfer",
-        description="One transfer within a 96-well plate",
-        pipette=Pipette(name="VOYAGER EIGHT 300 µl"),
-        tip=Tip(name="300 µl GripTip Sterile Filter Low retention"),
     )
-    pcr_plate_section_index = program.get_section_index_for_plate(pcr_plate)
-
-    program.add_step(
-        SetInitialVolume(
-            plate=pcr_plate, section_index=pcr_plate_section_index, column_index=source_column_index, volume=100
+    def test_arbitrary_params(  # noqa: PLR0913 # this is a lot of arguments to parametrize, but it makes it more efficient to not generate a bunch of separate snapshot files
+        self,
+        source_column_index: int,
+        destination_column_index: int,
+        starting_volume: float,
+        transfer_volume: float,
+        display_name: str,
+        description: str,
+    ):
+        pcr_plate = Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates", display_name="PCR Plate")
+        program = Program(
+            deck_layouts=[
+                DeckLayout(
+                    deck=Deck(name=StandardDeckNames.THREE_POSITION.value),
+                    labware={DeckPositions.B_PLATE_LANDSCAPE.value: pcr_plate},
+                )
+            ],
+            display_name=display_name,
+            description=description,
+            pipette=Pipette(name="VOYAGER EIGHT 300 µl"),
+            tip=Tip(name="300 µl GripTip Sterile Filter Low retention"),
         )
-    )
-    program.add_step(
-        SetInitialVolume(
-            plate=pcr_plate, section_index=pcr_plate_section_index, column_index=destination_column_index, volume=0
+        pcr_plate_section_index = program.get_section_index_for_plate(pcr_plate)
+
+        program.add_step(
+            SetInitialVolume(
+                plate=pcr_plate,
+                section_index=pcr_plate_section_index,
+                column_index=source_column_index,
+                volume=starting_volume,
+            )
         )
-    )
-
-    program.add_step(
-        Transfer(
-            source=pcr_plate,
-            source_section_index=pcr_plate_section_index,
-            source_column_index=source_column_index,
-            destination=pcr_plate,
-            destination_section_index=pcr_plate_section_index,
-            destination_column_index=destination_column_index,
-            volume=50,
+        program.add_step(
+            SetInitialVolume(
+                plate=pcr_plate, section_index=pcr_plate_section_index, column_index=destination_column_index, volume=0
+            )
         )
-    )
 
-    with TemporaryDirectory() as temp_dir:
-        file_path = Path(temp_dir) / "simple_transfer_program.iaa"
-        program.dump_xml(file_path)
-        xml_str = file_path.read_text()
+        program.add_step(
+            Transfer(
+                source=pcr_plate,
+                source_section_index=pcr_plate_section_index,
+                source_column_index=source_column_index,
+                destination=pcr_plate,
+                destination_section_index=pcr_plate_section_index,
+                destination_column_index=destination_column_index,
+                volume=transfer_volume,
+            )
+        )
 
-    assert xml_str == snapshot_xml
+        with TemporaryDirectory() as temp_dir:
+            file_path = Path(temp_dir) / "simple_transfer_program.iaa"
+            program.dump_xml(file_path)
+            xml_str = file_path.read_text()
+
+        assert xml_str == self.snapshot_xml
