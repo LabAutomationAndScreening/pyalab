@@ -1,17 +1,17 @@
 [tool.pylint.messages_control]
 disable = "all"
 enable = [
-  # these are always needed to ensure that a crash within pylint itself appropriately causes a failure
+  # These are always needed to ensure that a crash within pylint itself appropriately causes a failure
   "astroid-error",
   "fatal",
-  # rules relating to errors found parsing this config file
+  # Rules relating to errors found parsing this config file
   "config-parse-error",
   "unknown-option-value",
   "useless-option-value",
-  # general rules for pylint being used correctly in the code
+  # General rules for pylint being used correctly in the code
   "unrecognized-inline-option",
   "useless-suppression",
-  # rules we actually care about
+  # Rules we actually care about
   "duplicate-code",
 ]
 
