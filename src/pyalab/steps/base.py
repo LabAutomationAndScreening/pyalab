@@ -4,9 +4,11 @@ from abc import ABC
 from abc import abstractmethod
 from typing import ClassVar
 
+from inflection import camelize
 from lxml import etree
 from lxml.etree import _Element
 from pydantic import BaseModel
+from pydantic import Field
 
 from pyalab.pipette import Tip
 
@@ -17,6 +19,53 @@ def ul_to_xml(volume: float) -> int:
 
 
 SPECIAL_CHARS = ('"', "[", "]", "{", "}")
+
+ALIASES = {"column_index": "Item1", "row_index": "Item2"}
+
+
+def alias_generator(name: str) -> str:
+    return ALIASES.get(name, name)
+
+
+class WellRowCol(BaseModel, frozen=True):
+    column_index: int = Field(ge=0)
+    row_index: int = Field(ge=0)
+    model_config = {
+        "populate_by_name": True,  # Allow population by field name
+        "alias_generator": alias_generator,
+    }
+
+
+class DeckSection(BaseModel, frozen=True):
+    deck_section: int
+    sub_section: int
+    model_config = {
+        "populate_by_name": True,  # Allow population by field name
+        "alias_generator": camelize,  # Convert field names to camelCase
+    }
+
+
+class Section(BaseModel, frozen=True):
+    """Some steps call it Section instead of DeckSection."""
+
+    section: int
+    sub_section: int
+    model_config = {
+        "populate_by_name": True,  # Allow population by field name
+        "alias_generator": camelize,  # Convert field names to camelCase
+    }
+
+
+class WellOffsets(BaseModel, frozen=True):
+    deck_section: int
+    sub_section: int
+    offset_x: int
+    offset_y: int
+
+    model_config = {
+        "populate_by_name": True,  # Allow population by field name
+        "alias_generator": camelize,  # Convert field names to camelCase
+    }
 
 
 class Step(BaseModel, ABC):

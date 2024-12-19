@@ -6,7 +6,9 @@ from pydantic import Field
 
 from pyalab.plate import Plate
 
+from .base import Section
 from .base import Step
+from .base import WellRowCol
 from .base import ul_to_xml
 
 
@@ -28,17 +30,22 @@ class SetVolume(Step):
 
     @override
     def _add_value_groups(self) -> None:
+        assert self.section_index is not None, "section_index must be set prior to creating XML"
+        well = WellRowCol(
+            column_index=self.column_index,
+            row_index=0,  # TODO: handle row index
+        )
+        deck_section = Section(
+            section=self.section_index,
+            sub_section=-1,  # TODO: figure out what subsection means
+        )
         volume_info: list[dict[str, Any]] = [
             {
                 "WellCoordinates": [
-                    {
-                        "Item1": self.column_index,
-                        "Item2": 0,  # TODO: handle row index
-                    }
+                    well.model_dump(by_alias=True),
                 ],
                 "Volume": ul_to_xml(self.volume),
-                "Section": self.section_index,
-                "SubSection": -1,  # TODO: figure out what subsection means
+                **deck_section.model_dump(by_alias=True),
                 "Spacing": 900,  # TODO: handle spacing other than 96-well plate
                 "ColorIndex": 1,  # TODO: figure out if/when this changes
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
