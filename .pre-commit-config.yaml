@@ -13,7 +13,7 @@ repos:
 - repo: local
   hooks:
     - id: uv-check
-      name: check pyproject.toml for valid Poetry config
+      name: check pyproject.toml for valid uv config
       entry: bash -c 'uv lock --check'
       language: system
       pass_filenames: false
