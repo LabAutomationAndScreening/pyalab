@@ -19,10 +19,3 @@ At the moment, a limited subset of the full functionality of ViaLab is implement
 
    example
    steps
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

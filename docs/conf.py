@@ -24,10 +24,10 @@ autodoc_pydantic_model_undoc_members = False
 autodoc_pydantic_model_show_json = False
 autodoc_pydantic_model_show_validator_members = False
 autodoc_pydantic_settings_hide_paramlist = True
-autodoc_pydantic_settings_signature_prefix = " "
+autodoc_pydantic_settings_signature_prefix = ""
 autodoc_pydantic_model_member_order = "bysource"
-autodoc_pydantic_model_members = False
 autodoc_pydantic_settings_show_field_summary = False
+autodoc_member_order = "bysource"
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
