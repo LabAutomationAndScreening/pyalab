@@ -5,6 +5,7 @@ from typing import override
 from pyalab.plate import Plate
 
 from .base import Step
+from .base import WellOffsets
 from .base import ul_to_xml
 
 
@@ -29,6 +30,7 @@ class Transfer(Step):
 
     @override
     def _add_value_groups(self) -> None:
+        assert self.source_section_index is not None, "Source section index must be set prior to creating XML"
         source_info: list[dict[str, Any]] = [
             {
                 "Wells": [
@@ -70,12 +72,9 @@ class Transfer(Step):
                     "WellOffsets",
                     json.dumps(
                         [
-                            {
-                                "DeckSection": self.source_section_index,
-                                "SubSection": -1,
-                                "OffsetX": 0,
-                                "OffsetY": 0,
-                            }
+                            WellOffsets(
+                                deck_section=self.source_section_index, sub_section=-1, offset_x=0, offset_y=0
+                            ).model_dump(by_alias=True)
                         ]
                     ),
                 ),

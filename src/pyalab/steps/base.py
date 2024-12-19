@@ -4,6 +4,7 @@ from abc import ABC
 from abc import abstractmethod
 from typing import ClassVar
 
+from inflection import camelize
 from lxml import etree
 from lxml.etree import _Element
 from pydantic import BaseModel
@@ -17,6 +18,18 @@ def ul_to_xml(volume: float) -> int:
 
 
 SPECIAL_CHARS = ('"', "[", "]", "{", "}")
+
+
+class WellOffsets(BaseModel, frozen=True):
+    deck_section: int
+    sub_section: int
+    offset_x: int
+    offset_y: int
+
+    model_config = {
+        "populate_by_name": True,  # Allow population by field name
+        "alias_generator": camelize,  # Convert field names to camelCase
+    }
 
 
 class Step(BaseModel, ABC):
