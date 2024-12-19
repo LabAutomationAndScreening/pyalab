@@ -4,6 +4,7 @@ from typing import override
 
 from pyalab.plate import Plate
 
+from .base import DeckSection
 from .base import Step
 from .base import WellOffsets
 from .base import WellRowCol
@@ -33,6 +34,13 @@ class Transfer(Step):
     def _add_value_groups(self) -> None:
         assert self.source_section_index is not None, "Source section index must be set prior to creating XML"
         assert self.destination_section_index is not None, "Destination section index must be set prior to creating XML"
+        source_deck_section_model = DeckSection(
+            deck_section=self.source_section_index,
+            sub_section=-1,  # TODO: figure out what subsection means
+        )
+        source_deck_section = source_deck_section_model.model_dump(by_alias=True)
+        destination_deck_section_model = DeckSection(deck_section=self.destination_section_index, sub_section=-1)
+        destination_deck_section = destination_deck_section_model.model_dump(by_alias=True)
         source_well = WellRowCol(column_index=self.source_column_index, row_index=0).model_dump(
             by_alias=True
         )  # TODO: handle row index
@@ -42,8 +50,7 @@ class Transfer(Step):
         source_info: list[dict[str, Any]] = [
             {
                 "Wells": [source_well],
-                "DeckSection": self.source_section_index,
-                "SubSection": -1,  # TODO: figure out what subsection means
+                **source_deck_section,
                 "Spacing": 900,  # TODO: handle spacing other than 96-well plate
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
                 "WorkingDirectionExtended": 0,  # TODO: figure out what this is
@@ -53,8 +60,7 @@ class Transfer(Step):
         target_info: list[dict[str, Any]] = [
             {
                 "Wells": [destination_well],
-                "DeckSection": self.destination_section_index,
-                "SubSection": -1,  # TODO: figure out what subsection means
+                **destination_deck_section,
                 "Spacing": 900,  # TODO: handle spacing other than 96-well plate
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
                 "WorkingDirectionExtended": 0,  # TODO: figure out what this is
@@ -70,9 +76,9 @@ class Transfer(Step):
                     "WellOffsets",
                     json.dumps(
                         [
-                            WellOffsets(
-                                deck_section=self.source_section_index, sub_section=-1, offset_x=0, offset_y=0
-                            ).model_dump(by_alias=True)
+                            WellOffsets(offset_x=0, offset_y=0, **source_deck_section_model.model_dump()).model_dump(
+                                by_alias=True
+                            )
                         ]
                     ),
                 ),
@@ -87,7 +93,7 @@ class Transfer(Step):
                     json.dumps(
                         [
                             WellOffsets(
-                                deck_section=self.destination_section_index, sub_section=-1, offset_x=0, offset_y=0
+                                offset_x=0, offset_y=0, **destination_deck_section_model.model_dump()
                             ).model_dump(by_alias=True)
                         ]
                     ),
@@ -105,8 +111,7 @@ class Transfer(Step):
                         [
                             {
                                 "Well": destination_well,
-                                "DeckSection": self.destination_section_index,
-                                "SubSection": -1,
+                                **destination_deck_section,
                                 "Volume": ul_to_xml(self.volume),
                                 "TipID": self.tip_id,
                                 "Multiplier": 1,
@@ -153,8 +158,7 @@ class Transfer(Step):
                         [
                             {
                                 "Well": source_well,
-                                "DeckSection": self.source_section_index,
-                                "SubSection": -1,
+                                **source_deck_section,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
                                 "EndHeight": 325,
                                 "TipID": self.tip_id,
@@ -168,8 +172,7 @@ class Transfer(Step):
                     json.dumps(
                         [
                             {
-                                "DeckSection": self.source_section_index,
-                                "SubSection": -1,
+                                **source_deck_section,
                                 "HeightConfigType": True,
                                 "WellBottomOffset": 0,
                             }
@@ -181,8 +184,7 @@ class Transfer(Step):
                     json.dumps(
                         [
                             {
-                                "DeckSection": self.source_section_index,
-                                "SubSection": -1,
+                                **source_deck_section,
                                 "WellBottomOffset": 200,
                                 "TipID": self.tip_id,
                             }
@@ -200,8 +202,7 @@ class Transfer(Step):
                         [
                             {
                                 "Well": destination_well,
-                                "DeckSection": self.destination_section_index,
-                                "SubSection": -1,
+                                **destination_deck_section,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
                                 "EndHeight": 325,
                                 "TipID": self.tip_id,
@@ -215,8 +216,7 @@ class Transfer(Step):
                     json.dumps(
                         [
                             {
-                                "DeckSection": self.destination_section_index,
-                                "SubSection": -1,
+                                **destination_deck_section,
                                 "HeightConfigType": True,
                                 "WellBottomOffset": 0,
                             }
@@ -228,8 +228,7 @@ class Transfer(Step):
                     json.dumps(
                         [
                             {
-                                "DeckSection": self.destination_section_index,
-                                "SubSection": -1,
+                                **destination_deck_section,
                                 "WellBottomOffset": 200,
                                 "TipID": self.tip_id,
                             }
@@ -269,8 +268,7 @@ class Transfer(Step):
                         obj=[
                             {
                                 "Well": source_well,
-                                "DeckSection": self.source_section_index,
-                                "SubSection": -1,
+                                **source_deck_section,
                                 "Volume": 5000,  # TODO: implement mixing volume
                                 "TipID": self.tip_id,
                                 "Multiplier": 1,
@@ -287,8 +285,7 @@ class Transfer(Step):
                     json.dumps(
                         obj=[
                             {
-                                "DeckSection": self.source_section_index,
-                                "SubSection": -1,
+                                **source_deck_section,
                                 "HeightConfigType": True,
                                 "WellBottomOffset": 0,
                             }
@@ -302,8 +299,7 @@ class Transfer(Step):
                         obj=[
                             {
                                 "Well": source_well,
-                                "DeckSection": self.source_section_index,
-                                "SubSection": -1,
+                                **source_deck_section,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
                                 "EndHeight": 0,
                                 "TipID": self.tip_id,
@@ -336,8 +332,7 @@ class Transfer(Step):
                         obj=[
                             {
                                 "Well": destination_well,
-                                "DeckSection": self.destination_section_index,
-                                "SubSection": -1,
+                                **destination_deck_section,
                                 "Volume": 5000,  # TODO: implement mixing volume
                                 "TipID": self.tip_id,
                                 "Multiplier": 1,
@@ -354,8 +349,7 @@ class Transfer(Step):
                     json.dumps(
                         obj=[
                             {
-                                "DeckSection": self.destination_section_index,
-                                "SubSection": -1,
+                                **destination_deck_section,
                                 "HeightConfigType": True,
                                 "WellBottomOffset": 0,
                             }
@@ -369,8 +363,7 @@ class Transfer(Step):
                         obj=[
                             {
                                 "Well": destination_well,
-                                "DeckSection": self.destination_section_index,
-                                "SubSection": -1,
+                                **destination_deck_section,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
                                 "EndHeight": 0,
                                 "TipID": self.tip_id,
@@ -391,8 +384,7 @@ class Transfer(Step):
                     json.dumps(
                         obj=[
                             {
-                                "DeckSection": self.destination_section_index,
-                                "SubSection": -1,
+                                **destination_deck_section,
                                 "Type": False,
                                 "Height": 1406,  # TODO: implement tip touch
                                 "Distance": 225,
