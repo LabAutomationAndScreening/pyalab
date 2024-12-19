@@ -3,14 +3,16 @@
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "features": {
-    "ghcr.io/devcontainers/features/aws-cli:1": { // view latest version https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
+    "ghcr.io/devcontainers/features/aws-cli:1": {
+      // view latest version https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
       "version": "2.19.3"
     },
-    "ghcr.io/devcontainers/features/python:1": { // https://github.com/devcontainers/features/tree/main/src/python
+    "ghcr.io/devcontainers/features/python:1": {
+      // https://github.com/devcontainers/features/tree/main/src/python
       "version": "3.12.7",
       "installTools": false,
       "optimize": true
-    },
+    }
   },
   "customizations": {
     "vscode": {
@@ -32,22 +34,27 @@
         "samuelcolvin.jinjahtml@0.20.0",
         "tamasfe.even-better-toml@0.19.2",
         "emilast.LogFileHighlighter@3.3.3",
+        "esbenp.prettier-vscode@11.0.0"
       ],
       "settings": {
-        "editor.accessibilitySupport": "off", // turn off annoying sounds
+        "editor.accessibilitySupport": "off", // turn off sounds
         "extensions.autoUpdate": false,
         "extensions.autoCheckUpdates": false,
         "[python]": {
           "editor.formatOnSave": true,
-          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.defaultFormatter": "charliermarsh.ruff"
         },
         "ruff.nativeServer": "on",
         // TODO: see if there's a way to specify different configurations for different folders
         "ruff.configuration": "/workspaces/pyalab/ruff-test.toml", // use the test configuration since it's less restrictive and won't show false positives and underline things
-      },
-    },
+        "[jsonc][json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true
+        }
+      }
+    }
   },
-  //"initializeCommand": "sh .devcontainer/initialize-command.sh",
+  "initializeCommand": "sh .devcontainer/initialize-command.sh",
   "onCreateCommand": "sh .devcontainer/on-create-command.sh",
   "postStartCommand": ".devcontainer/post-start-command.sh",
 }
