@@ -5,7 +5,8 @@ from typing import override
 from pyalab.plate import Plate
 
 from .base import Step
-from .base import WellOffsets, WellRowCol
+from .base import WellOffsets
+from .base import WellRowCol
 from .base import ul_to_xml
 
 

@@ -8,9 +8,9 @@ from inflection import camelize
 from lxml import etree
 from lxml.etree import _Element
 from pydantic import BaseModel
+from pydantic import Field
 
 from pyalab.pipette import Tip
-from pydantic import Field
 
 
 def ul_to_xml(volume: float) -> int:
