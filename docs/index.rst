@@ -16,6 +16,8 @@ At the moment, a limited subset of the full functionality of ViaLab is implement
 
 Pyalab can be installed using ``pip install pyalab``.
 
+Pyalab has been tested with Vialab 3.4.0.
+
 
 .. toctree::
    :maxdepth: 2
