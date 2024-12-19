@@ -25,7 +25,7 @@ class Transfer(Step):
     destination_column_index: int
     """The column index to dispense into."""
     volume: float
-    """The volume to transfer."""
+    """The volume to transfer (µl)."""
 
     @override
     def _add_value_groups(self) -> None:
