@@ -56,5 +56,5 @@
   },
   "initializeCommand": "sh .devcontainer/initialize-command.sh",
   "onCreateCommand": "sh .devcontainer/on-create-command.sh",
-  "postStartCommand": ".devcontainer/post-start-command.sh",
+  "postStartCommand": "sh .devcontainer/post-start-command.sh"
 }
