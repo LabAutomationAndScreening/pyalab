@@ -5,7 +5,7 @@ from typing import override
 from pyalab.plate import Plate
 
 from .base import Step
-from .base import WellOffsets
+from .base import WellOffsets, WellRowCol
 from .base import ul_to_xml
 
 
@@ -31,14 +31,16 @@ class Transfer(Step):
     @override
     def _add_value_groups(self) -> None:
         assert self.source_section_index is not None, "Source section index must be set prior to creating XML"
+        assert self.destination_section_index is not None, "Destination section index must be set prior to creating XML"
+        source_well = WellRowCol(column_index=self.source_column_index, row_index=0).model_dump(
+            by_alias=True
+        )  # TODO: handle row index
+        destination_well = WellRowCol(column_index=self.destination_column_index, row_index=0).model_dump(
+            by_alias=True
+        )  # TODO: handle row index
         source_info: list[dict[str, Any]] = [
             {
-                "Wells": [
-                    {
-                        "Item1": self.source_column_index,
-                        "Item2": 0,  # TODO: handle row index
-                    }
-                ],
+                "Wells": [source_well],
                 "DeckSection": self.source_section_index,
                 "SubSection": -1,  # TODO: figure out what subsection means
                 "Spacing": 900,  # TODO: handle spacing other than 96-well plate
@@ -49,12 +51,7 @@ class Transfer(Step):
         ]
         target_info: list[dict[str, Any]] = [
             {
-                "Wells": [
-                    {
-                        "Item1": self.destination_column_index,
-                        "Item2": 0,  # TODO: handle row index
-                    }
-                ],
+                "Wells": [destination_well],
                 "DeckSection": self.destination_section_index,
                 "SubSection": -1,  # TODO: figure out what subsection means
                 "Spacing": 900,  # TODO: handle spacing other than 96-well plate
@@ -88,12 +85,9 @@ class Transfer(Step):
                     "WellOffsets",
                     json.dumps(
                         [
-                            {
-                                "DeckSection": self.destination_section_index,
-                                "SubSection": -1,
-                                "OffsetX": 0,
-                                "OffsetY": 0,
-                            }
+                            WellOffsets(
+                                deck_section=self.destination_section_index, sub_section=-1, offset_x=0, offset_y=0
+                            ).model_dump(by_alias=True)
                         ]
                     ),
                 ),
@@ -109,7 +103,7 @@ class Transfer(Step):
                     json.dumps(
                         [
                             {
-                                "Well": {"Item1": self.destination_column_index, "Item2": 0},
+                                "Well": destination_well,
                                 "DeckSection": self.destination_section_index,
                                 "SubSection": -1,
                                 "Volume": ul_to_xml(self.volume),
@@ -157,7 +151,7 @@ class Transfer(Step):
                     json.dumps(
                         [
                             {
-                                "Well": {"Item1": self.source_column_index, "Item2": 0},
+                                "Well": source_well,
                                 "DeckSection": self.source_section_index,
                                 "SubSection": -1,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
@@ -204,7 +198,7 @@ class Transfer(Step):
                     json.dumps(
                         [
                             {
-                                "Well": {"Item1": self.destination_column_index, "Item2": 0},
+                                "Well": destination_well,
                                 "DeckSection": self.destination_section_index,
                                 "SubSection": -1,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
@@ -273,7 +267,7 @@ class Transfer(Step):
                     json.dumps(
                         obj=[
                             {
-                                "Well": {"Item1": self.source_column_index, "Item2": 0},
+                                "Well": source_well,
                                 "DeckSection": self.source_section_index,
                                 "SubSection": -1,
                                 "Volume": 5000,  # TODO: implement mixing volume
@@ -306,7 +300,7 @@ class Transfer(Step):
                     json.dumps(
                         obj=[
                             {
-                                "Well": {"Item1": self.source_column_index, "Item2": 0},
+                                "Well": source_well,
                                 "DeckSection": self.source_section_index,
                                 "SubSection": -1,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined
@@ -340,7 +334,7 @@ class Transfer(Step):
                     json.dumps(
                         obj=[
                             {
-                                "Well": {"Item1": self.destination_column_index, "Item2": 0},
+                                "Well": destination_well,
                                 "DeckSection": self.destination_section_index,
                                 "SubSection": -1,
                                 "Volume": 5000,  # TODO: implement mixing volume
@@ -373,7 +367,7 @@ class Transfer(Step):
                     json.dumps(
                         obj=[
                             {
-                                "Well": {"Item1": self.destination_column_index, "Item2": 0},
+                                "Well": destination_well,
                                 "DeckSection": self.destination_section_index,
                                 "SubSection": -1,
                                 "StartHeight": 325,  # TODO: figure out how these height values are determined

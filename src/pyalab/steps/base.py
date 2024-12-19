@@ -10,6 +10,7 @@ from lxml.etree import _Element
 from pydantic import BaseModel
 
 from pyalab.pipette import Tip
+from pydantic import Field
 
 
 def ul_to_xml(volume: float) -> int:
@@ -18,6 +19,21 @@ def ul_to_xml(volume: float) -> int:
 
 
 SPECIAL_CHARS = ('"', "[", "]", "{", "}")
+
+ALIASES = {"column_index": "Item1", "row_index": "Item2"}
+
+
+def alias_generator(name: str) -> str:
+    return ALIASES.get(name, name)
+
+
+class WellRowCol(BaseModel, frozen=True):
+    column_index: int = Field(ge=0)
+    row_index: int = Field(ge=0)
+    model_config = {
+        "populate_by_name": True,  # Allow population by field name
+        "alias_generator": alias_generator,
+    }
 
 
 class WellOffsets(BaseModel, frozen=True):
