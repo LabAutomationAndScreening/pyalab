@@ -12,7 +12,7 @@ from pyalab.pipette import Tip
 
 
 def ul_to_xml(volume: float) -> int:
-    # ViaLab uses 0.01 uL as the base unit for volume, so convert from uL
+    # Vialab uses 0.01 uL as the base unit for volume, so convert from uL
     return int(round(volume * 100, 0))
 
 
