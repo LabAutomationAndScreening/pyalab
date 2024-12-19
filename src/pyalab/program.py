@@ -93,7 +93,7 @@ class Program(BaseModel):
                     {
                         str(
                             self.tip.tip_id
-                        ): 0  # there seems to be no negative impact of not calculating the required tips, ViaLab will do it automatically when the program is first loaded
+                        ): 0  # there seems to be no negative impact of not calculating the required tips, Vialab will do it automatically when the program is first loaded
                     }
                 ),
             ),
