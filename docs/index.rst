@@ -6,13 +6,13 @@
 pyalab documentation
 ====================
 
-Pyalab allows you to use Python to generate programs for ViaLab to control an Integra Assist Plus liquid handling robot.
+Pyalab allows you to use Python to generate programs for Vialab to control an Integra Assist Plus liquid handling robot.
 
-Once generated, the files can be simulated within ViaLab and further edited if needed.
+Once generated, the files can be simulated within Vialab and further edited if needed.
 
 The names of plates/pipettes/tips etc. should match the file names in the ``Integra Lib`` folder on your hard drive (typically found at ``C:\Program Files (x86)\INTEGRA Biosciences AG\VIALAB\Integra Lib``). These sometimes differ from the display names in Vialab itself.
 
-At the moment, a limited subset of the full functionality of ViaLab is implemented, but more is being added each day.
+At the moment, a limited subset of the full functionality of Vialab is implemented, but more is being added each day.
 
 Pyalab can be installed using ``pip install pyalab``.
 
