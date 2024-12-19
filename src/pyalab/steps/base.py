@@ -45,6 +45,17 @@ class DeckSection(BaseModel, frozen=True):
     }
 
 
+class Section(BaseModel, frozen=True):
+    """Some steps call it Section instead of DeckSection."""
+
+    section: int
+    sub_section: int
+    model_config = {
+        "populate_by_name": True,  # Allow population by field name
+        "alias_generator": camelize,  # Convert field names to camelCase
+    }
+
+
 class WellOffsets(BaseModel, frozen=True):
     deck_section: int
     sub_section: int
