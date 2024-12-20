@@ -9,7 +9,7 @@
     },
     "ghcr.io/devcontainers/features/python:1": {
       // https://github.com/devcontainers/features/tree/main/src/python
-      "version": "3.12.7",
+      "version": "3.11.10",
       "installTools": false,
       "optimize": true
     }

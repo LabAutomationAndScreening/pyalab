@@ -25,13 +25,13 @@ jobs:
       - name: Install latest versions of python packages
         uses: ./.github/actions/install_deps_uv
         with:
-          python-version: 3.12.7
+          python-version: 3.11.10
 
       - name: Set up mutex # Github concurrency management is horrible, things get arbitrarily cancelled if queued up. So using mutex until github fixes itself. When multiple jobs are modifying cache at once, weird things can happen.  possible issue is https://github.com/actions/toolkit/issues/658
         if: ${{ runner.os != 'Windows' }} # we're just gonna have to YOLO on Windows, because this action doesn't support it yet https://github.com/ben-z/gh-action-mutex/issues/14
         uses: ben-z/gh-action-mutex@d3d5b354d460d4b6a1e3ee5b7951678658327812 # v1.0.0-alpha.9
         with:
-          branch: mutex-venv-ubuntu-24.04-py3.12.7
+          branch: mutex-venv-ubuntu-24.04-py3.11.10
         timeout-minutes: 30 # this is the amount of time this action will wait to attempt to acquire the mutex lock before failing, e.g. if other jobs are queued up in front of it
 
       - name: Cache Pre-commit hooks
@@ -40,9 +40,9 @@ jobs:
           cache-name: cache-pre-commit-hooks
         with:
           path: ${{ env.PRE_COMMIT_HOME }}
-          key: ubuntu-24.04-py3.12.7-build-${{ env.cache-name }}-${{ hashFiles('.pre-commit-config.yaml') }}
+          key: ubuntu-24.04-py3.11.10-build-${{ env.cache-name }}-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: |
-            ubuntu-24.04-py3.12.7-build-${{ env.cache-name }}-
+            ubuntu-24.04-py3.11.10-build-${{ env.cache-name }}-
 
       - name: Run pre-commit
         run:  pre-commit run -a
@@ -55,14 +55,14 @@ jobs:
           - "ubuntu-24.04"
         python-version:
 
-          - 3.12.7
+          - 3.11.10
 
-          - 3.13.1
+          - 3.12.7
 
         include:
           # only enable coverage on the fastest job
           - os: "ubuntu-24.04"
-            python-version: "3.13.1"
+            python-version: "3.12.7"
             IS_FASTEST_JOB: true
 
     runs-on: ${{ matrix.os }}
