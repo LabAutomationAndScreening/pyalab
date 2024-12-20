@@ -17,7 +17,7 @@ classifiers = [
 dependencies = [
     "pydantic>=2.10.3",
     "inflection>=0.5.1",
-    "lxml>=4.9.2,<5", # as of 2024-12-18, Python3.13 does not appear to support lxml 5
+    "lxml>=5.3.0", # as of 2024-12-20, Python3.13 does not appear to support lxml
 ]
 
 
