@@ -3,7 +3,7 @@
 FROM python:3.12.7-bookworm
 
 # TODO: pin these
-RUN python3 -m pip install --no-cache-dir --root-user-action --disable-pip-version-check=ignore notebook==7.3.1 jupyterlab==4.3.4
+RUN python3 -m pip install --no-cache-dir --root-user-action=ignore --disable-pip-version-check notebook==7.3.1 jupyterlab==4.3.4
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
@@ -22,7 +22,7 @@ USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
-RUN python3 -m pip install --root-user-action --disable-pip-version-check=ignore -e .
+RUN python3 -m pip install --root-user-action=ignore --disable-pip-version-check -e .
 
 
 ENTRYPOINT []
