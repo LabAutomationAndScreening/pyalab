@@ -22,6 +22,8 @@ USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
+WORKDIR /home/jovyan
+
 RUN python3 -m pip install --root-user-action=ignore --disable-pip-version-check -e .
 
 
