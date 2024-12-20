@@ -2,7 +2,7 @@
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 [![Checked with pyright](https://microsoft.github.io/pyright/img/pyright_badge.svg)](https://microsoft.github.io/pyright/)
-[![Actions status](https://github.com/LabAutomationAndScreening/pyalab/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/LabAutomationAndScreening/pyalab/actions)
+[![Actions status](https://github.com/LabAutomationAndScreening/pyalab/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/LabAutomationAndScreening/pyalab/actions)
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/LabAutomationAndScreening/pyalab)
 [![PyPI Version](https://img.shields.io/pypi/v/pyalab.svg)](https://pypi.org/project/pyalab/)
 [![Downloads](https://pepy.tech/badge/pyalab)](https://pepy.tech/project/pyalab)
