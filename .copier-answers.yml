@@ -7,9 +7,9 @@ full_repo_url: https://github.com/LabAutomationAndScreening/pyalab
 package_name: pyalab
 primary_author: Eli Fine
 python_ci_versions:
-- 3.11.10
 - 3.12.7
-python_version: 3.11.10
+- 3.13.1
+python_version: 3.12.7
 repo_name: pyalab
 ssh_port_number: 56475
 
