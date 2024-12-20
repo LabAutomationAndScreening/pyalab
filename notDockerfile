@@ -3,7 +3,7 @@
 FROM python:3.12.7-bookworm
 
 # TODO: pin these
-RUN python3 -m pip install --no-cache-dir notebook jupyterlab
+RUN python3 -m pip install --no-cache-dir --root-user-action --disable-pip-version-check true notebook==7.3.1 jupyterlab==4.3.4
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
@@ -21,6 +21,8 @@ COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
+
+RUN python3 -m pip install --root-user-action --disable-pip-version-check true -e .
 
 
 ENTRYPOINT []
