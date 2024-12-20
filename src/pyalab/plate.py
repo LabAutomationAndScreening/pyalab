@@ -30,4 +30,6 @@ class Plate(LibraryComponent, frozen=True):
         assert row_gap_node is not None
         row_gap_text = row_gap_node.text
         assert row_gap_text is not None
-        return float(row_gap_text) / 100  # in the XML the distance is in 0.01 mm units, but our standard is mm
+        return (
+            float(self._extract_xml_node_text("RowGap")) / 100
+        )  # in the XML the distance is in 0.01 mm units, but our standard is mm
