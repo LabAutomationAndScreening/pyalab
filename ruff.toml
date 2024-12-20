@@ -55,7 +55,7 @@ ignore = [
     "EM103", # Code readability is more important than traceback readability. People can use their judgement here
     "FIX002", # We allow leaving TODOs in the code
     "G004", # We are not concerned about performance issues of using f-strings in logging statements. Nor do we care about using extras particularly much...for more detailed logging needs, structlog is preferred
-    "N999", # Ignoring this since we are using jinja templates in the directory path which will eventually turn into a valid module name
+    "N999", # Ignoring this since we are using jinja templates in the directory path which will eventually turn into a valid module name. # TODO: make a task in downstream templates to remove this
     "S101", # We do not use the -o optimize flag, so it's fine to use `assert` in the main code. It's especially helpful for static typing
     "SIM102", # Nested if statements can be better analyzed by coverage detectors than compound statements
     "TD002", # Adding author names to TODOs erodes shared ownership of codebase. Git history provides information about who originally created the TODO if that information is vitally needed

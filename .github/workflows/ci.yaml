@@ -57,13 +57,10 @@ jobs:
 
           - 3.12.7
 
-          - 3.13.1
-
         include:
-          # only enable coverage on the fastest job
           - os: "ubuntu-24.04"
-            python-version: "3.13.1"
-            IS_FASTEST_JOB: true
+            python-version: "3.12.7"
+            JOB_MATCHING_DEV_ENV: true
 
     runs-on: ${{ matrix.os }}
 
@@ -81,7 +78,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         # only upload coverage from fastest job
-        if: matrix.IS_FASTEST_JOB == true
+        if: matrix.JOB_MATCHING_DEV_ENV == true
         uses: codecov/codecov-action@v5.1.1
         with:
           files: ./coverage.xml
@@ -92,14 +89,37 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: LabAutomationAndScreening/pyalab
 
+  build-docs:
+    needs: [ lint ]
+    strategy:
+      matrix:
+        python-version:
+
+          - 3.12.7
+
+
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Install python tooling
+        uses: ./.github/actions/install_deps_uv
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Build docs
+        working-directory: ./docs
+        run: uv run make html
 
 
   required-check:
     runs-on: ubuntu-24.04
-    needs: [ test ]
+    needs: [ test, build-docs ]
     if: always()
     steps:
       - name: fail if prior job failure
-        if: needs.test.result != 'success'
+        if: needs.test.result != 'success' || needs.build-docs.result != 'success'
         run: |
           exit 1
