@@ -9,6 +9,7 @@ from pyalab.plate import Plate
 from .base import Section
 from .base import Step
 from .base import WellRowCol
+from .base import mm_to_xml
 from .base import ul_to_xml
 
 
@@ -46,7 +47,9 @@ class SetVolume(Step):
                 ],
                 "Volume": ul_to_xml(self.volume),
                 **deck_section.model_dump(by_alias=True),
-                "Spacing": 900,  # TODO: handle spacing other than 96-well plate
+                "Spacing": mm_to_xml(
+                    self.plate.row_spacing
+                ),  # TODO: handle spacing based on landscape vs portrait orientation
                 "ColorIndex": 1,  # TODO: figure out if/when this changes
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
             }
