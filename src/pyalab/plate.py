@@ -1,4 +1,5 @@
 import uuid
+from functools import cached_property
 from typing import override
 
 from lxml import etree
@@ -21,3 +22,14 @@ class Plate(LibraryComponent, frozen=True):
             root, "NameInProcess"
         ).text = f"{self.display_name}!1"  # TODO: figure out why they all end in `!1`
         return root
+
+    @cached_property
+    def row_spacing(self) -> float:
+        root = self.load_xml()
+        row_gap_node = root.find(".//RowGap")
+        assert row_gap_node is not None
+        row_gap_text = row_gap_node.text
+        assert row_gap_text is not None
+        return (
+            float(self._extract_xml_node_text("RowGap")) / 100
+        )  # in the XML the distance is in 0.01 mm units, but our standard is mm

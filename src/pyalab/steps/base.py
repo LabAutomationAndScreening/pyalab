@@ -18,6 +18,11 @@ def ul_to_xml(volume: float) -> int:
     return int(round(volume * 100, 0))
 
 
+def mm_to_xml(distance: float) -> int:
+    # Vialab uses 0.01 mm as the base unit for distance, so convert from mm
+    return int(round(distance * 100, 0))
+
+
 SPECIAL_CHARS = ('"', "[", "]", "{", "}")
 
 ALIASES = {"column_index": "Item1", "row_index": "Item2"}

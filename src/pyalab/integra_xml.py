@@ -65,3 +65,11 @@ class LibraryComponent(BaseModel, frozen=True):
         for subelement in self.load_xml():
             root.append(subelement)
         return root
+
+    def _extract_xml_node_text(self, node_name: str) -> str:
+        root = self.load_xml()
+        node = root.find(f".//{node_name}")
+        assert node is not None
+        text = node.text
+        assert text is not None
+        return text

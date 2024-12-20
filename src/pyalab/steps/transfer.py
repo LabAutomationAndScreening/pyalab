@@ -8,6 +8,7 @@ from .base import DeckSection
 from .base import Step
 from .base import WellOffsets
 from .base import WellRowCol
+from .base import mm_to_xml
 from .base import ul_to_xml
 
 
@@ -51,7 +52,9 @@ class Transfer(Step):
             {
                 "Wells": [source_well],
                 **source_deck_section,
-                "Spacing": 900,  # TODO: handle spacing other than 96-well plate
+                "Spacing": mm_to_xml(
+                    self.source.row_spacing
+                ),  # TODO: handle spacing based on landscape vs portrait orientation
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
                 "WorkingDirectionExtended": 0,  # TODO: figure out what this is
                 "WorkingDirectionOld": "false",  # TODO: figure out what this is
@@ -61,7 +64,9 @@ class Transfer(Step):
             {
                 "Wells": [destination_well],
                 **destination_deck_section,
-                "Spacing": 900,  # TODO: handle spacing other than 96-well plate
+                "Spacing": mm_to_xml(
+                    self.destination.row_spacing
+                ),  # TODO: handle spacing based on landscape vs portrait orientation
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
                 "WorkingDirectionExtended": 0,  # TODO: figure out what this is
                 "WorkingDirectionOld": "false",  # TODO: figure out what this is
