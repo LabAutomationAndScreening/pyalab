@@ -57,13 +57,10 @@ jobs:
 
           - 3.12.7
 
-          - 3.13.1
-
         include:
-          # only enable coverage on the fastest job
           - os: "ubuntu-24.04"
-            python-version: "3.13.1"
-            IS_FASTEST_JOB: true
+            python-version: "3.12.7"
+            JOB_MATCHING_DEV_ENV: true
 
     runs-on: ${{ matrix.os }}
 
@@ -81,7 +78,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         # only upload coverage from fastest job
-        if: matrix.IS_FASTEST_JOB == true
+        if: matrix.JOB_MATCHING_DEV_ENV == true
         uses: codecov/codecov-action@v5.1.1
         with:
           files: ./coverage.xml
