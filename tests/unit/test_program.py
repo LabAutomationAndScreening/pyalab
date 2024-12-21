@@ -8,6 +8,7 @@ from syrupy.assertion import SnapshotAssertion
 from pyalab import Deck
 from pyalab import DeckLayout
 from pyalab import DeckPositions
+from pyalab import DispenseParameters
 from pyalab import LabwareNotInDeckLayoutError
 from pyalab import Pipette
 from pyalab import Plate
@@ -54,6 +55,7 @@ class TestSimpleTransferProgramSnapshots:
             "description",
             "tip",
             "aspirate_params",
+            "dispense_params",
         ),
         [
             pytest.param(
@@ -65,6 +67,7 @@ class TestSimpleTransferProgramSnapshots:
                 "One transfer within a 96-well plate",
                 Tip(name="300 µl GripTip Sterile Filter Low retention"),
                 None,
+                DispenseParameters(start_height=5),
                 id="arbitrary1",
             ),
             pytest.param(
@@ -76,6 +79,7 @@ class TestSimpleTransferProgramSnapshots:
                 "doing science!",
                 Tip(name="300 µl GripTip Sterile Filter"),
                 AspirateParameters(start_height=2),
+                None,
                 id="arbitrary2",
             ),
         ],
@@ -90,6 +94,7 @@ class TestSimpleTransferProgramSnapshots:
         description: str,
         tip: Tip,
         aspirate_params: AspirateParameters | None,
+        dispense_params: DispenseParameters | None,
     ):
         pcr_plate = Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates", display_name="PCR Plate")
         program = Program(
@@ -123,6 +128,8 @@ class TestSimpleTransferProgramSnapshots:
         kwargs: dict[str, Any] = {}
         if aspirate_params is not None:
             kwargs["aspirate_parameters"] = aspirate_params
+        if dispense_params is not None:
+            kwargs["dispense_parameters"] = dispense_params
 
         program.add_step(
             Transfer(

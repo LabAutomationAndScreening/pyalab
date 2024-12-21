@@ -849,7 +849,7 @@
         </ValueGroup>
         <ValueGroup Key="Dispense">
           <Values>
-            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 1, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 325, "EndHeight": 325, "TipID": 20}]]]></Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 1, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 330, "EndHeight": 325, "TipID": 20}]]]></Value>
             <Value Key="TipTravel">false</Value>
             <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
             <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "WellBottomOffset": 200, "TipID": 20}]]]></Value>
