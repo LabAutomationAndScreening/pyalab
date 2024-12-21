@@ -13,12 +13,12 @@ from .pipette import Tip
 from .plate import Plate
 from .program import LabwareNotInDeckLayoutError
 from .program import Program
-from .steps import AspirateParameters
-from .steps import DispenseParameters
 from .steps import SetInitialVolume
 from .steps import SetVolume
 from .steps import Step
 from .steps import Transfer
+from .steps.params import AspirateParameters
+from .steps.params import DispenseParameters
 
 __all__ = [
     "PATH_TO_INCLUDED_XML_FILES",

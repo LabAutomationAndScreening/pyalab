@@ -5,7 +5,6 @@ from typing import Any
 import pytest
 from syrupy.assertion import SnapshotAssertion
 
-from pyalab import AspirateParameters
 from pyalab import Deck
 from pyalab import DeckLayout
 from pyalab import DeckPositions
@@ -17,6 +16,7 @@ from pyalab import SetInitialVolume
 from pyalab import StandardDeckNames
 from pyalab import Tip
 from pyalab import Transfer
+from pyalab.steps.params import AspirateParameters
 
 
 def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error():

@@ -6,7 +6,6 @@ from pydantic import Field
 
 from pyalab.plate import Plate
 
-from .base import AspirateParameters
 from .base import DeckSection
 from .base import LldErrorHandlingMode
 from .base import Step
@@ -14,6 +13,7 @@ from .base import WellOffsets
 from .base import WellRowCol
 from .base import mm_to_xml
 from .base import ul_to_xml
+from .params import AspirateParameters
 
 
 class Transfer(Step):
