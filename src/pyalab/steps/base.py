@@ -2,6 +2,7 @@ import json
 import uuid
 from abc import ABC
 from abc import abstractmethod
+from enum import Enum
 from typing import ClassVar
 
 from inflection import camelize
@@ -11,6 +12,10 @@ from pydantic import BaseModel
 from pydantic import Field
 
 from pyalab.pipette import Tip
+
+
+class LldErrorHandlingMode(Enum):
+    PAUSE_AND_REPEAT = "LLD_PauseAndRepeat"
 
 
 def ul_to_xml(volume: float) -> int:

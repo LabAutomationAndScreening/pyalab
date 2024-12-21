@@ -908,6 +908,13 @@
             <Value Key="IsStepActive">true</Value>
           </Values>
         </ValueGroup>
+        <ValueGroup Key="LLD">
+          <Values>
+            <Value Key="UseLLD">false</Value>
+            <Value Key="LLDErrorHandling"><![CDATA["LLD_PauseAndRepeat"]]></Value>
+            <Value Key="LLDHeights">null</Value>
+          </Values>
+        </ValueGroup>
       </ValueGroups>
     </Step>
   </Steps>

@@ -5,6 +5,7 @@ from typing import override
 from pyalab.plate import Plate
 
 from .base import DeckSection
+from .base import LldErrorHandlingMode
 from .base import Step
 from .base import WellOffsets
 from .base import WellRowCol
@@ -406,5 +407,14 @@ class Transfer(Step):
                 ("SpeedY", str(10)),
                 ("SpeedZ", str(10)),
                 ("IsStepActive", json.dumps(obj=True)),
+            ],
+        )
+
+        self._add_value_group(
+            group_name="LLD",
+            values=[
+                ("UseLLD", json.dumps(obj=False)),
+                ("LLDErrorHandling", json.dumps(LldErrorHandlingMode.PAUSE_AND_REPEAT.value)),
+                ("LLDHeights", json.dumps(None)),
             ],
         )
