@@ -2,8 +2,11 @@ import json
 from typing import Any
 from typing import override
 
+from pydantic import Field
+
 from pyalab.plate import Plate
 
+from .base import AspirateParameters
 from .base import DeckSection
 from .base import LldErrorHandlingMode
 from .base import Step
@@ -31,13 +34,8 @@ class Transfer(Step):
     """The column index to dispense into."""
     volume: float
     """The volume to transfer (µl)."""
-    aspiration_start_height: float = 3.3
-    """The height to start aspirating from (mm)."""
-    aspiration_end_height: float | None = None  # TODO: implement moving aspiration
-    """The height to stop aspirating at (mm).
-
-    Leave as None to perform a fixed height aspiration.
-    """
+    aspirate_parameters: AspirateParameters = Field(default_factory=AspirateParameters)
+    """The parameters for aspirating the liquid."""
 
     @override
     def _add_value_groups(self) -> None:
@@ -172,7 +170,7 @@ class Transfer(Step):
                             {
                                 "Well": source_well,
                                 **source_deck_section,
-                                "StartHeight": mm_to_xml(self.aspiration_start_height),
+                                "StartHeight": mm_to_xml(self.aspirate_parameters.start_height),
                                 "EndHeight": 325,  # TODO: implement moving aspirate
                                 "TipID": self.tip_id,
                             }

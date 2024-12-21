@@ -78,6 +78,24 @@ class WellOffsets(BaseModel, frozen=True):
     }
 
 
+class LiquidMovementParameters(BaseModel, frozen=True):
+    start_height: float = 3.3
+    """The height to start aspirating or dispensing from (mm)."""
+    end_height: float | None = None  # TODO: implement moving aspiration/dispense
+    """The height to stop at (mm).
+
+    (None for fixed height)
+    """
+
+
+class AspirateParameters(LiquidMovementParameters, frozen=True):
+    pass
+
+
+class DispenseParameters(LiquidMovementParameters, frozen=True):
+    pass
+
+
 class Step(BaseModel, ABC):
     type: ClassVar[str]
     _tip: Tip | None = None
