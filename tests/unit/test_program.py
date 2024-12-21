@@ -51,6 +51,7 @@ class TestSimpleTransferProgramSnapshots:
             "display_name",
             "description",
             "tip",
+            "aspiration_start_height",
         ),
         [
             pytest.param(
@@ -61,6 +62,7 @@ class TestSimpleTransferProgramSnapshots:
                 "simple-transfer",
                 "One transfer within a 96-well plate",
                 Tip(name="300 µl GripTip Sterile Filter Low retention"),
+                3.3,
                 id="arbitrary1",
             ),
             pytest.param(
@@ -71,6 +73,7 @@ class TestSimpleTransferProgramSnapshots:
                 "wakka_wakka",
                 "doing science!",
                 Tip(name="300 µl GripTip Sterile Filter"),
+                2,
                 id="arbitrary2",
             ),
         ],
@@ -84,6 +87,7 @@ class TestSimpleTransferProgramSnapshots:
         display_name: str,
         description: str,
         tip: Tip,
+        aspiration_start_height: float,
     ):
         pcr_plate = Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates", display_name="PCR Plate")
         program = Program(
@@ -123,6 +127,7 @@ class TestSimpleTransferProgramSnapshots:
                 destination_section_index=pcr_plate_section_index,
                 destination_column_index=destination_column_index,
                 volume=transfer_volume,
+                aspiration_start_height=aspiration_start_height,
             )
         )
 
