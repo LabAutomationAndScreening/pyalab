@@ -93,6 +93,7 @@ class TestSimpleTransferProgramSnapshots:
         display_name: str,
         description: str,
         tip: Tip,
+        # use None to test not providing that kwarg to test the default value behavior
         aspirate_params: AspirateParameters | None,
         dispense_params: DispenseParameters | None,
     ):
