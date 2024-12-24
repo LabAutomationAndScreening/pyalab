@@ -25,3 +25,4 @@ Pyalab has been tested with Vialab 3.4.0.
 
    example
    steps
+   parameter_sets
