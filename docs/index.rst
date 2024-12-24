@@ -24,5 +24,6 @@ Pyalab has been tested with Vialab 3.4.0.
    :caption: Contents:
 
    example
+   program
    steps
    parameter_sets
