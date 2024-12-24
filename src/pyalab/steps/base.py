@@ -2,6 +2,7 @@ import json
 import uuid
 from abc import ABC
 from abc import abstractmethod
+from enum import Enum
 from typing import ClassVar
 
 from inflection import camelize
@@ -11,6 +12,10 @@ from pydantic import BaseModel
 from pydantic import Field
 
 from pyalab.pipette import Tip
+
+
+class LldErrorHandlingMode(Enum):
+    PAUSE_AND_REPEAT = "LLD_PauseAndRepeat"
 
 
 def ul_to_xml(volume: float) -> int:
@@ -71,6 +76,13 @@ class WellOffsets(BaseModel, frozen=True):
         "populate_by_name": True,  # Allow population by field name
         "alias_generator": camelize,  # Convert field names to camelCase
     }
+
+
+class LiquidMovementParameters(BaseModel, frozen=True):
+    start_height: float = 3.3
+    """The height to start aspirating or dispensing from (mm)."""
+    end_height: float | None = None  # TODO: implement moving aspiration/dispense
+    """The height to stop at in mm, (None for fixed height)."""
 
 
 class Step(BaseModel, ABC):

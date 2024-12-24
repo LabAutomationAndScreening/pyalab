@@ -1,5 +1,6 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from typing import Any
 
 import pytest
 from syrupy.assertion import SnapshotAssertion
@@ -7,6 +8,7 @@ from syrupy.assertion import SnapshotAssertion
 from pyalab import Deck
 from pyalab import DeckLayout
 from pyalab import DeckPositions
+from pyalab import DispenseParameters
 from pyalab import LabwareNotInDeckLayoutError
 from pyalab import Pipette
 from pyalab import Plate
@@ -15,6 +17,7 @@ from pyalab import SetInitialVolume
 from pyalab import StandardDeckNames
 from pyalab import Tip
 from pyalab import Transfer
+from pyalab.steps.params import AspirateParameters
 
 
 def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error():
@@ -51,6 +54,8 @@ class TestSimpleTransferProgramSnapshots:
             "display_name",
             "description",
             "tip",
+            "aspirate_params",
+            "dispense_params",
         ),
         [
             pytest.param(
@@ -61,6 +66,8 @@ class TestSimpleTransferProgramSnapshots:
                 "simple-transfer",
                 "One transfer within a 96-well plate",
                 Tip(name="300 µl GripTip Sterile Filter Low retention"),
+                None,
+                DispenseParameters(start_height=5),
                 id="arbitrary1",
             ),
             pytest.param(
@@ -71,6 +78,8 @@ class TestSimpleTransferProgramSnapshots:
                 "wakka_wakka",
                 "doing science!",
                 Tip(name="300 µl GripTip Sterile Filter"),
+                AspirateParameters(start_height=2),
+                None,
                 id="arbitrary2",
             ),
         ],
@@ -84,6 +93,9 @@ class TestSimpleTransferProgramSnapshots:
         display_name: str,
         description: str,
         tip: Tip,
+        # use None to test not providing that kwarg to test the default value behavior
+        aspirate_params: AspirateParameters | None,
+        dispense_params: DispenseParameters | None,
     ):
         pcr_plate = Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates", display_name="PCR Plate")
         program = Program(
@@ -114,6 +126,12 @@ class TestSimpleTransferProgramSnapshots:
             )
         )
 
+        kwargs: dict[str, Any] = {}
+        if aspirate_params is not None:
+            kwargs["aspirate_parameters"] = aspirate_params
+        if dispense_params is not None:
+            kwargs["dispense_parameters"] = dispense_params
+
         program.add_step(
             Transfer(
                 source=pcr_plate,
@@ -123,6 +141,7 @@ class TestSimpleTransferProgramSnapshots:
                 destination_section_index=pcr_plate_section_index,
                 destination_column_index=destination_column_index,
                 volume=transfer_volume,
+                **kwargs,
             )
         )
 

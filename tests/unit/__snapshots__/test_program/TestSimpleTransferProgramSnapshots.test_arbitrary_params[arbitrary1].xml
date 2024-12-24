@@ -843,7 +843,7 @@
         </ValueGroup>
         <ValueGroup Key="Aspiration">
           <Values>
-            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 3, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 325, "EndHeight": 325, "TipID": 23}]]]></Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 3, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 330, "EndHeight": 325, "TipID": 23}]]]></Value>
             <Value Key="TipTravel">false</Value>
             <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
             <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "WellBottomOffset": 200, "TipID": 23}]]]></Value>
@@ -851,7 +851,7 @@
         </ValueGroup>
         <ValueGroup Key="Dispense">
           <Values>
-            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 8, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 325, "EndHeight": 325, "TipID": 23}]]]></Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 8, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 500, "EndHeight": 325, "TipID": 23}]]]></Value>
             <Value Key="TipTravel">false</Value>
             <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
             <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "WellBottomOffset": 200, "TipID": 23}]]]></Value>
@@ -908,6 +908,13 @@
             <Value Key="SpeedY">10</Value>
             <Value Key="SpeedZ">10</Value>
             <Value Key="IsStepActive">true</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="LLD">
+          <Values>
+            <Value Key="UseLLD">false</Value>
+            <Value Key="LLDErrorHandling"><![CDATA["LLD_PauseAndRepeat"]]></Value>
+            <Value Key="LLDHeights">null</Value>
           </Values>
         </ValueGroup>
       </ValueGroups>

@@ -2,14 +2,19 @@ import json
 from typing import Any
 from typing import override
 
+from pydantic import Field
+
 from pyalab.plate import Plate
 
 from .base import DeckSection
+from .base import LldErrorHandlingMode
 from .base import Step
 from .base import WellOffsets
 from .base import WellRowCol
 from .base import mm_to_xml
 from .base import ul_to_xml
+from .params import AspirateParameters
+from .params import DispenseParameters
 
 
 class Transfer(Step):
@@ -30,6 +35,10 @@ class Transfer(Step):
     """The column index to dispense into."""
     volume: float
     """The volume to transfer (µl)."""
+    aspirate_parameters: AspirateParameters = Field(default_factory=AspirateParameters)
+    """The parameters for aspirating the liquid."""
+    dispense_parameters: DispenseParameters = Field(default_factory=DispenseParameters)
+    """The parameters for dispensing the liquid."""
 
     @override
     def _add_value_groups(self) -> None:
@@ -164,8 +173,8 @@ class Transfer(Step):
                             {
                                 "Well": source_well,
                                 **source_deck_section,
-                                "StartHeight": 325,  # TODO: figure out how these height values are determined
-                                "EndHeight": 325,
+                                "StartHeight": mm_to_xml(self.aspirate_parameters.start_height),
+                                "EndHeight": 325,  # TODO: implement moving aspirate
                                 "TipID": self.tip_id,
                             }
                         ]
@@ -208,7 +217,7 @@ class Transfer(Step):
                             {
                                 "Well": destination_well,
                                 **destination_deck_section,
-                                "StartHeight": 325,  # TODO: figure out how these height values are determined
+                                "StartHeight": mm_to_xml(self.dispense_parameters.start_height),
                                 "EndHeight": 325,
                                 "TipID": self.tip_id,
                             }
@@ -305,7 +314,7 @@ class Transfer(Step):
                             {
                                 "Well": source_well,
                                 **source_deck_section,
-                                "StartHeight": 325,  # TODO: figure out how these height values are determined
+                                "StartHeight": 325,
                                 "EndHeight": 0,
                                 "TipID": self.tip_id,
                             }
@@ -369,7 +378,7 @@ class Transfer(Step):
                             {
                                 "Well": destination_well,
                                 **destination_deck_section,
-                                "StartHeight": 325,  # TODO: figure out how these height values are determined
+                                "StartHeight": 325,
                                 "EndHeight": 0,
                                 "TipID": self.tip_id,
                             }
@@ -406,5 +415,14 @@ class Transfer(Step):
                 ("SpeedY", str(10)),
                 ("SpeedZ", str(10)),
                 ("IsStepActive", json.dumps(obj=True)),
+            ],
+        )
+
+        self._add_value_group(
+            group_name="LLD",
+            values=[
+                ("UseLLD", json.dumps(obj=False)),
+                ("LLDErrorHandling", json.dumps(LldErrorHandlingMode.PAUSE_AND_REPEAT.value)),
+                ("LLDHeights", json.dumps(None)),
             ],
         )
