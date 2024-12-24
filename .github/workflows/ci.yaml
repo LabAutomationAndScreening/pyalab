@@ -111,7 +111,7 @@ jobs:
 
       - name: Build docs
         working-directory: ./docs
-        run: uv run make html
+        run: uv run make html SPHINXOPTS="-W"
 
 
   required-check:
