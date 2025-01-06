@@ -43,7 +43,7 @@ repos:
 
 # Reformatting (should generally come before any file format or other checks, because reformatting can change things)
 -   repo: https://github.com/crate-ci/typos
-    rev: 0fa392de4a080a8f22469c05415090ee3addf4fb  # frozen: v1.28.4
+    rev: b1b019a4372e6055cd23b7a8e299c56f9d522a94  # frozen: dictgen-v0.3.1
     hooks:
       - id: typos
 -   repo: https://github.com/pre-commit/pre-commit-hooks
@@ -151,8 +151,15 @@ repos:
         # this hook fails on Sphinx documentation https://github.com/Lucas-C/pre-commit-hooks-markup/issues/13
         exclude: docs/.*\.rst$
 
+-   repo: https://github.com/hadolint/hadolint
+    rev: c3dc18df7a501f02a560a2cc7ba3c69a85ca01d3  # frozen: v2.13.1-beta
+    hooks:
+    -   id: hadolint-docker
+        name: Lint Dockerfiles
+        description: Runs hadolint to lint Dockerfiles
+
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: f0b5944bef86f50d875305821a0ab0d8c601e465  # frozen: v0.8.4
+    rev: 89c421dff2e1026ba12cdb9ebd731f4a83aa8021  # frozen: v0.8.6
     hooks:
     -   id: ruff
         name: ruff-src
@@ -165,7 +172,7 @@ repos:
     -   id: ruff-format
 
 -   repo: https://github.com/pylint-dev/pylint
-    rev: a5a1bc3a9602d08f15ac90ad12f5b25bde375613  # frozen: v3.3.2
+    rev: c28580be76fe1ec55a6cac41833c0bd68070d2f7  # frozen: v3.3.3
     hooks:
     -   id: pylint
         name: pylint

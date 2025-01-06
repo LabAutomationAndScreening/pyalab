@@ -1,5 +1,5 @@
 # Changes here will be overwritten by Copier
-_commit: 99b5b4b
+_commit: e372165
 _src_path: gh:LabAutomationAndScreening/copier-python-package-template.git
 create_docs: true
 description: Generating programs for Vialab to control an Integra Assist Plus liquid
