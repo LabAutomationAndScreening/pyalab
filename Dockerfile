@@ -2,7 +2,6 @@
 # Following documentation https://mybinder.readthedocs.io/en/latest/tutorials/dockerfile.html
 FROM python:3.12.7-bookworm
 
-# TODO: pin these
 RUN python3 -m pip install --no-cache-dir --root-user-action=ignore --disable-pip-version-check notebook==7.3.1 jupyterlab==4.3.4
 
 ARG NB_USER=jovyan
@@ -24,7 +23,7 @@ USER ${NB_USER}
 
 WORKDIR /home/jovyan
 
-RUN python3 -m pip install --root-user-action=ignore --disable-pip-version-check --no-cache-dir -e .
+RUN python3 -m pip install --no-cache-dir --root-user-action=ignore --disable-pip-version-check -e .
 
 
 ENTRYPOINT []
