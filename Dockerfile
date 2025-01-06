@@ -24,7 +24,7 @@ USER ${NB_USER}
 
 WORKDIR /home/jovyan
 
-RUN python3 -m pip install --root-user-action=ignore --disable-pip-version-check -e .
+RUN python3 -m pip install --root-user-action=ignore --disable-pip-version-check --no-cache-dir -e .
 
 
 ENTRYPOINT []
