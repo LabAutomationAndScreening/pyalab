@@ -11,11 +11,11 @@
 [![Documentation Status](https://readthedocs.org/projects/pyalab/badge/?version=latest)](https://pyalab.readthedocs.io/en/latest/?badge=latest)
 
 # Usage
-Pyalab is a way to use Python generate programs for Vialab---the software that controls the Integra ASSIST Plus automated liquid handling robot.
+Pyalab is a way to use Python to generate programs for Vialab---the software that controls the Integra ASSIST Plus automated liquid handling robot.
 
 Documentation is hosted on [ReadTheDocs](https://pyalab.readthedocs.io/en/latest/?badge=latest).
 
-Don't want to figure out how to install Python on your computer?  No problem! Use this MyBinder link to open a free online environment (no sign-up required) where you can use `pyalab` to create and then download your Vialab programs. [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LabAutomationAndScreening/pyalab/main?labpath=docs%2Fcreate_vialab_program.ipynb)
+Don't want to figure out how to install Python on your computer?  No problem! Use this MyBinder link to launch a free online environment (no sign-up required) where you can use `pyalab` to create and then download your Vialab programs. [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LabAutomationAndScreening/pyalab/main?labpath=docs%2Fcreate_vialab_program.ipynb)
 
 # Development
 This project has a dev container. If you already have VS Code and Docker installed, you can click the badge above or [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/LabAutomationAndScreening/pyalab) to get started. Clicking these links will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
