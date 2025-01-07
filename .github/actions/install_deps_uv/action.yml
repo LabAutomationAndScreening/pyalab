@@ -26,13 +26,35 @@ runs:
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
-    - name: Install Tooling
+    - name: Install Tooling (Linux)
+      if: runner.os == 'Linux'
       run: sh .devcontainer/install-ci-tooling.sh ${{ env.PYTHON_VERSION }}
       shell: bash
 
-    - name: Install Dependencies
-      if: ${{ inputs.uv-sync }}
+    - name: Install Tooling (Windows)
+      if: runner.os == 'Windows'
+      run: .github/actions/install_deps_uv/install-ci-tooling.ps1 ${{ env.PYTHON_VERSION }}
+      shell: pwsh
+
+    - name: Install Dependencies (Linux)
+      if: ${{ inputs.uv-sync && runner.os == 'Linux' }}
       run: |
         sh .devcontainer/manual-setup-deps.sh ${{ env.PYTHON_VERSION }}
+      shell: bash
+
+    - name: Install Dependencies (Windows)
+      if: ${{ inputs.uv-sync && runner.os == 'Windows' }}
+      run: .github/actions/install_deps_uv/manual-setup-deps.ps1 ${{ env.PYTHON_VERSION }}
+      shell: pwsh
+
+    - name: List Dependencies (Linux)
+      if: ${{ inputs.uv-sync && runner.os == 'Linux' }}
+      run: |
         uv pip list
       shell: bash
+
+    - name: List Dependencies (Windows)
+      if: ${{ inputs.uv-sync && runner.os == 'Windows' }}
+      run: |
+        & uv pip list
+      shell: pwsh
