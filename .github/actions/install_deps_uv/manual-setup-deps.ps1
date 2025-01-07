@@ -20,6 +20,8 @@ if ($args.Count -eq 0) {
 $env:UV_PYTHON = "$input"
 $env:UV_PYTHON_PREFERENCE="only-system"
 
+# Add uv to path (in github runner)
+$env:Path = "C:\Users\runneradmin\.local\bin;$env:Path"
 
 
 $SCRIPT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Definition
