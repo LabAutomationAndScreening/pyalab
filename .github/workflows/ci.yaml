@@ -75,7 +75,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Unit test
-        run: uv run pytest --cov-report=xml
+        run: uv run pytest --cov-report=xml --durations=5
 
       - name: Upload coverage to Codecov
         # only upload coverage from fastest job

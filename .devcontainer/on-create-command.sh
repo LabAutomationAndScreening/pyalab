@@ -6,3 +6,7 @@ set -ex
 git config --global --add safe.directory /workspaces/pyalab
 
 sh .devcontainer/on-create-command-boilerplate.sh
+
+sh .devcontainer/manual-setup-deps.sh
+
+pre-commit install --install-hooks
