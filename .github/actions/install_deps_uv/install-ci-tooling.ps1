@@ -3,7 +3,7 @@
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-irm https://astral.sh/uv/0.5.10/install.ps1 | iex
+irm https://astral.sh/uv/0.5.16/install.ps1 | iex
 
 # Add uv to path (in github runner)
 $env:Path = "C:\Users\runneradmin\.local\bin;$env:Path"
