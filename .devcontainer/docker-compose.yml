@@ -1,12 +1,21 @@
 version: '3.8'
 services:
   devcontainer:
-    build: .
-    # can run `devcontainer-info content-url` in codespaces to see what image base is
+    build:
+      context: .
+      args:
+        VENV_PATH: /workspaces/pyalab/.venv
+    # You can run `devcontainer-info content-url` in codespaces to see what image base is
     volumes:
       - ..:/workspaces/pyalab:cached
+      # Break out the venv folder as a separate docker volume for better performance on Windows hosts
+      - python_venv:/workspaces/pyalab/.venv
     command: sleep infinity
     ports:
       - "56475:2222"
     environment:
       - AWS_PROFILE=localstack
+
+
+volumes:
+  python_venv: {}
