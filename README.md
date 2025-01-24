@@ -28,4 +28,4 @@ This project has a dev container. If you already have VS Code and Docker install
 
 ## Updating from the template
 This repository uses a copier template. To pull in the latest updates from the template, use the command:
-`copier update --trust --defaults --conflict rej`
+`copier update --trust --conflict rej --defaults`

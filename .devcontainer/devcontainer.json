@@ -24,11 +24,13 @@
         "MS-vsliveshare.vsliveshare@1.0.5905",
         "github.copilot@1.234.0",
         "github.copilot-chat@0.20.2",
+
         // Python
         "ms-python.python@2024.14.1",
         "ms-python.vscode-pylance@2024.9.2",
         "ms-vscode-remote.remote-containers@0.383.0",
         "charliermarsh.ruff@2024.54.0",
+
         // Misc file formats
         "bierner.markdown-mermaid@1.25.0",
         "samuelcolvin.jinjahtml@0.20.0",

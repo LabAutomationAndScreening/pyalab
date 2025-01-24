@@ -8,7 +8,8 @@ RUN apt-get update -y && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Create the venv folder and set permissions for anyone to modify---this is necessary to be able to break out the venv folder as a separate docker volume for better performance on Windows hosts
-ARG VENV_PATH=/workspaces/copier-base-template/.venv
+ARG REPO_NAME=copier-base-template
+ENV VENV_PATH=/workspaces/${REPO_NAME}/.venv
 RUN mkdir -p /workspace && \
     mkdir -p ${VENV_PATH} && \
     chmod -R 777 /workspaces ${VENV_PATH} && \
