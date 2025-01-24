@@ -62,8 +62,10 @@ class DeckPosition(BaseModel, frozen=True):
 
 
 class DeckPositions(Enum):
+    # TODO: load the length and width dynamically from the FootprintLengthMM and Width tags in the XML
     B_PLATE_LANDSCAPE = DeckPosition(name="B", length=128.2, width=86)
     C_PLATE_LANDSCAPE = DeckPosition(name="C", length=128.2, width=86)
+    C_TUBE_RACK = DeckPosition(name="C", length=128.2, width=145.7)
 
 
 class DeckLayout(BaseModel):

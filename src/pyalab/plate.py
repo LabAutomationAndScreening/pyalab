@@ -10,9 +10,8 @@ from .integra_xml import LibraryComponent
 from .integra_xml import LibraryComponentType
 
 
-class Plate(LibraryComponent, frozen=True):
+class Labware(LibraryComponent, frozen=True):
     id: uuid.UUID = Field(default_factory=uuid.uuid4)
-    type = LibraryComponentType.PLATE
     display_name: str = ""  # TODO: If left as blank, then set the display name to the name of the plate type # TODO: validate length and character class requirements
 
     @override
@@ -33,3 +32,11 @@ class Plate(LibraryComponent, frozen=True):
         return (
             float(self._extract_xml_node_text("RowGap")) / 100
         )  # in the XML the distance is in 0.01 mm units, but our standard is mm
+
+
+class Plate(Labware, frozen=True):
+    type = LibraryComponentType.PLATE
+
+
+class Tubeholder(Labware, frozen=True):
+    type = LibraryComponentType.TUBEHOLDER

@@ -11,11 +11,13 @@ from .constants import PATH_TO_INCLUDED_XML_FILES
 
 
 class LibraryComponentType(Enum):
+    # the string value should match the folder name within the Integra XML library
     DECK = "Deck"
     PLATE = "Plate"
     RESERVOIR = "Reservoir"
     PIPETTE = "Pipette"
     TIP = "Tip"
+    TUBEHOLDER = "Tubeholder"
 
 
 class IntegraLibraryObjectNotFoundError(OSError):

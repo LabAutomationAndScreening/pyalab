@@ -40,11 +40,16 @@ def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error()
         _ = program.get_section_index_for_plate(desired_plate)
 
 
-class TestSimpleTransferProgramSnapshots:
+class ProgramSnapshot:
     @pytest.fixture(autouse=True)
     def _setup(self, snapshot_xml: SnapshotAssertion):
         self.snapshot_xml = snapshot_xml
 
+
+# TODO: TestTubeholderProgramSnapshots(ProgramSnapshot):
+
+
+class TestSimpleTransferProgramSnapshots(ProgramSnapshot):
     @pytest.mark.parametrize(
         (
             "source_column_index",
