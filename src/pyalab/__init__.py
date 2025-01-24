@@ -3,14 +3,17 @@ from .deck import Deck
 from .deck import DeckLayout
 from .deck import DeckPosition
 from .deck import DeckPositionNotFoundError
-from .deck import DeckPositions
+from .deck import LabwareOrientation
 from .deck import StandardDeckNames
 from .integra_xml import IntegraLibraryObjectNotFoundError
 from .integra_xml import LibraryComponent
 from .integra_xml import LibraryComponentType
 from .pipette import Pipette
 from .pipette import Tip
+from .plate import Labware
 from .plate import Plate
+from .plate import Reservoir
+from .plate import Tubeholder
 from .program import LabwareNotInDeckLayoutError
 from .program import Program
 from .steps import SetInitialVolume
@@ -27,19 +30,22 @@ __all__ = [
     "DeckLayout",
     "DeckPosition",
     "DeckPositionNotFoundError",
-    "DeckPositions",
     "DispenseParameters",
     "IntegraLibraryObjectNotFoundError",
+    "Labware",
     "LabwareNotInDeckLayoutError",
+    "LabwareOrientation",
     "LibraryComponent",
     "LibraryComponentType",
     "Pipette",
     "Plate",
     "Program",
+    "Reservoir",
     "SetInitialVolume",
     "SetVolume",
     "StandardDeckNames",
     "Step",
     "Tip",
     "Transfer",
+    "Tubeholder",
 ]

@@ -1,5 +1,4 @@
 from enum import Enum
-from functools import cached_property
 from typing import ClassVar
 from typing import Literal
 
@@ -9,6 +8,8 @@ from pydantic import BaseModel
 
 from .integra_xml import LibraryComponent
 from .integra_xml import LibraryComponentType
+from .integra_xml import hundredths_mm_to_mm
+from .plate import Labware
 from .plate import Plate
 
 
@@ -28,44 +29,41 @@ class DeckPositionNotFoundError(Exception):
         )
 
 
+class LabwareOrientation(Enum):
+    LANDSCAPE = "Landscape"
+    PORTRAIT = "Portrait"
+
+
 class DeckPosition(BaseModel, frozen=True):
     name: Literal["A", "B", "C", "D"]
-    width: float
-    length: float
+    orientation: LabwareOrientation
+    _section_match_buffer: ClassVar[float] = (
+        1  # allow the section width and length to be up to 1 mm larger than the labware footprint when searching for a compatible section
+    )
 
-    # the XML encodes the dimension in units of 0.01 mm, but our standard units are in mm
-    @cached_property
-    def xml_width(self) -> int:
-        return int(round(self.width * 100, 0))
-
-    @cached_property
-    def xml_length(self) -> int:
-        return int(round(self.length * 100, 0))
-
-    def section_index(self, deck: Deck) -> int:
+    def section_index(self, *, deck: Deck, labware: Labware) -> int:
         root = deck.load_xml()
         for idx, section in enumerate(root.findall("./Sections/Section")):
             name = section.find("Name")
             width = section.find("Width")
             length = section.find("Length")
             assert width is not None
+            assert width.text is not None
             assert length is not None
+            assert length.text is not None
             assert name is not None
 
-            if name.text == self.name and width.text == str(self.xml_width) and length.text == str(self.xml_length):
+            if (
+                name.text == self.name
+                and hundredths_mm_to_mm(width.text) - labware.width <= self._section_match_buffer
+                and hundredths_mm_to_mm(length.text) - labware.length <= self._section_match_buffer
+            ):
                 return idx  # TODO: confirm that Integra does not allow any duplicates inherently
 
         raise DeckPositionNotFoundError(
-            deck_name=deck.name, deck_position_name=self.name, width=self.xml_width, length=self.xml_length
+            deck_name=deck.name, deck_position_name=self.name, width=labware.xml_width, length=labware.xml_length
         )
         # TODO: figure out if CreationOrderIndex is important to be changed or not
-
-
-class DeckPositions(Enum):
-    # TODO: load the length and width dynamically from the FootprintLengthMM and Width tags in the XML
-    B_PLATE_LANDSCAPE = DeckPosition(name="B", length=128.2, width=86)
-    C_PLATE_LANDSCAPE = DeckPosition(name="C", length=128.2, width=86)
-    C_TUBE_RACK = DeckPosition(name="C", length=128.2, width=145.7)
 
 
 class DeckLayout(BaseModel):
@@ -79,7 +77,7 @@ class DeckLayout(BaseModel):
         root = self.deck.create_xml_for_program()
         _ = etree.SubElement(root, "NameInProcess").text = name
         for deck_position, plate in self.labware.items():
-            section_idx = deck_position.section_index(self.deck)
+            section_idx = deck_position.section_index(deck=self.deck, labware=plate)
 
             for idx, section in enumerate(root.findall("./Sections/Section")):
                 if idx == section_idx:

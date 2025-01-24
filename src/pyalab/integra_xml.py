@@ -10,6 +10,11 @@ from pydantic import BaseModel
 from .constants import PATH_TO_INCLUDED_XML_FILES
 
 
+def hundredths_mm_to_mm(hundredths_mm: int | str) -> float:
+    # the XML encodes the dimension in units of 0.01 mm, but our standard units are in mm.
+    return float(hundredths_mm) / 100
+
+
 class LibraryComponentType(Enum):
     # the string value should match the folder name within the Integra XML library
     DECK = "Deck"

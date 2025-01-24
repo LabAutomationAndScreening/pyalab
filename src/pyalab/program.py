@@ -37,7 +37,7 @@ class Program(BaseModel):
         first_deck_layout = self.deck_layouts[0]
         for deck_position, iter_plate in first_deck_layout.labware.items():
             if iter_plate == plate:
-                return deck_position.section_index(first_deck_layout.deck)
+                return deck_position.section_index(deck=first_deck_layout.deck, labware=plate)
 
         raise LabwareNotInDeckLayoutError(plate)
 

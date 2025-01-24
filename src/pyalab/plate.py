@@ -24,14 +24,32 @@ class Labware(LibraryComponent, frozen=True):
 
     @cached_property
     def row_spacing(self) -> float:
-        root = self.load_xml()
-        row_gap_node = root.find(".//RowGap")
-        assert row_gap_node is not None
-        row_gap_text = row_gap_node.text
-        assert row_gap_text is not None
         return (
             float(self._extract_xml_node_text("RowGap")) / 100
         )  # in the XML the distance is in 0.01 mm units, but our standard is mm
+
+    @cached_property
+    def length(self) -> float:
+        # Length is the horizontal distance when object is in landscape orientation (rows A, B, C lined up vertically)
+        return (
+            float(self._extract_xml_node_text("FootprintLengthMM")) / 100
+        )  # in the XML the distance is in 0.01 mm units, but our standard is mm
+
+    @cached_property
+    def width(self) -> float:
+        # Width is the vertical (in ViaLab view...or back-to-front on the ASSIST Plus) distance when object is in landscape orientation (rows A, B, C lined up horizontally)
+        return (
+            float(self._extract_xml_node_text("FootprintWidthMM")) / 100
+        )  # in the XML the distance is in 0.01 mm units, but our standard is mm
+
+    # the XML encodes the dimension in units of 0.01 mm, but our standard units are in mm. But sometimes these values are needed for XML matching/searching
+    @cached_property
+    def xml_width(self) -> int:
+        return int(round(self.width * 100, 0))
+
+    @cached_property
+    def xml_length(self) -> int:
+        return int(round(self.length * 100, 0))
 
 
 class Plate(Labware, frozen=True):
@@ -40,3 +58,7 @@ class Plate(Labware, frozen=True):
 
 class Tubeholder(Labware, frozen=True):
     type = LibraryComponentType.TUBEHOLDER
+
+
+class Reservoir(Labware, frozen=True):
+    type = LibraryComponentType.RESERVOIR

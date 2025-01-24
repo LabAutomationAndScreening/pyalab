@@ -7,9 +7,10 @@ from syrupy.assertion import SnapshotAssertion
 
 from pyalab import Deck
 from pyalab import DeckLayout
-from pyalab import DeckPositions
+from pyalab import DeckPosition
 from pyalab import DispenseParameters
 from pyalab import LabwareNotInDeckLayoutError
+from pyalab import LabwareOrientation
 from pyalab import Pipette
 from pyalab import Plate
 from pyalab import Program
@@ -26,7 +27,7 @@ def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error()
         deck_layouts=[
             DeckLayout(
                 deck=Deck(name=StandardDeckNames.THREE_POSITION.value),
-                labware={DeckPositions.B_PLATE_LANDSCAPE.value: other_plate},
+                labware={DeckPosition(name="B", orientation=LabwareOrientation.LANDSCAPE): other_plate},
             )
         ],
         display_name="arbitrary",
@@ -107,7 +108,7 @@ class TestSimpleTransferProgramSnapshots(ProgramSnapshot):
             deck_layouts=[
                 DeckLayout(
                     deck=Deck(name=StandardDeckNames.THREE_POSITION.value),
-                    labware={DeckPositions.B_PLATE_LANDSCAPE.value: pcr_plate},
+                    labware={DeckPosition(name="B", orientation=LabwareOrientation.LANDSCAPE): pcr_plate},
                 )
             ],
             display_name=display_name,
