@@ -38,6 +38,7 @@ class Labware(LibraryComponent, frozen=True):
     @cached_property
     def width(self) -> float:
         # Width is the vertical (in ViaLab view...or back-to-front on the ASSIST Plus) distance when object is in landscape orientation (rows A, B, C lined up horizontally)
+        # Non-SBS reservoirs (e.g. INTEGRA 10 ml Multichannel Reservoir in Slot A) are represented as always being in landscape orientation
         return (
             float(self._extract_xml_node_text("FootprintWidthMM")) / 100
         )  # in the XML the distance is in 0.01 mm units, but our standard is mm

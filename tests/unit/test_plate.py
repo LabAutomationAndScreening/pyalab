@@ -2,6 +2,7 @@ import pytest
 
 from pyalab import Labware
 from pyalab import Plate
+from pyalab import Reservoir
 from pyalab import Tubeholder
 
 
@@ -27,6 +28,7 @@ class TestFootprint:
             (Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates"), 85.48, 8548),
             (Plate(name="4TITUDE 384 Well Skirted PCR Plate 55 µl"), 85.48, 8548),
             (Tubeholder(name="Rack for 1.5 ml microcentrifuge tubes"), 143.2, 14320),
+            (Reservoir(name="INTEGRA 10 ml Multichannel Reservoir"), 113.8, 11380),
         ],
     )
     def test_width(self, labware: Labware, expected: float, expected_xml: int):
@@ -42,6 +44,7 @@ class TestFootprint:
             (Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates"), 127.76, 12776),
             (Plate(name="4TITUDE 384 Well Skirted PCR Plate 55 µl"), 127.76, 12776),
             (Tubeholder(name="Rack for 1.5 ml microcentrifuge tubes"), 128, 12800),
+            (Reservoir(name="INTEGRA 10 ml Multichannel Reservoir"), 46.42, 4642),
         ],
     )
     def test_length(self, labware: Labware, expected: float, expected_xml: int):
