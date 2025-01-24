@@ -6,10 +6,10 @@ from pyalab import DeckPositionNotFoundError
 from pyalab import Labware
 from pyalab import LabwareOrientation
 from pyalab import Plate
-from pyalab import Reservoir
 from pyalab import StandardDeckNames
 
 from .constants import GENERIC_96_WELL_PLATE
+from .constants import GENERIC_RESERVOIR
 from .constants import GENERIC_TUBE_HOLDER
 
 
@@ -20,7 +20,7 @@ class TestDeckPositionSectionIndex:
             pytest.param(
                 StandardDeckNames.THREE_POSITION.value,
                 DeckPosition(name="A", orientation=LabwareOrientation.A1_NW_CORNER),
-                Reservoir(name="INTEGRA 10 ml Multichannel Reservoir"),
+                GENERIC_RESERVOIR,
                 2,
                 id="3 position deck, A position reservoir",
             ),
@@ -66,10 +66,10 @@ class TestDeckPositionSectionIndex:
     def test_Given_no_match__Then_error(self):
         deck = Deck(name=StandardDeckNames.FOUR_POSITION.value)
         deck_position = DeckPosition(name="B", orientation=LabwareOrientation.A1_NW_CORNER)
-        arbitrary_labware = Reservoir(name="INTEGRA 10 ml Multichannel Reservoir")
+        arbitrary_incompatible_labware = GENERIC_RESERVOIR
 
         with pytest.raises(
             DeckPositionNotFoundError,
-            match=rf"{deck.name}.*{deck_position.name}.*{arbitrary_labware.xml_width}.*{arbitrary_labware.xml_length}",
+            match=rf"{deck.name}.*{deck_position.name}.*{arbitrary_incompatible_labware.xml_width}.*{arbitrary_incompatible_labware.xml_length}",
         ):
-            _ = deck_position.section_index(deck=deck, labware=arbitrary_labware)
+            _ = deck_position.section_index(deck=deck, labware=arbitrary_incompatible_labware)
