@@ -4,7 +4,7 @@ services:
     build:
       context: .
       args:
-        VENV_PATH: /workspaces/pyalab/.venv
+        REPO_NAME: pyalab
     # You can run `devcontainer-info content-url` in codespaces to see what image base is
     volumes:
       - ..:/workspaces/pyalab:cached

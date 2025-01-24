@@ -52,6 +52,21 @@ coverage-report-pytest
 # test profiling
 prof/
 
+# NodeJS
+node_modules/
+.pnpm-store/
+
+
+# Nuxt
+.output
+.data
+.nuxt
+.nitro
+.cache
+# Nuxt generate creates a symlink to the dist folder, which can't have trailing slash
+dist
+
+
 # Infrastructure as Code
 .terraform/
 *.terraform.lock.hcl
