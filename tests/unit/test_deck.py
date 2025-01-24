@@ -9,6 +9,9 @@ from pyalab import Plate
 from pyalab import Reservoir
 from pyalab import StandardDeckNames
 
+from .constants import GENERIC_96_WELL_PLATE
+from .constants import GENERIC_TUBE_HOLDER
+
 
 class TestDeckPositionSectionIndex:
     @pytest.mark.parametrize(
@@ -16,17 +19,38 @@ class TestDeckPositionSectionIndex:
         [
             pytest.param(
                 StandardDeckNames.THREE_POSITION.value,
-                DeckPosition(name="B", orientation=LabwareOrientation.LANDSCAPE),
-                Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates"),  # arbitrary SBS footprint
+                DeckPosition(name="A", orientation=LabwareOrientation.A1_NW_CORNER),
+                Reservoir(name="INTEGRA 10 ml Multichannel Reservoir"),
+                2,
+                id="3 position deck, A position reservoir",
+            ),
+            pytest.param(
+                StandardDeckNames.THREE_POSITION.value,
+                DeckPosition(name="B", orientation=LabwareOrientation.A1_NW_CORNER),
+                GENERIC_96_WELL_PLATE,
                 6,
                 id="3 position deck, B plate landscape",
             ),
             pytest.param(
                 StandardDeckNames.THREE_POSITION.value,
-                DeckPosition(name="C", orientation=LabwareOrientation.LANDSCAPE),
+                DeckPosition(name="B", orientation=LabwareOrientation.A1_NE_CORNER),
+                GENERIC_96_WELL_PLATE,
+                6,
+                id="3 position deck, B plate portrait",
+            ),
+            pytest.param(
+                StandardDeckNames.THREE_POSITION.value,
+                DeckPosition(name="C", orientation=LabwareOrientation.A1_NW_CORNER),
                 Plate(name="4TITUDE 384 Well Skirted PCR Plate 55 µl"),  # arbitrary SBS footprint
                 14,
                 id="3 position deck, C plate landscape",
+            ),
+            pytest.param(
+                StandardDeckNames.THREE_POSITION.value,
+                DeckPosition(name="C", orientation=LabwareOrientation.A1_NW_CORNER),
+                GENERIC_TUBE_HOLDER,
+                13,
+                id="3 position deck, C tubeholder",
             ),
         ],
     )
@@ -41,7 +65,7 @@ class TestDeckPositionSectionIndex:
 
     def test_Given_no_match__Then_error(self):
         deck = Deck(name=StandardDeckNames.FOUR_POSITION.value)
-        deck_position = DeckPosition(name="B", orientation=LabwareOrientation.LANDSCAPE)
+        deck_position = DeckPosition(name="B", orientation=LabwareOrientation.A1_NW_CORNER)
         arbitrary_labware = Reservoir(name="INTEGRA 10 ml Multichannel Reservoir")
 
         with pytest.raises(

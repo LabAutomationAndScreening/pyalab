@@ -10,7 +10,6 @@ from .integra_xml import LibraryComponent
 from .integra_xml import LibraryComponentType
 from .integra_xml import hundredths_mm_to_mm
 from .plate import Labware
-from .plate import Plate
 
 
 class StandardDeckNames(Enum):
@@ -30,16 +29,17 @@ class DeckPositionNotFoundError(Exception):
 
 
 class LabwareOrientation(Enum):
-    LANDSCAPE = "Landscape"
-    PORTRAIT = "Portrait"
+    # TODO: handle inverted orientations (e.g. A1 in bottom right or bottom left)
+    A1_NW_CORNER = "Landscape"
+    A1_NE_CORNER = "Portrait_Inverse"
 
 
 class DeckPosition(BaseModel, frozen=True):
     name: Literal["A", "B", "C", "D"]
     orientation: LabwareOrientation
-    _section_match_buffer: ClassVar[float] = (
-        1  # allow the section width and length to be up to 1 mm larger than the labware footprint when searching for a compatible section
-    )
+    _section_match_epsilon: ClassVar[float] = 4
+    # Allow the section width and length to be +/- some amount from the labware footprint when searching for a compatible section (sometimes the footprint is larger, like INTEGRA 10 ml Multichannel Reservoir in Slot A)
+    # The Rack for 1.5 ml microcentrifuge tubes Tubeholder is nearly 4 mm different than the deck section
 
     def section_index(self, *, deck: Deck, labware: Labware) -> int:
         root = deck.load_xml()
@@ -55,8 +55,8 @@ class DeckPosition(BaseModel, frozen=True):
 
             if (
                 name.text == self.name
-                and hundredths_mm_to_mm(width.text) - labware.width <= self._section_match_buffer
-                and hundredths_mm_to_mm(length.text) - labware.length <= self._section_match_buffer
+                and abs(hundredths_mm_to_mm(width.text) - labware.width) <= self._section_match_epsilon
+                and abs(hundredths_mm_to_mm(length.text) - labware.length) <= self._section_match_epsilon
             ):
                 return idx  # TODO: confirm that Integra does not allow any duplicates inherently
 
@@ -68,7 +68,7 @@ class DeckPosition(BaseModel, frozen=True):
 
 class DeckLayout(BaseModel):
     deck: Deck
-    labware: dict[DeckPosition, Plate]
+    labware: dict[DeckPosition, Labware]
     name: str = ""
 
     def create_xml_for_program(self, *, layout_num: int) -> _Element:
@@ -91,6 +91,14 @@ class DeckLayout(BaseModel):
                     else:
                         raise NotImplementedError(
                             "Could not find <IsWaste> element in the section...this should never happen so there's no implementation to handle it"
+                        )
+                    for child in list(section):
+                        if child.tag == "OrientationExtended":
+                            child.text = deck_position.orientation.value
+                            break
+                    else:
+                        raise NotImplementedError(
+                            "Could not find <OrientationExtended> element in the section...this should never happen so there's no implementation to handle it"
                         )
                     # Clear existing children and re-insert the updated list
                     section.clear()

@@ -56,7 +56,11 @@ class LibraryComponent(BaseModel, frozen=True):
         return root
 
     def create_xml_for_program(self) -> _Element:
-        is_content = self.type in [LibraryComponentType.PLATE, LibraryComponentType.RESERVOIR]
+        is_content = self.type in [
+            LibraryComponentType.PLATE,
+            LibraryComponentType.RESERVOIR,
+            LibraryComponentType.TUBEHOLDER,
+        ]
         root = etree.Element(
             "Content"
             if is_content
