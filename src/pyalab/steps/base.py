@@ -83,6 +83,11 @@ class LiquidMovementParameters(BaseModel, frozen=True):
     """The height to start aspirating or dispensing from (mm)."""
     end_height: float | None = None  # TODO: implement moving aspiration/dispense
     """The height to stop at in mm, (None for fixed height)."""
+    liquid_speed: int = 8
+    """The speed the liquid should move at (Integra Numbers, 1-10)."""
+    # TODO: use uL/sec instead of the Integra numbers here, and then convert within the XML generation
+    post_delay: float = 0
+    """The number of seconds to delay after the liquid movement is finished."""
 
 
 class Step(BaseModel, ABC):
