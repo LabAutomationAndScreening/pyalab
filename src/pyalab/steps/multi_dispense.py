@@ -5,12 +5,11 @@ from typing import override
 from pydantic import Field
 
 from .base import DeckSection
-from .base import LldErrorHandlingMode
-from .base import Step
 from .base import WellOffsets
 from .base import WellRowCol
 from .base import mm_to_xml
 from .base import ul_to_xml
+from .builders import LiquidTransferStep
 from .params import AspirateParameters
 from .params import DispenseParameters
 from .params import PipettingLocation
@@ -19,7 +18,7 @@ from .params import TipChangeMode
 type Volume = float
 
 
-class MultiDispense(Step):
+class MultiDispense(LiquidTransferStep):
     """Perform a multi/repeat dispense from a single source into one or more destinations."""
 
     type = "RepeatDispense"
@@ -253,15 +252,8 @@ class MultiDispense(Step):
                 ),
             ],
         )
-        self._add_value_group(
-            group_name="Tips",
-            values=[
-                ("PreWetting", json.dumps(obj=False)),
-                ("PreWettingCycles", json.dumps(obj=3)),
-                ("TipChange", json.dumps(self.tip_change_mode.value)),
-                ("TipEjectionType", json.dumps(obj=True)),
-            ],
-        )
+        self._add_tips_value_group()
+
         self._add_value_group(
             group_name="SourceMix",
             values=[
@@ -391,40 +383,8 @@ class MultiDispense(Step):
                 ("SkipFirst", json.dumps(obj=False)),
             ],
         )
-        self._add_value_group(
-            group_name="TipTouchTarget",
-            values=[
-                ("TipTouchActive", json.dumps(obj=False)),
-                (
-                    "SectionTipTouch",
-                    json.dumps(
-                        obj=[
-                            {
-                                **destination_deck_section,
-                                "Type": False,
-                                "Height": 1406,  # TODO: implement tip touch
-                                "Distance": 225,
-                            }
-                        ]
-                    ),
-                ),
-            ],
-        )
-        self._add_value_group(
-            group_name="Various",
-            values=[
-                ("SpeedX", str(10)),
-                ("SpeedY", str(10)),
-                ("SpeedZ", str(10)),
-                ("IsStepActive", json.dumps(obj=True)),
-            ],
-        )
+        self._add_tip_touch_target_group(destination_deck_section)
 
-        self._add_value_group(
-            group_name="LLD",
-            values=[
-                ("UseLLD", json.dumps(obj=False)),
-                ("LLDErrorHandling", json.dumps(LldErrorHandlingMode.PAUSE_AND_REPEAT.value)),
-                ("LLDHeights", json.dumps(None)),
-            ],
-        )
+        self._add_various_value_group()
+
+        self._add_lld_value_group()

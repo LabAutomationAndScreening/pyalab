@@ -9,6 +9,7 @@ from pyalab.steps.base import LiquidMovementParameters
 class TipChangeMode(Enum):
     NO_CHANGE = "TipChange_Never"
     AFTER_STEP = "TipChange_AfterStep"
+    MODE_A = "TipChange_ModeA"  # Transfer uses this...unclear what it is
 
 
 class PipettingLocation(BaseModel, frozen=True):

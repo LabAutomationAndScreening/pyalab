@@ -135,3 +135,24 @@ class Step(BaseModel, ABC):
             etree.SubElement(values_node, "Value", attrib={"Key": name}).text = (
                 etree.CDATA(value) if is_c_data_needed else value
             )
+
+    def _add_lld_value_group(self) -> None:
+        self._add_value_group(
+            group_name="LLD",
+            values=[
+                ("UseLLD", json.dumps(obj=False)),
+                ("LLDErrorHandling", json.dumps(LldErrorHandlingMode.PAUSE_AND_REPEAT.value)),
+                ("LLDHeights", json.dumps(None)),
+            ],
+        )
+
+    def _add_various_value_group(self) -> None:
+        self._add_value_group(
+            group_name="Various",
+            values=[
+                ("SpeedX", str(10)),
+                ("SpeedY", str(10)),
+                ("SpeedZ", str(10)),
+                ("IsStepActive", json.dumps(obj=True)),
+            ],
+        )

@@ -7,17 +7,17 @@ from pydantic import Field
 from pyalab.plate import Plate
 
 from .base import DeckSection
-from .base import LldErrorHandlingMode
-from .base import Step
 from .base import WellOffsets
 from .base import WellRowCol
 from .base import mm_to_xml
 from .base import ul_to_xml
+from .builders import LiquidTransferStep
 from .params import AspirateParameters
 from .params import DispenseParameters
+from .params import TipChangeMode
 
 
-class Transfer(Step):
+class Transfer(LiquidTransferStep):
     """Simple transfer from one column to another."""
 
     type = "Transfer"
@@ -39,6 +39,8 @@ class Transfer(Step):
     """The parameters for aspirating the liquid."""
     dispense_parameters: DispenseParameters = Field(default_factory=DispenseParameters)
     """The parameters for dispensing the liquid."""
+
+    tip_change_mode: TipChangeMode = TipChangeMode.MODE_A  # for now this is basically a class attribute that shouldn't be altered, but pyright complained about that. it's possible it actually is something that can be varied in a Transfer Step...TBD
 
     @override
     def _add_value_groups(self) -> None:
@@ -251,15 +253,7 @@ class Transfer(Step):
                 ),
             ],
         )
-        self._add_value_group(
-            group_name="Tips",
-            values=[
-                ("PreWetting", json.dumps(obj=False)),
-                ("PreWettingCycles", json.dumps(obj=3)),
-                ("TipChange", '"TipChange_ModeA"'),
-                ("TipEjectionType", json.dumps(obj=True)),
-            ],
-        )
+        self._add_tips_value_group()
         self._add_value_group(
             group_name="SourceMix",
             values=[
@@ -389,40 +383,8 @@ class Transfer(Step):
                 ("SkipFirst", json.dumps(obj=False)),
             ],
         )
-        self._add_value_group(
-            group_name="TipTouchTarget",
-            values=[
-                ("TipTouchActive", json.dumps(obj=False)),
-                (
-                    "SectionTipTouch",
-                    json.dumps(
-                        obj=[
-                            {
-                                **destination_deck_section,
-                                "Type": False,
-                                "Height": 1406,  # TODO: implement tip touch
-                                "Distance": 225,
-                            }
-                        ]
-                    ),
-                ),
-            ],
-        )
-        self._add_value_group(
-            group_name="Various",
-            values=[
-                ("SpeedX", str(10)),
-                ("SpeedY", str(10)),
-                ("SpeedZ", str(10)),
-                ("IsStepActive", json.dumps(obj=True)),
-            ],
-        )
+        self._add_tip_touch_target_group(destination_deck_section)
 
-        self._add_value_group(
-            group_name="LLD",
-            values=[
-                ("UseLLD", json.dumps(obj=False)),
-                ("LLDErrorHandling", json.dumps(LldErrorHandlingMode.PAUSE_AND_REPEAT.value)),
-                ("LLDHeights", json.dumps(None)),
-            ],
-        )
+        self._add_various_value_group()
+
+        self._add_lld_value_group()
