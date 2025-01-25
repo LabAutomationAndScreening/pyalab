@@ -18,10 +18,12 @@ from .program import LabwareNotInDeckLayoutError
 from .program import Program
 from .steps import AspirateParameters
 from .steps import DispenseParameters
+from .steps import MultiDispense
 from .steps import PipettingLocation
 from .steps import SetInitialVolume
 from .steps import SetVolume
 from .steps import Step
+from .steps import TipChangeMode
 from .steps import Transfer
 
 __all__ = [
@@ -38,6 +40,7 @@ __all__ = [
     "LabwareOrientation",
     "LibraryComponent",
     "LibraryComponentType",
+    "MultiDispense",
     "Pipette",
     "PipettingLocation",
     "Plate",
@@ -48,6 +51,7 @@ __all__ = [
     "StandardDeckNames",
     "Step",
     "Tip",
+    "TipChangeMode",
     "Transfer",
     "Tubeholder",
 ]

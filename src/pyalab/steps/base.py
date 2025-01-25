@@ -86,7 +86,7 @@ class LiquidMovementParameters(BaseModel, frozen=True):
     liquid_speed: int = 8
     """The speed the liquid should move at (Integra Numbers, 1-10)."""
     # TODO: use uL/sec instead of the Integra numbers here, and then convert within the XML generation
-    post_delay: float = 0
+    post_delay: int = 0  # it seems like ViaLab only supports integer seconds delay..at least in the UI
     """The number of seconds to delay after the liquid movement is finished."""
 
 
