@@ -26,6 +26,11 @@ class MixLocation(Enum):
     DESTINATION = "TargetMix"
 
 
+class Location(Enum):
+    SOURCE = "Source"
+    DESTINATION = "Target"
+
+
 class LldErrorHandlingMode(Enum):
     PAUSE_AND_REPEAT = "LLD_PauseAndRepeat"
 
@@ -239,3 +244,62 @@ class Step(BaseModel, ABC):
             group_name=mix_location.value,
             values=values,
         )
+
+    def _create_height_config_value_tuples(self, *, deck_section_info: dict[str, Any]) -> list[tuple[str, str]]:
+        return [
+            (
+                "SectionHeightConfig",
+                json.dumps(
+                    [
+                        {
+                            **deck_section_info,
+                            "HeightConfigType": True,
+                            "WellBottomOffset": 0,
+                        }
+                    ]
+                ),
+            ),
+            (
+                "TipTypeHeightConfiguration",
+                json.dumps(
+                    [
+                        {
+                            **deck_section_info,
+                            "WellBottomOffset": 200,
+                            "TipID": self.tip_id,
+                        }
+                    ]
+                ),
+            ),
+        ]
+
+    def _create_heights_value_tuple(
+        self, *, well_info: dict[str, Any], deck_section_info: dict[str, Any], start_height: float
+    ) -> tuple[str, str]:
+        end_height = start_height  # TODO: implement moving aspirate/dispense
+        return (
+            "Heights",
+            json.dumps(
+                [
+                    {
+                        "Well": well_info,
+                        **deck_section_info,
+                        "StartHeight": mm_to_xml(start_height),
+                        "EndHeight": mm_to_xml(end_height),
+                        "TipID": self.tip_id,
+                    }
+                ]
+            ),
+        )
+
+    def _add_location_group(self, *, location: Location, well_info: list[dict[str, Any]], deck_section: DeckSection):
+        values = [
+            ("MultiSelection", json.dumps(well_info)),
+            (
+                "WellOffsets",
+                json.dumps(
+                    [WellOffsets(offset_x=0, offset_y=0, **deck_section.model_dump()).model_dump(by_alias=True)]
+                ),
+            ),
+        ]
+        self._add_value_group(group_name=location.value, values=values)
