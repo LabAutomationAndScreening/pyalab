@@ -5,8 +5,8 @@
   <CreatedBy>UnknownUser</CreatedBy>
   <MigrationHistory/>
   <DataVersion>9</DataVersion>
-  <DisplayNameOnPipette>wakka_wakka</DisplayNameOnPipette>
-  <Description>doing science!</Description>
+  <DisplayNameOnPipette>arbitrary</DisplayNameOnPipette>
+  <Description>arbitrary description</Description>
   <Pipette Version="1">
     <DataVersion>5</DataVersion>
     <Channels>8</Channels>
@@ -48,28 +48,30 @@
   </Pipette>
   <Tip Version="1">
     <DataVersion>4</DataVersion>
-    <TipID>20</TipID>
-    <Name>300 µl GripTip, Sterile, Filter</Name>
+    <TipID>23</TipID>
+    <Name>300 µl GripTip, Sterile, Filter, Low retention</Name>
     <Manufacturer>INTEGRA</Manufacturer>
-    <PartNumber>6435</PartNumber>
+    <PartNumber>6535</PartNumber>
     <Volume>30000</Volume>
     <ColorText>#FF9AB9AD</ColorText>
     <Length>Standard</Length>
     <LengthMM>6096</LengthMM>
+    <TipSpecial>LowRetention</TipSpecial>
     <TipType>Sterile</TipType>
     <HasFilter>true</HasFilter>
   </Tip>
   <Tips>
     <Tip Version="1">
       <DataVersion>4</DataVersion>
-      <TipID>20</TipID>
-      <Name>300 µl GripTip, Sterile, Filter</Name>
+      <TipID>23</TipID>
+      <Name>300 µl GripTip, Sterile, Filter, Low retention</Name>
       <Manufacturer>INTEGRA</Manufacturer>
-      <PartNumber>6435</PartNumber>
+      <PartNumber>6535</PartNumber>
       <Volume>30000</Volume>
       <ColorText>#FF9AB9AD</ColorText>
       <Length>Standard</Length>
       <LengthMM>6096</LengthMM>
+      <TipSpecial>LowRetention</TipSpecial>
       <TipType>Sterile</TipType>
       <HasFilter>true</HasFilter>
     </Tip>
@@ -163,17 +165,17 @@
         <Depth>0</Depth>
         <IsWaste>false</IsWaste>
         <Content Version="1" xsi:type="Plate">
-          <DataVersion>0</DataVersion>
-          <Name>Hard-Shell 96-Well Skirted PCR Plates</Name>
-          <Manufacturer>BIO-RAD</Manufacturer>
-          <PartNumber>#HSP9631</PartNumber>
+          <DataVersion>3</DataVersion>
+          <Name>96 Deepwell U-Bottom Plate</Name>
+          <Manufacturer>GREINER</Manufacturer>
+          <PartNumber>780271, 780270, 780285, 780276, 780273, 780274, 780275</PartNumber>
           <Description/>
           <Measurements Version="0">
             <DataVersion>0</DataVersion>
             <Description/>
             <FootprintLengthMM>12776</FootprintLengthMM>
             <FootprintWidthMM>8548</FootprintWidthMM>
-            <HeightMM>1606</HeightMM>
+            <HeightMM>4400</HeightMM>
           </Measurements>
           <Wells Version="0">
             <DataVersion>0</DataVersion>
@@ -181,21 +183,21 @@
             <Angle>0</Angle>
             <SectionHeightCorrection>0</SectionHeightCorrection>
             <DeltaHmax>0</DeltaHmax>
-            <BottomShape>VShape</BottomShape>
+            <BottomShape>Circle</BottomShape>
             <CollumnCount>12</CollumnCount>
             <CollumnGap>900</CollumnGap>
-            <Depth>1481</Depth>
-            <NominalWellVolume>20000</NominalWellVolume>
-            <VShapeDepth>950</VShapeDepth>
+            <Depth>4100</Depth>
+            <NominalWellVolume>242000</NominalWellVolume>
+            <VShapeDepth>0</VShapeDepth>
             <FirstHolePositionText>1438;1124</FirstHolePositionText>
             <RowCount>8</RowCount>
             <RowGap>900</RowGap>
-            <Shape>Circle</Shape>
-            <Size>550</Size>
-            <Length>550</Length>
+            <Shape>Square</Shape>
+            <Size>819</Size>
+            <Length>819</Length>
             <SizeBottom>0</SizeBottom>
           </Wells>
-          <NameInProcess>PCR Plate!1</NameInProcess>
+          <NameInProcess>96 Deep Well Plate!1</NameInProcess>
         </Content>
         <OrientationExtended>Landscape</OrientationExtended>
         <ContentOrientation>Landscape</ContentOrientation>
@@ -508,17 +510,17 @@
           <Depth>0</Depth>
           <IsWaste>false</IsWaste>
           <Content Version="1" xsi:type="Plate">
-            <DataVersion>0</DataVersion>
-            <Name>Hard-Shell 96-Well Skirted PCR Plates</Name>
-            <Manufacturer>BIO-RAD</Manufacturer>
-            <PartNumber>#HSP9631</PartNumber>
+            <DataVersion>3</DataVersion>
+            <Name>96 Deepwell U-Bottom Plate</Name>
+            <Manufacturer>GREINER</Manufacturer>
+            <PartNumber>780271, 780270, 780285, 780276, 780273, 780274, 780275</PartNumber>
             <Description/>
             <Measurements Version="0">
               <DataVersion>0</DataVersion>
               <Description/>
               <FootprintLengthMM>12776</FootprintLengthMM>
               <FootprintWidthMM>8548</FootprintWidthMM>
-              <HeightMM>1606</HeightMM>
+              <HeightMM>4400</HeightMM>
             </Measurements>
             <Wells Version="0">
               <DataVersion>0</DataVersion>
@@ -526,21 +528,21 @@
               <Angle>0</Angle>
               <SectionHeightCorrection>0</SectionHeightCorrection>
               <DeltaHmax>0</DeltaHmax>
-              <BottomShape>VShape</BottomShape>
+              <BottomShape>Circle</BottomShape>
               <CollumnCount>12</CollumnCount>
               <CollumnGap>900</CollumnGap>
-              <Depth>1481</Depth>
-              <NominalWellVolume>20000</NominalWellVolume>
-              <VShapeDepth>950</VShapeDepth>
+              <Depth>4100</Depth>
+              <NominalWellVolume>242000</NominalWellVolume>
+              <VShapeDepth>0</VShapeDepth>
               <FirstHolePositionText>1438;1124</FirstHolePositionText>
               <RowCount>8</RowCount>
               <RowGap>900</RowGap>
-              <Shape>Circle</Shape>
-              <Size>550</Size>
-              <Length>550</Length>
+              <Shape>Square</Shape>
+              <Size>819</Size>
+              <Length>819</Length>
               <SizeBottom>0</SizeBottom>
             </Wells>
-            <NameInProcess>PCR Plate!1</NameInProcess>
+            <NameInProcess>96 Deep Well Plate!1</NameInProcess>
           </Content>
           <OrientationExtended>Landscape</OrientationExtended>
           <ContentOrientation>Landscape</ContentOrientation>
@@ -774,7 +776,7 @@
       <ValueGroups>
         <ValueGroup Key="ManualVolume">
           <Values>
-            <Value Key="ManualVolume"><![CDATA[[{"WellCoordinates": [{"Item1": 5, "Item2": 0}], "Volume": 13221, "Section": 6, "SubSection": -1, "Spacing": 900, "ColorIndex": 1, "DeckId": "00000000-0000-0000-0000-000000000000"}]]]></Value>
+            <Value Key="ManualVolume"><![CDATA[[{"WellCoordinates": [{"Item1": 3, "Item2": 0}], "Volume": 200000, "Section": 6, "SubSection": -1, "Spacing": 900, "ColorIndex": 1, "DeckId": "00000000-0000-0000-0000-000000000000"}]]]></Value>
             <Value Key="MessageType">null</Value>
             <Value Key="Message1">null</Value>
             <Value Key="Message2">null</Value>
@@ -793,7 +795,7 @@
       <ValueGroups>
         <ValueGroup Key="ManualVolume">
           <Values>
-            <Value Key="ManualVolume"><![CDATA[[{"WellCoordinates": [{"Item1": 1, "Item2": 0}], "Volume": 0, "Section": 6, "SubSection": -1, "Spacing": 900, "ColorIndex": 1, "DeckId": "00000000-0000-0000-0000-000000000000"}]]]></Value>
+            <Value Key="ManualVolume"><![CDATA[[{"WellCoordinates": [{"Item1": 8, "Item2": 0}], "Volume": 0, "Section": 6, "SubSection": -1, "Spacing": 900, "ColorIndex": 1, "DeckId": "00000000-0000-0000-0000-000000000000"}]]]></Value>
             <Value Key="MessageType">null</Value>
             <Value Key="Message1">null</Value>
             <Value Key="Message2">null</Value>
@@ -804,7 +806,7 @@
       </ValueGroups>
     </Step>
     <Step>
-      <Type>Transfer</Type>
+      <Type>RepeatDispense</Type>
       <IsEnabled>true</IsEnabled>
       <ID>00000000-0000-0000-0000-000000000004</ID>
       <IsNew>false</IsNew>
@@ -812,13 +814,13 @@
       <ValueGroups>
         <ValueGroup Key="Source">
           <Values>
-            <Value Key="MultiSelection"><![CDATA[[{"Wells": [{"Item1": 5, "Item2": 0}], "DeckSection": 6, "SubSection": -1, "Spacing": 900, "DeckId": "00000000-0000-0000-0000-000000000000", "WorkingDirectionExtended": 0, "WorkingDirectionOld": "false"}]]]></Value>
+            <Value Key="MultiSelection"><![CDATA[[{"Wells": [{"Item1": 3, "Item2": 0}], "DeckSection": 6, "SubSection": -1, "Spacing": 900, "DeckId": "00000000-0000-0000-0000-000000000000", "WorkingDirectionExtended": 0, "WorkingDirectionOld": "false"}]]]></Value>
             <Value Key="WellOffsets"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "OffsetX": 0, "OffsetY": 0}]]]></Value>
           </Values>
         </ValueGroup>
         <ValueGroup Key="Target">
           <Values>
-            <Value Key="MultiSelection"><![CDATA[[{"Wells": [{"Item1": 1, "Item2": 0}], "DeckSection": 6, "SubSection": -1, "Spacing": 900, "DeckId": "00000000-0000-0000-0000-000000000000", "WorkingDirectionExtended": 0, "WorkingDirectionOld": "false"}]]]></Value>
+            <Value Key="MultiSelection"><![CDATA[[{"Wells": [{"Item1": 8, "Item2": 0}], "DeckSection": 6, "SubSection": -1, "Spacing": 900, "DeckId": "00000000-0000-0000-0000-000000000000", "WorkingDirectionExtended": 0, "WorkingDirectionOld": "false"}]]]></Value>
             <Value Key="WellOffsets"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "OffsetX": 0, "OffsetY": 0}]]]></Value>
           </Values>
         </ValueGroup>
@@ -826,70 +828,70 @@
           <Values>
             <Value Key="ExtraVolumePercentage">0</Value>
             <Value Key="NumberOfReactions">1</Value>
-            <Value Key="DispenseVolume"><![CDATA[[{"Well": {"Item1": 1, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "Volume": 3750, "TipID": 20, "Multiplier": 1, "TotalVolume": 3750}]]]></Value>
-            <Value Key="TipTypePipettingConfiguration"><![CDATA[[{"FirstDispenseVolume": 0, "LastDispenseVolume": 0, "Airgap": false, "AirgapVolume": 0, "AspirationSpeed": 8, "DispenseSpeed": 8, "TipID": 20}]]]></Value>
+            <Value Key="DispenseVolume"><![CDATA[[{"Well": {"Item1": 8, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "Volume": 10000, "TipID": 23, "Multiplier": 1, "TotalVolume": 10000}]]]></Value>
+            <Value Key="TipTypePipettingConfiguration"><![CDATA[[{"FirstDispenseVolume": 0, "LastDispenseVolume": 0, "Airgap": false, "AirgapVolume": 0, "AspirationSpeed": 8, "DispenseSpeed": 8, "TipID": 23}]]]></Value>
             <Value Key="AspirationDelay">0</Value>
             <Value Key="DispenseDelay">0</Value>
-            <Value Key="KeepPostDispense">false</Value>
+            <Value Key="KeepPostDispense">true</Value>
             <Value Key="LastDispenseType">true</Value>
             <Value Key="LastAspirationBackTo"><![CDATA["Common_No"]]></Value>
-            <Value Key="VolumeConfigType">true</Value>
-            <Value Key="DispenseType">false</Value>
+            <Value Key="VolumeConfigType">false</Value>
+            <Value Key="DispenseType">true</Value>
             <Value Key="SlowLiquidExitAsp">false</Value>
             <Value Key="SlowLiquidExitDisp">false</Value>
           </Values>
         </ValueGroup>
         <ValueGroup Key="Aspiration">
           <Values>
-            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 5, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 200, "EndHeight": 325, "TipID": 20}]]]></Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 3, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 330, "EndHeight": 330, "TipID": 23}]]]></Value>
             <Value Key="TipTravel">false</Value>
             <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
-            <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "WellBottomOffset": 200, "TipID": 20}]]]></Value>
+            <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "WellBottomOffset": 200, "TipID": 23}]]]></Value>
           </Values>
         </ValueGroup>
         <ValueGroup Key="Dispense">
           <Values>
-            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 1, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 330, "EndHeight": 325, "TipID": 20}]]]></Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 8, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 330, "EndHeight": 330, "TipID": 23}]]]></Value>
             <Value Key="TipTravel">false</Value>
             <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
-            <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "WellBottomOffset": 200, "TipID": 20}]]]></Value>
+            <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "WellBottomOffset": 200, "TipID": 23}]]]></Value>
           </Values>
         </ValueGroup>
         <ValueGroup Key="Tips">
           <Values>
             <Value Key="PreWetting">false</Value>
             <Value Key="PreWettingCycles">3</Value>
-            <Value Key="TipChange"><![CDATA["TipChange_ModeA"]]></Value>
+            <Value Key="TipChange"><![CDATA["TipChange_AfterStep"]]></Value>
             <Value Key="TipEjectionType">true</Value>
           </Values>
         </ValueGroup>
         <ValueGroup Key="SourceMix">
           <Values>
             <Value Key="MixActive">false</Value>
-            <Value Key="TipTypeMixConfiguration"><![CDATA[[{"MixSpeed": 8, "TipID": 20}]]]></Value>
+            <Value Key="TipTypeMixConfiguration"><![CDATA[[{"MixSpeed": 8, "TipID": 23}]]]></Value>
             <Value Key="MixPause">0</Value>
-            <Value Key="SectionMixVolume"><![CDATA[[{"Well": {"Item1": 5, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "Volume": 5000, "TipID": 20, "Multiplier": 1, "TotalVolume": 5000}]]]></Value>
+            <Value Key="SectionMixVolume"><![CDATA[[{"Well": {"Item1": 3, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "Volume": 5000, "TipID": 23, "Multiplier": 1, "TotalVolume": 5000}]]]></Value>
             <Value Key="MixCycles">3</Value>
             <Value Key="BlowOut">false</Value>
             <Value Key="TipTravel">false</Value>
             <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
             <Value Key="VolumeConfigType">true</Value>
-            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 5, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 325, "EndHeight": 0, "TipID": 20}]]]></Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 3, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 325, "EndHeight": 0, "TipID": 23}]]]></Value>
             <Value Key="MixBeforeEachAspiration">false</Value>
           </Values>
         </ValueGroup>
         <ValueGroup Key="TargetMix">
           <Values>
             <Value Key="MixActive">false</Value>
-            <Value Key="TipTypeMixConfiguration"><![CDATA[[{"MixSpeed": 8, "TipID": 20}]]]></Value>
+            <Value Key="TipTypeMixConfiguration"><![CDATA[[{"MixSpeed": 8, "TipID": 23}]]]></Value>
             <Value Key="MixPause">0</Value>
-            <Value Key="SectionMixVolume"><![CDATA[[{"Well": {"Item1": 1, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "Volume": 5000, "TipID": 20, "Multiplier": 1, "TotalVolume": 5000}]]]></Value>
+            <Value Key="SectionMixVolume"><![CDATA[[{"Well": {"Item1": 8, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "Volume": 5000, "TipID": 23, "Multiplier": 1, "TotalVolume": 5000}]]]></Value>
             <Value Key="MixCycles">3</Value>
             <Value Key="BlowOut">false</Value>
             <Value Key="TipTravel">false</Value>
             <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
             <Value Key="VolumeConfigType">true</Value>
-            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 1, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 325, "EndHeight": 0, "TipID": 20}]]]></Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 8, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 325, "EndHeight": 0, "TipID": 23}]]]></Value>
             <Value Key="MixBeforeEachAspiration">false</Value>
             <Value Key="SkipFirst">false</Value>
           </Values>
@@ -926,7 +928,7 @@
       <Value Key="AfterTipEjectMonitoring">true</Value>
       <Value Key="AfterTipLoadMonitoring">false</Value>
       <Value Key="BeforeTipEjectMonitoring">true</Value>
-      <Value Key="TipTypeRequiredTips"><![CDATA[{"20": 0}]]></Value>
+      <Value Key="TipTypeRequiredTips"><![CDATA[{"23": 0}]]></Value>
       <Value Key="WasteAsTargetOption">false</Value>
       <Value Key="LabwareReintegration">false</Value>
       <Value Key="CopyHeightAdjustment">false</Value>

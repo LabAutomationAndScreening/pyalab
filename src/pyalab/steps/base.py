@@ -3,6 +3,7 @@ import uuid
 from abc import ABC
 from abc import abstractmethod
 from enum import Enum
+from typing import Any
 from typing import ClassVar
 
 from inflection import camelize
@@ -12,6 +13,22 @@ from pydantic import BaseModel
 from pydantic import Field
 
 from pyalab.pipette import Tip
+
+WORKING_DIRECTION_KWARGS: dict[str, Any] = {
+    "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
+    "WorkingDirectionExtended": 0,  # TODO: figure out what this is
+    "WorkingDirectionOld": "false",  # TODO: figure out what this is
+}
+
+
+class MixLocation(Enum):
+    SOURCE = "SourceMix"
+    DESTINATION = "TargetMix"
+
+
+class Location(Enum):
+    SOURCE = "Source"
+    DESTINATION = "Target"
 
 
 class LldErrorHandlingMode(Enum):
@@ -83,6 +100,11 @@ class LiquidMovementParameters(BaseModel, frozen=True):
     """The height to start aspirating or dispensing from (mm)."""
     end_height: float | None = None  # TODO: implement moving aspiration/dispense
     """The height to stop at in mm, (None for fixed height)."""
+    liquid_speed: int = 8
+    """The speed the liquid should move at (Integra Numbers, 1-10)."""
+    # TODO: use uL/sec instead of the Integra numbers here, and then convert within the XML generation
+    post_delay: int = 0  # it seems like ViaLab only supports integer seconds delay..at least in the UI
+    """The number of seconds to delay after the liquid movement is finished."""
 
 
 class Step(BaseModel, ABC):
@@ -130,3 +152,154 @@ class Step(BaseModel, ABC):
             etree.SubElement(values_node, "Value", attrib={"Key": name}).text = (
                 etree.CDATA(value) if is_c_data_needed else value
             )
+
+    def _add_lld_value_group(self) -> None:
+        self._add_value_group(
+            group_name="LLD",
+            values=[
+                ("UseLLD", json.dumps(obj=False)),
+                ("LLDErrorHandling", json.dumps(LldErrorHandlingMode.PAUSE_AND_REPEAT.value)),
+                ("LLDHeights", json.dumps(None)),
+            ],
+        )
+
+    def _add_various_value_group(self) -> None:
+        self._add_value_group(
+            group_name="Various",
+            values=[
+                ("SpeedX", str(10)),
+                ("SpeedY", str(10)),
+                ("SpeedZ", str(10)),
+                ("IsStepActive", json.dumps(obj=True)),
+            ],
+        )
+
+    def _add_mix_group(
+        self, *, mix_location: MixLocation, well_info: dict[str, Any], deck_section_info: dict[str, Any]
+    ):
+        values = [
+            ("MixActive", json.dumps(obj=False)),
+            (
+                "TipTypeMixConfiguration",
+                json.dumps(
+                    obj=[
+                        {
+                            "MixSpeed": 8,
+                            "TipID": self.tip_id,
+                        }
+                    ]
+                ),
+            ),
+            ("MixPause", json.dumps(obj=0)),
+            (
+                "SectionMixVolume",
+                json.dumps(
+                    obj=[
+                        {
+                            "Well": well_info,
+                            **deck_section_info,
+                            "Volume": 5000,  # TODO: implement mixing volume
+                            "TipID": self.tip_id,
+                            "Multiplier": 1,
+                            "TotalVolume": 5000,  # TODO: figure out when/if this needs to differ from Volume
+                        }
+                    ]
+                ),
+            ),
+            ("MixCycles", json.dumps(obj=3)),
+            ("BlowOut", json.dumps(obj=False)),
+            ("TipTravel", json.dumps(obj=False)),
+            (
+                "SectionHeightConfig",
+                json.dumps(
+                    obj=[
+                        {
+                            **deck_section_info,
+                            "HeightConfigType": True,
+                            "WellBottomOffset": 0,
+                        }
+                    ]
+                ),
+            ),
+            ("VolumeConfigType", json.dumps(obj=True)),
+            (
+                "Heights",
+                json.dumps(
+                    obj=[
+                        {
+                            "Well": well_info,
+                            **deck_section_info,
+                            "StartHeight": 325,
+                            "EndHeight": 0,
+                            "TipID": self.tip_id,
+                        }
+                    ]
+                ),
+            ),
+            ("MixBeforeEachAspiration", json.dumps(obj=False)),
+        ]
+        if mix_location == MixLocation.DESTINATION:
+            values.append(("SkipFirst", json.dumps(obj=False)))
+        self._add_value_group(
+            group_name=mix_location.value,
+            values=values,
+        )
+
+    def _create_height_config_value_tuples(self, *, deck_section_info: dict[str, Any]) -> list[tuple[str, str]]:
+        return [
+            (
+                "SectionHeightConfig",
+                json.dumps(
+                    [
+                        {
+                            **deck_section_info,
+                            "HeightConfigType": True,
+                            "WellBottomOffset": 0,
+                        }
+                    ]
+                ),
+            ),
+            (
+                "TipTypeHeightConfiguration",
+                json.dumps(
+                    [
+                        {
+                            **deck_section_info,
+                            "WellBottomOffset": 200,
+                            "TipID": self.tip_id,
+                        }
+                    ]
+                ),
+            ),
+        ]
+
+    def _create_heights_value_tuple(
+        self, *, well_info: dict[str, Any], deck_section_info: dict[str, Any], start_height: float
+    ) -> tuple[str, str]:
+        end_height = start_height  # TODO: implement moving aspirate/dispense
+        return (
+            "Heights",
+            json.dumps(
+                [
+                    {
+                        "Well": well_info,
+                        **deck_section_info,
+                        "StartHeight": mm_to_xml(start_height),
+                        "EndHeight": mm_to_xml(end_height),
+                        "TipID": self.tip_id,
+                    }
+                ]
+            ),
+        )
+
+    def _add_location_group(self, *, location: Location, well_info: list[dict[str, Any]], deck_section: DeckSection):
+        values = [
+            ("MultiSelection", json.dumps(well_info)),
+            (
+                "WellOffsets",
+                json.dumps(
+                    [WellOffsets(offset_x=0, offset_y=0, **deck_section.model_dump()).model_dump(by_alias=True)]
+                ),
+            ),
+        ]
+        self._add_value_group(group_name=location.value, values=values)

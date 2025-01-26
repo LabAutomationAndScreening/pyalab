@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssistConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" UniqueIdentifier="00000000-0000-0000-0000-000000000000" Version="4">
+  <MigrationIdentifier>00000000-0000-0000-0000-000000000001</MigrationIdentifier>
+  <CreatedWith>PyaLab for VIALAB v3.4.0.0, config v4, data v9</CreatedWith>
+  <CreatedBy>UnknownUser</CreatedBy>
+  <MigrationHistory/>
+  <DataVersion>9</DataVersion>
+  <DisplayNameOnPipette>wakka_wakka</DisplayNameOnPipette>
+  <Description>doing science!</Description>
+  <Pipette Version="1">
+    <DataVersion>5</DataVersion>
+    <Channels>8</Channels>
+    <Manufacturer>INTEGRA</Manufacturer>
+    <Name>VOYAGER</Name>
+    <PartNumber>4723</PartNumber>
+    <PipetteDefaultVolume>30000</PipetteDefaultVolume>
+    <IsVoyager>true</IsVoyager>
+    <MinSpacing>900</MinSpacing>
+    <MaxSpacing>1400</MaxSpacing>
+    <ColorText>#FF9AB9AD</ColorText>
+    <ValidTipIDs>
+      <Tip>20</Tip>
+      <Tip>21</Tip>
+      <Tip>22</Tip>
+      <Tip>23</Tip>
+      <Tip>24</Tip>
+      <Tip>25</Tip>
+      <Tip>26</Tip>
+      <Tip>27</Tip>
+      <Tip>28</Tip>
+      <Tip>29</Tip>
+      <Tip>40</Tip>
+      <Tip>41</Tip>
+      <Tip>42</Tip>
+      <Tip>43</Tip>
+      <Tip>44</Tip>
+      <Tip>45</Tip>
+      <Tip>46</Tip>
+      <Tip>111</Tip>
+      <Tip>112</Tip>
+      <Tip>113</Tip>
+      <Tip>114</Tip>
+      <Tip>115</Tip>
+      <Tip>116</Tip>
+      <Tip>117</Tip>
+      <Tip>118</Tip>
+    </ValidTipIDs>
+  </Pipette>
+  <Tip Version="1">
+    <DataVersion>4</DataVersion>
+    <TipID>20</TipID>
+    <Name>300 µl GripTip, Sterile, Filter</Name>
+    <Manufacturer>INTEGRA</Manufacturer>
+    <PartNumber>6435</PartNumber>
+    <Volume>30000</Volume>
+    <ColorText>#FF9AB9AD</ColorText>
+    <Length>Standard</Length>
+    <LengthMM>6096</LengthMM>
+    <TipType>Sterile</TipType>
+    <HasFilter>true</HasFilter>
+  </Tip>
+  <Tips>
+    <Tip Version="1">
+      <DataVersion>4</DataVersion>
+      <TipID>20</TipID>
+      <Name>300 µl GripTip, Sterile, Filter</Name>
+      <Manufacturer>INTEGRA</Manufacturer>
+      <PartNumber>6435</PartNumber>
+      <Volume>30000</Volume>
+      <ColorText>#FF9AB9AD</ColorText>
+      <Length>Standard</Length>
+      <LengthMM>6096</LengthMM>
+      <TipType>Sterile</TipType>
+      <HasFilter>true</HasFilter>
+    </Tip>
+  </Tips>
+  <Deck Version="1">
+    <DataVersion>12</DataVersion>
+    <Name>3 Position Universal Deck</Name>
+    <Manufacturer>INTEGRA</Manufacturer>
+    <PartNumber>4520</PartNumber>
+    <IconPath>PN 4520_3 position universel Deck.PNG</IconPath>
+    <Description>PN 4520</Description>
+    <Width>17300</Width>
+    <Length>39500</Length>
+    <Depth>1000</Depth>
+    <InnerWidth>200</InnerWidth>
+    <ShowHatchet>true</ShowHatchet>
+    <ShowWaste>false</ShowWaste>
+    <Sections>
+      <Section>
+        <Name>A</Name>
+        <Location_X>415</Location_X>
+        <Location_Y>475</Location_Y>
+        <Width>16350</Width>
+        <Length>8600</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>A</Name>
+        <Location_X>2115</Location_X>
+        <Location_Y>1075</Location_Y>
+        <Width>15150</Width>
+        <Length>5200</Length>
+        <Depth>-300</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>A</Name>
+        <Location_X>2390</Location_X>
+        <Location_Y>2855</Location_Y>
+        <Width>11370</Width>
+        <Length>4650</Length>
+        <Depth>-300</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>A</Name>
+        <Location_X>415</Location_X>
+        <Location_Y>2260</Location_Y>
+        <Width>12800</Width>
+        <Length>8600</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>A</Name>
+        <Location_X>410</Location_X>
+        <Location_Y>2260</Location_Y>
+        <Width>14600</Width>
+        <Length>8600</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>B</Name>
+        <Location_X>9540</Location_X>
+        <Location_Y>2260</Location_Y>
+        <Width>14570</Width>
+        <Length>12820</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>B</Name>
+        <Location_X>9540</Location_X>
+        <Location_Y>4370</Location_Y>
+        <Width>8600</Width>
+        <Length>12820</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <Content Version="1" xsi:type="Plate">
+          <DataVersion>0</DataVersion>
+          <Name>Hard-Shell 96-Well Skirted PCR Plates</Name>
+          <Manufacturer>BIO-RAD</Manufacturer>
+          <PartNumber>#HSP9631</PartNumber>
+          <Description/>
+          <Measurements Version="0">
+            <DataVersion>0</DataVersion>
+            <Description/>
+            <FootprintLengthMM>12776</FootprintLengthMM>
+            <FootprintWidthMM>8548</FootprintWidthMM>
+            <HeightMM>1606</HeightMM>
+          </Measurements>
+          <Wells Version="0">
+            <DataVersion>0</DataVersion>
+            <Description/>
+            <Angle>0</Angle>
+            <SectionHeightCorrection>0</SectionHeightCorrection>
+            <DeltaHmax>0</DeltaHmax>
+            <BottomShape>VShape</BottomShape>
+            <CollumnCount>12</CollumnCount>
+            <CollumnGap>900</CollumnGap>
+            <Depth>1481</Depth>
+            <NominalWellVolume>20000</NominalWellVolume>
+            <VShapeDepth>950</VShapeDepth>
+            <FirstHolePositionText>1438;1124</FirstHolePositionText>
+            <RowCount>8</RowCount>
+            <RowGap>900</RowGap>
+            <Shape>Circle</Shape>
+            <Size>550</Size>
+            <Length>550</Length>
+            <SizeBottom>0</SizeBottom>
+          </Wells>
+          <NameInProcess>PCR Plate!1</NameInProcess>
+        </Content>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>B</Name>
+        <Location_X>11650</Location_X>
+        <Location_Y>2260</Location_Y>
+        <Width>12820</Width>
+        <Length>8600</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>B</Name>
+        <Location_X>11645</Location_X>
+        <Location_Y>2260</Location_Y>
+        <Width>14600</Width>
+        <Length>8600</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>B</Name>
+        <Location_X>9540</Location_X>
+        <Location_Y>2260</Location_Y>
+        <Width>12820</Width>
+        <Length>12820</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>B</Name>
+        <Location_X>11650</Location_X>
+        <Location_Y>475</Location_Y>
+        <Width>16350</Width>
+        <Length>8600</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>B</Name>
+        <Location_X>10970</Location_X>
+        <Location_Y>1575</Location_Y>
+        <Width>14200</Width>
+        <Length>9940</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>B</Name>
+        <Location_X>9540</Location_X>
+        <Location_Y>475</Location_Y>
+        <Width>16350</Width>
+        <Length>12820</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>C</Name>
+        <Location_X>23340</Location_X>
+        <Location_Y>2260</Location_Y>
+        <Width>14570</Width>
+        <Length>12820</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>C</Name>
+        <Location_X>23340</Location_X>
+        <Location_Y>4370</Location_Y>
+        <Width>8600</Width>
+        <Length>12820</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>C</Name>
+        <Location_X>25450</Location_X>
+        <Location_Y>2260</Location_Y>
+        <Width>12820</Width>
+        <Length>8600</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>C</Name>
+        <Location_X>25445</Location_X>
+        <Location_Y>2260</Location_Y>
+        <Width>14600</Width>
+        <Length>8600</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>C</Name>
+        <Location_X>23340</Location_X>
+        <Location_Y>2260</Location_Y>
+        <Width>12820</Width>
+        <Length>12820</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>C</Name>
+        <Location_X>25450</Location_X>
+        <Location_Y>475</Location_Y>
+        <Width>16350</Width>
+        <Length>8600</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>C</Name>
+        <Location_X>24800</Location_X>
+        <Location_Y>1575</Location_Y>
+        <Width>14200</Width>
+        <Length>9940</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>C</Name>
+        <Location_X>22670</Location_X>
+        <Location_Y>3725</Location_Y>
+        <Width>9940</Width>
+        <Length>14200</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>C</Name>
+        <Location_X>23340</Location_X>
+        <Location_Y>475</Location_Y>
+        <Width>16350</Width>
+        <Length>12820</Length>
+        <Depth>0</Depth>
+        <IsWaste>false</IsWaste>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+      <Section>
+        <Name>D</Name>
+        <Location_X>37045</Location_X>
+        <Location_Y>475</Location_Y>
+        <Width>16350</Width>
+        <Length>2000</Length>
+        <Depth>-500</Depth>
+        <IsWaste>true</IsWaste>
+        <Content Version="1" xsi:type="Reservoir">
+          <DataVersion>6</DataVersion>
+          <Name>Waste block</Name>
+          <Manufacturer>INTEGRA</Manufacturer>
+          <PartNumber>4310, 4311, 4312, 4315, 4316, 4317, 4380, 4381, 4382</PartNumber>
+          <Description>Polystyrene or Polypropylene</Description>
+          <IconPath>Reservoir_25ml_1.png</IconPath>
+          <Measurements Version="0">
+            <DataVersion>0</DataVersion>
+            <Description/>
+            <FootprintLengthMM>2000</FootprintLengthMM>
+            <FootprintWidthMM>16350</FootprintWidthMM>
+            <HeightMM>11000</HeightMM>
+          </Measurements>
+          <Wells Version="0">
+            <DataVersion>0</DataVersion>
+            <Description/>
+            <Angle>0</Angle>
+            <SectionHeightCorrection>0</SectionHeightCorrection>
+            <DeltaHmax>0</DeltaHmax>
+            <BottomShape>Circle</BottomShape>
+            <CollumnCount>1</CollumnCount>
+            <CollumnGap>3600</CollumnGap>
+            <Depth>10500</Depth>
+            <NominalWellVolume>2500000</NominalWellVolume>
+            <VShapeDepth>0</VShapeDepth>
+            <FirstHolePositionText>0;0</FirstHolePositionText>
+            <RowCount>1</RowCount>
+            <RowGap>16350</RowGap>
+            <Shape>Circle</Shape>
+            <Size>2000</Size>
+            <Length>16350</Length>
+            <SizeBottom>0</SizeBottom>
+            <Type>Waste</Type>
+          </Wells>
+        </Content>
+        <OrientationExtended>Landscape</OrientationExtended>
+        <ContentOrientation>Landscape</ContentOrientation>
+      </Section>
+    </Sections>
+    <DeckID>00000000-0000-0000-0000-000000000000</DeckID>
+    <CreationOrderIndex>0</CreationOrderIndex>
+    <IsCopy>false</IsCopy>
+    <NameInProcess>Labware Layout 1</NameInProcess>
+  </Deck>
+  <AllDecks>
+    <Deck Version="1">
+      <DataVersion>12</DataVersion>
+      <Name>3 Position Universal Deck</Name>
+      <Manufacturer>INTEGRA</Manufacturer>
+      <PartNumber>4520</PartNumber>
+      <IconPath>PN 4520_3 position universel Deck.PNG</IconPath>
+      <Description>PN 4520</Description>
+      <Width>17300</Width>
+      <Length>39500</Length>
+      <Depth>1000</Depth>
+      <InnerWidth>200</InnerWidth>
+      <ShowHatchet>true</ShowHatchet>
+      <ShowWaste>false</ShowWaste>
+      <Sections>
+        <Section>
+          <Name>A</Name>
+          <Location_X>415</Location_X>
+          <Location_Y>475</Location_Y>
+          <Width>16350</Width>
+          <Length>8600</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>A</Name>
+          <Location_X>2115</Location_X>
+          <Location_Y>1075</Location_Y>
+          <Width>15150</Width>
+          <Length>5200</Length>
+          <Depth>-300</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>A</Name>
+          <Location_X>2390</Location_X>
+          <Location_Y>2855</Location_Y>
+          <Width>11370</Width>
+          <Length>4650</Length>
+          <Depth>-300</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>A</Name>
+          <Location_X>415</Location_X>
+          <Location_Y>2260</Location_Y>
+          <Width>12800</Width>
+          <Length>8600</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>A</Name>
+          <Location_X>410</Location_X>
+          <Location_Y>2260</Location_Y>
+          <Width>14600</Width>
+          <Length>8600</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>B</Name>
+          <Location_X>9540</Location_X>
+          <Location_Y>2260</Location_Y>
+          <Width>14570</Width>
+          <Length>12820</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>B</Name>
+          <Location_X>9540</Location_X>
+          <Location_Y>4370</Location_Y>
+          <Width>8600</Width>
+          <Length>12820</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <Content Version="1" xsi:type="Plate">
+            <DataVersion>0</DataVersion>
+            <Name>Hard-Shell 96-Well Skirted PCR Plates</Name>
+            <Manufacturer>BIO-RAD</Manufacturer>
+            <PartNumber>#HSP9631</PartNumber>
+            <Description/>
+            <Measurements Version="0">
+              <DataVersion>0</DataVersion>
+              <Description/>
+              <FootprintLengthMM>12776</FootprintLengthMM>
+              <FootprintWidthMM>8548</FootprintWidthMM>
+              <HeightMM>1606</HeightMM>
+            </Measurements>
+            <Wells Version="0">
+              <DataVersion>0</DataVersion>
+              <Description/>
+              <Angle>0</Angle>
+              <SectionHeightCorrection>0</SectionHeightCorrection>
+              <DeltaHmax>0</DeltaHmax>
+              <BottomShape>VShape</BottomShape>
+              <CollumnCount>12</CollumnCount>
+              <CollumnGap>900</CollumnGap>
+              <Depth>1481</Depth>
+              <NominalWellVolume>20000</NominalWellVolume>
+              <VShapeDepth>950</VShapeDepth>
+              <FirstHolePositionText>1438;1124</FirstHolePositionText>
+              <RowCount>8</RowCount>
+              <RowGap>900</RowGap>
+              <Shape>Circle</Shape>
+              <Size>550</Size>
+              <Length>550</Length>
+              <SizeBottom>0</SizeBottom>
+            </Wells>
+            <NameInProcess>PCR Plate!1</NameInProcess>
+          </Content>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>B</Name>
+          <Location_X>11650</Location_X>
+          <Location_Y>2260</Location_Y>
+          <Width>12820</Width>
+          <Length>8600</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>B</Name>
+          <Location_X>11645</Location_X>
+          <Location_Y>2260</Location_Y>
+          <Width>14600</Width>
+          <Length>8600</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>B</Name>
+          <Location_X>9540</Location_X>
+          <Location_Y>2260</Location_Y>
+          <Width>12820</Width>
+          <Length>12820</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>B</Name>
+          <Location_X>11650</Location_X>
+          <Location_Y>475</Location_Y>
+          <Width>16350</Width>
+          <Length>8600</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>B</Name>
+          <Location_X>10970</Location_X>
+          <Location_Y>1575</Location_Y>
+          <Width>14200</Width>
+          <Length>9940</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>B</Name>
+          <Location_X>9540</Location_X>
+          <Location_Y>475</Location_Y>
+          <Width>16350</Width>
+          <Length>12820</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>C</Name>
+          <Location_X>23340</Location_X>
+          <Location_Y>2260</Location_Y>
+          <Width>14570</Width>
+          <Length>12820</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>C</Name>
+          <Location_X>23340</Location_X>
+          <Location_Y>4370</Location_Y>
+          <Width>8600</Width>
+          <Length>12820</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>C</Name>
+          <Location_X>25450</Location_X>
+          <Location_Y>2260</Location_Y>
+          <Width>12820</Width>
+          <Length>8600</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>C</Name>
+          <Location_X>25445</Location_X>
+          <Location_Y>2260</Location_Y>
+          <Width>14600</Width>
+          <Length>8600</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>C</Name>
+          <Location_X>23340</Location_X>
+          <Location_Y>2260</Location_Y>
+          <Width>12820</Width>
+          <Length>12820</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>C</Name>
+          <Location_X>25450</Location_X>
+          <Location_Y>475</Location_Y>
+          <Width>16350</Width>
+          <Length>8600</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>C</Name>
+          <Location_X>24800</Location_X>
+          <Location_Y>1575</Location_Y>
+          <Width>14200</Width>
+          <Length>9940</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>C</Name>
+          <Location_X>22670</Location_X>
+          <Location_Y>3725</Location_Y>
+          <Width>9940</Width>
+          <Length>14200</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>C</Name>
+          <Location_X>23340</Location_X>
+          <Location_Y>475</Location_Y>
+          <Width>16350</Width>
+          <Length>12820</Length>
+          <Depth>0</Depth>
+          <IsWaste>false</IsWaste>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+        <Section>
+          <Name>D</Name>
+          <Location_X>37045</Location_X>
+          <Location_Y>475</Location_Y>
+          <Width>16350</Width>
+          <Length>2000</Length>
+          <Depth>-500</Depth>
+          <IsWaste>true</IsWaste>
+          <Content Version="1" xsi:type="Reservoir">
+            <DataVersion>6</DataVersion>
+            <Name>Waste block</Name>
+            <Manufacturer>INTEGRA</Manufacturer>
+            <PartNumber>4310, 4311, 4312, 4315, 4316, 4317, 4380, 4381, 4382</PartNumber>
+            <Description>Polystyrene or Polypropylene</Description>
+            <IconPath>Reservoir_25ml_1.png</IconPath>
+            <Measurements Version="0">
+              <DataVersion>0</DataVersion>
+              <Description/>
+              <FootprintLengthMM>2000</FootprintLengthMM>
+              <FootprintWidthMM>16350</FootprintWidthMM>
+              <HeightMM>11000</HeightMM>
+            </Measurements>
+            <Wells Version="0">
+              <DataVersion>0</DataVersion>
+              <Description/>
+              <Angle>0</Angle>
+              <SectionHeightCorrection>0</SectionHeightCorrection>
+              <DeltaHmax>0</DeltaHmax>
+              <BottomShape>Circle</BottomShape>
+              <CollumnCount>1</CollumnCount>
+              <CollumnGap>3600</CollumnGap>
+              <Depth>10500</Depth>
+              <NominalWellVolume>2500000</NominalWellVolume>
+              <VShapeDepth>0</VShapeDepth>
+              <FirstHolePositionText>0;0</FirstHolePositionText>
+              <RowCount>1</RowCount>
+              <RowGap>16350</RowGap>
+              <Shape>Circle</Shape>
+              <Size>2000</Size>
+              <Length>16350</Length>
+              <SizeBottom>0</SizeBottom>
+              <Type>Waste</Type>
+            </Wells>
+          </Content>
+          <OrientationExtended>Landscape</OrientationExtended>
+          <ContentOrientation>Landscape</ContentOrientation>
+        </Section>
+      </Sections>
+      <DeckID>00000000-0000-0000-0000-000000000000</DeckID>
+      <CreationOrderIndex>0</CreationOrderIndex>
+      <IsCopy>false</IsCopy>
+      <NameInProcess>Labware Layout 1</NameInProcess>
+    </Deck>
+  </AllDecks>
+  <Steps>
+    <Step>
+      <Type>ManualFilling_First</Type>
+      <IsEnabled>true</IsEnabled>
+      <ID>00000000-0000-0000-0000-000000000002</ID>
+      <IsNew>false</IsNew>
+      <DeckID>00000000-0000-0000-0000-000000000000</DeckID>
+      <ValueGroups>
+        <ValueGroup Key="ManualVolume">
+          <Values>
+            <Value Key="ManualVolume"><![CDATA[[{"WellCoordinates": [{"Item1": 5, "Item2": 0}], "Volume": 13221, "Section": 6, "SubSection": -1, "Spacing": 900, "ColorIndex": 1, "DeckId": "00000000-0000-0000-0000-000000000000"}]]]></Value>
+            <Value Key="MessageType">null</Value>
+            <Value Key="Message1">null</Value>
+            <Value Key="Message2">null</Value>
+            <Value Key="Message3">null</Value>
+            <Value Key="ShowMessageOnPipette">false</Value>
+          </Values>
+        </ValueGroup>
+      </ValueGroups>
+    </Step>
+    <Step>
+      <Type>ManualFilling_First</Type>
+      <IsEnabled>true</IsEnabled>
+      <ID>00000000-0000-0000-0000-000000000003</ID>
+      <IsNew>false</IsNew>
+      <DeckID>00000000-0000-0000-0000-000000000000</DeckID>
+      <ValueGroups>
+        <ValueGroup Key="ManualVolume">
+          <Values>
+            <Value Key="ManualVolume"><![CDATA[[{"WellCoordinates": [{"Item1": 1, "Item2": 0}], "Volume": 0, "Section": 6, "SubSection": -1, "Spacing": 900, "ColorIndex": 1, "DeckId": "00000000-0000-0000-0000-000000000000"}]]]></Value>
+            <Value Key="MessageType">null</Value>
+            <Value Key="Message1">null</Value>
+            <Value Key="Message2">null</Value>
+            <Value Key="Message3">null</Value>
+            <Value Key="ShowMessageOnPipette">false</Value>
+          </Values>
+        </ValueGroup>
+      </ValueGroups>
+    </Step>
+    <Step>
+      <Type>Transfer</Type>
+      <IsEnabled>true</IsEnabled>
+      <ID>00000000-0000-0000-0000-000000000004</ID>
+      <IsNew>false</IsNew>
+      <DeckID>00000000-0000-0000-0000-000000000000</DeckID>
+      <ValueGroups>
+        <ValueGroup Key="Source">
+          <Values>
+            <Value Key="MultiSelection"><![CDATA[[{"Wells": [{"Item1": 5, "Item2": 0}], "DeckSection": 6, "SubSection": -1, "Spacing": 900, "DeckId": "00000000-0000-0000-0000-000000000000", "WorkingDirectionExtended": 0, "WorkingDirectionOld": "false"}]]]></Value>
+            <Value Key="WellOffsets"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "OffsetX": 0, "OffsetY": 0}]]]></Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Target">
+          <Values>
+            <Value Key="MultiSelection"><![CDATA[[{"Wells": [{"Item1": 1, "Item2": 0}], "DeckSection": 6, "SubSection": -1, "Spacing": 900, "DeckId": "00000000-0000-0000-0000-000000000000", "WorkingDirectionExtended": 0, "WorkingDirectionOld": "false"}]]]></Value>
+            <Value Key="WellOffsets"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "OffsetX": 0, "OffsetY": 0}]]]></Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Pipetting">
+          <Values>
+            <Value Key="ExtraVolumePercentage">0</Value>
+            <Value Key="NumberOfReactions">1</Value>
+            <Value Key="DispenseVolume"><![CDATA[[{"Well": {"Item1": 1, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "Volume": 3750, "TipID": 20, "Multiplier": 1, "TotalVolume": 3750}]]]></Value>
+            <Value Key="TipTypePipettingConfiguration"><![CDATA[[{"FirstDispenseVolume": 0, "LastDispenseVolume": 0, "Airgap": false, "AirgapVolume": 0, "AspirationSpeed": 8, "DispenseSpeed": 8, "TipID": 20}]]]></Value>
+            <Value Key="AspirationDelay">0</Value>
+            <Value Key="DispenseDelay">0</Value>
+            <Value Key="KeepPostDispense">false</Value>
+            <Value Key="LastDispenseType">true</Value>
+            <Value Key="LastAspirationBackTo"><![CDATA["Common_No"]]></Value>
+            <Value Key="VolumeConfigType">true</Value>
+            <Value Key="DispenseType">false</Value>
+            <Value Key="SlowLiquidExitAsp">false</Value>
+            <Value Key="SlowLiquidExitDisp">false</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Aspiration">
+          <Values>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 5, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 200, "EndHeight": 200, "TipID": 20}]]]></Value>
+            <Value Key="TipTravel">false</Value>
+            <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
+            <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "WellBottomOffset": 200, "TipID": 20}]]]></Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Dispense">
+          <Values>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 1, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 330, "EndHeight": 330, "TipID": 20}]]]></Value>
+            <Value Key="TipTravel">false</Value>
+            <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
+            <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "WellBottomOffset": 200, "TipID": 20}]]]></Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Tips">
+          <Values>
+            <Value Key="PreWetting">false</Value>
+            <Value Key="PreWettingCycles">3</Value>
+            <Value Key="TipChange"><![CDATA["TipChange_ModeA"]]></Value>
+            <Value Key="TipEjectionType">true</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="SourceMix">
+          <Values>
+            <Value Key="MixActive">false</Value>
+            <Value Key="TipTypeMixConfiguration"><![CDATA[[{"MixSpeed": 8, "TipID": 20}]]]></Value>
+            <Value Key="MixPause">0</Value>
+            <Value Key="SectionMixVolume"><![CDATA[[{"Well": {"Item1": 5, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "Volume": 5000, "TipID": 20, "Multiplier": 1, "TotalVolume": 5000}]]]></Value>
+            <Value Key="MixCycles">3</Value>
+            <Value Key="BlowOut">false</Value>
+            <Value Key="TipTravel">false</Value>
+            <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
+            <Value Key="VolumeConfigType">true</Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 5, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 325, "EndHeight": 0, "TipID": 20}]]]></Value>
+            <Value Key="MixBeforeEachAspiration">false</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="TargetMix">
+          <Values>
+            <Value Key="MixActive">false</Value>
+            <Value Key="TipTypeMixConfiguration"><![CDATA[[{"MixSpeed": 8, "TipID": 20}]]]></Value>
+            <Value Key="MixPause">0</Value>
+            <Value Key="SectionMixVolume"><![CDATA[[{"Well": {"Item1": 1, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "Volume": 5000, "TipID": 20, "Multiplier": 1, "TotalVolume": 5000}]]]></Value>
+            <Value Key="MixCycles">3</Value>
+            <Value Key="BlowOut">false</Value>
+            <Value Key="TipTravel">false</Value>
+            <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
+            <Value Key="VolumeConfigType">true</Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 1, "Item2": 0}, "DeckSection": 6, "SubSection": -1, "StartHeight": 325, "EndHeight": 0, "TipID": 20}]]]></Value>
+            <Value Key="MixBeforeEachAspiration">false</Value>
+            <Value Key="SkipFirst">false</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="TipTouchTarget">
+          <Values>
+            <Value Key="TipTouchActive">false</Value>
+            <Value Key="SectionTipTouch"><![CDATA[[{"DeckSection": 6, "SubSection": -1, "Type": false, "Height": 1406, "Distance": 225}]]]></Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Various">
+          <Values>
+            <Value Key="SpeedX">10</Value>
+            <Value Key="SpeedY">10</Value>
+            <Value Key="SpeedZ">10</Value>
+            <Value Key="IsStepActive">true</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="LLD">
+          <Values>
+            <Value Key="UseLLD">false</Value>
+            <Value Key="LLDErrorHandling"><![CDATA["LLD_PauseAndRepeat"]]></Value>
+            <Value Key="LLDHeights">null</Value>
+          </Values>
+        </ValueGroup>
+      </ValueGroups>
+    </Step>
+  </Steps>
+  <GlobalParameters Key="Global">
+    <Values>
+      <Value Key="ClearanceHeight">800</Value>
+      <Value Key="SectionOffsets">null</Value>
+      <Value Key="DisplayTipEjectionOptions">true</Value>
+      <Value Key="AfterTipEjectMonitoring">true</Value>
+      <Value Key="AfterTipLoadMonitoring">false</Value>
+      <Value Key="BeforeTipEjectMonitoring">true</Value>
+      <Value Key="TipTypeRequiredTips"><![CDATA[{"20": 0}]]></Value>
+      <Value Key="WasteAsTargetOption">false</Value>
+      <Value Key="LabwareReintegration">false</Value>
+      <Value Key="CopyHeightAdjustment">false</Value>
+      <Value Key="WellBottomMinHeight">200</Value>
+      <Value Key="CollisionAvoidanceOffset">0</Value>
+      <Value Key="CollisionDetection">true</Value>
+    </Values>
+  </GlobalParameters>
+  <ChangedDate>2024-12-17T16:27:27.0715524-05:00</ChangedDate>
+  <LastChangeUser>UnknownUser</LastChangeUser>
+</AssistConfig>

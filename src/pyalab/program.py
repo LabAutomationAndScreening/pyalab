@@ -11,13 +11,13 @@ from pydantic import Field
 from .deck import DeckLayout
 from .pipette import Pipette
 from .pipette import Tip
-from .plate import Plate
+from .plate import Labware
 from .steps import Step
 
 
 class LabwareNotInDeckLayoutError(Exception):
-    def __init__(self, plate: Plate):
-        super().__init__(f"Could not find {plate.name} (called {plate.display_name}) in the deck layout")
+    def __init__(self, labware: Labware):
+        super().__init__(f"Could not find {labware.name} (called {labware.display_name}) in the deck layout")
 
 
 class Program(BaseModel):
@@ -32,14 +32,14 @@ class Program(BaseModel):
         step.set_tip(self.tip)
         self.steps.append(step)
 
-    def get_section_index_for_plate(self, plate: Plate) -> int:
+    def get_section_index_for_labware(self, labware: Labware) -> int:
         # TODO: support multiple deck layouts
         first_deck_layout = self.deck_layouts[0]
         for deck_position, iter_plate in first_deck_layout.labware.items():
-            if iter_plate == plate:
-                return deck_position.section_index(first_deck_layout.deck)
+            if iter_plate == labware:
+                return deck_position.section_index(deck=first_deck_layout.deck, labware=labware)
 
-        raise LabwareNotInDeckLayoutError(plate)
+        raise LabwareNotInDeckLayoutError(labware)
 
     def generate_xml(self) -> str:
         config_version = 4

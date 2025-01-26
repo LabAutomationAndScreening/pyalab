@@ -10,12 +10,19 @@ from pydantic import BaseModel
 from .constants import PATH_TO_INCLUDED_XML_FILES
 
 
+def hundredths_mm_to_mm(hundredths_mm: int | str) -> float:
+    # the XML encodes the dimension in units of 0.01 mm, but our standard units are in mm.
+    return float(hundredths_mm) / 100
+
+
 class LibraryComponentType(Enum):
+    # the string value should match the folder name within the Integra XML library
     DECK = "Deck"
     PLATE = "Plate"
     RESERVOIR = "Reservoir"
     PIPETTE = "Pipette"
     TIP = "Tip"
+    TUBEHOLDER = "Tubeholder"
 
 
 class IntegraLibraryObjectNotFoundError(OSError):
@@ -23,6 +30,13 @@ class IntegraLibraryObjectNotFoundError(OSError):
         self.type = component_type
         self.name = name
         super().__init__(f"Could not find {component_type.value} with name {name} while looking in {paths_searched}")
+
+
+CONTENT_VERSIONS: dict[LibraryComponentType, str] = {
+    LibraryComponentType.PLATE: "1",
+    LibraryComponentType.RESERVOIR: "2",
+    LibraryComponentType.TUBEHOLDER: "1",
+}
 
 
 class LibraryComponent(BaseModel, frozen=True):
@@ -49,12 +63,12 @@ class LibraryComponent(BaseModel, frozen=True):
         return root
 
     def create_xml_for_program(self) -> _Element:
-        is_content = self.type in [LibraryComponentType.PLATE, LibraryComponentType.RESERVOIR]
+        is_content = self.type in CONTENT_VERSIONS
         root = etree.Element(
             "Content"
             if is_content
             else self.type.value,  # TODO: confirm that all object types use the file directory as the XML tag name too
-            Version=str(1),  # TODO: confirm that no objects are using version other than 1
+            Version=str(1) if not is_content else CONTENT_VERSIONS[self.type],
         )
         if is_content:
             root.set(
