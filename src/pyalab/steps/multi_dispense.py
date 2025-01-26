@@ -76,6 +76,7 @@ class MultiDispense(LiquidTransferStep):
                 **WORKING_DIRECTION_KWARGS,
             }
         ]
+        # pylint:disable=duplicate-code # This seems decently DRY...there's just a bit of similarity between steps...which might disappear as more values are parametrized
         self._add_location_group(
             location=Location.SOURCE, well_info=source_info, deck_section=source_deck_section_model
         )
@@ -95,6 +96,7 @@ class MultiDispense(LiquidTransferStep):
                             {
                                 "Well": destination_well,
                                 **destination_deck_section,
+                                # pylint:enable=duplicate-code
                                 "Volume": ul_to_xml(self.destinations[0][1]),
                                 "TipID": self.tip_id,
                                 "Multiplier": 1,
@@ -125,6 +127,7 @@ class MultiDispense(LiquidTransferStep):
                 ("DispenseDelay", str(self.dispense_parameters.post_delay)),
                 ("KeepPostDispense", json.dumps(obj=True)),
                 ("LastDispenseType", json.dumps(obj=True)),
+                # pylint:disable=duplicate-code # This seems decently DRY...there's just a bit of similarity between steps...which might disappear as more values are parametrized
                 ("LastAspirationBackTo", '"Common_No"'),
                 ("VolumeConfigType", json.dumps(obj=False)),  # TODO: figure out what this means
                 ("DispenseType", json.dumps(obj=True)),  # TODO: figure out what this means
@@ -173,3 +176,4 @@ class MultiDispense(LiquidTransferStep):
         self._add_various_value_group()
 
         self._add_lld_value_group()
+        # pylint:enable=duplicate-code

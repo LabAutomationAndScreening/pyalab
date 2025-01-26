@@ -81,6 +81,7 @@ class Transfer(LiquidTransferStep):
                 **WORKING_DIRECTION_KWARGS,
             }
         ]
+        # pylint:disable=duplicate-code # This seems decently DRY...there's just a bit of similarity between steps...which might disappear as more values are parametrized
         self._add_location_group(
             location=Location.SOURCE, well_info=source_info, deck_section=source_deck_section_model
         )
@@ -99,6 +100,7 @@ class Transfer(LiquidTransferStep):
                         [
                             {
                                 "Well": destination_well,
+                                # pylint:enable=duplicate-code
                                 **destination_deck_section,
                                 "Volume": ul_to_xml(self.volume),
                                 "TipID": self.tip_id,
@@ -129,6 +131,7 @@ class Transfer(LiquidTransferStep):
                 ("AspirationDelay", str(0)),
                 ("DispenseDelay", str(0)),
                 ("KeepPostDispense", json.dumps(obj=False)),
+                # pylint:disable=duplicate-code # This seems decently DRY...there's just a bit of similarity between steps...which might disappear as more values are parametrized
                 ("LastDispenseType", json.dumps(obj=True)),
                 ("LastAspirationBackTo", '"Common_No"'),
                 ("VolumeConfigType", json.dumps(obj=True)),
@@ -178,3 +181,4 @@ class Transfer(LiquidTransferStep):
         self._add_various_value_group()
 
         self._add_lld_value_group()
+        # pylint:enable=duplicate-code
