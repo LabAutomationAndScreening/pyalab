@@ -3,6 +3,7 @@ import uuid
 from abc import ABC
 from abc import abstractmethod
 from enum import Enum
+from typing import Any
 from typing import ClassVar
 
 from inflection import camelize
@@ -12,6 +13,17 @@ from pydantic import BaseModel
 from pydantic import Field
 
 from pyalab.pipette import Tip
+
+WORKING_DIRECTION_KWARGS: dict[str, Any] = {
+    "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
+    "WorkingDirectionExtended": 0,  # TODO: figure out what this is
+    "WorkingDirectionOld": "false",  # TODO: figure out what this is
+}
+
+
+class MixLocation(Enum):
+    SOURCE = "SourceMix"
+    DESTINATION = "TargetMix"
 
 
 class LldErrorHandlingMode(Enum):
@@ -155,4 +167,75 @@ class Step(BaseModel, ABC):
                 ("SpeedZ", str(10)),
                 ("IsStepActive", json.dumps(obj=True)),
             ],
+        )
+
+    def _add_mix_group(
+        self, *, mix_location: MixLocation, well_info: dict[str, Any], deck_section_info: dict[str, Any]
+    ):
+        values = [
+            ("MixActive", json.dumps(obj=False)),
+            (
+                "TipTypeMixConfiguration",
+                json.dumps(
+                    obj=[
+                        {
+                            "MixSpeed": 8,
+                            "TipID": self.tip_id,
+                        }
+                    ]
+                ),
+            ),
+            ("MixPause", json.dumps(obj=0)),
+            (
+                "SectionMixVolume",
+                json.dumps(
+                    obj=[
+                        {
+                            "Well": well_info,
+                            **deck_section_info,
+                            "Volume": 5000,  # TODO: implement mixing volume
+                            "TipID": self.tip_id,
+                            "Multiplier": 1,
+                            "TotalVolume": 5000,  # TODO: figure out when/if this needs to differ from Volume
+                        }
+                    ]
+                ),
+            ),
+            ("MixCycles", json.dumps(obj=3)),
+            ("BlowOut", json.dumps(obj=False)),
+            ("TipTravel", json.dumps(obj=False)),
+            (
+                "SectionHeightConfig",
+                json.dumps(
+                    obj=[
+                        {
+                            **deck_section_info,
+                            "HeightConfigType": True,
+                            "WellBottomOffset": 0,
+                        }
+                    ]
+                ),
+            ),
+            ("VolumeConfigType", json.dumps(obj=True)),
+            (
+                "Heights",
+                json.dumps(
+                    obj=[
+                        {
+                            "Well": well_info,
+                            **deck_section_info,
+                            "StartHeight": 325,
+                            "EndHeight": 0,
+                            "TipID": self.tip_id,
+                        }
+                    ]
+                ),
+            ),
+            ("MixBeforeEachAspiration", json.dumps(obj=False)),
+        ]
+        if mix_location == MixLocation.DESTINATION:
+            values.append(("SkipFirst", json.dumps(obj=False)))
+        self._add_value_group(
+            group_name=mix_location.value,
+            values=values,
         )

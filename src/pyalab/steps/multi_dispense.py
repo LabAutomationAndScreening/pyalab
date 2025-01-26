@@ -4,7 +4,9 @@ from typing import override
 
 from pydantic import Field
 
+from .base import WORKING_DIRECTION_KWARGS
 from .base import DeckSection
+from .base import MixLocation
 from .base import WellOffsets
 from .base import WellRowCol
 from .base import mm_to_xml
@@ -63,9 +65,7 @@ class MultiDispense(LiquidTransferStep):
                 "Wells": [source_well],
                 **source_deck_section,
                 "Spacing": mm_to_xml(self._pipette_span(self.source.labware)),
-                "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
-                "WorkingDirectionExtended": 0,  # TODO: figure out what this is...something to do with zig zag patterns or other alternatives
-                "WorkingDirectionOld": "false",  # TODO: figure out what this is
+                **WORKING_DIRECTION_KWARGS,
             }
         ]
         target_info: list[dict[str, Any]] = [
@@ -73,9 +73,7 @@ class MultiDispense(LiquidTransferStep):
                 "Wells": [destination_well],
                 **destination_deck_section,
                 "Spacing": mm_to_xml(self._pipette_span(self.destinations[0][0].labware)),
-                "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
-                "WorkingDirectionExtended": 0,  # TODO: figure out what this is
-                "WorkingDirectionOld": "false",  # TODO: figure out what this is
+                **WORKING_DIRECTION_KWARGS,
             }
         ]
 
@@ -251,136 +249,13 @@ class MultiDispense(LiquidTransferStep):
             ],
         )
         self._add_tips_value_group()
+        self._add_mix_group(
+            mix_location=MixLocation.SOURCE, well_info=source_well, deck_section_info=source_deck_section
+        )
+        self._add_mix_group(
+            mix_location=MixLocation.DESTINATION, well_info=destination_well, deck_section_info=destination_deck_section
+        )
 
-        self._add_value_group(
-            group_name="SourceMix",
-            values=[
-                ("MixActive", json.dumps(obj=False)),
-                (
-                    "TipTypeMixConfiguration",
-                    json.dumps(
-                        obj=[
-                            {
-                                "MixSpeed": 8,
-                                "TipID": self.tip_id,
-                            }
-                        ]
-                    ),
-                ),
-                ("MixPause", json.dumps(obj=0)),
-                (
-                    "SectionMixVolume",
-                    json.dumps(
-                        obj=[
-                            {
-                                "Well": source_well,
-                                **source_deck_section,
-                                "Volume": 5000,  # TODO: implement mixing volume
-                                "TipID": self.tip_id,
-                                "Multiplier": 1,
-                                "TotalVolume": 5000,  # TODO: figure out when/if this needs to differ from Volume
-                            }
-                        ]
-                    ),
-                ),
-                ("MixCycles", json.dumps(obj=3)),
-                ("BlowOut", json.dumps(obj=False)),
-                ("TipTravel", json.dumps(obj=False)),
-                (
-                    "SectionHeightConfig",
-                    json.dumps(
-                        obj=[
-                            {
-                                **source_deck_section,
-                                "HeightConfigType": True,
-                                "WellBottomOffset": 0,
-                            }
-                        ]
-                    ),
-                ),
-                ("VolumeConfigType", json.dumps(obj=True)),
-                (
-                    "Heights",
-                    json.dumps(
-                        obj=[
-                            {
-                                "Well": source_well,
-                                **source_deck_section,
-                                "StartHeight": 325,
-                                "EndHeight": 0,
-                                "TipID": self.tip_id,
-                            }
-                        ]
-                    ),
-                ),
-                ("MixBeforeEachAspiration", json.dumps(obj=False)),
-            ],
-        )
-        self._add_value_group(
-            group_name="TargetMix",
-            values=[
-                ("MixActive", json.dumps(obj=False)),
-                (
-                    "TipTypeMixConfiguration",
-                    json.dumps(
-                        obj=[
-                            {
-                                "MixSpeed": 8,
-                                "TipID": self.tip_id,
-                            }
-                        ]
-                    ),
-                ),
-                ("MixPause", json.dumps(obj=0)),
-                (
-                    "SectionMixVolume",
-                    json.dumps(
-                        obj=[
-                            {
-                                "Well": destination_well,
-                                **destination_deck_section,
-                                "Volume": 5000,  # TODO: implement mixing volume
-                                "TipID": self.tip_id,
-                                "Multiplier": 1,
-                                "TotalVolume": 5000,  # TODO: figure out when/if this needs to differ from Volume
-                            }
-                        ]
-                    ),
-                ),
-                ("MixCycles", json.dumps(obj=3)),
-                ("BlowOut", json.dumps(obj=False)),
-                ("TipTravel", json.dumps(obj=False)),
-                (
-                    "SectionHeightConfig",
-                    json.dumps(
-                        obj=[
-                            {
-                                **destination_deck_section,
-                                "HeightConfigType": True,
-                                "WellBottomOffset": 0,
-                            }
-                        ]
-                    ),
-                ),
-                ("VolumeConfigType", json.dumps(obj=True)),
-                (
-                    "Heights",
-                    json.dumps(
-                        obj=[
-                            {
-                                "Well": destination_well,
-                                **destination_deck_section,
-                                "StartHeight": 325,
-                                "EndHeight": 0,
-                                "TipID": self.tip_id,
-                            }
-                        ]
-                    ),
-                ),
-                ("MixBeforeEachAspiration", json.dumps(obj=False)),
-                ("SkipFirst", json.dumps(obj=False)),
-            ],
-        )
         self._add_tip_touch_target_group(destination_deck_section)
 
         self._add_various_value_group()
