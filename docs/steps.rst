@@ -10,3 +10,6 @@ How to set the parameters for the different steps in a Vialab program.
 
 .. automodule:: pyalab.steps.transfer
     :members:
+
+.. automodule:: pyalab.steps.multi_dispense
+    :members:
