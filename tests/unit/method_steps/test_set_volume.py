@@ -16,4 +16,4 @@ class TestDataValidation:
         expected_volume = -0.1
 
         with pytest.raises(ValidationError, match=rf"volume(.|\n)*greater(.|\n)*{expected_volume}"):
-            _ = SetVolume(plate=self.generic_plate, column_index=random.randint(0, 11), volume=expected_volume)
+            _ = SetVolume(labware=self.generic_plate, column_index=random.randint(0, 11), volume=expected_volume)

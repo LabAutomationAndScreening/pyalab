@@ -86,7 +86,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
 
         program.add_step(
             SetInitialVolume(
-                plate=plate,
+                labware=plate,
                 section_index=plate_section_index,
                 column_index=source_column_index,
                 volume=2000,
@@ -95,7 +95,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
         for destination_column_index, _ in destination_column_indexes_and_volumes:
             program.add_step(
                 SetInitialVolume(
-                    plate=plate, section_index=plate_section_index, column_index=destination_column_index, volume=0
+                    labware=plate, section_index=plate_section_index, column_index=destination_column_index, volume=0
                 )
             )
 

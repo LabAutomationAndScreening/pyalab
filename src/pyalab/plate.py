@@ -10,6 +10,13 @@ from .integra_xml import LibraryComponent
 from .integra_xml import LibraryComponentType
 
 
+class RowSpacingAboveLimitError(ValueError):
+    def __init__(self, attempted_spacing: float):
+        super().__init__(
+            f"The attempted row spacing {attempted_spacing} is larger than any pipette can span. Likely there is a bug in the code and an explicit spacing was not provided to a reservoir that multiple pipettes can access at once."
+        )
+
+
 class Labware(LibraryComponent, frozen=True):
     id: uuid.UUID = Field(default_factory=uuid.uuid4)
     display_name: str = ""  # TODO: If left as blank, then set the display name to the name of the plate type # TODO: validate length and character class requirements
@@ -22,8 +29,14 @@ class Labware(LibraryComponent, frozen=True):
         ).text = f"{self.display_name}!1"  # TODO: figure out why they all end in `!1`
         return root
 
-    @cached_property
     def row_spacing(self) -> float:
+        spacing = self.row_spacing_in_xml
+        if spacing > 33:
+            raise RowSpacingAboveLimitError(spacing)
+        return spacing
+
+    @cached_property
+    def row_spacing_in_xml(self) -> float:
         return (
             float(self._extract_xml_node_text("RowGap")) / 100
         )  # in the XML the distance is in 0.01 mm units, but our standard is mm

@@ -13,6 +13,7 @@ from .pipette import Tip
 from .plate import Labware
 from .plate import Plate
 from .plate import Reservoir
+from .plate import RowSpacingAboveLimitError
 from .plate import Tubeholder
 from .program import LabwareNotInDeckLayoutError
 from .program import Program
@@ -46,6 +47,7 @@ __all__ = [
     "Plate",
     "Program",
     "Reservoir",
+    "RowSpacingAboveLimitError",
     "SetInitialVolume",
     "SetVolume",
     "StandardDeckNames",

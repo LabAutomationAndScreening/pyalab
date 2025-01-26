@@ -61,7 +61,7 @@ class MultiDispense(LiquidTransferStep):
                 "Wells": [source_well],
                 **source_deck_section,
                 "Spacing": mm_to_xml(
-                    self.source.labware.row_spacing
+                    self.source.labware.row_spacing()
                 ),  # TODO: handle spacing based on landscape vs portrait orientation
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
                 "WorkingDirectionExtended": 0,  # TODO: figure out what this is...something to do with zig zag patterns or other alternatives
@@ -73,7 +73,7 @@ class MultiDispense(LiquidTransferStep):
                 "Wells": [destination_well],
                 **destination_deck_section,
                 "Spacing": mm_to_xml(
-                    self.destinations[0][0].labware.row_spacing
+                    self.destinations[0][0].labware.row_spacing()
                 ),  # TODO: handle spacing based on landscape vs portrait orientation
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
                 "WorkingDirectionExtended": 0,  # TODO: figure out what this is

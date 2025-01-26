@@ -4,7 +4,7 @@ from typing import override
 
 from pydantic import Field
 
-from pyalab.plate import Plate
+from pyalab.plate import Labware
 
 from .base import Section
 from .base import Step
@@ -20,7 +20,7 @@ class SetVolume(Step):
     """
 
     type = "ManualFilling"
-    plate: Plate
+    labware: Labware
     """The plate to set the volume for."""
     section_index: int | None = None
     """The section of the Deck holding the plate."""
@@ -48,7 +48,7 @@ class SetVolume(Step):
                 "Volume": ul_to_xml(self.volume),
                 **deck_section.model_dump(by_alias=True),
                 "Spacing": mm_to_xml(
-                    self.plate.row_spacing
+                    self.labware.row_spacing()
                 ),  # TODO: handle spacing based on landscape vs portrait orientation
                 "ColorIndex": 1,  # TODO: figure out if/when this changes
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning

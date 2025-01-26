@@ -92,7 +92,7 @@ class TestSimpleTransferProgramSnapshots(ProgramSnapshot):
 
         program.add_step(
             SetInitialVolume(
-                plate=pcr_plate,
+                labware=pcr_plate,
                 section_index=pcr_plate_section_index,
                 column_index=source_column_index,
                 volume=starting_volume,
@@ -100,7 +100,10 @@ class TestSimpleTransferProgramSnapshots(ProgramSnapshot):
         )
         program.add_step(
             SetInitialVolume(
-                plate=pcr_plate, section_index=pcr_plate_section_index, column_index=destination_column_index, volume=0
+                labware=pcr_plate,
+                section_index=pcr_plate_section_index,
+                column_index=destination_column_index,
+                volume=0,
             )
         )
 

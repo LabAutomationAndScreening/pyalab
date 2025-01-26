@@ -3,7 +3,10 @@ import pytest
 from pyalab import Labware
 from pyalab import Plate
 from pyalab import Reservoir
+from pyalab import RowSpacingAboveLimitError
 from pyalab import Tubeholder
+
+from .constants import GENERIC_RESERVOIR
 
 
 class TestSpacing:
@@ -16,9 +19,13 @@ class TestSpacing:
         ],
     )
     def test_row_spacing(self, labware: Labware, expected: float):
-        actual = labware.row_spacing
+        actual = labware.row_spacing()
 
         assert actual == expected
+
+    def test_Given_single_well_reservoir_and_no_explicit_spacing_provided__Then_error(self):
+        with pytest.raises(RowSpacingAboveLimitError, match=str(GENERIC_RESERVOIR.row_spacing_in_xml)):
+            _ = GENERIC_RESERVOIR.row_spacing()
 
 
 class TestFootprint:
