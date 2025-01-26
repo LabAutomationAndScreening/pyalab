@@ -9,6 +9,8 @@ from pydantic import Field
 from .integra_xml import LibraryComponent
 from .integra_xml import LibraryComponentType
 
+MAX_SPAN_FOR_VOYAGER = 33  # the 4 channel can span this wide
+
 
 class RowSpacingAboveLimitError(ValueError):
     def __init__(self, attempted_spacing: float):
@@ -31,7 +33,7 @@ class Labware(LibraryComponent, frozen=True):
 
     def row_spacing(self) -> float:
         spacing = self.row_spacing_in_xml
-        if spacing > 33:
+        if spacing > MAX_SPAN_FOR_VOYAGER:
             raise RowSpacingAboveLimitError(spacing)
         return spacing
 

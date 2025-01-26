@@ -8,71 +8,69 @@
   <DisplayNameOnPipette>arbitrary</DisplayNameOnPipette>
   <Description>arbitrary description</Description>
   <Pipette Version="1">
-    <DataVersion>4</DataVersion>
-    <Channels>12</Channels>
+    <DataVersion>5</DataVersion>
+    <Channels>8</Channels>
     <Manufacturer>INTEGRA</Manufacturer>
-    <Name>VIAFLO</Name>
-    <PartNumber>4634</PartNumber>
-    <PipetteDefaultVolume>125000</PipetteDefaultVolume>
-    <IsVoyager>false</IsVoyager>
+    <Name>VOYAGER</Name>
+    <PartNumber>4723</PartNumber>
+    <PipetteDefaultVolume>30000</PipetteDefaultVolume>
+    <IsVoyager>true</IsVoyager>
     <MinSpacing>900</MinSpacing>
-    <MaxSpacing>900</MaxSpacing>
-    <ColorText>#FF69B3E7</ColorText>
+    <MaxSpacing>1400</MaxSpacing>
+    <ColorText>#FF9AB9AD</ColorText>
     <ValidTipIDs>
-      <Tip>30</Tip>
-      <Tip>31</Tip>
-      <Tip>32</Tip>
-      <Tip>33</Tip>
-      <Tip>34</Tip>
-      <Tip>35</Tip>
-      <Tip>36</Tip>
-      <Tip>37</Tip>
-      <Tip>38</Tip>
-      <Tip>39</Tip>
-      <Tip>47</Tip>
-      <Tip>48</Tip>
-      <Tip>49</Tip>
-      <Tip>50</Tip>
-      <Tip>51</Tip>
-      <Tip>52</Tip>
-      <Tip>53</Tip>
-      <Tip>101</Tip>
-      <Tip>102</Tip>
-      <Tip>103</Tip>
-      <Tip>104</Tip>
-      <Tip>105</Tip>
-      <Tip>106</Tip>
-      <Tip>107</Tip>
-      <Tip>108</Tip>
-      <Tip>109</Tip>
-      <Tip>110</Tip>
+      <Tip>20</Tip>
+      <Tip>21</Tip>
+      <Tip>22</Tip>
+      <Tip>23</Tip>
+      <Tip>24</Tip>
+      <Tip>25</Tip>
+      <Tip>26</Tip>
+      <Tip>27</Tip>
+      <Tip>28</Tip>
+      <Tip>29</Tip>
+      <Tip>40</Tip>
+      <Tip>41</Tip>
+      <Tip>42</Tip>
+      <Tip>43</Tip>
+      <Tip>44</Tip>
+      <Tip>45</Tip>
+      <Tip>46</Tip>
+      <Tip>111</Tip>
+      <Tip>112</Tip>
+      <Tip>113</Tip>
+      <Tip>114</Tip>
+      <Tip>115</Tip>
+      <Tip>116</Tip>
+      <Tip>117</Tip>
+      <Tip>118</Tip>
     </ValidTipIDs>
   </Pipette>
   <Tip Version="1">
-    <DataVersion>5</DataVersion>
-    <TipID>33</TipID>
-    <Name>1250 µl GripTip, Sterile, Filter, Low retention</Name>
+    <DataVersion>4</DataVersion>
+    <TipID>23</TipID>
+    <Name>300 µl GripTip, Sterile, Filter, Low retention</Name>
     <Manufacturer>INTEGRA</Manufacturer>
-    <PartNumber>6545</PartNumber>
-    <Volume>125000</Volume>
-    <ColorText>#FF69B3E7</ColorText>
+    <PartNumber>6535</PartNumber>
+    <Volume>30000</Volume>
+    <ColorText>#FF9AB9AD</ColorText>
     <Length>Standard</Length>
-    <LengthMM>10274</LengthMM>
+    <LengthMM>6096</LengthMM>
     <TipSpecial>LowRetention</TipSpecial>
     <TipType>Sterile</TipType>
     <HasFilter>true</HasFilter>
   </Tip>
   <Tips>
     <Tip Version="1">
-      <DataVersion>5</DataVersion>
-      <TipID>33</TipID>
-      <Name>1250 µl GripTip, Sterile, Filter, Low retention</Name>
+      <DataVersion>4</DataVersion>
+      <TipID>23</TipID>
+      <Name>300 µl GripTip, Sterile, Filter, Low retention</Name>
       <Manufacturer>INTEGRA</Manufacturer>
-      <PartNumber>6545</PartNumber>
-      <Volume>125000</Volume>
-      <ColorText>#FF69B3E7</ColorText>
+      <PartNumber>6535</PartNumber>
+      <Volume>30000</Volume>
+      <ColorText>#FF9AB9AD</ColorText>
       <Length>Standard</Length>
-      <LengthMM>10274</LengthMM>
+      <LengthMM>6096</LengthMM>
       <TipSpecial>LowRetention</TipSpecial>
       <TipType>Sterile</TipType>
       <HasFilter>true</HasFilter>
@@ -122,6 +120,40 @@
         <Length>4650</Length>
         <Depth>-300</Depth>
         <IsWaste>false</IsWaste>
+        <Content Version="2" xsi:type="Reservoir">
+          <DataVersion>7</DataVersion>
+          <Name>Multichannel Reservoir</Name>
+          <Manufacturer>INTEGRA</Manufacturer>
+          <PartNumber>4330, 4331, 4332, 4335, 4336, 4337, 4370, 4371, 4372</PartNumber>
+          <Description>Polystyrene or Polypropylene</Description>
+          <IconPath>Reservoir_10ml_1.png</IconPath>
+          <Measurements>
+            <DataVersion>0</DataVersion>
+            <Description/>
+            <FootprintLengthMM>4642</FootprintLengthMM>
+            <FootprintWidthMM>11380</FootprintWidthMM>
+            <HeightMM>2502</HeightMM>
+          </Measurements>
+          <Wells>
+            <DataVersion>0</DataVersion>
+            <Description/>
+            <BottomShape>VShape</BottomShape>
+            <CollumnCount>1</CollumnCount>
+            <CollumnGap>3000</CollumnGap>
+            <Depth>2178</Depth>
+            <NominalWellVolume>1000000</NominalWellVolume>
+            <VShapeDepth>0</VShapeDepth>
+            <FirstHolePositionText>901;901</FirstHolePositionText>
+            <RowCount>1</RowCount>
+            <RowGap>9578</RowGap>
+            <Shape>Rectangle</Shape>
+            <Size>2839</Size>
+            <SizeBottom>0</SizeBottom>
+            <Length>9578</Length>
+            <Type>V_Shape_10</Type>
+          </Wells>
+          <NameInProcess>!1</NameInProcess>
+        </Content>
         <OrientationExtended>Landscape</OrientationExtended>
         <ContentOrientation>Landscape</ContentOrientation>
       </Section>
@@ -133,40 +165,6 @@
         <Length>8600</Length>
         <Depth>0</Depth>
         <IsWaste>false</IsWaste>
-        <Content Version="2" xsi:type="Reservoir">
-          <DataVersion>5</DataVersion>
-          <Name>8 Row Polypropylene Reservoir</Name>
-          <Manufacturer>INTEGRA</Manufacturer>
-          <PartNumber>6371, 6372</PartNumber>
-          <Description/>
-          <IconPath>Reservoir_32ml_8_Well.png</IconPath>
-          <Measurements Version="0">
-            <DataVersion>0</DataVersion>
-            <Description/>
-            <FootprintLengthMM>8560</FootprintLengthMM>
-            <FootprintWidthMM>12780</FootprintWidthMM>
-            <HeightMM>4400</HeightMM>
-          </Measurements>
-          <Wells Version="0">
-            <DataVersion>0</DataVersion>
-            <Description/>
-            <BottomShape>Circle</BottomShape>
-            <CollumnCount>8</CollumnCount>
-            <CollumnGap>900</CollumnGap>
-            <Depth>3910</Depth>
-            <NominalWellVolume>3200000</NominalWellVolume>
-            <VShapeDepth>0</VShapeDepth>
-            <FirstHolePositionText>700;1000</FirstHolePositionText>
-            <RowCount>1</RowCount>
-            <RowGap>10720</RowGap>
-            <Shape>Circle</Shape>
-            <Size>800</Size>
-            <SizeBottom>0</SizeBottom>
-            <Length>10720</Length>
-            <Type>Block</Type>
-          </Wells>
-          <NameInProcess>!1</NameInProcess>
-        </Content>
         <OrientationExtended>Landscape</OrientationExtended>
         <ContentOrientation>Landscape</ContentOrientation>
       </Section>
@@ -200,38 +198,7 @@
         <Length>12820</Length>
         <Depth>0</Depth>
         <IsWaste>false</IsWaste>
-        <Content Version="1" xsi:type="Tubeholder">
-          <DataVersion>4</DataVersion>
-          <Name>Rack for 15 ml centrifuge tubes</Name>
-          <Manufacturer>INTEGRA</Manufacturer>
-          <PartNumber>4542</PartNumber>
-          <Description>4x6 centrifuge tubes (15 ml) in SLAS/ANSI format</Description>
-          <Measurements>
-            <DataVersion>0</DataVersion>
-            <Description/>
-            <FootprintLengthMM>12776</FootprintLengthMM>
-            <FootprintWidthMM>8548</FootprintWidthMM>
-            <HeightMM>12070</HeightMM>
-          </Measurements>
-          <Wells>
-            <DataVersion>0</DataVersion>
-            <Description/>
-            <BottomShape>VShape</BottomShape>
-            <CollumnCount>6</CollumnCount>
-            <CollumnGap>1980</CollumnGap>
-            <Depth>11900</Depth>
-            <NominalWellVolume>1500000</NominalWellVolume>
-            <VShapeDepth>2150</VShapeDepth>
-            <FirstHolePositionText>1438;1304</FirstHolePositionText>
-            <RowCount>4</RowCount>
-            <RowGap>1980</RowGap>
-            <Shape>Circle</Shape>
-            <Size>1360</Size>
-            <SizeBottom>0</SizeBottom>
-          </Wells>
-          <NameInProcess>!1</NameInProcess>
-        </Content>
-        <OrientationExtended>Portrait_Inverse</OrientationExtended>
+        <OrientationExtended>Landscape</OrientationExtended>
         <ContentOrientation>Landscape</ContentOrientation>
       </Section>
       <Section>
@@ -308,37 +275,6 @@
         <Length>12820</Length>
         <Depth>0</Depth>
         <IsWaste>false</IsWaste>
-        <Content Version="1" xsi:type="Tubeholder">
-          <DataVersion>7</DataVersion>
-          <Name>Rack for 1.5 ml microcentrifuge tubes with snap caps</Name>
-          <Manufacturer>INTEGRA</Manufacturer>
-          <PartNumber>4540</PartNumber>
-          <Description>6x8 1.5 ml microcentrifuge tubes</Description>
-          <Measurements>
-            <DataVersion>0</DataVersion>
-            <Description/>
-            <FootprintLengthMM>12800</FootprintLengthMM>
-            <FootprintWidthMM>14320</FootprintWidthMM>
-            <HeightMM>4950</HeightMM>
-          </Measurements>
-          <Wells>
-            <DataVersion>0</DataVersion>
-            <Description/>
-            <BottomShape>VShape</BottomShape>
-            <CollumnCount>6</CollumnCount>
-            <CollumnGap>2140</CollumnGap>
-            <Depth>3730</Depth>
-            <NominalWellVolume>150000</NominalWellVolume>
-            <VShapeDepth>1790</VShapeDepth>
-            <FirstHolePositionText>650;1675</FirstHolePositionText>
-            <RowCount>8</RowCount>
-            <RowGap>1350</RowGap>
-            <Shape>Circle</Shape>
-            <Size>885</Size>
-            <SizeBottom>0</SizeBottom>
-          </Wells>
-          <NameInProcess>!1</NameInProcess>
-        </Content>
         <OrientationExtended>Landscape</OrientationExtended>
         <ContentOrientation>Landscape</ContentOrientation>
       </Section>
@@ -528,6 +464,40 @@
           <Length>4650</Length>
           <Depth>-300</Depth>
           <IsWaste>false</IsWaste>
+          <Content Version="2" xsi:type="Reservoir">
+            <DataVersion>7</DataVersion>
+            <Name>Multichannel Reservoir</Name>
+            <Manufacturer>INTEGRA</Manufacturer>
+            <PartNumber>4330, 4331, 4332, 4335, 4336, 4337, 4370, 4371, 4372</PartNumber>
+            <Description>Polystyrene or Polypropylene</Description>
+            <IconPath>Reservoir_10ml_1.png</IconPath>
+            <Measurements>
+              <DataVersion>0</DataVersion>
+              <Description/>
+              <FootprintLengthMM>4642</FootprintLengthMM>
+              <FootprintWidthMM>11380</FootprintWidthMM>
+              <HeightMM>2502</HeightMM>
+            </Measurements>
+            <Wells>
+              <DataVersion>0</DataVersion>
+              <Description/>
+              <BottomShape>VShape</BottomShape>
+              <CollumnCount>1</CollumnCount>
+              <CollumnGap>3000</CollumnGap>
+              <Depth>2178</Depth>
+              <NominalWellVolume>1000000</NominalWellVolume>
+              <VShapeDepth>0</VShapeDepth>
+              <FirstHolePositionText>901;901</FirstHolePositionText>
+              <RowCount>1</RowCount>
+              <RowGap>9578</RowGap>
+              <Shape>Rectangle</Shape>
+              <Size>2839</Size>
+              <SizeBottom>0</SizeBottom>
+              <Length>9578</Length>
+              <Type>V_Shape_10</Type>
+            </Wells>
+            <NameInProcess>!1</NameInProcess>
+          </Content>
           <OrientationExtended>Landscape</OrientationExtended>
           <ContentOrientation>Landscape</ContentOrientation>
         </Section>
@@ -539,40 +509,6 @@
           <Length>8600</Length>
           <Depth>0</Depth>
           <IsWaste>false</IsWaste>
-          <Content Version="2" xsi:type="Reservoir">
-            <DataVersion>5</DataVersion>
-            <Name>8 Row Polypropylene Reservoir</Name>
-            <Manufacturer>INTEGRA</Manufacturer>
-            <PartNumber>6371, 6372</PartNumber>
-            <Description/>
-            <IconPath>Reservoir_32ml_8_Well.png</IconPath>
-            <Measurements Version="0">
-              <DataVersion>0</DataVersion>
-              <Description/>
-              <FootprintLengthMM>8560</FootprintLengthMM>
-              <FootprintWidthMM>12780</FootprintWidthMM>
-              <HeightMM>4400</HeightMM>
-            </Measurements>
-            <Wells Version="0">
-              <DataVersion>0</DataVersion>
-              <Description/>
-              <BottomShape>Circle</BottomShape>
-              <CollumnCount>8</CollumnCount>
-              <CollumnGap>900</CollumnGap>
-              <Depth>3910</Depth>
-              <NominalWellVolume>3200000</NominalWellVolume>
-              <VShapeDepth>0</VShapeDepth>
-              <FirstHolePositionText>700;1000</FirstHolePositionText>
-              <RowCount>1</RowCount>
-              <RowGap>10720</RowGap>
-              <Shape>Circle</Shape>
-              <Size>800</Size>
-              <SizeBottom>0</SizeBottom>
-              <Length>10720</Length>
-              <Type>Block</Type>
-            </Wells>
-            <NameInProcess>!1</NameInProcess>
-          </Content>
           <OrientationExtended>Landscape</OrientationExtended>
           <ContentOrientation>Landscape</ContentOrientation>
         </Section>
@@ -606,38 +542,7 @@
           <Length>12820</Length>
           <Depth>0</Depth>
           <IsWaste>false</IsWaste>
-          <Content Version="1" xsi:type="Tubeholder">
-            <DataVersion>4</DataVersion>
-            <Name>Rack for 15 ml centrifuge tubes</Name>
-            <Manufacturer>INTEGRA</Manufacturer>
-            <PartNumber>4542</PartNumber>
-            <Description>4x6 centrifuge tubes (15 ml) in SLAS/ANSI format</Description>
-            <Measurements>
-              <DataVersion>0</DataVersion>
-              <Description/>
-              <FootprintLengthMM>12776</FootprintLengthMM>
-              <FootprintWidthMM>8548</FootprintWidthMM>
-              <HeightMM>12070</HeightMM>
-            </Measurements>
-            <Wells>
-              <DataVersion>0</DataVersion>
-              <Description/>
-              <BottomShape>VShape</BottomShape>
-              <CollumnCount>6</CollumnCount>
-              <CollumnGap>1980</CollumnGap>
-              <Depth>11900</Depth>
-              <NominalWellVolume>1500000</NominalWellVolume>
-              <VShapeDepth>2150</VShapeDepth>
-              <FirstHolePositionText>1438;1304</FirstHolePositionText>
-              <RowCount>4</RowCount>
-              <RowGap>1980</RowGap>
-              <Shape>Circle</Shape>
-              <Size>1360</Size>
-              <SizeBottom>0</SizeBottom>
-            </Wells>
-            <NameInProcess>!1</NameInProcess>
-          </Content>
-          <OrientationExtended>Portrait_Inverse</OrientationExtended>
+          <OrientationExtended>Landscape</OrientationExtended>
           <ContentOrientation>Landscape</ContentOrientation>
         </Section>
         <Section>
@@ -714,37 +619,6 @@
           <Length>12820</Length>
           <Depth>0</Depth>
           <IsWaste>false</IsWaste>
-          <Content Version="1" xsi:type="Tubeholder">
-            <DataVersion>7</DataVersion>
-            <Name>Rack for 1.5 ml microcentrifuge tubes with snap caps</Name>
-            <Manufacturer>INTEGRA</Manufacturer>
-            <PartNumber>4540</PartNumber>
-            <Description>6x8 1.5 ml microcentrifuge tubes</Description>
-            <Measurements>
-              <DataVersion>0</DataVersion>
-              <Description/>
-              <FootprintLengthMM>12800</FootprintLengthMM>
-              <FootprintWidthMM>14320</FootprintWidthMM>
-              <HeightMM>4950</HeightMM>
-            </Measurements>
-            <Wells>
-              <DataVersion>0</DataVersion>
-              <Description/>
-              <BottomShape>VShape</BottomShape>
-              <CollumnCount>6</CollumnCount>
-              <CollumnGap>2140</CollumnGap>
-              <Depth>3730</Depth>
-              <NominalWellVolume>150000</NominalWellVolume>
-              <VShapeDepth>1790</VShapeDepth>
-              <FirstHolePositionText>650;1675</FirstHolePositionText>
-              <RowCount>8</RowCount>
-              <RowGap>1350</RowGap>
-              <Shape>Circle</Shape>
-              <Size>885</Size>
-              <SizeBottom>0</SizeBottom>
-            </Wells>
-            <NameInProcess>!1</NameInProcess>
-          </Content>
           <OrientationExtended>Landscape</OrientationExtended>
           <ContentOrientation>Landscape</ContentOrientation>
         </Section>
@@ -890,7 +764,141 @@
       <NameInProcess>Labware Layout 1</NameInProcess>
     </Deck>
   </AllDecks>
-  <Steps/>
+  <Steps>
+    <Step>
+      <Type>ManualFilling_First</Type>
+      <IsEnabled>true</IsEnabled>
+      <ID>00000000-0000-0000-0000-000000000002</ID>
+      <IsNew>false</IsNew>
+      <DeckID>00000000-0000-0000-0000-000000000000</DeckID>
+      <ValueGroups>
+        <ValueGroup Key="ManualVolume">
+          <Values>
+            <Value Key="ManualVolume"><![CDATA[[{"WellCoordinates": [{"Item1": 0, "Item2": 0}], "Volume": 200000, "Section": 2, "SubSection": -1, "Spacing": 900, "ColorIndex": 1, "DeckId": "00000000-0000-0000-0000-000000000000"}]]]></Value>
+            <Value Key="MessageType">null</Value>
+            <Value Key="Message1">null</Value>
+            <Value Key="Message2">null</Value>
+            <Value Key="Message3">null</Value>
+            <Value Key="ShowMessageOnPipette">false</Value>
+          </Values>
+        </ValueGroup>
+      </ValueGroups>
+    </Step>
+    <Step>
+      <Type>RepeatDispense</Type>
+      <IsEnabled>true</IsEnabled>
+      <ID>00000000-0000-0000-0000-000000000003</ID>
+      <IsNew>false</IsNew>
+      <DeckID>00000000-0000-0000-0000-000000000000</DeckID>
+      <ValueGroups>
+        <ValueGroup Key="Source">
+          <Values>
+            <Value Key="MultiSelection"><![CDATA[[{"Wells": [{"Item1": 0, "Item2": 0}], "DeckSection": 2, "SubSection": -1, "Spacing": 900, "DeckId": "00000000-0000-0000-0000-000000000000", "WorkingDirectionExtended": 0, "WorkingDirectionOld": "false"}]]]></Value>
+            <Value Key="WellOffsets"><![CDATA[[{"DeckSection": 2, "SubSection": -1, "OffsetX": 0, "OffsetY": 0}]]]></Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Target">
+          <Values>
+            <Value Key="MultiSelection"><![CDATA[[{"Wells": [{"Item1": 0, "Item2": 0}], "DeckSection": 2, "SubSection": -1, "Spacing": 900, "DeckId": "00000000-0000-0000-0000-000000000000", "WorkingDirectionExtended": 0, "WorkingDirectionOld": "false"}]]]></Value>
+            <Value Key="WellOffsets"><![CDATA[[{"DeckSection": 2, "SubSection": -1, "OffsetX": 0, "OffsetY": 0}]]]></Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Pipetting">
+          <Values>
+            <Value Key="ExtraVolumePercentage">0</Value>
+            <Value Key="NumberOfReactions">1</Value>
+            <Value Key="DispenseVolume"><![CDATA[[{"Well": {"Item1": 0, "Item2": 0}, "DeckSection": 2, "SubSection": -1, "Volume": 20000, "TipID": 23, "Multiplier": 1, "TotalVolume": 20000}]]]></Value>
+            <Value Key="TipTypePipettingConfiguration"><![CDATA[[{"FirstDispenseVolume": 0, "LastDispenseVolume": 0, "Airgap": false, "AirgapVolume": 0, "AspirationSpeed": 8, "DispenseSpeed": 8, "TipID": 23}]]]></Value>
+            <Value Key="AspirationDelay">0</Value>
+            <Value Key="DispenseDelay">0</Value>
+            <Value Key="KeepPostDispense">true</Value>
+            <Value Key="LastDispenseType">true</Value>
+            <Value Key="LastAspirationBackTo"><![CDATA["Common_No"]]></Value>
+            <Value Key="VolumeConfigType">false</Value>
+            <Value Key="DispenseType">true</Value>
+            <Value Key="SlowLiquidExitAsp">false</Value>
+            <Value Key="SlowLiquidExitDisp">false</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Aspiration">
+          <Values>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 0, "Item2": 0}, "DeckSection": 2, "SubSection": -1, "StartHeight": 330, "EndHeight": 330, "TipID": 23}]]]></Value>
+            <Value Key="TipTravel">false</Value>
+            <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 2, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
+            <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 2, "SubSection": -1, "WellBottomOffset": 200, "TipID": 23}]]]></Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Dispense">
+          <Values>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 0, "Item2": 0}, "DeckSection": 2, "SubSection": -1, "StartHeight": 330, "EndHeight": 330, "TipID": 23}]]]></Value>
+            <Value Key="TipTravel">false</Value>
+            <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 2, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
+            <Value Key="TipTypeHeightConfiguration"><![CDATA[[{"DeckSection": 2, "SubSection": -1, "WellBottomOffset": 200, "TipID": 23}]]]></Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Tips">
+          <Values>
+            <Value Key="PreWetting">false</Value>
+            <Value Key="PreWettingCycles">3</Value>
+            <Value Key="TipChange"><![CDATA["TipChange_AfterStep"]]></Value>
+            <Value Key="TipEjectionType">true</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="SourceMix">
+          <Values>
+            <Value Key="MixActive">false</Value>
+            <Value Key="TipTypeMixConfiguration"><![CDATA[[{"MixSpeed": 8, "TipID": 23}]]]></Value>
+            <Value Key="MixPause">0</Value>
+            <Value Key="SectionMixVolume"><![CDATA[[{"Well": {"Item1": 0, "Item2": 0}, "DeckSection": 2, "SubSection": -1, "Volume": 5000, "TipID": 23, "Multiplier": 1, "TotalVolume": 5000}]]]></Value>
+            <Value Key="MixCycles">3</Value>
+            <Value Key="BlowOut">false</Value>
+            <Value Key="TipTravel">false</Value>
+            <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 2, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
+            <Value Key="VolumeConfigType">true</Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 0, "Item2": 0}, "DeckSection": 2, "SubSection": -1, "StartHeight": 325, "EndHeight": 0, "TipID": 23}]]]></Value>
+            <Value Key="MixBeforeEachAspiration">false</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="TargetMix">
+          <Values>
+            <Value Key="MixActive">false</Value>
+            <Value Key="TipTypeMixConfiguration"><![CDATA[[{"MixSpeed": 8, "TipID": 23}]]]></Value>
+            <Value Key="MixPause">0</Value>
+            <Value Key="SectionMixVolume"><![CDATA[[{"Well": {"Item1": 0, "Item2": 0}, "DeckSection": 2, "SubSection": -1, "Volume": 5000, "TipID": 23, "Multiplier": 1, "TotalVolume": 5000}]]]></Value>
+            <Value Key="MixCycles">3</Value>
+            <Value Key="BlowOut">false</Value>
+            <Value Key="TipTravel">false</Value>
+            <Value Key="SectionHeightConfig"><![CDATA[[{"DeckSection": 2, "SubSection": -1, "HeightConfigType": true, "WellBottomOffset": 0}]]]></Value>
+            <Value Key="VolumeConfigType">true</Value>
+            <Value Key="Heights"><![CDATA[[{"Well": {"Item1": 0, "Item2": 0}, "DeckSection": 2, "SubSection": -1, "StartHeight": 325, "EndHeight": 0, "TipID": 23}]]]></Value>
+            <Value Key="MixBeforeEachAspiration">false</Value>
+            <Value Key="SkipFirst">false</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="TipTouchTarget">
+          <Values>
+            <Value Key="TipTouchActive">false</Value>
+            <Value Key="SectionTipTouch"><![CDATA[[{"DeckSection": 2, "SubSection": -1, "Type": false, "Height": 1406, "Distance": 225}]]]></Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="Various">
+          <Values>
+            <Value Key="SpeedX">10</Value>
+            <Value Key="SpeedY">10</Value>
+            <Value Key="SpeedZ">10</Value>
+            <Value Key="IsStepActive">true</Value>
+          </Values>
+        </ValueGroup>
+        <ValueGroup Key="LLD">
+          <Values>
+            <Value Key="UseLLD">false</Value>
+            <Value Key="LLDErrorHandling"><![CDATA["LLD_PauseAndRepeat"]]></Value>
+            <Value Key="LLDHeights">null</Value>
+          </Values>
+        </ValueGroup>
+      </ValueGroups>
+    </Step>
+  </Steps>
   <GlobalParameters Key="Global">
     <Values>
       <Value Key="ClearanceHeight">800</Value>
@@ -899,7 +907,7 @@
       <Value Key="AfterTipEjectMonitoring">true</Value>
       <Value Key="AfterTipLoadMonitoring">false</Value>
       <Value Key="BeforeTipEjectMonitoring">true</Value>
-      <Value Key="TipTypeRequiredTips"><![CDATA[{"33": 0}]]></Value>
+      <Value Key="TipTypeRequiredTips"><![CDATA[{"23": 0}]]></Value>
       <Value Key="WasteAsTargetOption">false</Value>
       <Value Key="LabwareReintegration">false</Value>
       <Value Key="CopyHeightAdjustment">false</Value>

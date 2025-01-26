@@ -7,13 +7,13 @@ from pydantic import Field
 from pyalab.plate import Labware
 
 from .base import Section
-from .base import Step
 from .base import WellRowCol
 from .base import mm_to_xml
 from .base import ul_to_xml
+from .builders import StepWithPipetteSpan
 
 
-class SetVolume(Step):
+class SetVolume(StepWithPipetteSpan):
     """Specify the volume of liquid in the labware.
 
     Can be used to initially define it at the beginning of a protocol, or after a manual filling step.
@@ -47,9 +47,7 @@ class SetVolume(Step):
                 ],
                 "Volume": ul_to_xml(self.volume),
                 **deck_section.model_dump(by_alias=True),
-                "Spacing": mm_to_xml(
-                    self.labware.row_spacing()
-                ),  # TODO: handle spacing based on landscape vs portrait orientation
+                "Spacing": mm_to_xml(self._pipette_span(self.labware)),
                 "ColorIndex": 1,  # TODO: figure out if/when this changes
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
             }

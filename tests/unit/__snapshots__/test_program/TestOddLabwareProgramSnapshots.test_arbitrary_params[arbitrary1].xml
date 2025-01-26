@@ -122,7 +122,7 @@
         <Length>4650</Length>
         <Depth>-300</Depth>
         <IsWaste>false</IsWaste>
-        <Content Version="1" xsi:type="Reservoir">
+        <Content Version="2" xsi:type="Reservoir">
           <DataVersion>7</DataVersion>
           <Name>Multichannel Reservoir</Name>
           <Manufacturer>INTEGRA</Manufacturer>
@@ -319,7 +319,7 @@
         <Length>12820</Length>
         <Depth>0</Depth>
         <IsWaste>false</IsWaste>
-        <Content Version="1" xsi:type="Reservoir">
+        <Content Version="2" xsi:type="Reservoir">
           <DataVersion>4</DataVersion>
           <Name>12 Column Polypropylene Reservoir</Name>
           <Manufacturer>INTEGRA</Manufacturer>
@@ -531,7 +531,7 @@
           <Length>4650</Length>
           <Depth>-300</Depth>
           <IsWaste>false</IsWaste>
-          <Content Version="1" xsi:type="Reservoir">
+          <Content Version="2" xsi:type="Reservoir">
             <DataVersion>7</DataVersion>
             <Name>Multichannel Reservoir</Name>
             <Manufacturer>INTEGRA</Manufacturer>
@@ -728,7 +728,7 @@
           <Length>12820</Length>
           <Depth>0</Depth>
           <IsWaste>false</IsWaste>
-          <Content Version="1" xsi:type="Reservoir">
+          <Content Version="2" xsi:type="Reservoir">
             <DataVersion>4</DataVersion>
             <Name>12 Column Polypropylene Reservoir</Name>
             <Manufacturer>INTEGRA</Manufacturer>

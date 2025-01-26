@@ -88,7 +88,7 @@ class TestSimpleTransferProgramSnapshots(ProgramSnapshot):
             pipette=Pipette(name="VOYAGER EIGHT 300 µl"),
             tip=tip,
         )
-        pcr_plate_section_index = program.get_section_index_for_plate(pcr_plate)
+        pcr_plate_section_index = program.get_section_index_for_labware(pcr_plate)
 
         program.add_step(
             SetInitialVolume(

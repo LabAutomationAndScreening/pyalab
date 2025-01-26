@@ -32,6 +32,13 @@ class IntegraLibraryObjectNotFoundError(OSError):
         super().__init__(f"Could not find {component_type.value} with name {name} while looking in {paths_searched}")
 
 
+CONTENT_VERSIONS: dict[LibraryComponentType, str] = {
+    LibraryComponentType.PLATE: "1",
+    LibraryComponentType.RESERVOIR: "2",
+    LibraryComponentType.TUBEHOLDER: "1",
+}
+
+
 class LibraryComponent(BaseModel, frozen=True):
     type: ClassVar[LibraryComponentType]
     name: str
@@ -56,16 +63,12 @@ class LibraryComponent(BaseModel, frozen=True):
         return root
 
     def create_xml_for_program(self) -> _Element:
-        is_content = self.type in [
-            LibraryComponentType.PLATE,
-            LibraryComponentType.RESERVOIR,
-            LibraryComponentType.TUBEHOLDER,
-        ]
+        is_content = self.type in CONTENT_VERSIONS
         root = etree.Element(
             "Content"
             if is_content
             else self.type.value,  # TODO: confirm that all object types use the file directory as the XML tag name too
-            Version=str(1),  # TODO: confirm that no objects are using version other than 1
+            Version=str(1) if not is_content else CONTENT_VERSIONS[self.type],
         )
         if is_content:
             root.set(

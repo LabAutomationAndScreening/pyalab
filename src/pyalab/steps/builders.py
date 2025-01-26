@@ -2,11 +2,24 @@ import json
 from abc import ABC
 from typing import Any
 
+from pyalab.plate import Labware
+
 from .base import Step
 from .params import TipChangeMode
 
 
-class LiquidTransferStep(Step, ABC):
+class StepWithPipetteSpan(Step, ABC):
+    pipette_span: float | None = None
+    """Override the default well-to-well spacing of the labware."""
+
+    def _pipette_span(self, labware: Labware) -> float:
+        pipette_span = self.pipette_span
+        if pipette_span is None:
+            pipette_span = labware.row_spacing()  # TODO: handle spacing based on landscape vs portrait orientation
+        return pipette_span
+
+
+class LiquidTransferStep(StepWithPipetteSpan, ABC):
     tip_change_mode: TipChangeMode
 
     def _add_tips_value_group(self) -> None:

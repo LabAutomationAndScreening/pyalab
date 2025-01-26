@@ -21,6 +21,8 @@ type Volume = float
 class MultiDispense(LiquidTransferStep):
     """Perform a multi/repeat dispense from a single source into one or more destinations."""
 
+    # TODO: handle different explicit pipette span for source vs destinations
+
     type = "RepeatDispense"
     source: PipettingLocation
     """The source labware to aspirate from."""
@@ -60,9 +62,7 @@ class MultiDispense(LiquidTransferStep):
             {
                 "Wells": [source_well],
                 **source_deck_section,
-                "Spacing": mm_to_xml(
-                    self.source.labware.row_spacing()
-                ),  # TODO: handle spacing based on landscape vs portrait orientation
+                "Spacing": mm_to_xml(self._pipette_span(self.source.labware)),
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
                 "WorkingDirectionExtended": 0,  # TODO: figure out what this is...something to do with zig zag patterns or other alternatives
                 "WorkingDirectionOld": "false",  # TODO: figure out what this is
@@ -72,9 +72,7 @@ class MultiDispense(LiquidTransferStep):
             {
                 "Wells": [destination_well],
                 **destination_deck_section,
-                "Spacing": mm_to_xml(
-                    self.destinations[0][0].labware.row_spacing()
-                ),  # TODO: handle spacing based on landscape vs portrait orientation
+                "Spacing": mm_to_xml(self._pipette_span(self.destinations[0][0].labware)),
                 "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
                 "WorkingDirectionExtended": 0,  # TODO: figure out what this is
                 "WorkingDirectionOld": "false",  # TODO: figure out what this is

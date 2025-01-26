@@ -21,6 +21,7 @@ from pyalab import Tip
 from pyalab import TipChangeMode
 
 from ..constants import GENERIC_96_DEEP_WELL_PLATE
+from ..constants import GENERIC_RESERVOIR
 from ..fixtures import ProgramSnapshot
 
 
@@ -34,11 +35,13 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
             "tip_change_mode",
             "reverse_pipetting_volume",
             "pre_dispense_volume",
+            "pipette_span",
         ),
         [
             pytest.param(
                 3,
                 [(8, 100)],
+                None,
                 None,
                 None,
                 None,
@@ -54,6 +57,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
                 TipChangeMode.NO_CHANGE,
                 25,
                 35,
+                9,
                 id="arbitrary1",
             ),
         ],
@@ -68,6 +72,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
         tip_change_mode: TipChangeMode | None,
         reverse_pipetting_volume: float | None,
         pre_dispense_volume: float | None,
+        pipette_span: float | None,
     ):
         plate = GENERIC_96_DEEP_WELL_PLATE
         program = Program(
@@ -82,7 +87,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
             pipette=Pipette(name="VOYAGER EIGHT 300 µl"),
             tip=Tip(name="300 µl GripTip Sterile Filter Low retention"),
         )
-        plate_section_index = program.get_section_index_for_plate(plate)
+        plate_section_index = program.get_section_index_for_labware(plate)
 
         program.add_step(
             SetInitialVolume(
@@ -107,6 +112,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
                 (tip_change_mode, "tip_change_mode"),
                 (reverse_pipetting_volume, "reverse_pipetting_volume"),
                 (pre_dispense_volume, "pre_dispense_volume"),
+                (pipette_span, "pipette_span"),
             ]
             if value is not None
         }
@@ -130,6 +136,86 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
                         volume,
                     )
                     for destination_column_index, volume in destination_column_indexes_and_volumes
+                ],
+                **kwargs,
+            )
+        )
+
+        with TemporaryDirectory() as temp_dir:
+            file_path = Path(temp_dir) / f"{uuid.uuid1()}simple-transfer.iaa"
+            program.dump_xml(file_path)
+            xml_str = file_path.read_text()
+
+        assert xml_str == self.snapshot_xml
+
+    @pytest.mark.parametrize(
+        "pipette_span",
+        [
+            pytest.param(
+                9,
+                id="arbitrary1",
+            ),
+            pytest.param(
+                9,  # TODO: figure out why setting different values fails. 11, 13.5...they're all within the range of the pipette, but ViaLab throws an error
+                id="arbitrary2",
+            ),
+        ],
+    )
+    def test_pipette_span(
+        self,
+        pipette_span: float | None,
+    ):
+        reservoir = GENERIC_RESERVOIR
+        program = Program(
+            deck_layouts=[
+                DeckLayout(
+                    deck=Deck(name=StandardDeckNames.THREE_POSITION.value),
+                    labware={DeckPosition(name="A", orientation=LabwareOrientation.A1_NW_CORNER): reservoir},
+                )
+            ],
+            display_name="arbitrary",
+            description="arbitrary description",
+            pipette=Pipette(name="VOYAGER EIGHT 300 µl"),
+            tip=Tip(name="300 µl GripTip Sterile Filter Low retention"),
+        )
+        labware_section_index = program.get_section_index_for_labware(reservoir)
+
+        program.add_step(
+            SetInitialVolume(
+                labware=reservoir,
+                section_index=labware_section_index,
+                column_index=0,
+                volume=2000,
+                pipette_span=pipette_span,
+            )
+        )
+
+        kwargs: dict[str, Any] = {
+            kwarg_name: value
+            for value, kwarg_name in [
+                (pipette_span, "pipette_span"),
+            ]
+            if value is not None
+        }
+
+        program.add_step(
+            MultiDispense(
+                source=PipettingLocation(
+                    labware=reservoir,
+                    deck_section_index=labware_section_index,
+                    column_index=0,
+                    upper_left_row_index=0,
+                ),
+                destinations=[
+                    (
+                        PipettingLocation(
+                            labware=reservoir,
+                            deck_section_index=labware_section_index,
+                            column_index=0,
+                            upper_left_row_index=0,
+                        ),
+                        200,
+                    )
                 ],
                 **kwargs,
             )

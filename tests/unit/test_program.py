@@ -39,7 +39,7 @@ def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error()
     desired_plate = Plate(name="BIO-RAD Hard-Shell 96-Well Skirted PCR Plates", display_name="PCR Plate")
 
     with pytest.raises(LabwareNotInDeckLayoutError, match=rf"{desired_plate.name}.*{desired_plate.display_name}"):
-        _ = program.get_section_index_for_plate(desired_plate)
+        _ = program.get_section_index_for_labware(desired_plate)
 
 
 class TestOddLabwareProgramSnapshots(ProgramSnapshot):
