@@ -1,7 +1,4 @@
 import random
-import uuid
-from pathlib import Path
-from tempfile import TemporaryDirectory
 
 import pytest
 from pydantic import ValidationError
@@ -21,6 +18,7 @@ from pyalab import Tip
 
 from ..constants import GENERIC_RESERVOIR
 from ..fixtures import ProgramSnapshot
+from ..fixtures import generate_xml_str
 
 
 class TestDataValidation:
@@ -91,9 +89,4 @@ class TestDifferentLabwareProgramSnapshots(ProgramSnapshot):
             )
         )
 
-        with TemporaryDirectory() as temp_dir:
-            file_path = Path(temp_dir) / f"{uuid.uuid1()}simple-transfer.iaa"
-            program.dump_xml(file_path)
-            xml_str = file_path.read_text()
-
-        assert xml_str == self.snapshot_xml
+        assert generate_xml_str(program) == self.snapshot_xml
