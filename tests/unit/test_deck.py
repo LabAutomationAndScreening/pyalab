@@ -35,7 +35,7 @@ class TestDeckPositionSectionIndex:
                 StandardDeckNames.THREE_POSITION.value,
                 DeckPosition(name="B", orientation=LabwareOrientation.A1_NE_CORNER),
                 GENERIC_96_WELL_PLATE,
-                6,
+                7,
                 id="3 position deck, B plate portrait",
             ),
             pytest.param(

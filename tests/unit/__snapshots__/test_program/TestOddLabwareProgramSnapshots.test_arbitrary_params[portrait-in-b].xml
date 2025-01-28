@@ -133,40 +133,6 @@
         <Length>8600</Length>
         <Depth>0</Depth>
         <IsWaste>false</IsWaste>
-        <Content Version="2" xsi:type="Reservoir">
-          <DataVersion>5</DataVersion>
-          <Name>8 Row Polypropylene Reservoir</Name>
-          <Manufacturer>INTEGRA</Manufacturer>
-          <PartNumber>6371, 6372</PartNumber>
-          <Description/>
-          <IconPath>Reservoir_32ml_8_Well.png</IconPath>
-          <Measurements Version="0">
-            <DataVersion>0</DataVersion>
-            <Description/>
-            <FootprintLengthMM>8560</FootprintLengthMM>
-            <FootprintWidthMM>12780</FootprintWidthMM>
-            <HeightMM>4400</HeightMM>
-          </Measurements>
-          <Wells Version="0">
-            <DataVersion>0</DataVersion>
-            <Description/>
-            <BottomShape>Circle</BottomShape>
-            <CollumnCount>8</CollumnCount>
-            <CollumnGap>900</CollumnGap>
-            <Depth>3910</Depth>
-            <NominalWellVolume>3200000</NominalWellVolume>
-            <VShapeDepth>0</VShapeDepth>
-            <FirstHolePositionText>700;1000</FirstHolePositionText>
-            <RowCount>1</RowCount>
-            <RowGap>10720</RowGap>
-            <Shape>Circle</Shape>
-            <Size>800</Size>
-            <SizeBottom>0</SizeBottom>
-            <Length>10720</Length>
-            <Type>Block</Type>
-          </Wells>
-          <NameInProcess>!1</NameInProcess>
-        </Content>
         <OrientationExtended>Landscape</OrientationExtended>
         <ContentOrientation>Landscape</ContentOrientation>
       </Section>
@@ -211,36 +177,82 @@
         <Length>8600</Length>
         <Depth>0</Depth>
         <IsWaste>false</IsWaste>
-        <Content Version="1" xsi:type="Tubeholder">
-          <DataVersion>4</DataVersion>
-          <Name>Rack for 15 ml centrifuge tubes</Name>
+        <Content Version="1" xsi:type="Plate">
+          <DataVersion>1</DataVersion>
+          <Name>96 Deepwell V-Bottom Plate</Name>
           <Manufacturer>INTEGRA</Manufacturer>
-          <PartNumber>4542</PartNumber>
-          <Description>4x6 centrifuge tubes (15 ml) in SLAS/ANSI format</Description>
-          <Measurements>
+          <PartNumber>6353</PartNumber>
+          <Description/>
+          <Measurements Version="0">
             <DataVersion>0</DataVersion>
             <Description/>
-            <FootprintLengthMM>12776</FootprintLengthMM>
-            <FootprintWidthMM>8548</FootprintWidthMM>
-            <HeightMM>12070</HeightMM>
+            <FootprintLengthMM>12775</FootprintLengthMM>
+            <FootprintWidthMM>8550</FootprintWidthMM>
+            <HeightMM>4410</HeightMM>
           </Measurements>
-          <Wells>
+          <Wells Version="0">
             <DataVersion>0</DataVersion>
             <Description/>
+            <Angle>0</Angle>
+            <SectionHeightCorrection>0</SectionHeightCorrection>
+            <DeltaHmax>0</DeltaHmax>
             <BottomShape>VShape</BottomShape>
-            <CollumnCount>6</CollumnCount>
-            <CollumnGap>1980</CollumnGap>
-            <Depth>11900</Depth>
-            <NominalWellVolume>1500000</NominalWellVolume>
-            <VShapeDepth>2150</VShapeDepth>
-            <FirstHolePositionText>1438;1304</FirstHolePositionText>
-            <RowCount>4</RowCount>
-            <RowGap>1980</RowGap>
-            <Shape>Circle</Shape>
-            <Size>1360</Size>
+            <CollumnCount>12</CollumnCount>
+            <CollumnGap>900</CollumnGap>
+            <Depth>4180</Depth>
+            <NominalWellVolume>220000</NominalWellVolume>
+            <VShapeDepth>270</VShapeDepth>
+            <FirstHolePositionText>1437;1125</FirstHolePositionText>
+            <RowCount>8</RowCount>
+            <RowGap>900</RowGap>
+            <Shape>Square</Shape>
+            <Size>840</Size>
+            <Length>840</Length>
             <SizeBottom>0</SizeBottom>
+            <HeightVolumeLookupTable>
+              <HeightVolume>
+                <Height>250</Height>
+                <Volume>5000</Volume>
+              </HeightVolume>
+              <HeightVolume>
+                <Height>550</Height>
+                <Volume>10000</Volume>
+              </HeightVolume>
+              <HeightVolume>
+                <Height>700</Height>
+                <Volume>20000</Volume>
+              </HeightVolume>
+              <HeightVolume>
+                <Height>900</Height>
+                <Volume>30000</Volume>
+              </HeightVolume>
+              <HeightVolume>
+                <Height>1350</Height>
+                <Volume>50000</Volume>
+              </HeightVolume>
+              <HeightVolume>
+                <Height>1650</Height>
+                <Volume>75000</Volume>
+              </HeightVolume>
+              <HeightVolume>
+                <Height>2100</Height>
+                <Volume>100000</Volume>
+              </HeightVolume>
+              <HeightVolume>
+                <Height>2800</Height>
+                <Volume>150000</Volume>
+              </HeightVolume>
+              <HeightVolume>
+                <Height>3600</Height>
+                <Volume>200000</Volume>
+              </HeightVolume>
+              <HeightVolume>
+                <Height>4180</Height>
+                <Volume>220000</Volume>
+              </HeightVolume>
+            </HeightVolumeLookupTable>
           </Wells>
-          <NameInProcess>!1</NameInProcess>
+          <NameInProcess>fooBAR 173!1</NameInProcess>
         </Content>
         <OrientationExtended>Portrait_Inverse</OrientationExtended>
         <ContentOrientation>Landscape</ContentOrientation>
@@ -308,37 +320,6 @@
         <Length>12820</Length>
         <Depth>0</Depth>
         <IsWaste>false</IsWaste>
-        <Content Version="1" xsi:type="Tubeholder">
-          <DataVersion>7</DataVersion>
-          <Name>Rack for 1.5 ml microcentrifuge tubes with snap caps</Name>
-          <Manufacturer>INTEGRA</Manufacturer>
-          <PartNumber>4540</PartNumber>
-          <Description>6x8 1.5 ml microcentrifuge tubes</Description>
-          <Measurements>
-            <DataVersion>0</DataVersion>
-            <Description/>
-            <FootprintLengthMM>12800</FootprintLengthMM>
-            <FootprintWidthMM>14320</FootprintWidthMM>
-            <HeightMM>4950</HeightMM>
-          </Measurements>
-          <Wells>
-            <DataVersion>0</DataVersion>
-            <Description/>
-            <BottomShape>VShape</BottomShape>
-            <CollumnCount>6</CollumnCount>
-            <CollumnGap>2140</CollumnGap>
-            <Depth>3730</Depth>
-            <NominalWellVolume>150000</NominalWellVolume>
-            <VShapeDepth>1790</VShapeDepth>
-            <FirstHolePositionText>650;1675</FirstHolePositionText>
-            <RowCount>8</RowCount>
-            <RowGap>1350</RowGap>
-            <Shape>Circle</Shape>
-            <Size>885</Size>
-            <SizeBottom>0</SizeBottom>
-          </Wells>
-          <NameInProcess>!1</NameInProcess>
-        </Content>
         <OrientationExtended>Landscape</OrientationExtended>
         <ContentOrientation>Landscape</ContentOrientation>
       </Section>
@@ -539,40 +520,6 @@
           <Length>8600</Length>
           <Depth>0</Depth>
           <IsWaste>false</IsWaste>
-          <Content Version="2" xsi:type="Reservoir">
-            <DataVersion>5</DataVersion>
-            <Name>8 Row Polypropylene Reservoir</Name>
-            <Manufacturer>INTEGRA</Manufacturer>
-            <PartNumber>6371, 6372</PartNumber>
-            <Description/>
-            <IconPath>Reservoir_32ml_8_Well.png</IconPath>
-            <Measurements Version="0">
-              <DataVersion>0</DataVersion>
-              <Description/>
-              <FootprintLengthMM>8560</FootprintLengthMM>
-              <FootprintWidthMM>12780</FootprintWidthMM>
-              <HeightMM>4400</HeightMM>
-            </Measurements>
-            <Wells Version="0">
-              <DataVersion>0</DataVersion>
-              <Description/>
-              <BottomShape>Circle</BottomShape>
-              <CollumnCount>8</CollumnCount>
-              <CollumnGap>900</CollumnGap>
-              <Depth>3910</Depth>
-              <NominalWellVolume>3200000</NominalWellVolume>
-              <VShapeDepth>0</VShapeDepth>
-              <FirstHolePositionText>700;1000</FirstHolePositionText>
-              <RowCount>1</RowCount>
-              <RowGap>10720</RowGap>
-              <Shape>Circle</Shape>
-              <Size>800</Size>
-              <SizeBottom>0</SizeBottom>
-              <Length>10720</Length>
-              <Type>Block</Type>
-            </Wells>
-            <NameInProcess>!1</NameInProcess>
-          </Content>
           <OrientationExtended>Landscape</OrientationExtended>
           <ContentOrientation>Landscape</ContentOrientation>
         </Section>
@@ -617,36 +564,82 @@
           <Length>8600</Length>
           <Depth>0</Depth>
           <IsWaste>false</IsWaste>
-          <Content Version="1" xsi:type="Tubeholder">
-            <DataVersion>4</DataVersion>
-            <Name>Rack for 15 ml centrifuge tubes</Name>
+          <Content Version="1" xsi:type="Plate">
+            <DataVersion>1</DataVersion>
+            <Name>96 Deepwell V-Bottom Plate</Name>
             <Manufacturer>INTEGRA</Manufacturer>
-            <PartNumber>4542</PartNumber>
-            <Description>4x6 centrifuge tubes (15 ml) in SLAS/ANSI format</Description>
-            <Measurements>
+            <PartNumber>6353</PartNumber>
+            <Description/>
+            <Measurements Version="0">
               <DataVersion>0</DataVersion>
               <Description/>
-              <FootprintLengthMM>12776</FootprintLengthMM>
-              <FootprintWidthMM>8548</FootprintWidthMM>
-              <HeightMM>12070</HeightMM>
+              <FootprintLengthMM>12775</FootprintLengthMM>
+              <FootprintWidthMM>8550</FootprintWidthMM>
+              <HeightMM>4410</HeightMM>
             </Measurements>
-            <Wells>
+            <Wells Version="0">
               <DataVersion>0</DataVersion>
               <Description/>
+              <Angle>0</Angle>
+              <SectionHeightCorrection>0</SectionHeightCorrection>
+              <DeltaHmax>0</DeltaHmax>
               <BottomShape>VShape</BottomShape>
-              <CollumnCount>6</CollumnCount>
-              <CollumnGap>1980</CollumnGap>
-              <Depth>11900</Depth>
-              <NominalWellVolume>1500000</NominalWellVolume>
-              <VShapeDepth>2150</VShapeDepth>
-              <FirstHolePositionText>1438;1304</FirstHolePositionText>
-              <RowCount>4</RowCount>
-              <RowGap>1980</RowGap>
-              <Shape>Circle</Shape>
-              <Size>1360</Size>
+              <CollumnCount>12</CollumnCount>
+              <CollumnGap>900</CollumnGap>
+              <Depth>4180</Depth>
+              <NominalWellVolume>220000</NominalWellVolume>
+              <VShapeDepth>270</VShapeDepth>
+              <FirstHolePositionText>1437;1125</FirstHolePositionText>
+              <RowCount>8</RowCount>
+              <RowGap>900</RowGap>
+              <Shape>Square</Shape>
+              <Size>840</Size>
+              <Length>840</Length>
               <SizeBottom>0</SizeBottom>
+              <HeightVolumeLookupTable>
+                <HeightVolume>
+                  <Height>250</Height>
+                  <Volume>5000</Volume>
+                </HeightVolume>
+                <HeightVolume>
+                  <Height>550</Height>
+                  <Volume>10000</Volume>
+                </HeightVolume>
+                <HeightVolume>
+                  <Height>700</Height>
+                  <Volume>20000</Volume>
+                </HeightVolume>
+                <HeightVolume>
+                  <Height>900</Height>
+                  <Volume>30000</Volume>
+                </HeightVolume>
+                <HeightVolume>
+                  <Height>1350</Height>
+                  <Volume>50000</Volume>
+                </HeightVolume>
+                <HeightVolume>
+                  <Height>1650</Height>
+                  <Volume>75000</Volume>
+                </HeightVolume>
+                <HeightVolume>
+                  <Height>2100</Height>
+                  <Volume>100000</Volume>
+                </HeightVolume>
+                <HeightVolume>
+                  <Height>2800</Height>
+                  <Volume>150000</Volume>
+                </HeightVolume>
+                <HeightVolume>
+                  <Height>3600</Height>
+                  <Volume>200000</Volume>
+                </HeightVolume>
+                <HeightVolume>
+                  <Height>4180</Height>
+                  <Volume>220000</Volume>
+                </HeightVolume>
+              </HeightVolumeLookupTable>
             </Wells>
-            <NameInProcess>!1</NameInProcess>
+            <NameInProcess>fooBAR 173!1</NameInProcess>
           </Content>
           <OrientationExtended>Portrait_Inverse</OrientationExtended>
           <ContentOrientation>Landscape</ContentOrientation>
@@ -714,37 +707,6 @@
           <Length>12820</Length>
           <Depth>0</Depth>
           <IsWaste>false</IsWaste>
-          <Content Version="1" xsi:type="Tubeholder">
-            <DataVersion>7</DataVersion>
-            <Name>Rack for 1.5 ml microcentrifuge tubes with snap caps</Name>
-            <Manufacturer>INTEGRA</Manufacturer>
-            <PartNumber>4540</PartNumber>
-            <Description>6x8 1.5 ml microcentrifuge tubes</Description>
-            <Measurements>
-              <DataVersion>0</DataVersion>
-              <Description/>
-              <FootprintLengthMM>12800</FootprintLengthMM>
-              <FootprintWidthMM>14320</FootprintWidthMM>
-              <HeightMM>4950</HeightMM>
-            </Measurements>
-            <Wells>
-              <DataVersion>0</DataVersion>
-              <Description/>
-              <BottomShape>VShape</BottomShape>
-              <CollumnCount>6</CollumnCount>
-              <CollumnGap>2140</CollumnGap>
-              <Depth>3730</Depth>
-              <NominalWellVolume>150000</NominalWellVolume>
-              <VShapeDepth>1790</VShapeDepth>
-              <FirstHolePositionText>650;1675</FirstHolePositionText>
-              <RowCount>8</RowCount>
-              <RowGap>1350</RowGap>
-              <Shape>Circle</Shape>
-              <Size>885</Size>
-              <SizeBottom>0</SizeBottom>
-            </Wells>
-            <NameInProcess>!1</NameInProcess>
-          </Content>
           <OrientationExtended>Landscape</OrientationExtended>
           <ContentOrientation>Landscape</ContentOrientation>
         </Section>
