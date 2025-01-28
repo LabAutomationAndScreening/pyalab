@@ -68,25 +68,38 @@ class TestOddLabwareProgramSnapshots(ProgramSnapshot):
                 LabwareOrientation.A1_NW_CORNER,
                 id="arbitrary2",
             ),
+            pytest.param(
+                None,
+                Plate(name="INTEGRA 96 Deepwell V-Bottom Plate", display_name="fooBAR 173"),
+                LabwareOrientation.A1_NE_CORNER,
+                None,
+                None,
+                id="portrait-in-b",
+            ),
         ],
     )
     def test_arbitrary_params(
         self,
-        position_a_labware: Labware,
-        position_b_labware: Labware,
-        position_b_orientation: LabwareOrientation,
-        position_c_labware: Labware,
-        position_c_orientation: LabwareOrientation,
+        position_a_labware: Labware | None,
+        position_b_labware: Labware | None,
+        position_b_orientation: LabwareOrientation | None,
+        position_c_labware: Labware | None,
+        position_c_orientation: LabwareOrientation | None,
     ):
+        labware_dict: dict[DeckPosition, Labware] = {}
+        if position_a_labware is not None:
+            labware_dict[DeckPosition(name="A", orientation=LabwareOrientation.A1_NW_CORNER)] = position_a_labware
+        if position_b_labware is not None:
+            assert position_b_orientation is not None
+            labware_dict[DeckPosition(name="B", orientation=position_b_orientation)] = position_b_labware
+        if position_c_labware is not None:
+            assert position_c_orientation is not None
+            labware_dict[DeckPosition(name="C", orientation=position_c_orientation)] = position_c_labware
         program = Program(
             deck_layouts=[
                 DeckLayout(
                     deck=Deck(name=StandardDeckNames.THREE_POSITION.value),
-                    labware={
-                        DeckPosition(name="A", orientation=LabwareOrientation.A1_NW_CORNER): position_a_labware,
-                        DeckPosition(name="B", orientation=position_b_orientation): position_b_labware,
-                        DeckPosition(name="C", orientation=position_c_orientation): position_c_labware,
-                    },
+                    labware=labware_dict,
                 )
             ],
             display_name="arbitrary",

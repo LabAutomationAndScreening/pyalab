@@ -32,6 +32,7 @@ class LabwareOrientation(Enum):
     # TODO: handle inverted orientations (e.g. A1 in bottom right or bottom left)
     A1_NW_CORNER = "Landscape"
     A1_NE_CORNER = "Portrait_Inverse"
+    A1_SW_CORNER = "Portrait"  # TODO: test pipetting in this orientation
 
 
 class DeckPosition(BaseModel, frozen=True):
@@ -43,6 +44,9 @@ class DeckPosition(BaseModel, frozen=True):
 
     def section_index(self, *, deck: Deck, labware: Labware) -> int:
         root = deck.load_xml()
+        is_portrait = self.orientation in (LabwareOrientation.A1_NE_CORNER, LabwareOrientation.A1_SW_CORNER)
+        labware_search_width = labware.length if is_portrait else labware.width
+        labware_search_length = labware.width if is_portrait else labware.length
         for idx, section in enumerate(root.findall("./Sections/Section")):
             name = section.find("Name")
             width = section.find("Width")
@@ -55,8 +59,8 @@ class DeckPosition(BaseModel, frozen=True):
 
             if (
                 name.text == self.name
-                and abs(hundredths_mm_to_mm(width.text) - labware.width) <= self._section_match_epsilon
-                and abs(hundredths_mm_to_mm(length.text) - labware.length) <= self._section_match_epsilon
+                and abs(hundredths_mm_to_mm(width.text) - labware_search_width) <= self._section_match_epsilon
+                and abs(hundredths_mm_to_mm(length.text) - labware_search_length) <= self._section_match_epsilon
             ):
                 return idx  # TODO: confirm that Integra does not allow any duplicates inherently
 
