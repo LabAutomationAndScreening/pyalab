@@ -9,6 +9,24 @@ inputs:
     default: true
     type: boolean
     description: Install the python packages with uv sync
+  project-dir:
+    type: string
+    description: What's the relative path to the project?
+    required: false
+    default: ./
+  code-artifact-auth-role-name:
+    type: string
+    description: What's the role name to use for CodeArtifact authentication?
+    required: false
+    default: no-code-artifact
+  code-artifact-auth-role-account-id:
+    type: string
+    description: What's the AWS Account ID that the role is in?
+    required: false
+  code-artifact-auth-region:
+    type: string
+    description: What region should the role use?
+    required: false
 
 
 runs:
@@ -22,7 +40,7 @@ runs:
       shell: bash
 
     - name: Setup python
-      uses: actions/setup-python@v5.3.0
+      uses: actions/setup-python@v5.4.0
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
@@ -36,11 +54,21 @@ runs:
       run: .github/actions/install_deps_uv/install-ci-tooling.ps1 ${{ env.PYTHON_VERSION }}
       shell: pwsh
 
+    - name: OIDC Auth for CodeArtifact
+      if: ${{ inputs.code-artifact-auth-role-name != 'no-code-artifact' }}
+      uses: aws-actions/configure-aws-credentials@v4.0.2
+      with:
+        role-to-assume: arn:aws:iam::${{ inputs.code-artifact-auth-role-account-id }}:role/${{ inputs.code-artifact-auth-role-name }}
+        aws-region: ${{ inputs.code-artifact-auth-region }}
+
     - name: Install Dependencies (Linux)
       if: ${{ inputs.uv-sync && runner.os == 'Linux' }}
       run: |
         sh .devcontainer/manual-setup-deps.sh ${{ env.PYTHON_VERSION }}
       shell: bash
+
+
+
 
     - name: Install Dependencies (Windows)
       if: ${{ inputs.uv-sync && runner.os == 'Windows' }}
@@ -49,12 +77,14 @@ runs:
 
     - name: List Dependencies (Linux)
       if: ${{ inputs.uv-sync && runner.os == 'Linux' }}
+      working-directory: ${{ inputs.working-directory }}
       run: |
         uv pip list
       shell: bash
 
     - name: List Dependencies (Windows)
       if: ${{ inputs.uv-sync && runner.os == 'Windows' }}
+      working-directory: ${{ inputs.working-directory }}
       run: |
         & uv pip list
       shell: pwsh

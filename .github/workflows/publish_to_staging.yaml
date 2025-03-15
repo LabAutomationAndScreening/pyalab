@@ -1,10 +1,7 @@
-name: CI
+name: Publish to Staging Package Registry
 
 on:
-  push:
-    branches-ignore:
-      - 'gh-readonly-queue/**' # don't run (again) when on these special branches created during merge groups; the `on: merge_group` already triggers it.
-  merge_group:
+  workflow_dispatch:
 
 env:
   PYTHONUNBUFFERED: True
@@ -75,34 +72,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Unit test
-        run: uv run pytest tests/unit --cov-report=xml --durations=5
+        run: uv run pytest --durations=5
 
-      - name: Upload coverage to Codecov
-        # only upload coverage from fastest job
-        if: matrix.JOB_MATCHING_DEV_ENV == true
-        uses: codecov/codecov-action@v5.1.1
-        with:
-          files: ./coverage.xml
-          flags: unittests
-          env_vars: OS,PYTHON
-          name: codecov-umbrella
-          fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
-          slug: LabAutomationAndScreening/pyalab
-
-
-
-
-
-  build-docs:
-    needs: [ lint ]
-    strategy:
-      matrix:
-        python-version:
-
-          - 3.12.7
-
-
+  build:
+    needs: [ test ]
     runs-on: ubuntu-24.04
 
     steps:
@@ -112,19 +85,15 @@ jobs:
       - name: Install python tooling
         uses: ./.github/actions/install_deps_uv
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.12.7
 
-      - name: Build docs
-        working-directory: ./docs
-        run: uv run make html SPHINXOPTS="-W"
-
-
-  required-check:
-    runs-on: ubuntu-24.04
-    needs: [ test, build-docs ]
-    if: always()
-    steps:
-      - name: fail if prior job failure
-        if: needs.test.result != 'success' || needs.build-docs.result != 'success'
+      - name: Build package
         run: |
-          exit 1
+
+          uv build --no-sources
+
+
+      - name: Publish package
+        run: |
+
+          uv publish --verbose --index testpypi

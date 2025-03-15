@@ -23,7 +23,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    # Specific to this template
+    # Specific to this repository
 
     "lxml-stubs>=0.5.1",
     "syrupy>=4.8.0",
@@ -32,12 +32,16 @@ dev = [
     "autodoc_pydantic==2.2.0",
 
     # Managed by upstream template
-    "pyright>=1.1.391",
+    "pyright>=1.1.396",
     "pytest>=8.3.4",
     "pytest-cov>=6.0.0",
     "pytest-randomly>=3.16.0",
     "sphinx==8.1.3",
+
 ]
+
+[tool.setuptools]
+license-files = [] # kludge until this bug is fixed https://github.com/pypa/setuptools/issues/4759
 
 [tool.uv]
 package = true

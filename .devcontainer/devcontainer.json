@@ -10,6 +10,7 @@
     "ghcr.io/devcontainers/features/python:1": {
       // https://github.com/devcontainers/features/tree/main/src/python
       "version": "3.12.7",
+
       "installTools": false,
       "optimize": true
     }
@@ -49,7 +50,7 @@
         "ruff.nativeServer": "on",
         // TODO: see if there's a way to specify different configurations for different folders
         "ruff.configuration": "/workspaces/pyalab/ruff-test.toml", // use the test configuration since it's less restrictive and won't show false positives and underline things
-        "[jsonc][json]": {
+        "[jsonc][json][javascript][typescript][graphql]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true
         }
