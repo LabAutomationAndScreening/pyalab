@@ -5,7 +5,7 @@
   "features": {
     "ghcr.io/devcontainers/features/aws-cli:1": {
       // view latest version https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
-      "version": "2.19.3"
+      "version": "2.24.24"
     },
     "ghcr.io/devcontainers/features/python:1": {
       // https://github.com/devcontainers/features/tree/main/src/python
@@ -31,6 +31,8 @@
         "ms-python.vscode-pylance@2024.9.2",
         "ms-vscode-remote.remote-containers@0.383.0",
         "charliermarsh.ruff@2024.54.0",
+
+
 
         // Misc file formats
         "bierner.markdown-mermaid@1.25.0",
