@@ -57,7 +57,7 @@ class LibraryComponent(BaseModel, frozen=True):
         assert len(matched_files) == 1  # TODO: handle multiple versions in the library...
         file = matched_files[0]
         parser = etree.XMLParser(no_network=True, recover=False)
-        tree = etree.parse(file, parser)  # noqa: S320 # using this custom parser should mitigate security concerns about untrusted XML files. And defusedxml is end of life anyway
+        tree = etree.parse(file, parser)
         root = tree.getroot()
         assert isinstance(root, _Element), f"Expected root to be an Element, but got type {type(root)} for {root}"
         return root
