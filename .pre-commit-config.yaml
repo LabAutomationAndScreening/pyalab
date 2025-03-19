@@ -2,190 +2,206 @@ minimum_pre_commit_version: 4.0.1
 # run `pre-commit autoupdate --freeze` to update all hooks
 default_install_hook_types: [pre-commit, post-checkout]
 repos:
-
-# Git-related
--   repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 38980559e3a605691d6579f96222c30778e5a69e  # frozen: 3.0.0
+  # Git-related
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 38980559e3a605691d6579f96222c30778e5a69e # frozen: 3.0.0
     hooks:
-    -   id: git-dirty
+      - id: git-dirty
 
-# package management
-- repo: local
-  hooks:
-    - id: uv-check
-      name: check pyproject.toml for valid uv config
-      entry: bash -c 'uv lock --check'
-      language: system
-      pass_filenames: false
-      verbose: true
-      files: '^pyproject.toml$|^uv.lock$'
+  # package management
+  - repo: local
+    hooks:
+      - id: uv-check
+        name: check pyproject.toml for valid uv config
+        entry: bash -c 'uv lock --check'
+        language: system
+        pass_filenames: false
+        verbose: true
+        files: "^pyproject.toml$|^uv.lock$"
 
-    - id: sync-dependencies-on-commit
-      name: ensure python dependencies are up to date during commits
-      stages: [pre-commit]
-       # When the install does change things, it exits 0, so needed to check for the phrase 'operations' in stdout in order to cause things pre-commit command to fail
-      entry: python -c "import subprocess,sys; results=subprocess.run(['uv', 'sync', '--frozen'],timeout=360,capture_output=True); print ('stdout- ' + results.stdout.decode('utf-8', 'strict')); print ('stderr- ' + results.stderr.decode('utf-8', 'strict')); sys.exit(int(results.returncode or int('Installed' in results.stdout.decode('utf-8', 'strict'))));"
-      # don't pass filenames else the command line sees them twice
-      pass_filenames: false
-      language: system
-      files: 'uv.lock$'
-      verbose: true
+      - id: sync-dependencies-on-commit
+        name: ensure python dependencies are up to date during commits
+        stages:
+          [pre-commit]
+          # When the install does change things, it exits 0, so needed to check for the phrase 'operations' in stdout in order to cause things pre-commit command to fail
+        entry: python -c "import subprocess,sys; results=subprocess.run(['uv', 'sync', '--frozen'],timeout=360,capture_output=True); print ('stdout- ' + results.stdout.decode('utf-8', 'strict')); print ('stderr- ' + results.stderr.decode('utf-8', 'strict')); sys.exit(int(results.returncode or int('Installed' in results.stdout.decode('utf-8', 'strict'))));"
+        # don't pass filenames else the command line sees them twice
+        pass_filenames: false
+        language: system
+        files: "uv.lock$"
+        verbose: true
 
-    - id: sync-dependencies-post-checkout
-      name: ensure python dependencies are up to date during checkouts
-      stages: [post-checkout]
-      entry: bash -c 'uv sync --frozen'
-      pass_filenames: false
-      language: system
-      always_run: true
-      verbose: true
+      - id: sync-dependencies-post-checkout
+        name: ensure python dependencies are up to date during checkouts
+        stages: [post-checkout]
+        entry: bash -c 'uv sync --frozen'
+        pass_filenames: false
+        language: system
+        always_run: true
+        verbose: true
 
-
-# Reformatting (should generally come before any file format or other checks, because reformatting can change things)
--   repo: https://github.com/crate-ci/typos
-    rev: 2300ad1b6b5c37da54bcafb1a06211196503eac9  # frozen: v1
+  # Reformatting (should generally come before any file format or other checks, because reformatting can change things)
+  - repo: https://github.com/crate-ci/typos
+    rev: 2300ad1b6b5c37da54bcafb1a06211196503eac9 # frozen: v1
     hooks:
       - id: typos
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b  # frozen: v5.0.0
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b # frozen: v5.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
         # the XML formatter hook doesn't leave a blank line at the end, so excluding XML files from this hook to avoid conflicts
-        exclude: | # the extra trailing newline in the pull request template makes it easier to click there in the github console. The CLI that programmatically generates devcontainer-lock.json always ends the file incompatible with this hook.
-            (?x)^(
-                .github/pull_request_template.md|
-                template/.github/pull_request_template.md|
-                template/.copier-answers.yml.jinja-base|
-                template/template/.copier-answers.yml.jinja|
-                template/.copier-answers.yml.jinja|
-                .devcontainer/devcontainer-lock.json|
-                .copier-answers.yml|
-                .*\.xml|
-            )$
+        exclude:
+          | # the extra trailing newline in the pull request template makes it easier to click there in the github console. The CLI that programmatically generates devcontainer-lock.json always ends the file incompatible with this hook.
+          (?x)^(
+              .github/pull_request_template.md|
+              template/.github/pull_request_template.md|
+              template/.copier-answers.yml.jinja-base|
+              template/template/.copier-answers.yml.jinja|
+              template/.copier-answers.yml.jinja|
+              .devcontainer/devcontainer-lock.json|
+              .copier-answers.yml|
+              .*\.xml|
+          )$
       - id: pretty-format-json
         exclude: |
-            (?x)^(
-                .devcontainer/devcontainer.json|
-                .devcontainer/devcontainer-lock.json|
-                .*devcontainer.json|
-                .*pyrightconfig.json|
-                .*tsconfig.json|
-            )$
+          (?x)^(
+              .devcontainer/devcontainer.json|
+              .devcontainer/devcontainer-lock.json|
+              .*devcontainer.json|
+              .*pyrightconfig.json|
+              .*tsconfig.json|
+          )$
         args: [--autofix, --no-sort-keys]
 
--   repo: https://github.com/myint/docformatter
+  - repo: https://github.com/pre-commit/mirrors-prettier # TODO: switch to a different approach...this was archived in 2024
+    rev: f12edd9c7be1c20cfa42420fd0e6df71e42b51ea # frozen: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        # TODO: get template YAML and MD files more in line with prettier expectations so we can start using prettier on those too
+        exclude: |
+          (?x)^(
+              .devcontainer/devcontainer.json|
+              .devcontainer/devcontainer-lock.json|
+              .*devcontainer.json|
+              .*pyrightconfig.json|
+              .*tsconfig.json|
+              .*.yaml|
+              .*.yml|
+              .*.md|
+          )$
+
+  - repo: https://github.com/myint/docformatter
     # black seems to be working on formatting docstrings, but use this for now
-    rev: eb1df347edd128b30cd3368dddc3aa65edcfac38  # tip of main that is compatible with pre-commit v4
+    rev: eb1df347edd128b30cd3368dddc3aa65edcfac38 # tip of main that is compatible with pre-commit v4
     hooks:
       - id: docformatter
         exclude: (tests*)|(exceptions\.py)|(warnings\.py)
         args:
-        - --in-place
-        - --wrap-summaries=150
-        - --wrap-descriptions=150
+          - --in-place
+          - --wrap-summaries=150
+          - --wrap-descriptions=150
 
--   repo: https://github.com/pamoller/xmlformatter
-    rev: 47ae0fb9cf2a515f8a2666050fac66fd719ae530  # frozen: v0.2.8
+  - repo: https://github.com/pamoller/xmlformatter
+    rev: 47ae0fb9cf2a515f8a2666050fac66fd719ae530 # frozen: v0.2.8
     hooks:
       - id: xml-formatter
         exclude: |
-            (?x)^(
-                .*/__snapshots__/.*|
-            )$
+          (?x)^(
+              .*/__snapshots__/.*|
+          )$
 
-
-# Invalid File Checks
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b  # frozen: v5.0.0
+  # Invalid File Checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b # frozen: v5.0.0
     hooks:
-    -   id: check-added-large-files
-        args: ['--maxkb=123']
+      - id: check-added-large-files
+        args: ["--maxkb=123"]
         exclude: (uv.lock)|(pnpm-lock.yaml)
-    -   id: check-json
+      - id: check-json
         # exclude JSON5 or JSONC files with comments
-        exclude:  |
-            (?x)^(
-                .devcontainer/devcontainer.json|
-                .devcontainer/devcontainer-lock.json|
-                .*devcontainer.json|
-                .*pyrightconfig.json|
-                .*tsconfig.json|
-            )$
-    -   id: check-yaml
+        exclude: |
+          (?x)^(
+              .devcontainer/devcontainer.json|
+              .devcontainer/devcontainer-lock.json|
+              .*devcontainer.json|
+              .*pyrightconfig.json|
+              .*tsconfig.json|
+          )$
+      - id: check-yaml
         exclude: .copier-answers.yml # This is an autogenerated YAML file by Copier that throws 'found unhashable key' errors
-    -   id: check-xml
-    -   id: check-merge-conflict
-    -   id: check-case-conflict
+      - id: check-xml
+      - id: check-merge-conflict
+      - id: check-case-conflict
 
--   repo: https://github.com/maresb/check-json5
+  - repo: https://github.com/maresb/check-json5
     rev: 893a2b5a0a27c3540bd8fcafe2968ccc05237179 # 1.0
     hooks:
-    -   id: check-json5
+      - id: check-json5
         files: |
-            (?x)^(
-                .devcontainer/devcontainer.json|
-                .devcontainer/devcontainer-lock.json|
-                .*devcontainer.json|
-                .*pyrightconfig.json|
-                .*tsconfig.json|
-            )$
+          (?x)^(
+              .devcontainer/devcontainer.json|
+              .devcontainer/devcontainer-lock.json|
+              .*devcontainer.json|
+              .*pyrightconfig.json|
+              .*tsconfig.json|
+          )$
 
--   repo: local
+  - repo: local
     hooks:
-    -   id: forbidden-files
+      - id: forbidden-files
         name: forbidden files
         entry: found copier update rejection files; review them and remove them
         language: fail
         files: "\\.rej$"
 
-# Safety/Security Issues
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b  # frozen: v5.0.0
+  # Safety/Security Issues
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b # frozen: v5.0.0
     hooks:
-    -   id: detect-private-key
+      - id: detect-private-key
 
-# Linting
+  # Linting
 
--   repo: https://github.com/Lucas-C/pre-commit-hooks-markup
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-markup
     rev: 501f3d60cee13c712492103343bc23efdc7b3d1f #v1.0.1
     hooks:
-    -   id: rst-linter
+      - id: rst-linter
         # this hook fails on Sphinx documentation https://github.com/Lucas-C/pre-commit-hooks-markup/issues/13
         exclude: docs/.*\.rst$
 
--   repo: https://github.com/hadolint/hadolint
-    rev: c3dc18df7a501f02a560a2cc7ba3c69a85ca01d3  # frozen: v2.13.1-beta
+  - repo: https://github.com/hadolint/hadolint
+    rev: c3dc18df7a501f02a560a2cc7ba3c69a85ca01d3 # frozen: v2.13.1-beta
     hooks:
-    -   id: hadolint-docker
+      - id: hadolint-docker
         name: Lint Dockerfiles
         description: Runs hadolint to lint Dockerfiles
 
--   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 41d2daf392fbf43341a77f24a9c6481a4b66af98  # frozen: v0.9.10
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: 99abe27a5a16f301d9e0a3828181399dfbf54ebd # frozen: v0.11.0
     hooks:
-    -   id: ruff
+      - id: ruff
         name: ruff-src
-        args: [ --fix, --config=./ruff.toml ]
+        args: [--fix, --config=./ruff.toml]
         files: src/.+\.py$
-    -   id: ruff
+      - id: ruff
         name: ruff-tests
-        args: [ --fix, --config=./ruff-test.toml ]
+        args: [--fix, --config=./ruff-test.toml]
         files: tests?/.+\.py$
-    -   id: ruff-format
+      - id: ruff-format
 
--   repo: https://github.com/pylint-dev/pylint
-    rev: aaab3ccb541532d2bcdf0410ab93ff4fafc266f5  # frozen: v3.3.5
+  - repo: https://github.com/pylint-dev/pylint
+    rev: aaab3ccb541532d2bcdf0410ab93ff4fafc266f5 # frozen: v3.3.5
     hooks:
-    -   id: pylint
+      - id: pylint
         name: pylint
         args:
-        - --rcfile=./pylintrc.toml
+          - --rcfile=./pylintrc.toml
         verbose: true
 
--   repo: local
+  - repo: local
     hooks:
-    -   id: pyright
+      - id: pyright
         name: pyright
         entry: bash -c "uv run pyright"
         files: '.+\.py$'

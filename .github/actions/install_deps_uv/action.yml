@@ -56,7 +56,7 @@ runs:
 
     - name: OIDC Auth for CodeArtifact
       if: ${{ inputs.code-artifact-auth-role-name != 'no-code-artifact' }}
-      uses: aws-actions/configure-aws-credentials@v4.0.2
+      uses: aws-actions/configure-aws-credentials@v4.1.0
       with:
         role-to-assume: arn:aws:iam::${{ inputs.code-artifact-auth-role-account-id }}:role/${{ inputs.code-artifact-auth-role-name }}
         aws-region: ${{ inputs.code-artifact-auth-region }}
