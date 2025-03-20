@@ -32,7 +32,7 @@ dev = [
     "autodoc_pydantic==2.2.0",
 
     # Managed by upstream template
-    "pyright>=1.1.396",
+    "pyright>=1.1.397",
     "pytest>=8.3.4",
     "pytest-cov>=6.0.0",
     "pytest-randomly>=3.16.0",

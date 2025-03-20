@@ -191,7 +191,7 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/pylint-dev/pylint
-    rev: aaab3ccb541532d2bcdf0410ab93ff4fafc266f5 # frozen: v3.3.5
+    rev: 88543500c70e3aa303b6c0861e2a7a006673f6a8
     hooks:
       - id: pylint
         name: pylint
