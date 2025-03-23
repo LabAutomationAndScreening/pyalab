@@ -19,9 +19,9 @@ from .steps import Step
 
 
 class InvalidTipInputFormatError(Exception):
-    def __init__(self):
+    def __init__(self, *, pipette_is_d_one: bool):
         super().__init__(
-            "When a program uses a D-ONE pipette, you must provide tips using the DOneTips object, not the standard Tips object"
+            f"When a program uses a {'' if pipette_is_d_one else 'non-'}D-ONE pipette, you must define the tips using the '{DOneTips.__name__ if pipette_is_d_one else Tip.__name__}' object, not the '{Tip.__name__ if pipette_is_d_one else DOneTips.__name__}' object"
         )
 
 
@@ -41,7 +41,9 @@ class Program(BaseModel):
     @override
     def model_post_init(self, _: Any) -> None:
         if self.is_d_one() and isinstance(self.tip, Tip):
-            raise InvalidTipInputFormatError
+            raise InvalidTipInputFormatError(pipette_is_d_one=True)
+        if not self.is_d_one() and isinstance(self.tip, DOneTips):
+            raise InvalidTipInputFormatError(pipette_is_d_one=False)
 
     def is_d_one(self) -> bool:
         return self.pipette.is_d_one
