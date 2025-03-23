@@ -1,6 +1,8 @@
 import json
 import re
 import uuid
+from copy import deepcopy
+from functools import cached_property
 from pathlib import Path
 from typing import Any
 from typing import override
@@ -11,6 +13,7 @@ from pydantic import BaseModel
 from pydantic import Field
 
 from .deck import DeckLayout
+from .integra_xml import NS_XSI
 from .pipette import DOneTips
 from .pipette import Pipette
 from .pipette import Tip
@@ -40,11 +43,12 @@ class Program(BaseModel):
 
     @override
     def model_post_init(self, _: Any) -> None:
-        if self.is_d_one() and isinstance(self.tip, Tip):
+        if self.is_d_one and isinstance(self.tip, Tip):
             raise InvalidTipInputFormatError(pipette_is_d_one=True)
-        if not self.is_d_one() and isinstance(self.tip, DOneTips):
+        if not self.is_d_one and isinstance(self.tip, DOneTips):
             raise InvalidTipInputFormatError(pipette_is_d_one=False)
 
+    @cached_property
     def is_d_one(self) -> bool:
         return self.pipette.is_d_one
 
@@ -63,12 +67,11 @@ class Program(BaseModel):
         raise LabwareNotInDeckLayoutError(labware)
 
     def generate_xml(self) -> str:
-        assert isinstance(self.tip, Tip)
         config_version = 4
         data_version = 9
         root = etree.Element(
             "AssistConfig",
-            nsmap={"xsd": "http://www.w3.org/2001/XMLSchema", "xsi": "http://www.w3.org/2001/XMLSchema-instance"},
+            nsmap={"xsd": "http://www.w3.org/2001/XMLSchema", "xsi": NS_XSI},
             UniqueIdentifier=str(uuid.uuid4()),
             Version=str(config_version),
         )
@@ -85,10 +88,19 @@ class Program(BaseModel):
             etree.SubElement(root, element_name).text = text_value
 
         root.append(self.pipette.create_xml_for_program())
-        root.append(self.tip.create_xml_for_program())
+        tip_to_append_to_root: Tip
+        if isinstance(self.tip, Tip):
+            tip_to_append_to_root = self.tip
+        else:
+            assert self.tip.position_1 is not None
+            tip_to_append_to_root = self.tip.position_1
+        tip_to_append_to_root_xml = tip_to_append_to_root.create_xml_for_program()
+        if self.is_d_one:
+            _ = etree.SubElement(tip_to_append_to_root_xml, "TipSpecial", attrib={f"{{{NS_XSI}}}nil": "true"})
+        root.append(deepcopy(tip_to_append_to_root_xml))
         tips_node = etree.SubElement(root, "Tips")
         # TODO: figure out how to handle multiple tip types, likely for the D-ONE
-        tips_node.append(self.tip.create_xml_for_program())
+        tips_node.append(deepcopy(tip_to_append_to_root_xml))
 
         # TODO: handle multiple deck layouts
         first_deck_layout = self.deck_layouts[0]
@@ -114,7 +126,7 @@ class Program(BaseModel):
                 json.dumps(
                     {
                         str(
-                            self.tip.tip_id
+                            tip_to_append_to_root.tip_id
                         ): 0  # there seems to be no negative impact of not calculating the required tips, Vialab will do it automatically when the program is first loaded
                     }
                 ),
@@ -143,5 +155,9 @@ class Program(BaseModel):
         )  # TODO: figure out why the encoding argument to `tostring` isn't working as expected
 
     def dump_xml(self, file_path: Path) -> None:
+        # TODO: deprecate this
         xml_str = self.generate_xml()
         _ = file_path.write_text(xml_str)
+
+    def save_program(self, file_path: Path) -> None:
+        self.dump_xml(file_path)

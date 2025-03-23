@@ -19,7 +19,7 @@ class ProgramSnapshot:
 def generate_xml_str(program: Program) -> str:
     with TemporaryDirectory() as temp_dir:
         file_path = Path(temp_dir) / f"{uuid.uuid1()}.iaa"
-        program.dump_xml(file_path)
+        program.save_program(file_path)
         return file_path.read_text()
 
 

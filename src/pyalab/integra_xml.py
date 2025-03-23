@@ -9,6 +9,8 @@ from pydantic import BaseModel
 
 from .constants import PATH_TO_INCLUDED_XML_FILES
 
+NS_XSI = "http://www.w3.org/2001/XMLSchema-instance"
+
 
 def hundredths_mm_to_mm(hundredths_mm: int | str) -> float:
     # the XML encodes the dimension in units of 0.01 mm, but our standard units are in mm.
@@ -72,7 +74,7 @@ class LibraryComponent(BaseModel, frozen=True):
         )
         if is_content:
             root.set(
-                etree.QName("http://www.w3.org/2001/XMLSchema-instance", "type"),
+                etree.QName(NS_XSI, "type"),
                 self.type.value,  # TODO: confirm that all object types use the file directory as the xsi:type too
             )
 

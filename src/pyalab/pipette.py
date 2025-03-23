@@ -1,5 +1,7 @@
 from functools import cached_property
+from typing import override
 
+from lxml.etree import _Element
 from pydantic import BaseModel
 
 from .integra_xml import LibraryComponent
@@ -31,6 +33,10 @@ class Tip(LibraryComponent, frozen=True):
     @cached_property
     def tip_id(self) -> int:
         return int(self._extract_xml_node_text("TipID"))
+
+    @override
+    def load_xml(self) -> _Element:
+        return super().load_xml()
 
 
 class DOneTips(BaseModel, frozen=True):
