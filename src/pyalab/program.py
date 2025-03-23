@@ -2,6 +2,8 @@ import json
 import re
 import uuid
 from pathlib import Path
+from typing import Any
+from typing import override
 from xml.dom import minidom
 
 from lxml import etree
@@ -9,15 +11,23 @@ from pydantic import BaseModel
 from pydantic import Field
 
 from .deck import DeckLayout
+from .pipette import DOneTips
 from .pipette import Pipette
 from .pipette import Tip
 from .plate import Labware
 from .steps import Step
 
 
+class InvalidTipInputFormatError(Exception):
+    def __init__(self):
+        super().__init__(
+            "When a program uses a D-ONE pipette, you must provide tips using the DOneTips object, not the standard Tips object"
+        )
+
+
 class LabwareNotInDeckLayoutError(Exception):
     def __init__(self, labware: Labware):
-        super().__init__(f"Could not find {labware.name} (called {labware.display_name}) in the deck layout")
+        super().__init__(self, f"Could not find {labware.name} (called {labware.display_name}) in the deck layout")
 
 
 class Program(BaseModel):
@@ -25,10 +35,19 @@ class Program(BaseModel):
     display_name: str  # TODO: validate length and character classes
     description: str  # TODO: validate length and character classes
     pipette: Pipette
-    tip: Tip
+    tip: Tip | DOneTips
     steps: list[Step] = Field(default_factory=list)
 
+    @override
+    def model_post_init(self, _: Any) -> None:
+        if self.is_d_one() and isinstance(self.tip, Tip):
+            raise InvalidTipInputFormatError
+
+    def is_d_one(self) -> bool:
+        return self.pipette.is_d_one
+
     def add_step(self, step: Step) -> None:
+        assert isinstance(self.tip, Tip)
         step.set_tip(self.tip)
         self.steps.append(step)
 
@@ -42,6 +61,7 @@ class Program(BaseModel):
         raise LabwareNotInDeckLayoutError(labware)
 
     def generate_xml(self) -> str:
+        assert isinstance(self.tip, Tip)
         config_version = 4
         data_version = 9
         root = etree.Element(

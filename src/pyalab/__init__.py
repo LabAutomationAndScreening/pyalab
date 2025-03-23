@@ -8,6 +8,7 @@ from .deck import StandardDeckNames
 from .integra_xml import IntegraLibraryObjectNotFoundError
 from .integra_xml import LibraryComponent
 from .integra_xml import LibraryComponentType
+from .pipette import DOneTips
 from .pipette import Pipette
 from .pipette import Tip
 from .plate import Labware
@@ -15,6 +16,7 @@ from .plate import Plate
 from .plate import Reservoir
 from .plate import RowSpacingAboveLimitError
 from .plate import Tubeholder
+from .program import InvalidTipInputFormatError
 from .program import LabwareNotInDeckLayoutError
 from .program import Program
 from .steps import AspirateParameters
@@ -30,12 +32,14 @@ from .steps import Transfer
 __all__ = [
     "PATH_TO_INCLUDED_XML_FILES",
     "AspirateParameters",
+    "DOneTips",
     "Deck",
     "DeckLayout",
     "DeckPosition",
     "DeckPositionNotFoundError",
     "DispenseParameters",
     "IntegraLibraryObjectNotFoundError",
+    "InvalidTipInputFormatError",
     "Labware",
     "LabwareNotInDeckLayoutError",
     "LabwareOrientation",
