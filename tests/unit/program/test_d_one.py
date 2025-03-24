@@ -48,6 +48,19 @@ class TestTipLayoutSnapshots(ProgramSnapshot):
                 DOneTips(position_1=Tip(name="12.5 µl GripTip Sterile")),
                 id="300-ul-position-1-only",
             ),
+            pytest.param(
+                Pipette(name="VIAFLO SINGLE 300 µl"),
+                DOneTips(position_2=Tip(name="300 µl GripTip LONG Sterile Filter")),
+                id="300-ul-position-2-only",
+            ),
+            pytest.param(
+                Pipette(name="VIAFLO SINGLE 300 µl"),
+                DOneTips(
+                    position_2=Tip(name="300 µl GripTip Sterile"),
+                    position_1=Tip(name="12.5 µl GripTip LONG Sterile Filter"),
+                ),
+                id="300-ul-both-positions",
+            ),
         ],
     )
     def test_arbitrary_params(

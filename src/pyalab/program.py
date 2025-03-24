@@ -89,18 +89,21 @@ class Program(BaseModel):
 
         root.append(self.pipette.create_xml_for_program())
         tip_to_append_to_root: Tip
-        if isinstance(self.tip, Tip):
-            tip_to_append_to_root = self.tip
-        else:
-            assert self.tip.position_1 is not None
-            tip_to_append_to_root = self.tip.position_1
+        # when both positions are set when using D-ONE, it doesn't seem to matter which one is used
+        tip_to_append_to_root = self.tip if isinstance(self.tip, Tip) else self.tip.first_available_position
         tip_to_append_to_root_xml = tip_to_append_to_root.create_xml_for_program()
         if self.is_d_one:
-            _ = etree.SubElement(tip_to_append_to_root_xml, "TipSpecial", attrib={f"{{{NS_XSI}}}nil": "true"})
+            assert isinstance(self.tip, DOneTips)
+            if self.tip.position_2 is None:
+                _ = etree.SubElement(tip_to_append_to_root_xml, "TipSpecial", attrib={f"{{{NS_XSI}}}nil": "true"})
         root.append(deepcopy(tip_to_append_to_root_xml))
         tips_node = etree.SubElement(root, "Tips")
         # TODO: figure out how to handle multiple tip types, likely for the D-ONE
         tips_node.append(deepcopy(tip_to_append_to_root_xml))
+        if self.is_d_one:
+            assert isinstance(self.tip, DOneTips)
+            if self.tip.second_available_position is not None:
+                tips_node.append(self.tip.second_available_position.create_xml_for_program())
 
         # TODO: handle multiple deck layouts
         first_deck_layout = self.deck_layouts[0]

@@ -43,3 +43,18 @@ class DOneTips(BaseModel, frozen=True):
     # TODO: require at least one tip position not be None
     position_1: Tip | None = None
     position_2: Tip | None = None
+
+    @cached_property
+    def first_available_position(self) -> Tip:
+        if self.position_1 is not None:
+            return self.position_1
+        assert self.position_2 is not None, (
+            "At least one tip position must be defined"
+        )  # TODO: validate this in the model_post_init
+        return self.position_2
+
+    @cached_property
+    def second_available_position(self) -> Tip | None:
+        if self.position_1 is None:
+            return None
+        return self.position_2
