@@ -89,16 +89,16 @@ class Program(BaseModel):
 
         root.append(self.pipette.create_xml_for_program())
         tip_to_append_to_root: Tip
-        # when both positions are set when using D-ONE, it doesn't seem to matter which one is used
+        # When both positions are set when using D-ONE, it doesn't seem to matter which one is used as the first `Tip` section in the XML
         tip_to_append_to_root = self.tip if isinstance(self.tip, Tip) else self.tip.first_available_position
         tip_to_append_to_root_xml = tip_to_append_to_root.create_xml_for_program()
         if self.is_d_one:
             assert isinstance(self.tip, DOneTips)
             if self.tip.position_2 is None:
+                # This seems related to telling Vialab that the tip box should be in the "1" (left) position of the D-ONE tip adapter...Vialab seems to treat the "2" (right) position the same as a normal tip box
                 _ = etree.SubElement(tip_to_append_to_root_xml, "TipSpecial", attrib={f"{{{NS_XSI}}}nil": "true"})
         root.append(deepcopy(tip_to_append_to_root_xml))
         tips_node = etree.SubElement(root, "Tips")
-        # TODO: figure out how to handle multiple tip types, likely for the D-ONE
         tips_node.append(deepcopy(tip_to_append_to_root_xml))
         if self.is_d_one:
             assert isinstance(self.tip, DOneTips)
