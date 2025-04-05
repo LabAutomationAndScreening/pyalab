@@ -18,8 +18,8 @@ from pyalab import StandardDeckNames
 from pyalab import Tip
 from pyalab import Tubeholder
 
-from .constants import GENERIC_TUBE_HOLDER
-from .fixtures import ProgramSnapshot
+from ..constants import GENERIC_TUBE_HOLDER
+from ..fixtures import ProgramSnapshot
 
 
 def test_Given_plate_not_on_deck__When_get_section_index_for_plate__Then_error():

@@ -17,6 +17,7 @@ from pyalab import Transfer
 from pyalab.steps.params import AspirateParameters
 
 from ..fixtures import ProgramSnapshot
+from ..fixtures import arbitrary_d_one_program_framework
 from ..fixtures import generate_xml_str
 
 
@@ -121,6 +122,52 @@ class TestSimpleTransferProgramSnapshots(ProgramSnapshot):
                 destination_column_index=destination_column_index,
                 volume=transfer_volume,
                 **kwargs,
+            )
+        )
+
+        assert generate_xml_str(program) == self.snapshot_xml
+
+
+class TestDOneSimpleTransfer(ProgramSnapshot):
+    def test_Given_single_tip_type(self):
+        program = arbitrary_d_one_program_framework()
+        labware = program.the_labware
+        assert isinstance(labware, Plate)
+        pcr_plate_section_index = program.get_section_index_for_labware(labware)
+        source_column_index = 5
+        source_row_index = 1
+        destination_column_index = 2
+        destination_row_index = 3
+        program.add_step(
+            SetInitialVolume(
+                volume=25,
+                column_index=source_column_index,
+                labware=labware,
+                section_index=pcr_plate_section_index,
+                row_index=source_row_index,
+            )
+        )
+        program.add_step(
+            SetInitialVolume(
+                volume=0,
+                labware=labware,
+                section_index=pcr_plate_section_index,
+                column_index=destination_column_index,
+                row_index=destination_row_index,
+            )
+        )
+
+        program.add_step(
+            Transfer(
+                source=labware,
+                source_section_index=pcr_plate_section_index,
+                source_column_index=source_column_index,
+                source_row_index=source_row_index,
+                destination=labware,
+                destination_section_index=pcr_plate_section_index,
+                destination_column_index=destination_column_index,
+                destination_row_index=destination_row_index,
+                volume=12.5,
             )
         )
 
