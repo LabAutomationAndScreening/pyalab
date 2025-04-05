@@ -30,7 +30,7 @@ class InvalidTipInputFormatError(Exception):
 
 class LabwareNotInDeckLayoutError(Exception):
     def __init__(self, labware: Labware):
-        super().__init__(self, f"Could not find {labware.name} (called {labware.display_name}) in the deck layout")
+        super().__init__(f"Could not find {labware.name} (called {labware.display_name}) in the deck layout")
 
 
 class Program(BaseModel):

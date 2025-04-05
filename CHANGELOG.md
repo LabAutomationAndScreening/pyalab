@@ -9,22 +9,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 
 ### Added
-- Describe new features added in this version.
-
-### Changed
-- Describe changes in existing functionality.
+- Ability to use SetVolume steps with D-One Pipette
+- Ability to use Transfer steps with D-One Pipette (with single tip type on deck)
 
 ### Deprecated
-- List features that are still available but will be removed in future versions.
-
-### Removed
-- List features that have been removed.
-
-### Fixed
-- List any bug fixes.
-
-### Security
-- Describe security fixes or improvements.
+- `Program.dump_xml` deprecated in favor of `Program.save_program`
 
 ---
 
