@@ -12,6 +12,7 @@ from lxml.etree import _Element
 from pydantic import BaseModel
 from pydantic import Field
 
+from pyalab.pipette import Pipette
 from pyalab.pipette import Tip
 
 WORKING_DIRECTION_KWARGS: dict[str, Any] = {
@@ -110,6 +111,15 @@ class LiquidMovementParameters(BaseModel, frozen=True):
 class Step(BaseModel, ABC):
     type: ClassVar[str]
     _tip: Tip | None = None
+    _pipette: Pipette | None = None
+
+    def set_pipette(self, pipette: Pipette) -> None:
+        self._pipette = pipette
+
+    @property
+    def pipette(self) -> Pipette:
+        assert self._pipette is not None
+        return self._pipette
 
     def set_tip(self, tip: Tip) -> None:
         self._tip = tip

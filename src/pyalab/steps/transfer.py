@@ -31,10 +31,14 @@ class Transfer(LiquidTransferStep):
     """The section index on the Deck of the source plate."""
     source_column_index: int
     """The column index to aspirate from."""
+    source_row_index: int = 0  # don't change from zero unless using a D-One pipette
+    """The row index to aspirate from."""
     destination_section_index: int | None = None
     """The section index on the Deck of the destination plate."""
     destination_column_index: int
     """The column index to dispense into."""
+    destination_row_index: int = 0  # don't change from zero unless using a D-One pipette
+    """The row index to dispense into."""
     volume: float
     """The volume to transfer (µl)."""
     aspirate_parameters: AspirateParameters = Field(default_factory=AspirateParameters)
@@ -55,12 +59,12 @@ class Transfer(LiquidTransferStep):
         source_deck_section = source_deck_section_model.model_dump(by_alias=True)
         destination_deck_section_model = DeckSection(deck_section=self.destination_section_index, sub_section=-1)
         destination_deck_section = destination_deck_section_model.model_dump(by_alias=True)
-        source_well = WellRowCol(column_index=self.source_column_index, row_index=0).model_dump(
+        source_well = WellRowCol(column_index=self.source_column_index, row_index=self.source_row_index).model_dump(
             by_alias=True
-        )  # TODO: handle row index
-        destination_well = WellRowCol(column_index=self.destination_column_index, row_index=0).model_dump(
-            by_alias=True
-        )  # TODO: handle row index
+        )
+        destination_well = WellRowCol(
+            column_index=self.destination_column_index, row_index=self.destination_row_index
+        ).model_dump(by_alias=True)
         source_info: list[dict[str, Any]] = [
             {
                 "Wells": [source_well],

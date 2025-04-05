@@ -48,13 +48,29 @@ class Program(BaseModel):
         if not self.is_d_one and isinstance(self.tip, DOneTips):
             raise InvalidTipInputFormatError(pipette_is_d_one=False)
 
+    @property
+    def the_labware(self) -> Labware:
+        # useful for unit testing simple programs that only have a single labware
+        assert len(self.deck_layouts) == 1
+        deck_layout = self.deck_layouts[0]
+        assert len(deck_layout.labware) == 1, (
+            f"DeckLayout should only have one labware for this to be used, but found {len(deck_layout.labware)}"
+        )
+        return next(iter(deck_layout.labware.values()))
+
     @cached_property
     def is_d_one(self) -> bool:
         return self.pipette.is_d_one
 
     def add_step(self, step: Step) -> None:
-        assert isinstance(self.tip, Tip)
-        step.set_tip(self.tip)
+        step.set_pipette(self.pipette)
+        if isinstance(self.tip, DOneTips):
+            if self.tip.second_available_position is not None:
+                raise NotImplementedError("Adding steps with two different D-One tip types is not implemented yet")
+            step.set_tip(self.tip.first_available_position)
+        else:
+            step.set_tip(self.tip)
+
         self.steps.append(step)
 
     def get_section_index_for_labware(self, labware: Labware) -> int:

@@ -18,6 +18,7 @@ from pyalab import Tip
 
 from ..constants import GENERIC_RESERVOIR
 from ..fixtures import ProgramSnapshot
+from ..fixtures import arbitrary_d_one_program_framework
 from ..fixtures import generate_xml_str
 
 
@@ -86,6 +87,34 @@ class TestDifferentLabwareProgramSnapshots(ProgramSnapshot):
                 column_index=0,
                 volume=140,
                 pipette_span=pipette_span,
+            )
+        )
+
+        assert generate_xml_str(program) == self.snapshot_xml
+
+
+class TestDOneSetVolume(ProgramSnapshot):
+    def test_Given_single_tip_type__When_set_volume_twice__Then_snapshot_matches(self):
+        program = arbitrary_d_one_program_framework()
+        labware = program.the_labware
+        assert isinstance(labware, Plate)
+        pcr_plate_section_index = program.get_section_index_for_labware(labware)
+        program.add_step(
+            SetInitialVolume(
+                labware=labware,
+                section_index=pcr_plate_section_index,
+                column_index=5,
+                row_index=2,
+                volume=44,
+            )
+        )
+        program.add_step(
+            SetInitialVolume(
+                labware=labware,
+                section_index=pcr_plate_section_index,
+                column_index=7,
+                row_index=6,
+                volume=23,
             )
         )
 
