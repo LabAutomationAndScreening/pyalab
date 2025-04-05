@@ -4,6 +4,8 @@ set -ex
 
 
 
+
+
 curl -LsSf https://astral.sh/uv/0.6.6/install.sh | sh
 uv --version
 # TODO: add uv autocompletion to the shell https://docs.astral.sh/uv/getting-started/installation/#shell-autocompletion

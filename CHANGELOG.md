@@ -9,6 +9,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 
 ### Added
+
+
+### Deprecated
+
+
+---
+
+## [0.2.0] - 2025-04-05
+
+### Added
 - Ability to use SetVolume steps with D-One Pipette
 - Ability to use Transfer steps with D-One Pipette (with single tip type on deck)
 
