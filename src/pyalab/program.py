@@ -39,7 +39,7 @@ class Program(BaseModel):
     description: str  # TODO: validate length and character classes
     pipette: Pipette
     tip: Tip | DOneTips
-    steps: list[Step] = Field(default_factory=list)
+    steps: list[Step] = Field(default_factory=list)  # type: ignore[reportUnknownVariableType] # bug in pyright 1.1.400ish is causing default_factory=list to no longer work
 
     @override
     def model_post_init(self, _: Any) -> None:

@@ -7,7 +7,7 @@
 
 # If you're still having issues, make sure in Windows Developer Settings that you enabled Developer Mode, and also that you set your git config to have `core.autocrlf=false` and `core.symlinks=true` globally
 
-set -e  # Exit immediately on error
+set -euo pipefail  # Exit immediately on error
 
 if [ -z "$BASH_VERSION" ]; then
   echo "Error: This script must be run with bash (e.g., 'bash windows-host-helper.sh')." >&2
@@ -39,13 +39,26 @@ tmpdir=$(mktemp -d)
 # This creates "$tmpdir/$repoName" with the repository's contents.
 git clone "$gitUrl" "$tmpdir/$repoName"
 
-# Enable dotglob so that '*' includes hidden files
-shopt -s dotglob
 
-# Move all contents (including hidden files) from the cloned repo to the target folder
-mv "$tmpdir/$repoName"/* "./$repoName/"
+SRC="$(realpath "$tmpdir/$repoName")"
+DST="$(realpath "./$repoName")"
 
-# Clean up: remove the temporary directory
+# 1) Recreate directory tree under $DST
+while IFS= read -r -d '' dir; do
+  rel="${dir#$SRC/}"             # strip leading $SRC/ → e.g. "sub/dir"
+  mkdir -p "$DST/$rel"
+done < <(find "$SRC" -type d -print0)
+
+# 2) Move all files into that mirror
+while IFS= read -r -d '' file; do
+  rel="${file#$SRC/}"            # e.g. "sub/dir/file.txt"
+  # ensure parent exists (though step 1 already did)
+  mkdir -p "$(dirname "$DST/$rel")"
+  mv "$file" "$DST/$rel"
+done < <(find "$SRC" -type f -print0)
+
+# 3) Clean up now‑empty dirs and the tmp clone
+find "$SRC" -depth -type d -empty -delete
 rm -rf "$tmpdir"
 
-echo "Repository '$repoName' has been updated."
+echo "Repository '$repoName' has been synced into '$DST'."

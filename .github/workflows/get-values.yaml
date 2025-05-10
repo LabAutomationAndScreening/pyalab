@@ -1,0 +1,34 @@
+name: Get Values
+
+on:
+  workflow_call:
+    outputs:
+      new-dependabot-sha:
+        description: BUILD_HASH
+        value: ${{ jobs.get-values.outputs.new-dependabot-sha }}
+      dependabot-commit-created:
+        description: whether or not a commit was created on a dependabot branch
+        value: ${{ jobs.get-values.outputs.dependabot-commit-created }}
+
+env:
+  PYTHONUNBUFFERED: True
+
+permissions:
+    contents: write # needed to push commit of new devcontainer hash for dependabot PRs
+
+jobs:
+  get-values:
+    runs-on: ubuntu-24.04
+    outputs:
+      new-dependabot-sha: ${{ steps.update-hash.outputs.new-sha }}
+      dependabot-commit-created: ${{ steps.update-hash.outputs.commit-created }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Update Devcontainer Hash
+        if: ${{ github.actor == 'dependabot[bot]' }}
+        id: update-hash
+        uses: ./.github/actions/update-devcontainer-hash
+        with:
+          branch: ${{ github.ref_name }}
