@@ -1,0 +1,60 @@
+name: Update Devcontainer Hash
+
+inputs:
+  branch:
+    description: 'Branch to checkout and update'
+    required: true
+
+permissions:
+  contents: write
+
+outputs:
+  new-sha:
+    description: 'The SHA of the branch tip after update'
+    value: ${{ steps.commit-and-push.outputs.new-sha }}
+  commit-created:
+    description: 'Whether a new commit was created and pushed'
+    value: ${{ steps.commit-and-push.outputs.commit-created }}
+
+runs:
+  using: composite
+  steps:
+    - name: Verify Dependabot actor
+      if: ${{ github.actor != 'dependabot[bot]' }}
+      run: |
+        echo "Action can only be run by dependabot[bot], but was invoked by ${GITHUB_ACTOR}." >&2
+        exit 1
+      shell: bash
+
+    - name: Checkout code
+      uses: actions/checkout@v4.2.2
+      with:
+        persist-credentials: true
+        fetch-depth: 1
+        ref: ${{ inputs.branch }}
+
+    - name: Configure Git author
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+      shell: bash
+
+    - name: Update devcontainer hash
+      run: |
+        python3 .github/workflows/hash_git_files.py . --for-devcontainer-config-update --exit-zero
+      shell: bash
+
+    - name: Commit & push changes
+      id: commit-and-push
+      run: |
+        if ! git diff --quiet; then
+          git add .
+          git commit -m "chore: update devcontainer hash [dependabot skip]"
+          git push origin HEAD:${{ inputs.branch }}
+          echo "commit-created=true" >> $GITHUB_OUTPUT
+          echo "new-sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+        else
+          echo "No changes to commit"
+          echo "commit-created=false" >> $GITHUB_OUTPUT
+        fi
+      shell: bash

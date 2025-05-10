@@ -1,4 +1,4 @@
- ## Link to Issue or Slack thread
+ ## Link to Issue or Message thread
 
 
 

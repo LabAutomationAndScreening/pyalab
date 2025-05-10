@@ -12,40 +12,19 @@ env:
 
 permissions:
     id-token: write
-    contents: write # needed for mutex
+    contents: write # needed for mutex, and updating dependabot branches
+    statuses: write # needed for updating status on Dependabot PRs
 
 jobs:
+  get-values:
+    uses: ./.github/workflows/get-values.yaml
+
   lint:
+    needs: [ get-values ]
     name: Pre-commit
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4.2.2
-
-      - name: Install latest versions of python packages
-        uses: ./.github/actions/install_deps_uv
-        with:
-          python-version: 3.12.7
-
-      - name: Set up mutex # Github concurrency management is horrible, things get arbitrarily cancelled if queued up. So using mutex until github fixes itself. When multiple jobs are modifying cache at once, weird things can happen.  possible issue is https://github.com/actions/toolkit/issues/658
-        if: ${{ runner.os != 'Windows' }} # we're just gonna have to YOLO on Windows, because this action doesn't support it yet https://github.com/ben-z/gh-action-mutex/issues/14
-        uses: ben-z/gh-action-mutex@1ebad517141198e08d47cf72f3c0975316620a65 # v1.0.0-alpha.10
-        with:
-          branch: mutex-venv-ubuntu-24.04-py3.12.7
-        timeout-minutes: 30 # this is the amount of time this action will wait to attempt to acquire the mutex lock before failing, e.g. if other jobs are queued up in front of it
-
-      - name: Cache Pre-commit hooks
-        uses: actions/cache@v4.2.2
-        env:
-          cache-name: cache-pre-commit-hooks
-        with:
-          path: ${{ env.PRE_COMMIT_HOME }}
-          key: ubuntu-24.04-py3.12.7-build-${{ env.cache-name }}-${{ hashFiles('.pre-commit-config.yaml') }}
-          restore-keys: |
-            ubuntu-24.04-py3.12.7-build-${{ env.cache-name }}-
-
-      - name: Run pre-commit
-        run:  pre-commit run -a
+    uses: ./.github/workflows/pre-commit.yaml
+    with:
+      python-version: 3.12.7
 
   test:
     needs: [ lint ]
@@ -53,7 +32,7 @@ jobs:
       matrix:
         os:
           - "ubuntu-24.04"
-          - windows-2022
+          - windows-2025
         python-version:
 
           - 3.12.7
@@ -79,7 +58,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         # only upload coverage from fastest job
-        if: matrix.JOB_MATCHING_DEV_ENV == true
+        if: ${{ matrix.JOB_MATCHING_DEV_ENV && github.actor != 'dependabot[bot]' }} # dependabot by default doesn't have access to the necessary secret...and dependabot should never be changing coverage anyway so it's fine not uploading it
         uses: codecov/codecov-action@v5.1.1
         with:
           files: ./coverage.xml
@@ -121,10 +100,23 @@ jobs:
 
   required-check:
     runs-on: ubuntu-24.04
-    needs: [ test, build-docs ]
+    needs:
+      - test
+      - get-values
+      - build-docs
     if: always()
     steps:
       - name: fail if prior job failure
         if: needs.test.result != 'success' || needs.build-docs.result != 'success'
         run: |
           exit 1
+      - name: Mark updated Dependabot commit of devcontainer hash as succeeded
+        if: needs.get-values.outputs.dependabot-commit-created == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api \
+            -X POST -H "Accept: application/vnd.github.v3+json" \
+            "/repos/${{ github.repository }}/statuses/${{ needs.get-values.outputs.new-dependabot-sha }}" \
+            -f state=success -f context="required-check" -f description="Initial CI run passed" \
+            -f target_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

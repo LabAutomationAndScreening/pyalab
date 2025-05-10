@@ -23,8 +23,8 @@
         "eamodio.gitlens@15.5.1",
         "ms-vscode.live-server@0.5.2024091601",
         "MS-vsliveshare.vsliveshare@1.0.5905",
-        "github.copilot@1.234.0",
-        "github.copilot-chat@0.20.2",
+        "github.copilot@1.304.1523",
+        "github.copilot-chat@0.27.2025042301",
 
         // Python
         "ms-python.python@2024.14.1",
@@ -32,10 +32,8 @@
         "ms-vscode-remote.remote-containers@0.383.0",
         "charliermarsh.ruff@2024.54.0",
 
-
-
         // Misc file formats
-        "bierner.markdown-mermaid@1.25.0",
+        "bierner.markdown-mermaid@1.28.0",
         "samuelcolvin.jinjahtml@0.20.0",
         "tamasfe.even-better-toml@0.19.2",
         "emilast.LogFileHighlighter@3.3.3",
@@ -52,7 +50,7 @@
         "ruff.nativeServer": "on",
         // TODO: see if there's a way to specify different configurations for different folders
         "ruff.configuration": "/workspaces/pyalab/ruff-test.toml", // use the test configuration since it's less restrictive and won't show false positives and underline things
-        "[jsonc][json][javascript][typescript][graphql]": {
+        "[jsonc][json][javascript][typescript][graphql][css][scss][html][vue]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true
         }
@@ -62,4 +60,5 @@
   "initializeCommand": "sh .devcontainer/initialize-command.sh",
   "onCreateCommand": "sh .devcontainer/on-create-command.sh",
   "postStartCommand": "sh .devcontainer/post-start-command.sh"
+  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): 9461ac68 # spellchecker:disable-line
 }

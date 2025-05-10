@@ -1,3 +1,9 @@
+[default]
+extend-ignore-re = [
+# Line ignore with trailing: # spellchecker:disable-line
+"(?Rm)^.*(#|//)\\s*spellchecker:disable-line$"
+]
+
 [default.extend-words]
 # Words managed by the base template
 # `astroid` is the name of a python library, and it is used in pylint configuration. should not be corrected to asteroid
