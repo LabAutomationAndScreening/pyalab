@@ -32,7 +32,7 @@ dev = [
     "autodoc_pydantic==2.2.0",
 
     # Managed by upstream template
-    "pyright>=1.1.400",
+    "pyright==1.1.400", # temporarily pin due to bug in 1.1.401 https://github.com/microsoft/pyright/issues/10487
     "pytest>=8.3.5",
     "pytest-cov>=6.1.1",
     "pytest-randomly>=3.16.0",
