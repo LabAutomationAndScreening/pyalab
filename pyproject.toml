@@ -34,7 +34,7 @@ dev = [
     # Managed by upstream template
     "pyright>=1.1.400",
     "pytest>=8.3.5",
-    "pytest-cov>=6.0.0",
+    "pytest-cov>=6.1.1",
     "pytest-randomly>=3.16.0",
     "sphinx==8.1.3",
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-sh .devcontainer/install-ci-tooling.sh
+python .devcontainer/install-ci-tooling.py
 
 git config --global --add --bool push.autoSetupRemote true
 git config --local core.symlinks true
