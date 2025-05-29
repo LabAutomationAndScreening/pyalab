@@ -22,13 +22,29 @@ jobs:
     outputs:
       new-dependabot-sha: ${{ steps.update-hash.outputs.new-sha }}
       dependabot-commit-created: ${{ steps.update-hash.outputs.commit-created }}
+      pr-short-num: ${{ steps.find-pr-num.outputs.number }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
 
       - name: Update Devcontainer Hash
-        if: ${{ github.actor == 'dependabot[bot]' }}
+        if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'push' }}
         id: update-hash
         uses: ./.github/actions/update-devcontainer-hash
         with:
           branch: ${{ github.ref_name }}
+      - name: Get the PR number
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'merge_group' }}
+        id: find-pr-num
+        # Based on https://github.com/actions/checkout/issues/58#issuecomment-847922894
+        run: |
+
+          [[ '${{ github.event_name }}' = 'pull_request' ]] && full_number=${{ github.event.number }}
+
+          # example message in merge group context: "Merge pull request #10 from org-name/branch-name\n\ncommit message"
+          [[ '${{ github.event_name }}' = 'merge_group' ]] && message='${{ github.event.merge_group.head_commit.message }}' && echo Extracting from $message && number_and_following_text=${message##*#} && full_number=${number_and_following_text%%[!0-9]*}
+
+          short_number=${full_number:${#full_number}<2?0:-2} # only use the last two digits so that the stack name is no more than 7 characters and doesn't get too long. Based on https://stackoverflow.com/questions/19858600/accessing-last-x-characters-of-a-string-in-bash
+
+          echo number=$(echo $short_number) >> $GITHUB_OUTPUT
+          echo "PR number extracted as $full_number and truncated to $short_number"

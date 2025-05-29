@@ -9,4 +9,4 @@ sh .devcontainer/on-create-command-boilerplate.sh
 
 pre-commit install --install-hooks
 
-sh .devcontainer/manual-setup-deps.sh --optionally-lock
+python .devcontainer/manual-setup-deps.py --optionally-check-lock

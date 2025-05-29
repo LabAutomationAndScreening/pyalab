@@ -75,3 +75,5 @@ dist
 # Logs
 *.log
 **/logs/log*.txt
+
+# Ignores specific to this repository

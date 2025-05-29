@@ -29,21 +29,21 @@ jobs:
     runs-on: ubuntu-24.04
     name: Pre-commit
     steps:
-      - name: Checkout code
+      - name: Checkout code during push
+        if: ${{ github.event_name == 'push' }}
         uses: actions/checkout@v4.2.2
         with:
           ref: ${{ github.ref_name }} # explicitly get the head of the branch, which will include any new commits pushed if this is a dependabot branch
 
-      - name: Setup node
-        uses: actions/setup-node@v4.3.0
-        if: ${{ inputs.setup-node }}
-        with:
-          node-version: ${{ inputs.node-version }}
+      - name: Checkout code not during push
+        if: ${{ github.event_name != 'push' }}
+        uses: actions/checkout@v4.2.2
 
-      - name: Install latest versions of python packages
-        uses: ./.github/actions/install_deps_uv
+      - name: Install latest versions of  packages
+        uses: ./.github/actions/install_deps
         with:
           python-version: ${{ inputs.python-version }}
+          node-version: ${{ inputs.node-version }}
 
       - name: Set up mutex # Github concurrency management is horrible, things get arbitrarily cancelled if queued up. So using mutex until github fixes itself. When multiple jobs are modifying cache at once, weird things can happen.  possible issue is https://github.com/actions/toolkit/issues/658
         if: ${{ runner.os != 'Windows' }} # we're just gonna have to YOLO on Windows, because this action doesn't support it yet https://github.com/ben-z/gh-action-mutex/issues/14
@@ -53,7 +53,7 @@ jobs:
         timeout-minutes: 30 # this is the amount of time this action will wait to attempt to acquire the mutex lock before failing, e.g. if other jobs are queued up in front of it
 
       - name: Cache Pre-commit hooks
-        uses: actions/cache@v4.2.2
+        uses: actions/cache@v4.2.3
         env:
           cache-name: cache-pre-commit-hooks
         with:
