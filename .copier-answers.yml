@@ -11,6 +11,7 @@ package_name: pyalab
 primary_author: Eli Fine
 python_ci_versions:
 - 3.12.7
+- 3.13.2
 python_package_registry: PyPI
 python_version: 3.12.7
 repo_name: pyalab

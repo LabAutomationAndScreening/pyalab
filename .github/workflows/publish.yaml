@@ -53,6 +53,8 @@ jobs:
 
           - 3.12.7
 
+          - 3.13.2
+
         include:
           - os: "ubuntu-24.04"
             python-version: "3.12.7"
