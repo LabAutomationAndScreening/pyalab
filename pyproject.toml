@@ -1,6 +1,6 @@
 [project]
 name = "pyalab"
-version = "0.2.0"
+version = "0.2.1"
 description = "Generating programs for Vialab to control an Integra Assist Plus liquid handling robot"
 authors = [
     {name = "Eli Fine"},
@@ -17,7 +17,7 @@ classifiers = [
 dependencies = [
     "pydantic>=2.10.3",
     "inflection>=0.5.1",
-    "lxml>=5.3.0", # as of 2024-12-20, Python3.13 does not appear to support lxml
+    "lxml>=6.0.0",
 ]
 
 
