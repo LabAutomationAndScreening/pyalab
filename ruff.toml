@@ -61,6 +61,7 @@ ignore = [
     "TD002", # Adding author names to TODOs erodes shared ownership of codebase. Git history provides information about who originally created the TODO if that information is vitally needed
     "TD003", # Up to the author's judgement whether a TODO requires a link to an issue or not
     "TID252", # Sometimes it makes sense to use relative imports, that's a judgement call for us, not ruff
+    "TC006", # Adding quotes around classes unnecessarily confuses the IDE for automatic refactoring
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.

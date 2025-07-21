@@ -42,9 +42,16 @@ repos:
 
   # Reformatting (should generally come before any file format or other checks, because reformatting can change things)
   - repo: https://github.com/crate-ci/typos
-    rev: 0f0ccba9ed1df83948f0c15026e4f5ccfce46109  # frozen: v1.32.0
+    rev: 392b78fe18a52790c53f42456e46124f77346842  # frozen: v1.34.0
     hooks:
       - id: typos
+        exclude:
+          |
+          (?x)^(
+              .*\.min.js|
+              .*\.min.css|
+              .*\.umd.js|
+          )$
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b # frozen: v5.0.0
     hooks:
@@ -77,17 +84,21 @@ repos:
               .*devcontainer.json|
               .*pyrightconfig.json|
               .*tsconfig.json|
+              .*biome.jsonc|
               .*/vendor_files/.*|
           )$
         args: [--autofix, --no-sort-keys]
 
   - repo: https://github.com/biomejs/pre-commit
-    rev: 748e40d32e076a6aaaf3353a2564c8fe43764f79  # frozen: v2.0.0-beta.1
+    rev: a450e9c04887b1305951c298db5999cd30155f74  # frozen: v2.1.1
     hooks:
       - id: biome-check
+        # exclude generated files from codegen and strawberry
         exclude: |
           (?x)^(
               .*generated/graphql.ts|
+              .*/schema.graphql|
+              .*pyrightconfig\.json|
           )$
 
   - repo: https://github.com/pre-commit/mirrors-prettier # TODO: switch to a different approach...this was archived in 2024
@@ -102,10 +113,17 @@ repos:
               .*devcontainer.json|
               .*pyrightconfig.json|
               .*tsconfig.json|
+              .*/__snapshots__/.*|
+              .*.min.js|
+              .*.min.css|
+              .*.umd.js|
               .*.yaml|
               .*.yml|
               .*.md|
+              .*.jsonc|
               .*/vendor_files/.*|
+              .*/schema.graphql|
+              .*generated/graphql.ts|
           )$
         files: (.*.json)|(.*.ts)|(.*.jsx)|(.*.tsx)|(.*.yaml)|(.*.yml)|(.*.md)|(.*.html)|(.*.css)|(.*.scss)|(.*.less)|(.*.vue)|(.*.graphql)|(.*.gql)
 
@@ -204,7 +222,7 @@ repos:
         description: Runs hadolint to lint Dockerfiles
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 24e02b24b8ab2b7c76225602d13fa60e12d114e6  # frozen: v0.11.9
+    rev: 3d44372123ca5e8617fdb65d9f11facd159b9e95  # frozen: v0.12.3
     hooks:
       - id: ruff
         name: ruff-src

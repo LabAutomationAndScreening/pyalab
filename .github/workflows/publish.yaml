@@ -139,7 +139,9 @@ jobs:
         with:
           time: 60s
       - name: Install from staging registry
-        run: pip install -i https://test.pypi.org/simple/ pyalab==${{ needs.get-values.outputs.package-version }}
+        run: pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://www.pypi.org/simple pyalab==${{ needs.get-values.outputs.package-version }}
+      - name: Display dependencies
+        run: pip list
       - name: Confirm library can be imported successfully
         run: python -c "import pyalab"
 
@@ -200,5 +202,7 @@ jobs:
           time: 60s
       - name: Install from primary registry
         run: pip install pyalab==${{ needs.get-values.outputs.package-version }}
+      - name: Display dependencies
+        run: pip list
       - name: Confirm library can be imported successfully
         run: python -c "import pyalab"

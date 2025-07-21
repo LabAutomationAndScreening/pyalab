@@ -1,0 +1,16 @@
+{
+  "formatter": {
+    "enabled": false,
+  },
+  "linter": {
+    "enabled": false,
+  },
+  "files": {
+    "includes": [
+      "**",
+      "!template/template/biome.jsonc",
+      "!template/biome.jsonc",
+      "!**/*.css", // still too many false positives, so we exclude CSS files
+    ],
+  },
+}
