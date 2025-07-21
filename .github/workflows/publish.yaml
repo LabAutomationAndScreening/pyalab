@@ -53,6 +53,8 @@ jobs:
 
           - 3.12.7
 
+          - 3.13.2
+
         include:
           - os: "ubuntu-24.04"
             python-version: "3.12.7"
@@ -127,19 +129,40 @@ jobs:
   install-from-staging:
     name: Install package from staging registry
     needs: [ publish-to-staging, get-values ]
-    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        os:
+          - "ubuntu-24.04"
+          - windows-2025
+        python-version:
+
+          - 3.12.7
+
+          - 3.13.2
+
+        include:
+          - os: "ubuntu-24.04"
+            python-version: "3.12.7"
+            JOB_MATCHING_DEV_ENV: true
+
+    runs-on: ${{ matrix.os }}
+
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
       - name: Setup python
         uses: actions/setup-python@v5.6.0
         with:
-          python-version: 3.12.7
+          python-version: ${{ matrix.python-version }}
 
       - name: Sleep to allow PyPI Index to update before proceeding to the next step
         uses: juliangruber/sleep-action@v2.0.3
         with:
           time: 60s
       - name: Install from staging registry
-        run: pip install -i https://test.pypi.org/simple/ pyalab==${{ needs.get-values.outputs.package-version }}
+        run: pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://www.pypi.org/simple pyalab==${{ needs.get-values.outputs.package-version }}
+      - name: Display dependencies
+        run: pip list
       - name: Confirm library can be imported successfully
         run: python -c "import pyalab"
 
@@ -187,12 +210,31 @@ jobs:
     name: Install package from primary registry
     if: ${{ github.event.inputs.publish_to_primary }}
     needs: [ publish-to-primary, get-values ]
-    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        os:
+          - "ubuntu-24.04"
+          - windows-2025
+        python-version:
+
+          - 3.12.7
+
+          - 3.13.2
+
+        include:
+          - os: "ubuntu-24.04"
+            python-version: "3.12.7"
+            JOB_MATCHING_DEV_ENV: true
+
+    runs-on: ${{ matrix.os }}
+
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
       - name: Setup python
         uses: actions/setup-python@v5.6.0
         with:
-          python-version: 3.12.7
+          python-version: ${{ matrix.python-version }}
 
       - name: Sleep to allow PyPI Index to update before proceeding to the next step
         uses: juliangruber/sleep-action@v2.0.3
@@ -200,5 +242,7 @@ jobs:
           time: 60s
       - name: Install from primary registry
         run: pip install pyalab==${{ needs.get-values.outputs.package-version }}
+      - name: Display dependencies
+        run: pip list
       - name: Confirm library can be imported successfully
         run: python -c "import pyalab"

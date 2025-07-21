@@ -16,15 +16,26 @@ updates:
         update-types:
           - "version-update:semver-minor"
           - "version-update:semver-patch"
+      # ignore production dependencies except for major updates, to ensure maximum compatibility with users of this library. As of 2025-07-21 there doesn't appear to be a way to specify these with a setting instead of enumerating them individually
+      - dependency-name: "pydantic"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
+      - dependency-name: "inflection"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
+      - dependency-name: "lxml"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
 
     groups:
       prod-dependencies:
         dependency-type: "production"
         update-types:
           - "minor"
-          - "patch"
       dev-dependencies:
         dependency-type: "development"
         update-types:
           - "minor"
-          - "patch"

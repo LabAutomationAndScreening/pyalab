@@ -1,6 +1,6 @@
 [project]
 name = "pyalab"
-version = "0.2.0"
+version = "0.2.1"
 description = "Generating programs for Vialab to control an Integra Assist Plus liquid handling robot"
 authors = [
     {name = "Eli Fine"},
@@ -13,11 +13,13 @@ classifiers = [
 
     "Programming Language :: Python :: 3.12",
 
+    "Programming Language :: Python :: 3.13",
+
 ]
 dependencies = [
     "pydantic>=2.10.3",
     "inflection>=0.5.1",
-    "lxml>=5.3.0", # as of 2024-12-20, Python3.13 does not appear to support lxml
+    "lxml>=6.0.0",
 ]
 
 
@@ -32,9 +34,9 @@ dev = [
     "autodoc_pydantic==2.2.0",
 
     # Managed by upstream template
-    "pyright==1.1.400", # temporarily pin due to bug in 1.1.401 https://github.com/microsoft/pyright/issues/10487
-    "pytest>=8.3.5",
-    "pytest-cov>=6.1.1",
+    "pyright>=1.1.403",
+    "pytest>=8.4.0",
+    "pytest-cov>=6.2.1",
     "pytest-randomly>=3.16.0",
     "sphinx==8.1.3",
 
