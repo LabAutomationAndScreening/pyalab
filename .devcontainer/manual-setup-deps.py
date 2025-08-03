@@ -58,8 +58,8 @@ def main():
     is_windows = platform.system() == "Windows"
     uv_env = dict(os.environ)
     uv_env.update({"UV_PYTHON_PREFERENCE": "only-system", "UV_PYTHON": args.python_version})
-    skip_check_lock = args.skip_check_lock
-    if skip_check_lock and args.optionally_check_lock:
+    skip_check_lock = args.skip_check_lock or args.optionally_check_lock
+    if args.skip_check_lock and args.optionally_check_lock:
         print("Cannot skip and optionally check the lock file at the same time.")
         sys.exit(1)
 

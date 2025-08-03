@@ -62,6 +62,7 @@ ignore = [
     "TD003", # Up to the author's judgement whether a TODO requires a link to an issue or not
     "TID252", # Sometimes it makes sense to use relative imports, that's a judgement call for us, not ruff
     "TC006", # Adding quotes around classes unnecessarily confuses the IDE for automatic refactoring
+    "SIM114", # Using `or` statements to simplify this would confuse the coverage checker
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.

@@ -13,8 +13,7 @@ env:
   PRE_COMMIT_HOME: ${{ github.workspace }}/.precommit_cache
 
 permissions:
-    id-token: write
-    contents: write # needed for mutex
+  id-token: write # needed to assume OIDC roles (e.g. for downloading from CodeArtifact)
 
 jobs:
   get-values:
@@ -39,6 +38,9 @@ jobs:
   lint:
     name: Pre-commit
     uses: ./.github/workflows/pre-commit.yaml
+    permissions:
+      contents: write # needed for mutex
+      id-token: write # needed to assume OIDC roles (e.g. for downloading from CodeArtifact)
     with:
       python-version: 3.12.7
 
@@ -61,6 +63,8 @@ jobs:
             JOB_MATCHING_DEV_ENV: true
 
     runs-on: ${{ matrix.os }}
+    env:
+      UV_PYTHON: ${{ matrix.python-version }}
 
     steps:
       - name: Checkout code
@@ -146,6 +150,8 @@ jobs:
             JOB_MATCHING_DEV_ENV: true
 
     runs-on: ${{ matrix.os }}
+    env:
+      UV_PYTHON: ${{ matrix.python-version }}
 
     steps:
       - name: Checkout code
@@ -227,6 +233,8 @@ jobs:
             JOB_MATCHING_DEV_ENV: true
 
     runs-on: ${{ matrix.os }}
+    env:
+      UV_PYTHON: ${{ matrix.python-version }}
 
     steps:
       - name: Checkout code
