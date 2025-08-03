@@ -9,6 +9,7 @@ on:
 env:
   PYTHONUNBUFFERED: True
   PRE_COMMIT_HOME: ${{ github.workspace }}/.precommit_cache
+  UV_PYTHON_PREFERENCE: only-system
 
 permissions:
     id-token: write
