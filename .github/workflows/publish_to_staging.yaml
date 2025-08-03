@@ -8,13 +8,14 @@ env:
   PRE_COMMIT_HOME: ${{ github.workspace }}/.precommit_cache
 
 permissions:
-    id-token: write
-    contents: write # needed for mutex
+    id-token: write # needed to assume OIDC roles (e.g. for downloading from CodeArtifact)
 
 jobs:
   lint:
     name: Pre-commit
     uses: ./.github/workflows/pre-commit.yaml
+    permissions:
+      contents: write # needed for mutex
     with:
       python-version: 3.12.7
 

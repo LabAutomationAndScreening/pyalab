@@ -14,7 +14,7 @@ env:
   PYTHONUNBUFFERED: True
 
 permissions:
-    contents: write # needed to push commit of new devcontainer hash for dependabot PRs
+  contents: write # needed to push commit of new devcontainer hash for dependabot PRs
 
 jobs:
   get-values:

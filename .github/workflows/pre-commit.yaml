@@ -22,7 +22,8 @@ env:
   PRE_COMMIT_HOME: ${{ github.workspace }}/.precommit_cache
 
 permissions:
-    contents: write # needed for mutex
+  contents: write # needed for mutex
+  id-token: write # needed to assume OIDC roles (e.g. for downloading from CodeArtifact)
 
 jobs:
   pre-commit:
