@@ -39,7 +39,7 @@ jobs:
         if: ${{ github.event_name != 'push' }}
         uses: actions/checkout@v4.2.2
 
-      - name: Install latest versions of  packages
+      - name: Install latest versions of packages
         uses: ./.github/actions/install_deps
         with:
           python-version: ${{ inputs.python-version }}
