@@ -1,6 +1,6 @@
 [project]
 name = "pyalab"
-version = "0.2.2"
+version = "0.2.3"
 description = "Generating programs for Vialab to control an Integra Assist Plus liquid handling robot"
 authors = [
     {name = "Eli Fine"},
@@ -28,9 +28,9 @@ dev = [
     # Specific to this repository
 
     "lxml-stubs>=0.5.1",
-    "syrupy>=4.8.0",
+    "syrupy>=4.9.1",
     "pytest-mock>=3.14.0",
-    "faker>=31.1.0",
+    "faker>=37.5.3",
     "autodoc_pydantic==2.2.0",
 
     # Managed by upstream template

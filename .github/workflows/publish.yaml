@@ -164,18 +164,20 @@ jobs:
       - name: Sleep to allow PyPI Index to update before proceeding to the next step
         uses: juliangruber/sleep-action@v2.0.3
         with:
-          time: 60s
+          time: 90s
       - name: Install from staging registry
         run: pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://www.pypi.org/simple pyalab==${{ needs.get-values.outputs.package-version }}
       - name: Display dependencies
         run: pip list
       - name: Confirm library can be imported successfully
-        run: python -c "import pyalab"
+        run: python -c "import sys; print(f'Python version {sys.version}'); import pyalab"
 
   create-tag:
     name: Create the git tag
     if: ${{ github.event.inputs.publish_to_primary }}
     needs: [ install-from-staging ]
+    permissions:
+      contents: write # needed to push the tag
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
@@ -247,10 +249,10 @@ jobs:
       - name: Sleep to allow PyPI Index to update before proceeding to the next step
         uses: juliangruber/sleep-action@v2.0.3
         with:
-          time: 60s
+          time: 90s
       - name: Install from primary registry
         run: pip install pyalab==${{ needs.get-values.outputs.package-version }}
       - name: Display dependencies
         run: pip list
       - name: Confirm library can be imported successfully
-        run: python -c "import pyalab"
+        run: python -c "import sys; print(f'Python version {sys.version}'); import pyalab"

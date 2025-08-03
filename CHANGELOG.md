@@ -16,7 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
-## [0.2.2] - 2025-08-03
+## [0.2.3] - 2025-08-03
 
 ### Fixed
 - CI wasn't actually running Python 3.13, and many CI changes to correct this warranted fully publishing a version to confirm everything still worked
