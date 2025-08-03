@@ -9,7 +9,6 @@ on:
 env:
   PYTHONUNBUFFERED: True
   PRE_COMMIT_HOME: ${{ github.workspace }}/.precommit_cache
-  UV_PYTHON_PREFERENCE: only-system
 
 permissions:
     id-token: write
@@ -46,7 +45,8 @@ jobs:
             JOB_MATCHING_DEV_ENV: true
 
     runs-on: ${{ matrix.os }}
-
+    env:
+      UV_PYTHON: ${{ matrix.python-version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
