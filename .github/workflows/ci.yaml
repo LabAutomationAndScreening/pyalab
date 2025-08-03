@@ -11,18 +11,20 @@ env:
   PRE_COMMIT_HOME: ${{ github.workspace }}/.precommit_cache
 
 permissions:
-    id-token: write
-    contents: write # needed for mutex, and updating dependabot branches
-    statuses: write # needed for updating status on Dependabot PRs
+  id-token: write # needed to assume OIDC roles (e.g. for downloading from CodeArtifact)
 
 jobs:
   get-values:
     uses: ./.github/workflows/get-values.yaml
+    permissions:
+      contents: write # needed updating dependabot branches
 
   lint:
     needs: [ get-values ]
     name: Pre-commit
     uses: ./.github/workflows/pre-commit.yaml
+    permissions:
+      contents: write # needed for mutex
     with:
       python-version: 3.12.7
 
@@ -107,6 +109,8 @@ jobs:
 
   required-check:
     runs-on: ubuntu-24.04
+    permissions:
+      statuses: write # needed for updating status on Dependabot PRs
     needs:
       - test
       - get-values
