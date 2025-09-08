@@ -1,6 +1,6 @@
 [project]
 name = "pyalab"
-version = "0.2.4"
+version = "0.2.5"
 description = "Generating programs for Vialab to control an Integra Assist Plus liquid handling robot"
 authors = [
     {name = "Eli Fine"},
