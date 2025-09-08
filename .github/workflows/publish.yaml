@@ -186,7 +186,7 @@ jobs:
           # Then try to install with retries to ensure it's actually available in the index
           for i in $(seq 1 12); do
             if pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://www.pypi.org/simple "${PKG}==${VER}" --no-cache-dir --quiet; then
-              echo "Successfully installed ${PKG}==${VER}!"
+              echo "Successfully installed ${PKG}==${VER}"
               exit 0
             fi
             echo "Package not yet installable; sleeping 10s... (attempt $i/12)"
@@ -317,7 +317,7 @@ jobs:
           # Then try to install with retries to ensure it's actually available in the index
           for i in $(seq 1 12); do
             if pip install --index-url https://pypi.org/simple/ "${PKG}==${VER}" --no-cache-dir --quiet; then
-              echo "Successfully installed ${PKG}==${VER}!"
+              echo "Successfully installed ${PKG}==${VER}"
               exit 0
             fi
             echo "Package not yet installable; sleeping 10s... (attempt $i/12)"
