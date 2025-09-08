@@ -1,4 +1,4 @@
-minimum_pre_commit_version: 4.0.1
+minimum_pre_commit_version: 4.2.0
 # run `pre-commit autoupdate --freeze` to update all hooks
 default_install_hook_types: [pre-commit, post-checkout]
 repos:
@@ -42,7 +42,7 @@ repos:
 
   # Reformatting (should generally come before any file format or other checks, because reformatting can change things)
   - repo: https://github.com/crate-ci/typos
-    rev: 392b78fe18a52790c53f42456e46124f77346842  # frozen: v1.34.0
+    rev: 65a25783d8705c6a72d9fead19c44d87b4ff03c3  # frozen: v1
     hooks:
       - id: typos
         exclude:
@@ -53,13 +53,14 @@ repos:
               .*\.umd.js|
           )$
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b # frozen: v5.0.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
       - id: trailing-whitespace
         exclude:
           |
           (?x)^(
               .*/vendor_files/.*|
+              .*tests/.*/__snapshots__/.*|
           )$
       - id: end-of-file-fixer
         # the XML formatter hook doesn't leave a blank line at the end, so excluding XML files from this hook to avoid conflicts
@@ -71,6 +72,8 @@ repos:
               template/.copier-answers.yml.jinja-base|
               template/template/.copier-answers.yml.jinja|
               template/.copier-answers.yml.jinja|
+              .*generated/graphql.ts|
+              .*tests/.*/__snapshots__/.*|
               .devcontainer/devcontainer-lock.json|
               .copier-answers.yml|
               .*\.xml|
@@ -85,6 +88,7 @@ repos:
               .*pyrightconfig.json|
               .*tsconfig.json|
               .*biome.jsonc|
+              .*tests/.*/__snapshots__/.*|
               .*/vendor_files/.*|
           )$
         args: [--autofix, --no-sort-keys]
@@ -150,7 +154,7 @@ repos:
 
   # Invalid File Checks
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b # frozen: v5.0.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
       - id: check-added-large-files
         args: ["--maxkb=123"]
@@ -200,7 +204,7 @@ repos:
 
   # Safety/Security Issues
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b # frozen: v5.0.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
       - id: detect-private-key
 
@@ -214,7 +218,7 @@ repos:
         exclude: docs/.*\.rst$
 
   - repo: https://github.com/hadolint/hadolint
-    rev: c3dc18df7a501f02a560a2cc7ba3c69a85ca01d3 # frozen: v2.13.1-beta
+    rev: 87de847754330ad47ae16bdfe2d1a757ccb4b4d4  # frozen: v2.13.1
     hooks:
       - id: hadolint-docker
         name: Lint Dockerfiles
@@ -222,7 +226,7 @@ repos:
         description: Runs hadolint to lint Dockerfiles
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 3d44372123ca5e8617fdb65d9f11facd159b9e95  # frozen: v0.12.3
+    rev: db90487f48a9dd992d243ef63c156eaffddeaf28  # frozen: v0.12.11
     hooks:
       - id: ruff
         name: ruff-src
@@ -235,7 +239,7 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/pylint-dev/pylint
-    rev: f798a4a3508bcbb8ad0773ae14bf32d28dcfdcbe  # frozen: v3.3.7
+    rev: 98942ba4126a6fe1657bad77027bcc11016d16da  # frozen: v3.3.8
     hooks:
       - id: pylint
         name: pylint

@@ -7,11 +7,11 @@ import sys
 import tempfile
 from pathlib import Path
 
-UV_VERSION = "0.8.4"
-PNPM_VERSION = "10.14.0"
-COPIER_VERSION = "9.8.0"
-COPIER_TEMPLATE_EXTENSIONS_VERSION = "0.3.2"
-PRE_COMMIT_VERSION = "4.2.0"
+UV_VERSION = "0.8.15"
+PNPM_VERSION = "10.15.1"
+COPIER_VERSION = "9.10.1"
+COPIER_TEMPLATE_EXTENSIONS_VERSION = "0.3.3"
+PRE_COMMIT_VERSION = "4.3.0"
 GITHUB_WINDOWS_RUNNER_BIN_PATH = r"C:\Users\runneradmin\.local\bin"
 INSTALL_SSM_PLUGIN_BY_DEFAULT = False
 parser = argparse.ArgumentParser(description="Install CI tooling for the repo")
@@ -31,10 +31,10 @@ _ = parser.add_argument(
     "--no-node", action="store_true", default=False, help="Do not process any environments using node package managers"
 )
 _ = parser.add_argument(
-    "--install-ssm-plugin",
+    "--skip-installing-ssm-plugin",
     action="store_true",
-    default=INSTALL_SSM_PLUGIN_BY_DEFAULT,
-    help="Install the SSM plugin for AWS CLI",
+    default=False,
+    help="Skip installing the SSM plugin for AWS CLI",
 )
 
 
@@ -117,26 +117,43 @@ def main():
                 else [cmd]
             )
             _ = subprocess.run(cmd, shell=True, check=True)
-    if args.install_ssm_plugin:
-        if is_windows:
-            raise NotImplementedError("SSM plugin installation is not implemented for Windows")
+    if INSTALL_SSM_PLUGIN_BY_DEFAULT and not args.skip_installing_ssm_plugin:
         with tempfile.TemporaryDirectory() as tmp_dir:
-            local_package_path = Path(tmp_dir) / "session-manager-plugin.deb"
-            # Based on https://docs.aws.amazon.com/systems-manager/latest/userguide/install-plugin-debian-and-ubuntu.html
-            # no specific reason for that version, just pinning it for best practice
-            _ = subprocess.run(
-                [
-                    "curl",
-                    "https://s3.amazonaws.com/session-manager-downloads/plugin/1.2.707.0/ubuntu_64bit/session-manager-plugin.deb",
-                    "-o",
-                    f"{local_package_path}",
-                ],
-                check=True,
-            )
-            _ = subprocess.run(
-                ["sudo", "dpkg", "-i", str(local_package_path)],
-                check=True,
-            )
+            if is_windows:
+                local_package_path = Path(tmp_dir) / "SessionManagerPluginSetup.exe"
+                # Based on https://docs.aws.amazon.com/systems-manager/latest/userguide/install-plugin-windows.html
+                # no specific reason for that version, just pinning it for best practice
+                _ = subprocess.run(
+                    [
+                        "curl",
+                        "https://s3.amazonaws.com/session-manager-downloads/plugin/1.2.707.0/windows/SessionManagerPluginSetup.exe",
+                        "-o",
+                        f"{local_package_path}",
+                    ],
+                    check=True,
+                )
+                _ = subprocess.run(
+                    [str(local_package_path), "/quiet"],
+                    check=True,
+                )
+            else:
+                local_package_path = Path(tmp_dir) / "session-manager-plugin.deb"
+                # Based on https://docs.aws.amazon.com/systems-manager/latest/userguide/install-plugin-debian-and-ubuntu.html
+                # no specific reason for that version, just pinning it for best practice
+                _ = subprocess.run(
+                    [
+                        "curl",
+                        "https://s3.amazonaws.com/session-manager-downloads/plugin/1.2.707.0/ubuntu_64bit/session-manager-plugin.deb",
+                        "-o",
+                        f"{local_package_path}",
+                    ],
+                    check=True,
+                )
+                _ = subprocess.run(
+                    ["sudo", "dpkg", "-i", str(local_package_path)],
+                    check=True,
+                )
+            print("SSM Plugin Manager Version: ")
             _ = subprocess.run(
                 ["session-manager-plugin", "--version"],
                 check=True,

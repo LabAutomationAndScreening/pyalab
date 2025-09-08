@@ -8,7 +8,8 @@ env:
   PRE_COMMIT_HOME: ${{ github.workspace }}/.precommit_cache
 
 permissions:
-    id-token: write # needed to assume OIDC roles (e.g. for downloading from CodeArtifact)
+  id-token: write # needed to assume OIDC roles (e.g. for downloading from CodeArtifact)
+  contents: read # need to explicitly provide this whenever defining permissions because the default value is 'none' for anything not explicitly set when permissions are defined
 
 jobs:
   lint:
@@ -44,7 +45,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
 
       - name: Install python tooling
         uses: ./.github/actions/install_deps
@@ -60,7 +61,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
 
       - name: Install python tooling
         uses: ./.github/actions/install_deps
