@@ -1,5 +1,7 @@
 services:
   devcontainer:
+    # added the platform flag to override any local settings since this image is only compatible with linux/amd64.
+    platform: linux/amd64
     build:
       context: .
       args:

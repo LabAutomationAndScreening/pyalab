@@ -1,10 +1,11 @@
 # Changes here will be overwritten by Copier
-_commit: v0.0.44
+_commit: v0.0.49
 _src_path: gh:LabAutomationAndScreening/copier-python-package-template.git
 create_docs: true
 description: Generating programs for Vialab to control an Integra Assist Plus liquid
     handling robot
 full_repo_url: https://github.com/LabAutomationAndScreening/pyalab
+install_aws_ssm_port_forwarding_plugin: false
 is_frozen_executable: false
 is_open_source: true
 package_name: pyalab

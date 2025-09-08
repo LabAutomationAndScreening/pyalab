@@ -16,6 +16,11 @@ inputs:
     default: true
     type: boolean
     description: Whether to run the setup-deps script, or just to setup basic CI tooling
+  skip-installing-ssm-plugin-manager:
+    required: false
+    default: false
+    type: boolean
+    description: Whether to explicitly skip installing the SSM Plugin manager when setting up basic CI tooling
   project-dir:
     type: string
     description: What's the relative path to the project?
@@ -48,24 +53,24 @@ runs:
 
     - name: Setup python
       if: ${{ inputs.python-version != 'notUsing' }}
-      uses: actions/setup-python@v5.6.0
+      uses: actions/setup-python@v6.0.0
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
     - name: Setup node
       if: ${{ inputs.node-version != 'notUsing' }}
-      uses: actions/setup-node@v4.4.0
+      uses: actions/setup-node@v5.0.0
       with:
         node-version: ${{ inputs.node-version }}
 
     - name: Install tooling
       # the funky syntax is github action ternary
-      run: python .devcontainer/install-ci-tooling.py ${{ inputs.python-version == 'notUsing' && '--no-python' || '' }} ${{ inputs.node-version == 'notUsing' && '--no-node' || '' }}
+      run: python .devcontainer/install-ci-tooling.py ${{ inputs.python-version == 'notUsing' && '--no-python' || '' }} ${{ inputs.node-version == 'notUsing' && '--no-node' || '' }} ${{ inputs.skip-installing-ssm-plugin-manager && '--skip-installing-ssm-plugin' || '' }}
       shell: pwsh
 
     - name: OIDC Auth for CodeArtifact
       if: ${{ inputs.code-artifact-auth-role-name != 'no-code-artifact' }}
-      uses: aws-actions/configure-aws-credentials@v4.2.0
+      uses: aws-actions/configure-aws-credentials@v5.0.0
       with:
         role-to-assume: arn:aws:iam::${{ inputs.code-artifact-auth-role-account-id }}:role/${{ inputs.code-artifact-auth-role-name }}
         aws-region: ${{ inputs.code-artifact-auth-region }}

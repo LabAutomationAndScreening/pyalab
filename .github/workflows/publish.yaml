@@ -14,6 +14,7 @@ env:
 
 permissions:
   id-token: write # needed to assume OIDC roles (e.g. for downloading from CodeArtifact)
+  contents: read # need to explicitly provide this whenever defining permissions because the default value is 'none' for anything not explicitly set when permissions are defined
 
 jobs:
   get-values:
@@ -23,9 +24,9 @@ jobs:
       package-version: ${{ steps.extract-package-version.outputs.package_version }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
       - name: Setup python
-        uses: actions/setup-python@v5.6.0
+        uses: actions/setup-python@v6.0.0
         with:
           python-version: 3.12.7
       - name: Extract package version
@@ -68,7 +69,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
 
       - name: Install python tooling
         uses: ./.github/actions/install_deps
@@ -84,7 +85,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
 
       - name: Install python tooling
         uses: ./.github/actions/install_deps
@@ -117,13 +118,13 @@ jobs:
       id-token: write
     steps:
       - name: Download all the dists
-        uses: actions/download-artifact@v4.3.0
+        uses: actions/download-artifact@v5.0.0
         with:
           name: python-package-distributions
           path: dist/
 
       - name: Publish distribution to Test PyPI
-        uses: pypa/gh-action-pypi-publish@v1.12.4
+        uses: pypa/gh-action-pypi-publish@v1.13.0
         with:
           attestations: false
           repository-url: https://test.pypi.org/legacy/
@@ -155,35 +156,81 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
       - name: Setup python
-        uses: actions/setup-python@v5.6.0
+        uses: actions/setup-python@v6.0.0
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Sleep to allow PyPI Index to update before proceeding to the next step
-        uses: juliangruber/sleep-action@v2.0.3
-        with:
-          time: 90s
-      - name: Install from staging registry
-        run: pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://www.pypi.org/simple pyalab==${{ needs.get-values.outputs.package-version }}
+      - name: Wait for Test PyPI to serve the new version
+        shell: bash
+        run: |
+          set -euo pipefail
+          PKG="pyalab"
+          VER="${{ needs.get-values.outputs.package-version }}"
+          for i in $(seq 1 60); do
+            code="$(curl -fsS -o /dev/null -w '%{http_code}' "https://test.pypi.org/pypi/${PKG}/${VER}/json" || true)"
+            if [ "$code" = "200" ]; then
+              echo "Found ${PKG}==${VER} on Test PyPI."
+              break
+            fi
+            echo "Not yet available; sleeping 5s..."
+            sleep 5
+          done
+
+          if [ "$code" != "200" ]; then
+            echo "Timeout waiting for ${PKG}==${VER} on Test PyPI API."
+            exit 1
+          fi
+
+          # Then try to install with retries to ensure it's actually available in the index
+          for i in $(seq 1 12); do
+            if pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://www.pypi.org/simple "${PKG}==${VER}" --no-cache-dir --quiet; then
+              echo "Successfully installed ${PKG}==${VER}"
+              exit 0
+            fi
+            echo "Package not yet installable; sleeping 10s... (attempt $i/12)"
+            sleep 10
+          done
+
+          echo "Timeout waiting for ${PKG}==${VER} to be installable."
+          exit 1
       - name: Display dependencies
         run: pip list
       - name: Confirm library can be imported successfully
-        run: python -c "import sys; print(f'Python version {sys.version}'); import pyalab"
+        env:
+          PYTHONPATH: ""  # avoid picking up local sources
+        shell: bash
+        run: |
+          python - <<'PY'
+          import sys, importlib, importlib.util, importlib.metadata as md, pathlib
+          print(f"Python version {sys.version}")
+          mod_name = "pyalab"
+          dist_name = mod_name
+          m = importlib.import_module(mod_name)
+          spec = importlib.util.find_spec(mod_name)
+          origin = (getattr(spec, "origin", None) or getattr(m, "__file__", "")) or ""
+          p = pathlib.Path(origin)
+          print(f"Imported from: {p}")
+          assert any(s in str(p) for s in ("site-packages", "dist-packages")), f"Expected site/dist-packages, got {p}"
+          expected = "${{ needs.get-values.outputs.package-version }}"
+          installed = md.version(dist_name)
+          print(f"Installed distribution version: {installed} (expected {expected})")
+          assert installed == expected, f"Version mismatch: expected {expected}, got {installed}"
+          PY
 
   create-tag:
     name: Create the git tag
-    if: ${{ github.event.inputs.publish_to_primary }}
+    if: ${{ fromJSON(github.event.inputs.publish_to_primary) }}
     needs: [ install-from-staging ]
     permissions:
       contents: write # needed to push the tag
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
       - name: Setup python
-        uses: actions/setup-python@v5.6.0
+        uses: actions/setup-python@v6.0.0
         with:
           python-version: 3.12.7
       - name: Confirm tag not already present
@@ -193,7 +240,7 @@ jobs:
 
   publish-to-primary:
     name: Publish Python distribution to Primary Package Registry
-    if: ${{ github.event.inputs.publish_to_primary }}
+    if: ${{ fromJSON(github.event.inputs.publish_to_primary) }}
     needs: [ create-tag ]
     runs-on: ubuntu-24.04
     environment:
@@ -204,19 +251,19 @@ jobs:
       id-token: write
     steps:
       - name: Download all the dists
-        uses: actions/download-artifact@v4.3.0
+        uses: actions/download-artifact@v5.0.0
         with:
           name: python-package-distributions
           path: dist/
 
       - name: Publish distribution to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.12.4
+        uses: pypa/gh-action-pypi-publish@v1.13.0
         with:
           attestations: false
 
   install-from-primary:
     name: Install package from primary registry
-    if: ${{ github.event.inputs.publish_to_primary }}
+    if: ${{ fromJSON(github.event.inputs.publish_to_primary) }}
     needs: [ publish-to-primary, get-values ]
     strategy:
       matrix:
@@ -240,19 +287,65 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
       - name: Setup python
-        uses: actions/setup-python@v5.6.0
+        uses: actions/setup-python@v6.0.0
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Sleep to allow PyPI Index to update before proceeding to the next step
-        uses: juliangruber/sleep-action@v2.0.3
-        with:
-          time: 90s
-      - name: Install from primary registry
-        run: pip install pyalab==${{ needs.get-values.outputs.package-version }}
+      - name: Wait for PyPI to serve the new version
+        shell: bash
+        run: |
+          set -euo pipefail
+          PKG="pyalab"
+          VER="${{ needs.get-values.outputs.package-version }}"
+          for i in $(seq 1 60); do
+            code="$(curl -fsS -o /dev/null -w '%{http_code}' "https://pypi.org/pypi/${PKG}/${VER}/json" || true)"
+            if [ "$code" = "200" ]; then
+              echo "Found ${PKG}==${VER} on PyPI."
+              break
+            fi
+            echo "Not yet available; sleeping 5s..."
+            sleep 5
+          done
+
+          if [ "$code" != "200" ]; then
+            echo "Timeout waiting for ${PKG}==${VER} on PyPI API."
+            exit 1
+          fi
+
+          # Then try to install with retries to ensure it's actually available in the index
+          for i in $(seq 1 12); do
+            if pip install --index-url https://pypi.org/simple/ "${PKG}==${VER}" --no-cache-dir --quiet; then
+              echo "Successfully installed ${PKG}==${VER}"
+              exit 0
+            fi
+            echo "Package not yet installable; sleeping 10s... (attempt $i/12)"
+            sleep 10
+          done
+
+          echo "Timeout waiting for ${PKG}==${VER} to be installable."
+          exit 1
       - name: Display dependencies
         run: pip list
       - name: Confirm library can be imported successfully
-        run: python -c "import sys; print(f'Python version {sys.version}'); import pyalab"
+        env:
+          PYTHONPATH: ""  # avoid picking up local sources
+        shell: bash
+        run: |
+          python - <<'PY'
+          import sys, importlib, importlib.util, importlib.metadata as md, pathlib
+          print(f"Python version {sys.version}")
+          mod_name = "pyalab"
+          dist_name = mod_name
+          m = importlib.import_module(mod_name)
+          spec = importlib.util.find_spec(mod_name)
+          origin = (getattr(spec, "origin", None) or getattr(m, "__file__", "")) or ""
+          p = pathlib.Path(origin)
+          print(f"Imported from: {p}")
+          assert any(s in str(p) for s in ("site-packages", "dist-packages")), f"Expected site/dist-packages, got {p}"
+          expected = "${{ needs.get-values.outputs.package-version }}"
+          installed = md.version(dist_name)
+          print(f"Installed distribution version: {installed} (expected {expected})")
+          assert installed == expected, f"Version mismatch: expected {expected}, got {installed}"
+          PY
