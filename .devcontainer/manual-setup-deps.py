@@ -23,6 +23,9 @@ _ = parser.add_argument(
     "--optionally-check-lock", action="store_true", default=False, help="Check the lock file IFF it exists"
 )
 _ = parser.add_argument(
+    "--only-create-lock", action="store_true", default=False, help="Only create the lock file, do not install"
+)
+_ = parser.add_argument(
     "--no-python",
     action="store_true",
     default=False,
@@ -58,7 +61,8 @@ def main():
     is_windows = platform.system() == "Windows"
     uv_env = dict(os.environ)
     uv_env.update({"UV_PYTHON_PREFERENCE": "only-system", "UV_PYTHON": args.python_version})
-    skip_check_lock = args.skip_check_lock or args.optionally_check_lock
+    generate_lock_file_only = args.only_create_lock
+    check_lock_file = not (args.skip_check_lock or args.optionally_check_lock or generate_lock_file_only)
     if args.skip_check_lock and args.optionally_check_lock:
         print("Cannot skip and optionally check the lock file at the same time.")
         sys.exit(1)
@@ -74,28 +78,36 @@ def main():
         if args.no_node and env.package_manager == PackageManager.PNPM:
             print(f"Skipping environment {env.path} as it uses a Node package manager and --no-node is set")
             continue
-        env_skip_check_lock = skip_check_lock
+        env_check_lock = check_lock_file
         if args.optionally_check_lock and env.lock_file.exists():
-            env_skip_check_lock = False
-        if not env_skip_check_lock:
+            env_check_lock = True
+        if env_check_lock or generate_lock_file_only:
             if env.package_manager == PackageManager.UV:
-                _ = subprocess.run(["uv", "lock", "--check", "--directory", str(env.path)], check=True, env=uv_env)
+                uv_args = [
+                    "uv",
+                    "lock",
+                ]
+                if not generate_lock_file_only:
+                    uv_args.append("--check")
+                uv_args.extend(["--directory", str(env.path)])
+                _ = subprocess.run(uv_args, check=True, env=uv_env)
             elif env.package_manager == PackageManager.PNPM:
                 pass  # doesn't seem to be a way to do this https://github.com/orgs/pnpm/discussions/3202
             else:
                 raise NotImplementedError(f"Package manager {env.package_manager} does not support lock file checking")
         if env.package_manager == PackageManager.UV:
             sync_command = ["uv", "sync", "--directory", str(env.path)]
-            if not env_skip_check_lock:
+            if env_check_lock:
                 sync_command.append("--frozen")
-            _ = subprocess.run(
-                sync_command,
-                check=True,
-                env=uv_env,
-            )
+            if not generate_lock_file_only:
+                _ = subprocess.run(
+                    sync_command,
+                    check=True,
+                    env=uv_env,
+                )
         elif env.package_manager == PackageManager.PNPM:
             pnpm_command = ["pnpm", "install", "--dir", str(env.path)]
-            if not env_skip_check_lock:
+            if env_check_lock:
                 pnpm_command.append("--frozen-lockfile")
             if is_windows:
                 pwsh = shutil.which("pwsh") or shutil.which("powershell")

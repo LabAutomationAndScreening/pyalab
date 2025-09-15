@@ -42,11 +42,10 @@ repos:
 
   # Reformatting (should generally come before any file format or other checks, because reformatting can change things)
   - repo: https://github.com/crate-ci/typos
-    rev: 65a25783d8705c6a72d9fead19c44d87b4ff03c3  # frozen: v1
+    rev: edb4e206047e89b93ebe08f1a2ccc3d581a70cc7  # frozen: v1
     hooks:
       - id: typos
-        exclude:
-          |
+        exclude: |
           (?x)^(
               .*\.min.js|
               .*\.min.css|
@@ -56,16 +55,14 @@ repos:
     rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
       - id: trailing-whitespace
-        exclude:
-          |
+        exclude: |
           (?x)^(
               .*/vendor_files/.*|
               .*tests/.*/__snapshots__/.*|
           )$
       - id: end-of-file-fixer
         # the XML formatter hook doesn't leave a blank line at the end, so excluding XML files from this hook to avoid conflicts
-        exclude:
-          | # the extra trailing newline in the pull request template makes it easier to click there in the github console. The CLI that programmatically generates devcontainer-lock.json always ends the file incompatible with this hook.
+        exclude: | # the extra trailing newline in the pull request template makes it easier to click there in the github console. The CLI that programmatically generates devcontainer-lock.json always ends the file incompatible with this hook.
           (?x)^(
               .github/pull_request_template.md|
               template/.github/pull_request_template.md|
@@ -226,27 +223,48 @@ repos:
         description: Runs hadolint to lint Dockerfiles
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: db90487f48a9dd992d243ef63c156eaffddeaf28  # frozen: v0.12.11
+    rev: 13a6bda8ea7612b3aec844ded16569d424b9a1ab  # frozen: v0.13.0
     hooks:
       - id: ruff
         name: ruff-src
         args: [--fix, --config=./ruff.toml]
         files: src/.+\.py$
+        exclude: |
+          (?x)^(
+              .*/graphql_codegen/.*|
+              .*/openapi_codegen/.*|
+          )$
       - id: ruff
         name: ruff-tests
         args: [--fix, --config=./ruff-test.toml]
         files: tests?/.+\.py$
+        exclude: |
+          (?x)^(
+              .*/graphql_codegen/.*|
+              .*/openapi_codegen/.*|
+          )$
       - id: ruff-format
+        exclude: |
+          (?x)^(
+              .*/graphql_codegen/.*|
+              .*/openapi_codegen/.*|
+          )$
 
   - repo: https://github.com/pylint-dev/pylint
     rev: 98942ba4126a6fe1657bad77027bcc11016d16da  # frozen: v3.3.8
     hooks:
       - id: pylint
         name: pylint
+        # exclude the template files---duplication within them will be discovered during CI of that template instantiation
+        exclude: |
+          (?x)^(
+              .*/graphql_codegen/.*|
+              .*/openapi_codegen/.*|
+              template/.*|
+          )$
         args:
           - --rcfile=./pylintrc.toml
         verbose: true
-        exclude: ^template/.* # exclude the template files---duplication within them will be discovered during CI of that template instantiation
 
   - repo: local
     hooks:
@@ -254,6 +272,11 @@ repos:
         name: pyright
         entry: bash -c "uv run pyright"
         files: '.+\.py$'
+        exclude: |
+          (?x)^(
+              .*/graphql_codegen/.*|
+              .*/openapi_codegen/.*|
+          )$
         # don't pass filenames else the command line sees them twice
         pass_filenames: false
         language: system

@@ -10,6 +10,8 @@
     "**/.pipx_cache",
     "**/__pycache__",
     "**/vendor_files",
+    "**/graphql_codegen",
+    "**/openapi_codegen",
     "**/.venv",
     "**/venv"
   ],
