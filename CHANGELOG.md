@@ -14,6 +14,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Deprecated
 
 
+## [0.2.6] - 2025-10-07
+
+### Fixed
+- Include the vendor files directory in the packaged library
+
 ---
 
 ## [0.2.5] - 2025-09-08
