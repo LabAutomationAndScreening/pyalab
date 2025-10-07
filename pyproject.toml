@@ -1,6 +1,6 @@
 [project]
 name = "pyalab"
-version = "0.2.5"
+version = "0.2.6"
 description = "Generating programs for Vialab to control an Integra Assist Plus liquid handling robot"
 authors = [
     {name = "Eli Fine"},
@@ -28,9 +28,9 @@ dev = [
     # Specific to this repository
 
     "lxml-stubs>=0.5.1",
-    "syrupy>=4.9.1",
+    "syrupy>=5.0.0",
     "pytest-mock>=3.15.0",
-    "faker>=37.5.3",
+    "faker>=37.8.0",
     "autodoc_pydantic==2.2.0",
 
     # Managed by upstream template
@@ -44,6 +44,7 @@ dev = [
 
 [tool.setuptools]
 license-files = [] # kludge until this bug is fixed https://github.com/pypa/setuptools/issues/4759
+package-data = {"pyalab" = ["vendor_files/**/*.xml"]}
 
 [tool.uv]
 package = true

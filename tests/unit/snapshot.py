@@ -11,7 +11,7 @@ class SingleFileXmlSnapshot(SingleFileSnapshotExtension):
     _write_mode = (
         WriteMode.TEXT
     )  # for some reason the default is binary, but it should be text to make diffs easier to read
-    _file_extension = "xml"
+    file_extension = "xml"
 
 
 @pytest.fixture
