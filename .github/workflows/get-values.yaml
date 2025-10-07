@@ -24,8 +24,16 @@ jobs:
       dependabot-commit-created: ${{ steps.update-hash.outputs.commit-created }}
       pr-short-num: ${{ steps.find-pr-num.outputs.number }}
     steps:
+      - name: Display full GitHub context
+        run: |
+          jq . <<'JSON'
+          ${{ toJSON(github) }}
+          JSON
+
       - name: Checkout code
         uses: actions/checkout@v5.0.0
+        with:
+          persist-credentials: false
 
       - name: Update Devcontainer Hash
         if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'push' }}

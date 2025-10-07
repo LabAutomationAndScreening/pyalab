@@ -45,6 +45,7 @@ ignore = [
     "D102", # Docstrings are not always necessary for public methods
     "D103", # Docstrings are not always necessary for public functions
     "D104", # Docstrings are not always necessary for public packages
+    "D105", # Docstrings are not always necessary for magic methods
     "D106", # Nested classes are usually library-specific and don't always require its own docstring
     "D107", # Init shouldn't need its own docstring, those arguments can be captured in the class level docstring
     "D203", # Ignore D203 because it's a bug https://github.com/PyCQA/pydocstyle/issues/141
@@ -68,10 +69,10 @@ ignore = [
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = [
-                "T201", "T203", # don't automatically delete print statements, just warn about them
-                "RUF100", # don't automatically remove unnecessary suppressions, because that can leave behind a now-stale comment about why the suppression was originally added
-                "FURB136", "PLR1730", # don't automatically replace if statements with min/max functions. Sometimes the if statement is more readable or better for code coverage checking
-            ]
+    "T201", "T203", # don't automatically delete print statements, just warn about them
+    "RUF100", # don't automatically remove unnecessary suppressions, because that can leave behind a now-stale comment about why the suppression was originally added
+    "FURB136", "PLR1730", # don't automatically replace if statements with min/max functions. Sometimes the if statement is more readable or better for code coverage checking
+]
 
 # Allow unused variables if it's an underscore or double underscore.
 dummy-variable-rgx = "^_$|^__$"
@@ -86,7 +87,7 @@ dummy-variable-rgx = "^_$|^__$"
 force-single-line = true
 
 [lint.flake8-builtins]
-builtins-ignorelist = ["id"] # We use the id() builtin little enough that it's okay to shadow it
+builtins-ignorelist = ["id"] # We use the id() builtin rarely enough that it's okay to shadow it
 
 [lint.flake8-annotations]
 mypy-init-return = true # we don't care about annotating all __init__ methods as returning None

@@ -35,10 +35,13 @@ jobs:
         uses: actions/checkout@v5.0.0
         with:
           ref: ${{ github.ref_name }} # explicitly get the head of the branch, which will include any new commits pushed if this is a dependabot branch
+          persist-credentials: false
 
       - name: Checkout code not during push
         if: ${{ github.event_name != 'push' }}
         uses: actions/checkout@v5.0.0
+        with:
+          persist-credentials: false
 
       - name: Install latest versions of packages
         uses: ./.github/actions/install_deps

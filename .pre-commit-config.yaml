@@ -102,8 +102,8 @@ repos:
               .*pyrightconfig\.json|
           )$
 
-  - repo: https://github.com/pre-commit/mirrors-prettier # TODO: switch to a different approach...this was archived in 2024
-    rev: f12edd9c7be1c20cfa42420fd0e6df71e42b51ea # frozen: v4.0.0-alpha.8
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: 5ba47274f9b181bce26a5150a725577f3c336011  # frozen: v3.6.2
     hooks:
       - id: prettier
         # TODO: get template YAML and MD files more in line with prettier expectations so we can start using prettier on those too
@@ -125,6 +125,7 @@ repos:
               .*/vendor_files/.*|
               .*/schema.graphql|
               .*generated/graphql.ts|
+              template/.*|
           )$
         files: (.*.json)|(.*.ts)|(.*.jsx)|(.*.tsx)|(.*.yaml)|(.*.yml)|(.*.md)|(.*.html)|(.*.css)|(.*.scss)|(.*.less)|(.*.vue)|(.*.graphql)|(.*.gql)
 
@@ -178,6 +179,11 @@ repos:
       - id: check-merge-conflict
       - id: check-case-conflict
 
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 83987cd6ad8943c7f029b500b14aaf82c00a01fa  # frozen: 0.34.0
+    hooks:
+      - id: check-github-workflows
+
   - repo: https://github.com/maresb/check-json5
     rev: 893a2b5a0a27c3540bd8fcafe2968ccc05237179 # 1.0
     hooks:
@@ -205,6 +211,11 @@ repos:
     hooks:
       - id: detect-private-key
 
+  # - repo: https://github.com/woodruffw/zizmor-pre-commit # TODO: implement this: https://github.com/LabAutomationAndScreening/copier-base-template/issues/95
+  #   rev: b933184438555436e38621f46ceb0c417cbed400  # frozen: v1.13.0
+  #   hooks:
+  #     - id: zizmor
+
   # Linting
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks-markup
@@ -215,7 +226,7 @@ repos:
         exclude: docs/.*\.rst$
 
   - repo: https://github.com/hadolint/hadolint
-    rev: 87de847754330ad47ae16bdfe2d1a757ccb4b4d4  # frozen: v2.13.1
+    rev: 4e697ba704fd23b2409b947a319c19c3ee54d24f  # frozen: v2.14.0
     hooks:
       - id: hadolint-docker
         name: Lint Dockerfiles
@@ -223,7 +234,7 @@ repos:
         description: Runs hadolint to lint Dockerfiles
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 13a6bda8ea7612b3aec844ded16569d424b9a1ab  # frozen: v0.13.0
+    rev: a113f03edeabb71305f025e6e14bd2cd68660e29  # frozen: v0.13.1
     hooks:
       - id: ruff
         name: ruff-src

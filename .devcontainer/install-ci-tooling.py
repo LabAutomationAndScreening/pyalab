@@ -7,8 +7,8 @@ import sys
 import tempfile
 from pathlib import Path
 
-UV_VERSION = "0.8.17"
-PNPM_VERSION = "10.16.1"
+UV_VERSION = "0.8.22"
+PNPM_VERSION = "10.17.1"
 COPIER_VERSION = "9.10.2"
 COPIER_TEMPLATE_EXTENSIONS_VERSION = "0.3.3"
 PRE_COMMIT_VERSION = "4.3.0"
@@ -65,7 +65,7 @@ def main():
             )
         else:
             _ = subprocess.run(
-                f"curl -fsSL https://astral.sh/uv/{UV_VERSION}/install.sh | sh",
+                f"curl -fsSL --connect-timeout 20 --max-time 40 --retry 3 --retry-delay 5 --retry-connrefused --proto '=https' https://astral.sh/uv/{UV_VERSION}/install.sh | sh",
                 check=True,
                 shell=True,
                 env=uv_env,
