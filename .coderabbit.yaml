@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+reviews:
+  profile: assertive
+  path_instructions:
+    - path: "**/vendor_files/**"
+      instructions: "These files came from a vendor and we're not allowed to change them. Refer to it if you need to understand how the main code interacts with it, but do not make comments about it."
+  tools:
+    eslint: # when the code contains typescript, eslint will be run by pre-commit, and coderabbit often generates false positives
+      enabled: false
+    ruff: # when the code contains python, ruff will be run by pre-commit, and coderabbit often generates false positives
+      enabled: false
+    pylint: # when the code contains python, pylint will be run by pre-commit, and coderabbit often generates false positives
+      enabled: false
+    flake8: # we use ruff instead (when we use Python)
+      enabled: false
+  poem: false
+  # the commit status is driven by our repository config and required checks, we don't want CodeRabbit messing with it
+  commit_status: false
+  auto_review:
+    # a main purpose of opening a draft PR might be to get CodeRabbit feedback early
+    drafts: true
+  finishing_touches:
+    docstrings:
+      enabled: false # if we wanted AI to generate docstrings, it would be via CLI, not in the GitHub interface
+    unit_tests:
+      enabled: false # Quis custodiet ipsos custodes? not something we want AI doing, especially not via the GitHub interface

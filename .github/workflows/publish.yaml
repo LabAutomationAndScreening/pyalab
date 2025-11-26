@@ -19,6 +19,7 @@ permissions:
 jobs:
   get-values:
     name: Get Values
+    timeout-minutes: 2
     runs-on: ubuntu-24.04
     outputs:
       package-version: ${{ steps.extract-package-version.outputs.package_version }}
@@ -64,6 +65,7 @@ jobs:
             JOB_MATCHING_DEV_ENV: true
 
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 8
     env:
       UV_PYTHON: ${{ matrix.python-version }}
 
@@ -81,6 +83,7 @@ jobs:
 
   build:
     needs: [ test ]
+    timeout-minutes: 8
     runs-on: ubuntu-24.04
 
     steps:
@@ -99,7 +102,7 @@ jobs:
           uv build --no-sources
 
       - name: Upload build package
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v5.0.0
         with:
           name: python-package-distributions
           path: dist/
@@ -108,6 +111,7 @@ jobs:
 
   publish-to-staging:
     name: Publish Python distribution to Staging Package Registry
+    timeout-minutes: 8
     needs: [ build ]
     runs-on: ubuntu-24.04
     environment:
@@ -118,7 +122,7 @@ jobs:
       id-token: write
     steps:
       - name: Download all the dists
-        uses: actions/download-artifact@v5.0.0
+        uses: actions/download-artifact@v6.0.0
         with:
           name: python-package-distributions
           path: dist/
@@ -133,6 +137,7 @@ jobs:
 
   install-from-staging:
     name: Install package from staging registry
+    timeout-minutes: 8
     needs: [ publish-to-staging, get-values ]
     strategy:
       matrix:
@@ -222,6 +227,7 @@ jobs:
   create-tag:
     name: Create the git tag
     if: ${{ fromJSON(github.event.inputs.publish_to_primary) }}
+    timeout-minutes: 8
     needs: [ install-from-staging ]
     permissions:
       contents: write # needed to push the tag
@@ -242,6 +248,7 @@ jobs:
     name: Publish Python distribution to Primary Package Registry
     if: ${{ fromJSON(github.event.inputs.publish_to_primary) }}
     needs: [ create-tag ]
+    timeout-minutes: 8
     runs-on: ubuntu-24.04
     environment:
       name: pypi
@@ -251,7 +258,7 @@ jobs:
       id-token: write
     steps:
       - name: Download all the dists
-        uses: actions/download-artifact@v5.0.0
+        uses: actions/download-artifact@v6.0.0
         with:
           name: python-package-distributions
           path: dist/
@@ -282,6 +289,7 @@ jobs:
             JOB_MATCHING_DEV_ENV: true
 
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 8
     env:
       UV_PYTHON: ${{ matrix.python-version }}
 

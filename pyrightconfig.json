@@ -11,7 +11,7 @@
     "**/__pycache__",
     "**/vendor_files",
     "**/graphql_codegen",
-    "**/openapi_codegen",
+    "**/generated/open_api",
     "**/.venv",
     "**/venv"
   ],
@@ -99,7 +99,6 @@
   "reportUnnecessaryTypeIgnoreComment": true,
   "reportMatchNotExhaustive": true,
   "reportImplicitOverride": true,
-  "reportShadowedImports": true,
   "pythonPlatform": "Linux",
   "executionEnvironments": [
     {

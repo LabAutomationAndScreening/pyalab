@@ -27,7 +27,7 @@ By participating in this project, you agree to abide by our [Code of Conduct](./
 1. **Fork the repository** on GitHub.
 
 2. **Set up the Dev Container (Recommended Method)**
-   - Create a Github Codespace (`Code`->`Codespaces` in the Github web console of your cloned repository) OR click on the "Open in Devcontainer" link in the [Readme](./README.md)
+   - Create a GitHub Codespace (`Code`->`Codespaces` in the GitHub web console of your cloned repository) OR click on the "Open in Devcontainer" link in the [Readme](./README.md)
 
 3. **Make Your Changes**
    - Create a branch for your feature or bug fix:

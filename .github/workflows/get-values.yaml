@@ -19,6 +19,7 @@ permissions:
 jobs:
   get-values:
     runs-on: ubuntu-24.04
+    timeout-minutes: 2
     outputs:
       new-dependabot-sha: ${{ steps.update-hash.outputs.new-sha }}
       dependabot-commit-created: ${{ steps.update-hash.outputs.commit-created }}

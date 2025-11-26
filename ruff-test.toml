@@ -12,7 +12,7 @@ ignore = [
     "S101", # assert is definitely needed in test cases
     "S311", # pseudo-randomness is fine for test cases
     "TID252", # sometimes you can't use absolute imports in test cases for importing things within the tests, because they're not a true package or have conflicting namespaces
-    "TRY003", # tests dont need to create a custom exception classes, generally you want to throw an AssertionError with a message anyway
+    "TRY003", # tests don't need to create custom exception classes, generally you want to throw an AssertionError with a message anyway
 ]
 
 unfixable = [

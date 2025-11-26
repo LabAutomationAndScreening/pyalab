@@ -9,6 +9,7 @@
 [![Python Versions](https://img.shields.io/pypi/pyversions/pyalab.svg)](https://pypi.org/project/pyalab/)
 [![Codecov](https://codecov.io/gh/LabAutomationAndScreening/pyalab/branch/main/graph/badge.svg)](https://codecov.io/gh/LabAutomationAndScreening/pyalab)
 [![Documentation Status](https://readthedocs.org/projects/pyalab/badge/?version=latest)](https://pyalab.readthedocs.io/en/latest/?badge=latest)
+[![OpenIssues](https://isitmaintained.com/badge/open/LabAutomationAndScreening/pyalab.svg)](https://isitmaintained.com/project/LabAutomationAndScreening/pyalab)
 
 # Usage
 Pyalab is a way to use Python to generate programs for Vialab---the software that controls the Integra ASSIST Plus automated liquid handling robot.
