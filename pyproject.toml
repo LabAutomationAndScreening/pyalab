@@ -1,6 +1,6 @@
 [project]
 name = "pyalab"
-version = "0.2.7"
+version = "0.2.6"
 description = "Generating programs for Vialab to control an Integra Assist Plus liquid handling robot"
 authors = [
     {name = "Eli Fine"},
@@ -14,8 +14,6 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 
     "Programming Language :: Python :: 3.13",
-
-    "Programming Language :: Python :: 3.14",
 
 ]
 dependencies = [

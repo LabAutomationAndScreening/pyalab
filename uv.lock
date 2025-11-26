@@ -388,7 +388,7 @@ wheels = [
 
 [[package]]
 name = "pyalab"
-version = "0.2.7"
+version = "0.2.6"
 source = { editable = "." }
 dependencies = [
     { name = "inflection" },
