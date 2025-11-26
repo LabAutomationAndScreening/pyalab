@@ -13,6 +13,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Deprecated
 
+---
+
+## [0.2.7] - 2025-11-26
+
+### Added
+- Support Python 3.14
+
+---
 
 ## [0.2.6] - 2025-10-07
 
