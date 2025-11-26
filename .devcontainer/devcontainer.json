@@ -3,10 +3,10 @@
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "features": {
-    "ghcr.io/devcontainers/features/aws-cli:1.1.1": {
+    "ghcr.io/devcontainers/features/aws-cli:1.1.2": {
       // https://github.com/devcontainers/features/blob/main/src/aws-cli/devcontainer-feature.json
       // view latest version https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
-      "version": "2.27.14"
+      "version": "2.31.11"
     },
     "ghcr.io/devcontainers/features/python:1.7.1": {
       // https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json
@@ -20,17 +20,18 @@
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         // basic tooling
-        "eamodio.gitlens@15.5.1",
+        // "eamodio.gitlens@15.5.1",
+        "coderabbit.coderabbit-vscode@0.16.0",
         "ms-vscode.live-server@0.5.2025051301",
         "MS-vsliveshare.vsliveshare@1.0.5905",
-        "github.copilot@1.366.1775",
-        "github.copilot-chat@0.31.2025090401",
+        "github.copilot@1.388.0",
+        "github.copilot-chat@0.34.2025112401",
 
         // Python
-        "ms-python.python@2025.13.2025090201",
-        "ms-python.vscode-pylance@2025.7.102",
+        "ms-python.python@2025.17.2025100201",
+        "ms-python.vscode-pylance@2025.8.3",
         "ms-vscode-remote.remote-containers@0.414.0",
-        "charliermarsh.ruff@2025.24.0",
+        "charliermarsh.ruff@2025.28.0",
 
         // Misc file formats
         "bierner.markdown-mermaid@1.28.0",
@@ -44,6 +45,7 @@
         "extensions.autoUpdate": false,
         "extensions.autoCheckUpdates": false,
         "livePreview.portNumber": 3025, // arbitrary not to conflict with default 3000 Nuxt port number
+        "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
         "[python]": {
           "editor.formatOnSave": true,
           "editor.defaultFormatter": "charliermarsh.ruff"
@@ -61,5 +63,5 @@
   "initializeCommand": "sh .devcontainer/initialize-command.sh",
   "onCreateCommand": "sh .devcontainer/on-create-command.sh",
   "postStartCommand": "sh .devcontainer/post-start-command.sh"
-  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): 9be2b25c # spellchecker:disable-line
+  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): ffbe6219 # spellchecker:disable-line
 }

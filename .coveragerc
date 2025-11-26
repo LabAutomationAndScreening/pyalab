@@ -3,6 +3,11 @@ branch = True
 omit =
     # omit anything supplied by vendors
     */vendor_files/*
+    # omit any auto-generated API client code
+    */generated/open_api/*
+    # omit CircuitPython firmware
+    */firmware/code.py
+    */firmware/boot.py
 
 [report]
 # Regexes for lines to exclude from consideration

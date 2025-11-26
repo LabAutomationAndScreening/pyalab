@@ -49,6 +49,7 @@ jobs:
             JOB_MATCHING_DEV_ENV: true
 
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 8
     env:
       UV_PYTHON: ${{ matrix.python-version }}
     steps:
@@ -92,6 +93,7 @@ jobs:
 
 
     runs-on: ubuntu-24.04
+    timeout-minutes: 8
     env:
       UV_PYTHON: ${{ matrix.python-version }}
 
@@ -118,6 +120,7 @@ jobs:
       - get-values
       - build-docs
     if: always()
+    timeout-minutes: 2
     steps:
       - name: fail if prior job failure
         if: needs.test.result != 'success' || needs.build-docs.result != 'success'
