@@ -59,6 +59,8 @@ jobs:
 
           - 3.13.2
 
+          - 3.14.0
+
         include:
           - os: "ubuntu-24.04"
             python-version: "3.12.7"
@@ -149,6 +151,8 @@ jobs:
           - 3.12.7
 
           - 3.13.2
+
+          - 3.14.0
 
         include:
           - os: "ubuntu-24.04"
@@ -282,6 +286,8 @@ jobs:
           - 3.12.7
 
           - 3.13.2
+
+          - 3.14.0
 
         include:
           - os: "ubuntu-24.04"
