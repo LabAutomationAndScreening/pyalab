@@ -58,13 +58,13 @@ runs:
 
     - name: Setup python
       if: ${{ inputs.python-version != 'notUsing' }}
-      uses: actions/setup-python@v6.0.0
+      uses: actions/setup-python@v6.1.0
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
     - name: Setup node
       if: ${{ inputs.node-version != 'notUsing' }}
-      uses: actions/setup-node@v6.0.0
+      uses: actions/setup-node@v6.1.0
       with:
         node-version: ${{ inputs.node-version }}
 
@@ -75,7 +75,7 @@ runs:
 
     - name: OIDC Auth for CodeArtifact
       if: ${{ inputs.code-artifact-auth-role-name != 'no-code-artifact' }}
-      uses: aws-actions/configure-aws-credentials@v5.1.0
+      uses: aws-actions/configure-aws-credentials@v5.1.1
       with:
         role-to-assume: arn:aws:iam::${{ inputs.code-artifact-auth-role-account-id }}:role/${{ inputs.code-artifact-auth-role-name }}
         aws-region: ${{ inputs.code-artifact-auth-region }}

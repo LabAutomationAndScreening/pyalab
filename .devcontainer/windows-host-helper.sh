@@ -27,38 +27,30 @@ repoName=$(basename "$gitUrl" .git)
 
 echo "Repo name extracted as '$repoName'"
 
-# Remove any existing subfolder with the repository name and recreate it
-rm -rf "./$repoName" || true # sometimes deleting the .venv folder fails
-rm -rf "./$repoName/*.md" # for some reason, sometimes md files are left behind
+sudo rm -rf "./$repoName" || true
+sudo rm -rf "./$repoName/*.md"
 mkdir -p "./$repoName"
+sudo chown -R "$(whoami):$(whoami)" "./$repoName" # TODO: see if this alone is enough to fix everything
 
 # Create a temporary directory for cloning
 tmpdir=$(mktemp -d)
 
-# Clone the repository into a subfolder inside the temporary directory.
-# This creates "$tmpdir/$repoName" with the repository's contents.
+# Clone the repository into a subfolder inside the temporary directory
 git clone "$gitUrl" "$tmpdir/$repoName"
 
+# Use rsync to merge all contents (including hidden files) from cloned repo to target
+# -a: archive mode (preserves permissions, timestamps, etc.)
+# -v: verbose
+# --exclude: skip volume mount directories that should not be overwritten
+echo "Syncing repository contents..."
+rsync -av \
+    --exclude='node_modules' \
+    --exclude='.pnpm-store' \
+    --exclude='.venv' \
+    "$tmpdir/$repoName/" "./$repoName/"
 
-SRC="$(realpath "$tmpdir/$repoName")"
-DST="$(realpath "./$repoName")"
-
-# 1) Recreate directory tree under $DST
-while IFS= read -r -d '' dir; do
-  rel="${dir#$SRC/}"             # strip leading $SRC/ → e.g. "sub/dir"
-  mkdir -p "$DST/$rel"
-done < <(find "$SRC" -type d -print0)
-
-# 2) Move all files into that mirror
-while IFS= read -r -d '' file; do
-  rel="${file#$SRC/}"            # e.g. "sub/dir/file.txt"
-  # ensure parent exists (though step 1 already did)
-  mkdir -p "$(dirname "$DST/$rel")"
-  mv "$file" "$DST/$rel"
-done < <(find "$SRC" -type f -print0)
-
-# 3) Clean up now‑empty dirs and the tmp clone
-find "$SRC" -depth -type d -empty -delete
+# Clean up: remove the temporary directory
 rm -rf "$tmpdir"
 
-echo "Repository '$repoName' has been synced into '$DST'."
+echo "Repository '$repoName' has been updated."
+echo "Note: Volume mounts (node_modules, .pnpm-store, .venv) were preserved."

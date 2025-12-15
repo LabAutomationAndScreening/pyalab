@@ -10,10 +10,11 @@
     "**/.pipx_cache",
     "**/__pycache__",
     "**/vendor_files",
-    "**/graphql_codegen",
+    "**/generated/graphql",
     "**/generated/open_api",
     "**/.venv",
-    "**/venv"
+    "**/venv",
+    "**/copier_template_resources"
   ],
   "strictListInference": true,
   "strictDictionaryInference": true,

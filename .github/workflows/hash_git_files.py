@@ -65,19 +65,16 @@ def compute_adler32(repo_path: Path, files: list[str]) -> int:
                     if not chunk:
                         break
                     checksum = zlib.adler32(chunk, checksum)
-        except Exception as e:
-            if "[Errno 21] Is a directory" in str(e):
-                # Ignore symlinks that on windows sometimes get confused as being directories
-                continue
-            print(f"Error reading file {file}: {e}", file=sys.stderr)  # noqa: T201 # this just runs as a simple script, so using print instead of log
-            raise
+        except IsADirectoryError:
+            # Ignore symlinks that on windows sometimes get confused as being directories
+            continue
 
     return checksum
 
 
 def find_devcontainer_hash_line(lines: list[str]) -> tuple[int, str | None]:
     """Find the line index and current hash in the devcontainer.json file."""
-    for i in range(len(lines) - 1, -1, -1):
+    for i in reversed(range(len(lines))):
         if lines[i].strip() == "}":
             # Check the line above it
             if i > 0:
