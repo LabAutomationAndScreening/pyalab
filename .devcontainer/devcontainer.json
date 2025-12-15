@@ -6,7 +6,7 @@
     "ghcr.io/devcontainers/features/aws-cli:1.1.2": {
       // https://github.com/devcontainers/features/blob/main/src/aws-cli/devcontainer-feature.json
       // view latest version https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
-      "version": "2.31.11"
+      "version": "2.32.6",
     },
     "ghcr.io/devcontainers/features/python:1.7.1": {
       // https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json
@@ -19,9 +19,10 @@
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
+        "-AmazonWebServices.aws-toolkit-vscode", // the AWS CLI feature installs this automatically, but it's causing problems in VS Code
         // basic tooling
         // "eamodio.gitlens@15.5.1",
-        "coderabbit.coderabbit-vscode@0.16.0",
+        "coderabbit.coderabbit-vscode@0.16.1",
         "ms-vscode.live-server@0.5.2025051301",
         "MS-vsliveshare.vsliveshare@1.0.5905",
         "github.copilot@1.388.0",
@@ -63,5 +64,5 @@
   "initializeCommand": "sh .devcontainer/initialize-command.sh",
   "onCreateCommand": "sh .devcontainer/on-create-command.sh",
   "postStartCommand": "sh .devcontainer/post-start-command.sh"
-  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): 4a87b24b # spellchecker:disable-line
+  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): bc0c1020 # spellchecker:disable-line
 }

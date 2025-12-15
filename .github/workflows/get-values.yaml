@@ -9,6 +9,9 @@ on:
       dependabot-commit-created:
         description: whether or not a commit was created on a dependabot branch
         value: ${{ jobs.get-values.outputs.dependabot-commit-created }}
+      pr-short-num:
+        description: the last two digits of the PR number (to be used for fixed width naming, like Pulumi stacks)
+        value: ${{ jobs.get-values.outputs.pr-short-num }}
 
 env:
   PYTHONUNBUFFERED: True
@@ -32,7 +35,7 @@ jobs:
           JSON
 
       - name: Checkout code
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.1
         with:
           persist-credentials: false
 

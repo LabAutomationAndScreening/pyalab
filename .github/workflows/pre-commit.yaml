@@ -33,14 +33,14 @@ jobs:
     steps:
       - name: Checkout code during push
         if: ${{ github.event_name == 'push' }}
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.1
         with:
           ref: ${{ github.ref_name }} # explicitly get the head of the branch, which will include any new commits pushed if this is a dependabot branch
           persist-credentials: false
 
       - name: Checkout code not during push
         if: ${{ github.event_name != 'push' }}
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.1
         with:
           persist-credentials: false
 
@@ -59,7 +59,7 @@ jobs:
         timeout-minutes: 8  # this is the amount of time this action will wait to attempt to acquire the mutex lock before failing, e.g. if other jobs are queued up in front of it
 
       - name: Cache Pre-commit hooks
-        uses: actions/cache@v4.2.4
+        uses: actions/cache@v4.3.0
         env:
           cache-name: cache-pre-commit-hooks
         with:
@@ -69,4 +69,11 @@ jobs:
             ubuntu-24.04-py${{ inputs.python-version }}-node-${{ inputs.node-version}}-${{ env.cache-name }}-
 
       - name: Run pre-commit
-        run:  pre-commit run -a
+        run: |
+          pre-commit run -a || PRE_COMMIT_EXIT_CODE=$?
+          if [ -n "$PRE_COMMIT_EXIT_CODE" ]; then
+            echo "Pre-commit failed with exit code $PRE_COMMIT_EXIT_CODE"
+            echo "Showing git diff:"
+            git --no-pager diff
+            exit $PRE_COMMIT_EXIT_CODE
+          fi
