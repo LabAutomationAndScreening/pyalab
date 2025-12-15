@@ -8,8 +8,6 @@ logger = logging.getLogger(__name__)
 
 
 def pytest_configure(
-    config: pytest.Config,  # noqa: ARG001 # the config argument MUST be present (even when unused) or pytest throws an error
+    config: pytest.Config,
 ):
-    # force the vcr.cassette logger to WARNING+ because otherwise the logs get super noisy with the playback of all the cassettes
-    vcr_logger = logging.getLogger("vcr.cassette")
-    vcr_logger.setLevel(logging.WARNING)
+    """Configure pytest itself, such as logging levels."""
