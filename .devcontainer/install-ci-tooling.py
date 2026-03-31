@@ -7,11 +7,11 @@ import sys
 import tempfile
 from pathlib import Path
 
-UV_VERSION = "0.9.17"
-PNPM_VERSION = "10.25.0"
-COPIER_VERSION = "9.11.0"
-COPIER_TEMPLATE_EXTENSIONS_VERSION = "0.3.3"
-PRE_COMMIT_VERSION = "4.5.0"
+UV_VERSION = "0.10.12"
+PNPM_VERSION = "10.33.0"
+COPIER_VERSION = "==9.14.0"
+COPIER_TEMPLATE_EXTENSIONS_VERSION = "==0.3.3"
+PRE_COMMIT_VERSION = "4.5.1"
 GITHUB_WINDOWS_RUNNER_BIN_PATH = r"C:\Users\runneradmin\.local\bin"
 INSTALL_SSM_PLUGIN_BY_DEFAULT = False
 parser = argparse.ArgumentParser(description="Install CI tooling for the repo")
@@ -76,9 +76,9 @@ def main():
                 uv_path,
                 "tool",
                 "install",
-                f"copier=={COPIER_VERSION}",
+                f"copier{COPIER_VERSION}",
                 "--with",
-                f"copier-template-extensions=={COPIER_TEMPLATE_EXTENSIONS_VERSION}",
+                f"copier-template-extensions{COPIER_TEMPLATE_EXTENSIONS_VERSION}",
             ],
             check=True,
             env=uv_env,

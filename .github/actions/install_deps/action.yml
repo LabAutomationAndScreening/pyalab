@@ -44,6 +44,11 @@ inputs:
     description: Whether to skip updating the hash when running manual-setup-deps.py
     default: true
     required: false
+  skip-installing-pulumi-cli:
+    type: boolean
+    description: Whether to skip installing the Pulumi CLI even if the lock file references it
+    default: false
+    required: false
 
 
 runs:
@@ -58,13 +63,13 @@ runs:
 
     - name: Setup python
       if: ${{ inputs.python-version != 'notUsing' }}
-      uses: actions/setup-python@v6.1.0
+      uses: actions/setup-python@v6.2.0
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
     - name: Setup node
       if: ${{ inputs.node-version != 'notUsing' }}
-      uses: actions/setup-node@v6.1.0
+      uses: actions/setup-node@v6.3.0
       with:
         node-version: ${{ inputs.node-version }}
 
@@ -75,7 +80,7 @@ runs:
 
     - name: OIDC Auth for CodeArtifact
       if: ${{ inputs.code-artifact-auth-role-name != 'no-code-artifact' }}
-      uses: aws-actions/configure-aws-credentials@v5.1.1
+      uses: aws-actions/configure-aws-credentials@v6.0.0
       with:
         role-to-assume: arn:aws:iam::${{ inputs.code-artifact-auth-role-account-id }}:role/${{ inputs.code-artifact-auth-role-name }}
         aws-region: ${{ inputs.code-artifact-auth-region }}
@@ -83,5 +88,5 @@ runs:
     - name: Install dependencies
       # the funky syntax is github action ternary
       if: ${{ inputs.install-deps }}
-      run: python .devcontainer/manual-setup-deps.py ${{ inputs.python-version == 'notUsing' && '--no-python' || '' }} ${{ inputs.node-version == 'notUsing' && '--no-node' || '' }} ${{ inputs.skip-updating-devcontainer-hash && '--skip-updating-devcontainer-hash' || '' }}
+      run: python .devcontainer/manual-setup-deps.py ${{ inputs.python-version == 'notUsing' && '--no-python' || '' }} ${{ inputs.node-version == 'notUsing' && '--no-node' || '' }} ${{ inputs.skip-updating-devcontainer-hash && '--skip-updating-devcontainer-hash' || '' }} ${{ inputs.skip-installing-pulumi-cli && '--skip-installing-pulumi-cli' || '' }}
       shell: pwsh

@@ -1,0 +1,44 @@
+name: Check Skip Duplicates
+description: 'Check that will output a variable to allow you to skip duplicate runs. Example: If you have both push and pull_request triggers enabled and you dont want to run 2 jobs for the same commit if a PR is already open you can add this to your jobs to skip that extra execution.'
+
+outputs:
+  should-run:
+    description: 'Flag that determines if this execution should run or not'
+    value: ${{ steps.check.outputs.should_run }}
+
+runs:
+  using: composite
+  steps:
+    - name: Check if push has associated open PR
+      id: check
+      env:
+        GH_TOKEN: ${{ github.token }}
+        REF_NAME: ${{ github.ref_name }}
+        REPO_NAME: ${{ github.repository }}
+        EVENT_NAME: ${{ github.event_name }}
+      shell: bash
+      run: |
+        # For non-push events, always run
+        if [ "$EVENT_NAME" != "push" ]; then
+          echo "should_run=true" >> $GITHUB_OUTPUT
+          echo "Event is $EVENT_NAME, will run CI"
+          exit 0
+        fi
+
+        # For push events, check if there's an open PR for this branch
+        pr_json=$(gh pr list \
+          --repo "$REPO_NAME" \
+          --head "$REF_NAME" \
+          --state open \
+          --json number \
+          --limit 1)
+
+        pr_number=$(echo "$pr_json" | jq -r '.[0].number // ""')
+
+        if [ -n "$pr_number" ]; then
+          echo "should_run=false" >> $GITHUB_OUTPUT
+          echo "Push to branch with open PR #$pr_number detected, skipping (PR event will run CI)"
+        else
+          echo "should_run=true" >> $GITHUB_OUTPUT
+          echo "Push to branch without open PR, will run CI"
+        fi

@@ -32,7 +32,7 @@ exclude = [
 line-length = 120
 indent-width = 4
 
-target-version = "py312" # TODO: dynamically update this with a copier Task
+target-version = "py312"
 
 [lint]
 select = ["ALL"]

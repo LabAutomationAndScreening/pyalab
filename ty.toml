@@ -1,0 +1,18 @@
+[src]
+exclude = [
+    # excludes managed by this repository
+
+    # excludes managed by template
+    "**/node_modules",
+    "**/.precommit_cache",
+    "**/.ruff_cache",
+    "**/.npm_cache",
+    "**/.pipx_cache",
+    "**/__pycache__",
+    "**/vendor_files",
+    "**/generated/graphql",
+    "**/generated/open_api",
+    "**/.venv",
+    "**/venv",
+    "**/copier_template_resources"
+]

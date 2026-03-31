@@ -44,6 +44,12 @@ _ = parser.add_argument(
     default=False,
     help="Allow uv to install new versions of Python on the fly. This is typically only needed when instantiating the copier template.",
 )
+_ = parser.add_argument(
+    "--skip-installing-pulumi-cli",
+    action="store_true",
+    default=False,
+    help="Do not install the Pulumi CLI even if the lock file references it",
+)
 
 
 class PackageManager(str, enum.Enum):
@@ -126,6 +132,17 @@ def main():
                     sync_command,
                     check=True,
                     env=uv_env,
+                )
+            if (
+                not generate_lock_file_only
+                and not args.skip_installing_pulumi_cli
+                and platform.system() == "Linux"
+                and env.lock_file.exists()
+                and '"pulumi"' in env.lock_file.read_text()
+            ):
+                _ = subprocess.run(
+                    ["sh", str(REPO_ROOT_DIR / ".devcontainer" / "install-pulumi-cli.sh"), str(env.lock_file)],
+                    check=True,
                 )
         elif env.package_manager == PackageManager.PNPM:
             pnpm_command = ["pnpm", "install", "--dir", str(env.path)]
