@@ -1,0 +1,8 @@
+{
+  // Write permissions for specific files
+  // This should only ever be running in a devcontainer, so pretty lenient permissions are allowed
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": ["Write(/tmp/**)"]
+  }
+}

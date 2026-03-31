@@ -1,0 +1,139 @@
+{
+  // Bash command permissions - allowed and denied shell operations
+  // This should only ever be running in a devcontainer, so pretty lenient permissions are allowed
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      // AI interactions and tooling
+      "Bash(bd *)",
+      // Cloud Infrastructure
+      "Bash(aws sts get*)",
+      // Code Quality & Formatting
+      "Bash(pre-commit run *)",
+      // Core Shell Commands
+      "Bash(COMMAND *)", // used in slash commands
+      "Bash(kill *)",
+      "Bash(ps *)",
+      "Bash(pwd *)",
+      "Bash(time *)",
+      "Bash(timeout *)",
+      "Bash(which *)",
+      "Bash(xargs *)",
+      // Custom Scripts
+      "Bash(~/.agents/helpers/*)",
+      "Bash(~/.claude/helpers/*)",
+      "Bash(~/.claude/hooks/*)",
+      "Bash(~/.agents/skills/*)",
+      "Bash(~/.claude/skills/*)",
+      // File System
+      "Bash(bat *)",
+      "Bash(chmod *)",
+      "Bash(cp *)",
+      "Bash(eza *)",
+      "Bash(fd *)",
+      "Bash(find *)",
+      "Bash(fzf *)",
+      "Bash(ls *)",
+      "Bash(mkdir *)",
+      "Bash(stat *)",
+      "Bash(tar *)",
+      "Bash(touch *)",
+      "Bash(tree *)",
+      // Git & Version Control
+      "Bash(git diff *)",
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git rev-parse *)",
+      "Bash(git branch *)",
+      // Misc
+      "Bash(amp *)",
+      "Bash(atuin *)",
+      "Bash(bc *)",
+      "Bash(chezmoi *)",
+      "Bash(diff *)",
+      "Bash(jq *)",
+      "Bash(just *)",
+      "Bash(lsof *)",
+      "Bash(test *)",
+      "Bash(zk *)",
+      // Node.js
+      "Bash(pnpm test-unit *)",
+      "Bash(pnpm test-e2e *)",
+      // Python
+      "Bash(uv run pytest *)",
+      // Text Processing
+      "Bash(awk *)",
+      "Bash(cat *)",
+      "Bash(cut *)",
+      "Bash(echo *)",
+      "Bash(grep *)",
+      "Bash(head *)",
+      "Bash(printf *)",
+      "Bash(sed *)",
+      "Bash(sort *)",
+      "Bash(tail *)",
+      // Search
+      "Bash(rg *)",
+      // Research
+      "Bash(gh issue list *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr diff *)"
+    ],
+    "ask": [
+      // let's hold off before we let it use the github CLI in any free running allow mode...I don't want it somehow approving PRs with the user's credentials
+      "Bash(gh repo *)",
+      "Bash(gh release *)",
+      "Bash(gh secret *)",
+      "Bash(gh ruleset *)",
+      "Bash(aws *)", // let's hold off before we let it use AWS CLI in any free running allow mode. We need to be very sure we don't have any access to staging or production credentials in our dev environment (...which we shouldn't...but we need to double check that or consider any other safeguards first)
+      "Bash(curl *)",
+      "Bash(ln *)",
+      "WebFetch",
+    ],
+    "deny": [
+      // Exceptions to generally allowed AI tooling
+      "Bash(bd init*)", // we need to control the init process, don't let AI do that in the background
+      // Github
+      // Claude should not ever interfere with the PR process, that is how we gate AI's work
+      "Bash(gh pr create *)",
+      "Bash(gh pr edit *)",
+      "Bash(gh pr ready *)",
+      "Bash(gh pr review *)",
+      "Bash(gh pr merge *)",
+      "Bash(gh pr close *)",
+      "Bash(gh pr comment *)",
+      "Bash(gh pr update-branch *)",
+
+      // Destructive File Operations
+      "Bash(chmod -R *)",
+      "Bash(chown -R *)",
+      "Bash(rm -rf / *)",
+      "Bash(rm -rf ~ *)",
+      // Dangerous Disk Operations
+      "Bash(> /dev/sda*)",
+      "Bash(> /etc/*)",
+      "Bash(dd *)",
+      "Bash(mkfs *)",
+      // Process Management
+      "Bash(kill -9 *)",
+      "Bash(killall *)",
+      // Git & Version Control
+      "Bash(git reset --hard *)",
+      "Bash(git push -f *)",
+      "Bash(git push --force*)",
+      // Node.js
+      "Bash(npm publish *)",
+      // System Administration
+      "Bash(doas *)",
+      "Bash(passwd *)",
+      "Bash(su *)",
+      "Bash(sudo *)",
+      "Bash(systemctl *)",
+      "Bash(userdel *)",
+      "Bash(usermod *)",
+      // System Control
+      "Bash(reboot *)",
+      "Bash(shutdown *)",
+    ],
+  },
+}

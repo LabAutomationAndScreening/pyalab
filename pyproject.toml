@@ -15,9 +15,11 @@ classifiers = [
 
     "Programming Language :: Python :: 3.13",
 
+    "Programming Language :: Python :: 3.14",
+
 ]
 dependencies = [
-    "pydantic>=2.10.3",
+    "pydantic>=2.12.5",
     "inflection>=0.5.1",
     "lxml>=6.0.2",
 ]
@@ -28,15 +30,15 @@ dev = [
     # Specific to this repository
 
     "lxml-stubs>=0.5.1",
-    "syrupy>=5.0.0",
-    "pytest-mock>=3.15.0",
-    "faker>=38.2.0",
+    "syrupy>=5.1.0",
+    "pytest-mock>=3.15.1",
+    "faker>=40.11.0",
     "autodoc_pydantic==2.2.0",
 
     # Managed by upstream template
-    "pyright>=1.1.407",
+    "pyright>=1.1.408",
     "pytest>=9.0.2",
-    "pytest-cov>=7.0.0",
+    "pytest-cov>=7.1.0",
     "pytest-randomly>=4.0.1",
     "sphinx==9.0.4",
 ]

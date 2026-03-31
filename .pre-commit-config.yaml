@@ -1,4 +1,4 @@
-minimum_pre_commit_version: 4.2.0
+minimum_pre_commit_version: 4.3.0
 # run `pre-commit autoupdate --freeze` to update all hooks
 default_install_hook_types: [pre-commit, post-checkout]
 repos:
@@ -42,7 +42,7 @@ repos:
 
   # Reformatting (should generally come before any file format or other checks, because reformatting can change things)
   - repo: https://github.com/crate-ci/typos
-    rev: 802d5794ff9cf7b15610c47eca99cd1ab757d8d4  # frozen: v1
+    rev: e1f6f6eaedd8587fa3c76ec20e7cbaa8f7132b2d  # frozen: v1
     hooks:
       - id: typos
         exclude: |
@@ -108,7 +108,7 @@ repos:
           )$
 
   - repo: https://github.com/rbubley/mirrors-prettier
-    rev: 14abee445aea04b39069c19b4bd54efff6775819  # frozen: v3.7.4
+    rev: c2bc67fe8f8f549cc489e00ba8b45aa18ee713b1  # frozen: v3.8.1
     hooks:
       - id: prettier
         # TODO: get template YAML and MD files more in line with prettier expectations so we can start using prettier on those too
@@ -195,12 +195,12 @@ repos:
       - id: check-case-conflict
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 16a6ad2fead09286ee6eb6b0a3fab55655a6c22a  # frozen: 0.35.0
+    rev: ec368acd16deee9c560c105ab6d27db4ee19a5ec  # frozen: 0.36.2
     hooks:
       - id: check-github-workflows
 
   - repo: https://github.com/maresb/check-json5
-    rev: 893a2b5a0a27c3540bd8fcafe2968ccc05237179 # 1.0
+    rev: bd4737432a2175617a9eeaa510ab369cbc1cbd3d  # frozen: v1.0.1
     hooks:
       - id: check-json5
         files: |
@@ -249,7 +249,7 @@ repos:
         description: Runs hadolint to lint Dockerfiles
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 1a1f58ba4c35362efe8fed2279715a905baee93d  # frozen: v0.14.8
+    rev: 0839f92796ae388643a08a21640a029b322be5c2  # frozen: v0.15.2
     hooks:
       - id: ruff
         name: ruff-src
@@ -314,10 +314,19 @@ repos:
         # print the number of files as a sanity-check
         verbose: true
 
-  # Devcontainer context --- this makes Github's "prebuild codespaces" feature work more intelligently for the "Configuration Change" trigger
+  # Updating repo config/tooling files
   - repo: local
     hooks:
+      - id: merge-claude-settings
+        # Keep Claude's settings.json synced with the JSON5 files. It's only for local development, so don't run it in CI
+        name: merge Claude settings
+        entry: bash -c '[[ "${GITHUB_ACTIONS:-}" == "true" || "${CI:-}" == "true" ]] && exit 0; bash .claude/helpers/merge-claude-settings.sh'
+        files: ^\.claude/settings/.*\.(json|jsonc)$
+        pass_filenames: false
+        language: system
+
       - id: compute-devcontainer-context-hash
+        # Devcontainer context --- this makes Github's "prebuild codespaces" feature work more intelligently for the "Configuration Change" trigger
         name: compute devcontainer context hash
         entry: bash -c "python3 .github/workflows/hash_git_files.py . --for-devcontainer-config-update"
         files: (.*.lock)|(.*pnpm-lock.yaml)|(.*hash_git_files.py)|(.devcontainer/.*)|(\.pre-commit-config.yaml)

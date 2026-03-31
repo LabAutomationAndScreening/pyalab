@@ -1,9 +1,14 @@
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+early_access: true
 reviews:
   profile: assertive
   path_instructions:
     - path: "**/vendor_files/**"
       instructions: "These files came from a vendor and we're not allowed to change them. Refer to it if you need to understand how the main code interacts with it, but do not make comments about it."
+    - path: "**/*.py"
+      instructions: "Check the `ruff.toml` and `ruff-test.toml` for linting rules we've explicitly disabled and don't suggest changes to please conventions we've disabled. Do not express concerns about ruff rules; a pre-commit hook already runs a ruff check. Do not warn about unnecessary super().__init__() calls; pyright prefers those to be present. Do not warn about missing type hints; a pre-commit hook already checks for that."
+    - path: "**/.copier-answers.yml"
+      instructions: "Do not comment about the `_commit` value needing to be a clean release tag. A CI job will fail if that is not the case."
   tools:
     eslint: # when the code contains typescript, eslint will be run by pre-commit, and coderabbit often generates false positives
       enabled: false
@@ -14,6 +19,7 @@ reviews:
     flake8: # we use ruff instead (when we use Python)
       enabled: false
   poem: false
+  in_progress_fortune: false
   # the commit status is driven by our repository config and required checks, we don't want CodeRabbit messing with it
   commit_status: false
   auto_review:

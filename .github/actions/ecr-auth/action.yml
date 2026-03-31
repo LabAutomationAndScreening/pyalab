@@ -1,0 +1,23 @@
+name: AWS ECR Auth
+description: 'Use OIDC to Authenticate and login to an AWS ECR.'
+
+inputs:
+  aws-region:
+    description: AWS region to use for ECR authentication
+    required: false
+    default: 'us-east-1'
+  role-arn:
+    description: AWS IAM Role ARN to assume for ECR authentication
+    required: false
+    default: 'arn:aws:iam::000000000000:role/CoreInfraBaseAccess'
+
+runs:
+  using: composite
+  steps:
+    - name: OIDC Auth for ECR
+      uses: aws-actions/configure-aws-credentials@v6.0.0
+      with:
+        role-to-assume: ${{ inputs.role-arn }}
+        aws-region: ${{ inputs.aws-region }}
+    - name: Login to Amazon ECR
+      uses: aws-actions/amazon-ecr-login@v2.0.2

@@ -1,21 +1,21 @@
- ## Link to Issue or Message thread
+## Link to Issue or Message thread
 
 
 
- ## Why is this change necessary?
+## Why is this change necessary?
 
 
 
- ## How does this change address the issue?
+## How does this change address the issue?
 
 
 
- ## What side effects does this change have?
+## What side effects does this change have?
 
 
 
- ## How is this change tested?
+## How is this change tested?
 
 
 
- ## Other
+## Other

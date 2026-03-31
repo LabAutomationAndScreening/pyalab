@@ -1,19 +1,31 @@
 {
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "4gb"
+  },
   "dockerComposeFile": "docker-compose.yml",
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "features": {
+    "ghcr.io/devcontainers/features/git-lfs:1.2.5": {
+      // we are not using git-lfs right now, but its a transitive dep elsewhere. We want to configure auto pull to off since the feature will by default also try to install the git hook
+      // and it breaks creation of the devcontainer since pre-commit hooks are already in place. Probably a better way to fix this but until we use git-lfs we can leave it like this.
+      // https://github.com/devcontainers/features/blob/main/src/git-lfs/README.md
+      "autoPull": false
+    },
     "ghcr.io/devcontainers/features/aws-cli:1.1.2": {
       // https://github.com/devcontainers/features/blob/main/src/aws-cli/devcontainer-feature.json
       // view latest version https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
-      "version": "2.32.6",
+      "version": "2.32.6"
     },
-    "ghcr.io/devcontainers/features/python:1.7.1": {
+    "ghcr.io/devcontainers/features/python:1.8.0": {
       // https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json
       "version": "3.12.7",
       "installTools": false,
       "optimize": true
-    }
+    },
+    // https://github.com/anthropics/devcontainer-features/blob/main/src/claude-code/devcontainer-feature.json
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0.5": {}
   },
   "customizations": {
     "vscode": {
@@ -22,24 +34,25 @@
         "-AmazonWebServices.aws-toolkit-vscode", // the AWS CLI feature installs this automatically, but it's causing problems in VS Code
         // basic tooling
         // "eamodio.gitlens@15.5.1",
-        "coderabbit.coderabbit-vscode@0.16.1",
+        "coderabbit.coderabbit-vscode@0.18.3",
         "ms-vscode.live-server@0.5.2025051301",
         "MS-vsliveshare.vsliveshare@1.0.5905",
         "github.copilot@1.388.0",
-        "github.copilot-chat@0.34.2025112401",
+        "github.copilot-chat@0.42.2026032602",
+        "anthropic.claude-code@2.1.84",
 
         // Python
-        "ms-python.python@2025.17.2025100201",
-        "ms-python.vscode-pylance@2025.8.3",
+        "ms-python.python@2026.5.2026032701",
+        "ms-python.vscode-pylance@2026.1.102",
         "ms-vscode-remote.remote-containers@0.414.0",
-        "charliermarsh.ruff@2025.28.0",
+        "charliermarsh.ruff@2026.38.0",
 
         // Misc file formats
-        "bierner.markdown-mermaid@1.28.0",
+        "bierner.markdown-mermaid@1.29.0",
         "samuelcolvin.jinjahtml@0.20.0",
         "tamasfe.even-better-toml@0.19.2",
         "emilast.LogFileHighlighter@3.3.3",
-        "esbenp.prettier-vscode@11.0.0"
+        "esbenp.prettier-vscode@12.4.0"
       ],
       "settings": {
         "editor.accessibilitySupport": "off", // turn off sounds
@@ -64,5 +77,5 @@
   "initializeCommand": "sh .devcontainer/initialize-command.sh",
   "onCreateCommand": "sh .devcontainer/on-create-command.sh",
   "postStartCommand": "sh .devcontainer/post-start-command.sh"
-  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): bc0c1020 # spellchecker:disable-line
+  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): ae2b32eb # spellchecker:disable-line
 }
