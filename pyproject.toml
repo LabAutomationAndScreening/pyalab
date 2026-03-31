@@ -19,7 +19,7 @@ classifiers = [
 
 ]
 dependencies = [
-    "pydantic>=2.10.3",
+    "pydantic>=2.12.5",
     "inflection>=0.5.1",
     "lxml>=6.0.2",
 ]
