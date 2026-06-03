@@ -25,8 +25,10 @@
       "Bash(~/.claude/hooks/*)",
       "Bash(~/.agents/skills/*)",
       "Bash(~/.claude/skills/*)",
+      "Bash(.claude/skills/**/*)",
       // File System
       "Bash(bat *)",
+      "Bash(cd /workspaces/*)",
       "Bash(chmod *)",
       "Bash(cp *)",
       "Bash(eza *)",
@@ -40,11 +42,65 @@
       "Bash(touch *)",
       "Bash(tree *)",
       // Git & Version Control
-      "Bash(git diff *)",
-      "Bash(git status *)",
-      "Bash(git log *)",
-      "Bash(git rev-parse *)",
+      "Bash(git add *)",
       "Bash(git branch *)",
+      "Bash(git checkout *)",
+      "Bash(git commit *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git mv *)",
+      "Bash(git push)",
+      "Bash(git remote get-url origin)",
+      "Bash(git rev-parse *)",
+      "Bash(git status *)",
+      // Github
+      "Bash(gh issue list *)",
+      "Bash(gh issue view *)",
+      "Bash(gh run download *)",
+      "Bash(gh run list *)",
+      "Bash(gh run view *)",
+      "Bash(gh run watch *)",
+      "Bash(gh search *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr diff *)",
+      // Local app interaction
+      // Claude currently has terrible support for this: https://github.com/anthropics/claude-code/issues/338    using `:*` as a pattern is not allowed (doesn't error, just doesn't really work), so have to specify _something_ between the colon and asterisk.
+      "Bash(curl http://localhost:1*)",
+      "Bash(curl http://localhost:2*)",
+      "Bash(curl http://localhost:3*)",
+      "Bash(curl http://localhost:4*)",
+      "Bash(curl http://localhost:5*)",
+      "Bash(curl http://localhost:6*)",
+      "Bash(curl http://localhost:7*)",
+      "Bash(curl http://localhost:8*)",
+      "Bash(curl http://localhost:9*)",
+      "Bash(curl -s http://localhost:1*)",
+      "Bash(curl -s http://localhost:2*)",
+      "Bash(curl -s http://localhost:3*)",
+      "Bash(curl -s http://localhost:4*)",
+      "Bash(curl -s http://localhost:5*)",
+      "Bash(curl -s http://localhost:6*)",
+      "Bash(curl -s http://localhost:7*)",
+      "Bash(curl -s http://localhost:8*)",
+      "Bash(curl -s http://localhost:9*)",
+      "Bash(curl \"http://localhost:1*)",
+      "Bash(curl \"http://localhost:2*)",
+      "Bash(curl \"http://localhost:3*)",
+      "Bash(curl \"http://localhost:4*)",
+      "Bash(curl \"http://localhost:5*)",
+      "Bash(curl \"http://localhost:6*)",
+      "Bash(curl \"http://localhost:7*)",
+      "Bash(curl \"http://localhost:8*)",
+      "Bash(curl \"http://localhost:9*)",
+      "Bash(curl -s \"http://localhost:1*)",
+      "Bash(curl -s \"http://localhost:2*)",
+      "Bash(curl -s \"http://localhost:3*)",
+      "Bash(curl -s \"http://localhost:4*)",
+      "Bash(curl -s \"http://localhost:5*)",
+      "Bash(curl -s \"http://localhost:6*)",
+      "Bash(curl -s \"http://localhost:7*)",
+      "Bash(curl -s \"http://localhost:8*)",
+      "Bash(curl -s \"http://localhost:9*)",
       // Misc
       "Bash(amp *)",
       "Bash(atuin *)",
@@ -57,8 +113,9 @@
       "Bash(test *)",
       "Bash(zk *)",
       // Node.js
-      "Bash(pnpm test-unit *)",
-      "Bash(pnpm test-e2e *)",
+      "Bash(pnpm list *)",
+      "Bash(pnpm test*)",
+      "Bash(pnpm view *)",
       // Python
       "Bash(uv run pytest *)",
       // Text Processing
@@ -75,9 +132,6 @@
       // Search
       "Bash(rg *)",
       // Research
-      "Bash(gh issue list *)",
-      "Bash(gh pr view *)",
-      "Bash(gh pr diff *)"
     ],
     "ask": [
       // let's hold off before we let it use the github CLI in any free running allow mode...I don't want it somehow approving PRs with the user's credentials
@@ -86,8 +140,6 @@
       "Bash(gh secret *)",
       "Bash(gh ruleset *)",
       "Bash(aws *)", // let's hold off before we let it use AWS CLI in any free running allow mode. We need to be very sure we don't have any access to staging or production credentials in our dev environment (...which we shouldn't...but we need to double check that or consider any other safeguards first)
-      "Bash(curl *)",
-      "Bash(ln *)",
       "WebFetch",
     ],
     "deny": [
@@ -95,13 +147,13 @@
       "Bash(bd init*)", // we need to control the init process, don't let AI do that in the background
       // Github
       // Claude should not ever interfere with the PR process, that is how we gate AI's work
-      "Bash(gh pr create *)",
-      "Bash(gh pr edit *)",
-      "Bash(gh pr ready *)",
-      "Bash(gh pr review *)",
-      "Bash(gh pr merge *)",
       "Bash(gh pr close *)",
       "Bash(gh pr comment *)",
+      "Bash(gh pr create *)",
+      "Bash(gh pr edit *)",
+      "Bash(gh pr merge *)",
+      "Bash(gh pr ready *)",
+      "Bash(gh pr review *)",
       "Bash(gh pr update-branch *)",
 
       // Destructive File Operations
@@ -118,7 +170,6 @@
       "Bash(kill -9 *)",
       "Bash(killall *)",
       // Git & Version Control
-      "Bash(git reset --hard *)",
       "Bash(git push -f *)",
       "Bash(git push --force*)",
       // Node.js

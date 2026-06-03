@@ -23,6 +23,7 @@ jobs:
 
   check-skip-duplicate:
     runs-on: ubuntu-24.04
+    timeout-minutes: 2
     permissions:
       contents: read
       pull-requests: read # needed to check if PR exists for current branch
@@ -62,7 +63,7 @@ jobs:
       matrix:
         os:
           - "ubuntu-24.04"
-          - windows-2025
+          - windows-2025-vs2026
         python-version:
 
           - 3.12.7

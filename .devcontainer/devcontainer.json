@@ -16,7 +16,7 @@
     "ghcr.io/devcontainers/features/aws-cli:1.1.2": {
       // https://github.com/devcontainers/features/blob/main/src/aws-cli/devcontainer-feature.json
       // view latest version https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
-      "version": "2.32.6"
+      "version": "2.34.34"
     },
     "ghcr.io/devcontainers/features/python:1.8.0": {
       // https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json
@@ -25,7 +25,7 @@
       "optimize": true
     },
     // https://github.com/anthropics/devcontainer-features/blob/main/src/claude-code/devcontainer-feature.json
-    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0.5": {}
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0.5": {},
   },
   "customizations": {
     "vscode": {
@@ -34,18 +34,18 @@
         "-AmazonWebServices.aws-toolkit-vscode", // the AWS CLI feature installs this automatically, but it's causing problems in VS Code
         // basic tooling
         // "eamodio.gitlens@15.5.1",
-        "coderabbit.coderabbit-vscode@0.18.3",
+        "coderabbit.coderabbit-vscode@0.19.2",
         "ms-vscode.live-server@0.5.2025051301",
         "MS-vsliveshare.vsliveshare@1.0.5905",
         "github.copilot@1.388.0",
-        "github.copilot-chat@0.42.2026032602",
-        "anthropic.claude-code@2.1.84",
+        "github.copilot-chat@0.44.2",
+        "anthropic.claude-code@2.1.145",
 
         // Python
         "ms-python.python@2026.5.2026032701",
-        "ms-python.vscode-pylance@2026.1.102",
+        "ms-python.vscode-pylance@2026.2.100",
         "ms-vscode-remote.remote-containers@0.414.0",
-        "charliermarsh.ruff@2026.38.0",
+        "charliermarsh.ruff@2026.44.0",
 
         // Misc file formats
         "bierner.markdown-mermaid@1.29.0",
@@ -66,16 +66,16 @@
         },
         "ruff.nativeServer": "on",
         // TODO: see if there's a way to specify different configurations for different folders
-        "ruff.configuration": "/workspaces/pyalab/ruff-test.toml", // use the test configuration since it's less restrictive and won't show false positives and underline things
+        "ruff.configuration": "/workspaces/pyalab/ruff-non-src.toml", // use the non-src configuration since it's less restrictive and won't show false positives and underline things
         "[jsonc][json][javascript][typescript][graphql][css][scss][html][vue]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true
         }
       }
-    }
+    },
   },
   "initializeCommand": "sh .devcontainer/initialize-command.sh",
   "onCreateCommand": "sh .devcontainer/on-create-command.sh",
   "postStartCommand": "sh .devcontainer/post-start-command.sh"
-  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): ae2b32eb # spellchecker:disable-line
+  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): d3b9b681 # spellchecker:disable-line
 }

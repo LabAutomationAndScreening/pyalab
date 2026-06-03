@@ -19,5 +19,8 @@ unfixable = [
     "SIM117", # pytest.raises context managers should generally be separate from others so they can be very specific about where the error is being raised from, so don't autofix this
 ]
 
+[lint.extend-per-file-ignores]
+"!**/tests/**" = ["INP001"] # non-test files aren't part of a package
+
 [lint.flake8-pytest-style]
 raises-require-match-for = ["*"] # ensures we always have a match for our raises statements so that we validate tests fail for the right reason

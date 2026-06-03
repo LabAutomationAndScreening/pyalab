@@ -14,7 +14,8 @@
     "**/generated/open_api",
     "**/.venv",
     "**/venv",
-    "**/copier_template_resources"
+    "**/copier_template_resources",
+    "**/.claude/plugins"
   ],
   "strictListInference": true,
   "strictDictionaryInference": true,

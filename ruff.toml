@@ -50,7 +50,7 @@ ignore = [
     "D107", # Init shouldn't need its own docstring, those arguments can be captured in the class level docstring
     "D203", # Ignore D203 because it's a bug https://github.com/PyCQA/pydocstyle/issues/141
     "D213", # Ignore D213 because mutually exclusive with D212 https://stackoverflow.com/questions/45990301/pep257-d212-and-d213-conflicts
-    "D413", # Docstrings shouldn't have an extra blank line at the end...the PEP that Ruff cites for this rule says that...not sure why ruff is trying to force this. It conflicts with docformatter
+    "D413", # Docstrings shouldn't have an extra blank line at the end...the PEP that Ruff cites for this rule says that...not sure why ruff is trying to force this
     "EM101", # Code readability is more important than traceback readability. People can use their judgement here
     "EM102", # Code readability is more important than traceback readability. People can use their judgement here
     "EM103", # Code readability is more important than traceback readability. People can use their judgement here

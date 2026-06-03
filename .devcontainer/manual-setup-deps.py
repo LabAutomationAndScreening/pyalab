@@ -1,16 +1,17 @@
 import argparse
-import enum
 import json
 import os
 import platform
 import shutil
 import subprocess
 import sys
+from enum import StrEnum
 from pathlib import Path
 from typing import Any
 
 REPO_ROOT_DIR = Path(__file__).parent.parent.resolve()
 ENVS_CONFIG = REPO_ROOT_DIR / ".devcontainer" / "envs.json"
+PULUMI_CLI_INSTALL_SCRIPT = REPO_ROOT_DIR / ".devcontainer" / "install-pulumi-cli.sh"
 UV_PYTHON_ALREADY_CONFIGURED = "UV_PYTHON" in os.environ
 parser = argparse.ArgumentParser(description="Manual setup for dependencies in the repo")
 _ = parser.add_argument(
@@ -52,7 +53,7 @@ _ = parser.add_argument(
 )
 
 
-class PackageManager(str, enum.Enum):
+class PackageManager(StrEnum):
     UV = "uv"
     PNPM = "pnpm"
 
@@ -72,7 +73,7 @@ class EnvConfig:
             raise NotImplementedError(f"Package manager {self.package_manager} is not supported")
 
 
-def main():
+def main():  # noqa: C901,PLR0912,PLR0915 # TODO: cleanup into some subfunctions
     args = parser.parse_args(sys.argv[1:])
     is_windows = platform.system() == "Windows"
     uv_env = dict(os.environ)
@@ -81,7 +82,9 @@ def main():
     generate_lock_file_only = args.only_create_lock
     check_lock_file = not (args.skip_check_lock or args.optionally_check_lock or generate_lock_file_only)
     if args.skip_check_lock and args.optionally_check_lock:
-        print("Cannot skip and optionally check the lock file at the same time.")
+        print(  # noqa: T201 # we want this to print to console for easy viewing
+            "Cannot skip and optionally check the lock file at the same time."
+        )
         sys.exit(1)
 
     with ENVS_CONFIG.open("r") as f:
@@ -90,10 +93,14 @@ def main():
     for env_dict in envs:
         env = EnvConfig(env_dict)
         if args.no_python and env.package_manager == PackageManager.UV:
-            print(f"Skipping environment {env.path} as it uses a Python package manager and --no-python is set")
+            print(  # noqa: T201 # we want this to print to console for easy viewing
+                f"Skipping environment {env.path} as it uses a Python package manager and --no-python is set"
+            )
             continue
         if args.no_node and env.package_manager == PackageManager.PNPM:
-            print(f"Skipping environment {env.path} as it uses a Node package manager and --no-node is set")
+            print(  # noqa: T201 # we want this to print to console for easy viewing
+                f"Skipping environment {env.path} as it uses a Node package manager and --no-node is set"
+            )
             continue
         if env.package_manager == PackageManager.UV and not UV_PYTHON_ALREADY_CONFIGURED:
             if args.python_version is not None:
@@ -118,7 +125,9 @@ def main():
                 if not generate_lock_file_only:
                     uv_args.append("--check")
                 uv_args.extend(["--directory", str(env.path)])
-                _ = subprocess.run(uv_args, check=True, env=uv_env)
+                _ = subprocess.run(  # noqa: S603 # this is all our own input
+                    uv_args, check=True, env=uv_env
+                )
             elif env.package_manager == PackageManager.PNPM:
                 pass  # doesn't seem to be a way to do this https://github.com/orgs/pnpm/discussions/3202
             else:
@@ -128,7 +137,7 @@ def main():
             if env_check_lock:
                 sync_command.append("--frozen")
             if not generate_lock_file_only:
-                _ = subprocess.run(
+                _ = subprocess.run(  # noqa: S603 # this is all our own input
                     sync_command,
                     check=True,
                     env=uv_env,
@@ -140,14 +149,19 @@ def main():
                 and env.lock_file.exists()
                 and '"pulumi"' in env.lock_file.read_text()
             ):
-                _ = subprocess.run(
-                    ["sh", str(REPO_ROOT_DIR / ".devcontainer" / "install-pulumi-cli.sh"), str(env.lock_file)],
-                    check=True,
-                )
+                if not PULUMI_CLI_INSTALL_SCRIPT.exists():
+                    print(  # noqa: T201 # we want this to print to console for easy viewing
+                        f"Pulumi CLI install script not found at {PULUMI_CLI_INSTALL_SCRIPT}, skipping Pulumi CLI installation"
+                    )
+                else:
+                    _ = subprocess.run(  # noqa: S603 # this is all our own input
+                        ["sh", str(PULUMI_CLI_INSTALL_SCRIPT), str(env.lock_file)],  # noqa: S607 # sh should always be on PATH
+                        check=True,
+                    )
         elif env.package_manager == PackageManager.PNPM:
             pnpm_command = ["pnpm", "install", "--dir", str(env.path)]
             if env_check_lock:
-                pnpm_command.append("--frozen-lockfile")
+                pnpm_command[1] = "ci"
             if is_windows:
                 pwsh = shutil.which("pwsh") or shutil.which("powershell")
                 if not pwsh:
@@ -159,7 +173,7 @@ def main():
                     "-Command",
                     " ".join(pnpm_command),
                 ]
-            _ = subprocess.run(
+            _ = subprocess.run(  # noqa: S603 # this is all our own input
                 pnpm_command,
                 check=True,
             )
@@ -174,7 +188,9 @@ def main():
         check=True,
         cwd=REPO_ROOT_DIR,
     )
-    print(result.stdout)
+    print(  # noqa: T201 # we need this to print it out so that other scripts can read it from stdout
+        result.stdout
+    )
 
 
 if __name__ == "__main__":
