@@ -6,7 +6,7 @@ reviews:
     - path: "**/vendor_files/**"
       instructions: "These files came from a vendor and we're not allowed to change them. Refer to it if you need to understand how the main code interacts with it, but do not make comments about it."
     - path: "**/*.py"
-      instructions: "Check the `ruff.toml` and `ruff-test.toml` for linting rules we've explicitly disabled and don't suggest changes to please conventions we've disabled. Do not express concerns about ruff rules; a pre-commit hook already runs a ruff check. Do not warn about unnecessary super().__init__() calls; pyright prefers those to be present. Do not warn about missing type hints; a pre-commit hook already checks for that."
+      instructions: "Never express concerns about potential ruff rule violations, even those rules mentioned in other agent instructions; a pre-commit hook already runs a ruff check. Do not warn about unnecessary super().__init__() calls; pyright prefers those to be present. Do not warn about missing type hints; a pre-commit hook already checks for that."
     - path: "**/.copier-answers.yml"
       instructions: "Do not comment about the `_commit` value needing to be a clean release tag. A CI job will fail if that is not the case."
   tools:

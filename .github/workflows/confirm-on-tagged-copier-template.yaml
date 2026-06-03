@@ -3,16 +3,18 @@ name: Confirm using tagged copier template version
 on:
   workflow_call:
     inputs:
-      answers_file:
-        description: 'Path to the copier answers file'
+      answers_file_pattern:
+        description: 'Regex pattern matching copier answers files (matched against file paths from repository root)'
         type: string
-        default: '.copier-answers.yml'
+        default: '\.copier-answers\.yml$'
 
 jobs:
   confirm-on-tagged-copier-template:
     runs-on: ubuntu-24.04
     timeout-minutes: 2
     name: Fail if template under development
+    env:
+        ANSWERS_FILE_PATTERN: ${{ inputs.answers_file_pattern }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6.0.2
@@ -21,14 +23,21 @@ jobs:
 
       - name: Check _commit is a clean release tag
         run: |
-          ANSWERS_FILE="${{ inputs.answers_file }}"
-          if [ ! -f "$ANSWERS_FILE" ]; then
-            echo "Error: $ANSWERS_FILE not found"
+          PATTERN="$ANSWERS_FILE_PATTERN"
+          mapfile -t ANSWERS_FILES < <(find . -type f -printf '%P\n' | grep -E "$PATTERN")
+          if [ ${#ANSWERS_FILES[@]} -eq 0 ]; then
+            echo "Error: No files matching pattern '$PATTERN' found"
             exit 1
           fi
-          COMMIT_LINE=$(grep "^_commit:" "$ANSWERS_FILE")
-          if echo "$COMMIT_LINE" | grep -q "-"; then
-            echo "Error: $COMMIT_LINE"
-            echo "_commit must be a clean release tag (e.g. v0.0.111), not a dev commit (e.g. v0.0.106-14-g7847d7b)"
+          FAILED=0
+          for ANSWERS_FILE in "${ANSWERS_FILES[@]}"; do
+            COMMIT_LINE=$(grep "^_commit:" "$ANSWERS_FILE")
+            if echo "$COMMIT_LINE" | grep -q "-"; then
+              echo "Error in $ANSWERS_FILE: $COMMIT_LINE"
+              echo "_commit must be a clean release tag (e.g. v0.0.111), not a dev commit (e.g. v0.0.106-14-g7847d7b)"
+              FAILED=1
+            fi
+          done
+          if [ "$FAILED" -eq 1 ]; then
             exit 1
           fi

@@ -1,0 +1,7 @@
+{
+  // Additional directories that Claude Code can access
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "additionalDirectories": ["/tmp", "/workspaces"],
+  },
+}

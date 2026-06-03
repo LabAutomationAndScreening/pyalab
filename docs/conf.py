@@ -3,13 +3,15 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+from typing import Literal
+
 from sphinx.application import Sphinx
-from typing import Any, Literal
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "pyalab"
-copyright = "2024, Eli Fine"
+copyright = "2024, Eli Fine"  # noqa: A001  # Sphinx requires this exact variable name
 author = "Eli Fine"
 
 # -- General configuration ---------------------------------------------------
@@ -43,15 +45,14 @@ html_theme = "alabaster"
 html_static_path = ["_static"]
 
 
-# skip generic pydantic BaseModel methods
-def autodoc_skip_member(  # noqa: PLR0913 # this is a lot of arguments, but it's how Sphinx requires the signature to be
-    app: Sphinx,
-    what: Literal["module", "class", "exception", "function", "method", "attribute"],
+def autodoc_skip_member(  # noqa: PLR0913 # Sphinx requires all these parameters in the callback signature
+    app: Sphinx,  # noqa: ARG001 # signature required by Sphinx autodoc-skip-member event
+    what: Literal["module", "class", "exception", "function", "method", "attribute"],  # noqa: ARG001 # signature required by Sphinx autodoc-skip-member event
     name: str,
-    obj: Any,
+    obj: object,  # noqa: ARG001 # signature required by Sphinx autodoc-skip-member event
     skip: bool,
-    options: dict[str, bool],
-):
+    options: dict[str, bool],  # noqa: ARG001 # signature required by Sphinx autodoc-skip-member event
+) -> bool:
     # Exclude specific attributes by name
     if name in ["model_config", "model_post_init"]:
         return True  # Skip this method from documentation

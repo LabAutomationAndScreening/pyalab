@@ -94,6 +94,21 @@ This phase is **not part of the regular TDD workflow** and must only be applied 
 - Once sufficient understanding is achieved, all spike code is discarded, and normal TDD resumes starting from the **Red Phase**.
 - A Spike is justified only when it is impossible to define a meaningful failing test due to technical uncertainty or unknown system behavior.
 
+### If a New Test Passes Immediately
+
+If a newly written test passes without any implementation change, do not assume it is correct. Verify it actually exercises the intended behavior:
+
+1. Identify the implementation line most likely responsible for the pass
+2. Temporarily remove that line
+3. Run the **full test suite** (not just the new test)
+
+Then interpret the result:
+
+- **Only the new test fails** — the line was never driven by a prior test. This is accidental over-implementation: delete the line permanently and proceed to the green phase to reintroduce it properly.
+- **Other existing tests also fail** — the line was already legitimately required by prior work. The new test is valid regression coverage. Restore the line; the test is confirmed correct as written.
+
+In both cases, confirm the new test fails for the expected reason before proceeding (the right assertion, not a syntax or import error).
+
 ### General Information
 
 - Sometimes the test output shows as no tests have been run when a new test is failing due to a missing import or constructor. In such cases, allow the agent to create simple stubs. Ask them if they forgot to create a stub if they are stuck.

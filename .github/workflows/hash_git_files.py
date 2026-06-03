@@ -40,17 +40,44 @@ def filter_files_for_devcontainer_context(files: list[str]) -> tuple[list[str], 
                 devcontainer_json_file_path = file
                 continue
             devcontainer_context.append(file)
-        elif file.endswith((".lock", "pnpm-lock.yaml", "hash_git_files.py")) or file == ".pre-commit-config.yaml":
+        elif file.endswith((".lock", "pnpm-lock.yaml", "devcontainer-lock.json")) or file == ".pre-commit-config.yaml":
             devcontainer_context.append(file)
     if devcontainer_json_file_path is None:
-        raise ValueError("No devcontainer.json file found in the tracked files.")  # noqa: TRY003 # not worth a custom exception for this
+        raise ValueError("No devcontainer.json file found in the tracked files.")
     return devcontainer_context, Path(devcontainer_json_file_path)
 
 
-def compute_adler32(repo_path: Path, files: list[str]) -> int:
+def get_uv_lock_bytes_for_hashing(file_path: Path) -> bytes:
+    """Return uv.lock content with the root package's version line stripped.
+
+    Only the root package (source = { virtual = "." } or editable = ".") version is stripped, since bumping the package version alone does not require
+    re-running `uv sync`.
+    """
+    lines = file_path.read_text(encoding="utf-8").splitlines(keepends=True)
+    result: list[str] = []
+    i = 0
+    while i < len(lines):
+        if lines[i].rstrip() == "[[package]]":
+            block: list[str] = [lines[i]]
+            i += 1
+            while i < len(lines) and not lines[i].startswith("[["):
+                block.append(lines[i])
+                i += 1
+            is_root = any('virtual = "."' in ln or 'editable = "."' in ln for ln in block)
+            if is_root:
+                block = [ln for ln in block if not ln.startswith("version = ")]
+            result.extend(block)
+        else:
+            result.append(lines[i])
+            i += 1
+    return "".join(result).encode("utf-8")
+
+
+def compute_adler32(repo_path: Path, files: list[str], extra_paths: list[Path] | None = None) -> int:
     """Compute an overall Adler-32 checksum of the provided files.
 
-    The checksum incorporates both the file names and their contents. Files are processed in sorted order to ensure consistent ordering.
+    The checksum incorporates both the file names and their contents. Files are processed in sorted order to ensure consistent ordering. Extra paths
+    are hashed after the main files, keyed by their string representation.
     """
     checksum = 1  # Adler-32 default starting value
 
@@ -59,15 +86,27 @@ def compute_adler32(repo_path: Path, files: list[str]) -> int:
         # Update the checksum with the file name (encoded as bytes)
         checksum = zlib.adler32(file.encode("utf-8"), checksum)
         try:
-            with file_path.open("rb") as f:
-                while True:
-                    chunk = f.read(4096)
-                    if not chunk:
-                        break
-                    checksum = zlib.adler32(chunk, checksum)
+            if file_path.name == "uv.lock":
+                checksum = zlib.adler32(get_uv_lock_bytes_for_hashing(file_path), checksum)
+            else:
+                with file_path.open("rb") as f:
+                    while True:
+                        chunk = f.read(4096)
+                        if not chunk:
+                            break
+                        checksum = zlib.adler32(chunk, checksum)
         except IsADirectoryError:
             # Ignore symlinks that on windows sometimes get confused as being directories
             continue
+
+    for extra_path in sorted(extra_paths or []):
+        checksum = zlib.adler32(str(extra_path).encode("utf-8"), checksum)
+        with extra_path.open("rb") as f:
+            while True:
+                chunk = f.read(4096)
+                if not chunk:
+                    break
+                checksum = zlib.adler32(chunk, checksum)
 
     return checksum
 
@@ -129,6 +168,13 @@ def main():
         description="Compute an Adler-32 checksum of all Git-tracked files in the specified folder."
     )
     _ = parser.add_argument("folder", type=Path, help="Path to the Git repository folder")
+    _ = parser.add_argument(
+        "--extra-paths",
+        nargs="*",
+        type=Path,
+        default=[],
+        help="Additional files to include in the hash (relative to CWD)",
+    )
     _ = parser.add_argument("--debug", action="store_true", help="Print all discovered Git-tracked files")
     _ = parser.add_argument(
         "--for-devcontainer-config-update",
@@ -156,7 +202,7 @@ def main():
             print(file)  # noqa: T201 # this just runs as a simple script, so using print instead of log
 
     # Compute the overall Adler-32 checksum.
-    overall_checksum = compute_adler32(repo_path, files)
+    overall_checksum = compute_adler32(repo_path, files, args.extra_paths)
     overall_checksum_str = f"{overall_checksum:08x}"  # Format the checksum as an 8-digit hexadecimal value.
     if args.for_devcontainer_config_update:
         assert devcontainer_json_file is not None, (
@@ -165,7 +211,7 @@ def main():
         current_hash = extract_devcontainer_context_hash(devcontainer_json_file)
         if current_hash != overall_checksum_str:
             update_devcontainer_context_hash(devcontainer_json_file, overall_checksum_str)
-            print(  # noqa: T201
+            print(  # noqa: T201 # this just runs as a simple script, so using print instead of log
                 f"Updated {devcontainer_json_file} with the new hash: {overall_checksum_str}"
             )
             if args.exit_zero:

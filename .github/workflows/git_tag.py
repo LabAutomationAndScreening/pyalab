@@ -22,7 +22,7 @@ def extract_version(toml_path: Path | str) -> str:
     if version := poetry.get("version"):
         return version
 
-    raise KeyError(f"No version field found in {path!r}")  # noqa: TRY003 # not worth a custom exception
+    raise KeyError(f"No version field found in {path!r}")
 
 
 def ensure_tag_not_present(tag: str, remote: str) -> None:
@@ -33,7 +33,7 @@ def ensure_tag_not_present(tag: str, remote: str) -> None:
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
         )
-        raise Exception(f"Error: tag '{tag}' exists on remote '{remote}'")  # noqa: TRY002,TRY003 # not worth a custom exception
+        raise Exception(f"Error: tag '{tag}' exists on remote '{remote}'")  # noqa: TRY002 # not worth a custom exception
     except subprocess.CalledProcessError:
         # tag not present, continue
         return
