@@ -2,8 +2,8 @@ from enum import Enum
 
 from pydantic import BaseModel
 
-from pyalab.plate import Labware
-from pyalab.steps.base import LiquidMovementParameters
+from ..plate import Labware
+from .base import LiquidMovementParameters
 
 
 class TipChangeMode(Enum):

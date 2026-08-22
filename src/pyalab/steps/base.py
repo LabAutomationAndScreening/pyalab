@@ -12,8 +12,8 @@ from lxml.etree import _Element
 from pydantic import BaseModel
 from pydantic import Field
 
-from pyalab.pipette import Pipette
-from pyalab.pipette import Tip
+from ..pipette import Pipette
+from ..pipette import Tip
 
 WORKING_DIRECTION_KWARGS: dict[str, Any] = {
     "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning

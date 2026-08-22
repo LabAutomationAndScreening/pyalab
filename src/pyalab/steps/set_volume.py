@@ -4,8 +4,7 @@ from typing import override
 
 from pydantic import Field
 
-from pyalab.plate import Labware
-
+from ..plate import Labware
 from .base import Section
 from .base import WellRowCol
 from .base import mm_to_xml

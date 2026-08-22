@@ -4,8 +4,7 @@ from typing import override
 
 from pydantic import Field
 
-from pyalab.plate import Plate
-
+from ..plate import Plate
 from .base import WORKING_DIRECTION_KWARGS
 from .base import DeckSection
 from .base import Location

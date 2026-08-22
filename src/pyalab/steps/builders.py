@@ -2,8 +2,7 @@ import json
 from abc import ABC
 from typing import Any
 
-from pyalab.plate import Labware
-
+from ..plate import Labware
 from .base import Step
 from .params import TipChangeMode
 
