@@ -50,7 +50,11 @@ class LibraryComponent(BaseModel, frozen=True):
         directory = PATH_TO_INCLUDED_XML_FILES / self.type.value
         xml_files = directory.glob("*.xml")
         regex_pattern = re.compile(rf"{self.name}\ V\d+\.xml")
-        matched_files = [file for file in xml_files if regex_pattern.match(file.name)]
+        matched_files: list[Path] = []
+        for file in xml_files:
+            if regex_pattern.match(file.name) is None:
+                continue
+            matched_files.append(file)
         if len(matched_files) == 0:
             raise IntegraLibraryObjectNotFoundError(
                 component_type=self.type, name=self.name, paths_searched=[directory]
