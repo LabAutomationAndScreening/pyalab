@@ -1,3 +1,10 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
 name: Get Values
 
 on:
@@ -35,7 +42,7 @@ jobs:
           JSON
 
       - name: Checkout code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
 
@@ -49,12 +56,19 @@ jobs:
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'merge_group' }}
         id: find-pr-num
         # Based on https://github.com/actions/checkout/issues/58#issuecomment-847922894
+        env:
+          MERGE_MSG: ${{ github.event.merge_group.head_commit.message }}
         run: |
 
           [[ '${{ github.event_name }}' = 'pull_request' ]] && full_number=${{ github.event.number }}
 
           # example message in merge group context: "Merge pull request #10 from org-name/branch-name\n\ncommit message"
-          [[ '${{ github.event_name }}' = 'merge_group' ]] && message='${{ github.event.merge_group.head_commit.message }}' && echo Extracting from $message && number_and_following_text=${message##*#} && full_number=${number_and_following_text%%[!0-9]*}
+          if [[ '${{ github.event_name }}' = 'merge_group' ]]; then
+            message="$MERGE_MSG"
+            echo "Extracting from $message"
+            number_and_following_text="${message##*#}"
+            full_number="${number_and_following_text%%[!0-9]*}"
+          fi
 
           short_number=${full_number:${#full_number}<2?0:-2} # only use the last two digits so that the stack name is no more than 7 characters and doesn't get too long. Based on https://stackoverflow.com/questions/19858600/accessing-last-x-characters-of-a-string-in-bash
 

@@ -1,51 +1,52 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
 name: Install requirements
 description: Setup Python and/or Node, and install dependencies based on the devcontainer specification
 inputs:
   python-version:
-    type: string
     description: Python version to install
     required: false # if this is set, then assume you want python dependencies installed
     default: 'notUsing'
   node-version:
-    type: string
     description: Node version to install
     required: false # if this is set, then assume you want node dependencies installed
+    default: 'notUsing'
+  package-json-file:
+    description: Relative path to a package.json to read the pnpm version from (its `packageManager` or `devEngines.packageManager` field). When unset, the pnpm version pinned by the template is used instead.
+    required: false
     default: 'notUsing'
   install-deps:
     required: false
     default: true
-    type: boolean
     description: Whether to run the setup-deps script, or just to setup basic CI tooling
   skip-installing-ssm-plugin-manager:
     required: false
     default: false
-    type: boolean
     description: Whether to explicitly skip installing the SSM Plugin manager when setting up basic CI tooling
   project-dir:
-    type: string
     description: What's the relative path to the project?
     required: false
     default: ./
   code-artifact-auth-role-name:
-    type: string
     description: What's the role name to use for CodeArtifact authentication?
     required: false
     default: no-code-artifact
   code-artifact-auth-role-account-id:
-    type: string
     description: What's the AWS Account ID that the role is in?
     required: false
   code-artifact-auth-region:
-    type: string
     description: What region should the role use?
     required: false
   skip-updating-devcontainer-hash:
-    type: boolean
     description: Whether to skip updating the hash when running manual-setup-deps.py
     default: true
     required: false
   skip-installing-pulumi-cli:
-    type: boolean
     description: Whether to skip installing the Pulumi CLI even if the lock file references it
     default: false
     required: false
@@ -63,24 +64,41 @@ runs:
 
     - name: Setup python
       if: ${{ inputs.python-version != 'notUsing' }}
-      uses: actions/setup-python@v6.2.0
+      uses: actions/setup-python@v7.0.0
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
-    - name: Setup node
+    - name: Check for a pnpm lock file # pnpm/setup can only cache the store when there's a lock file at the repo root to key the cache off of
+      id: pnpm-lock-probe
       if: ${{ inputs.node-version != 'notUsing' }}
-      uses: actions/setup-node@v6.3.0
+      run: |
+        if [ -f pnpm-lock.yaml ]; then
+          echo "exists=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "exists=false" >> "$GITHUB_OUTPUT"
+        fi
+      shell: bash
+
+    - name: Setup pnpm and node # this action installs both pnpm and the node runtime, so actions/setup-node is not needed
+      if: ${{ inputs.node-version != 'notUsing' }}
+      uses: pnpm/setup@v2.0.2
       with:
-        node-version: ${{ inputs.node-version }}
+        # an empty version makes pnpm/setup read it from package-json-file instead. Passing both a version and a package.json with a conflicting `packageManager` field is a hard error in pnpm/setup.
+        version: ${{ inputs.package-json-file == 'notUsing' && '11.22.0' || '' }}
+        package-json-file: ${{ inputs.package-json-file == 'notUsing' && 'package.json' || inputs.package-json-file }}
+        runtime: node@${{ inputs.node-version }}
+        cache: ${{ steps.pnpm-lock-probe.outputs.exists }}
+        install: false # dependency installation is handled by manual-setup-deps.py, which knows about every environment in the repo
 
     - name: Install tooling
       # the funky syntax is github action ternary
-      run: python .devcontainer/install-ci-tooling.py ${{ inputs.python-version == 'notUsing' && '--no-python' || '' }} ${{ inputs.node-version == 'notUsing' && '--no-node' || '' }} ${{ inputs.skip-installing-ssm-plugin-manager && '--skip-installing-ssm-plugin' || '' }}
+      # --no-node is always passed because the only node tooling this script installs is pnpm, which pnpm/setup above already installed
+      run: python .devcontainer/install-ci-tooling.py ${{ inputs.python-version == 'notUsing' && '--no-python' || '' }} --no-node ${{ inputs.skip-installing-ssm-plugin-manager && '--skip-installing-ssm-plugin' || '' }}
       shell: pwsh
 
     - name: OIDC Auth for CodeArtifact
       if: ${{ inputs.code-artifact-auth-role-name != 'no-code-artifact' }}
-      uses: aws-actions/configure-aws-credentials@v6.1.0
+      uses: aws-actions/configure-aws-credentials@v6.2.3
       with:
         role-to-assume: arn:aws:iam::${{ inputs.code-artifact-auth-role-account-id }}:role/${{ inputs.code-artifact-auth-role-name }}
         aws-region: ${{ inputs.code-artifact-auth-region }}

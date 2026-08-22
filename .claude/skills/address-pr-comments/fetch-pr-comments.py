@@ -70,6 +70,7 @@ def gh_rest(*args: str) -> Any:  # noqa: ANN401 — return type is genuinely unk
         ["gh", *call_args],  # noqa: S607 — gh is expected on PATH
         capture_output=True,
         text=True,
+        encoding="utf-8",
         check=True,
         timeout=GH_TIMEOUT_SECONDS,
     )
@@ -91,6 +92,7 @@ def gh_graphql(query: str, variables: dict[str, str | int]) -> Any:  # noqa: ANN
         args,
         capture_output=True,
         text=True,
+        encoding="utf-8",
         check=True,
         timeout=GH_TIMEOUT_SECONDS,
     )
@@ -105,6 +107,7 @@ def fetch_current_user_login() -> str:
         ["gh", "api", "user", "--jq", ".login"],  # noqa: S607 — gh is expected on PATH
         capture_output=True,
         text=True,
+        encoding="utf-8",
         check=True,
         timeout=GH_TIMEOUT_SECONDS,
     )
@@ -320,3 +323,11 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================

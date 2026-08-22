@@ -19,4 +19,12 @@ npm install -g @beads/bd@0.57.0 # no specific reason for this version, just pinn
 
 pre-commit install --install-hooks
 
-python .devcontainer/manual-setup-deps.py --optionally-check-lock
+python .devcontainer/manual-setup-deps.py --optionally-check-lock --allow-uv-to-install-python
+
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================

@@ -1,3 +1,12 @@
+/*
+ * ============== WARNING ==============================================================================
+ * File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+ * See .config/.copier-managed-files.json for details.
+ *
+ * You are welcome to make changes to this file in your repo if they are custom to your project,
+ * but if the change should be shared with other projects, please backport it to the template repo.
+ * =====================================================================================================
+ */
 {
   // Bash command permissions - allowed and denied shell operations
   // This should only ever be running in a devcontainer, so pretty lenient permissions are allowed
@@ -41,18 +50,8 @@
       "Bash(tar *)",
       "Bash(touch *)",
       "Bash(tree *)",
-      // Git & Version Control
-      "Bash(git add *)",
-      "Bash(git branch *)",
-      "Bash(git checkout *)",
-      "Bash(git commit *)",
-      "Bash(git diff *)",
-      "Bash(git log *)",
-      "Bash(git mv *)",
-      "Bash(git push)",
-      "Bash(git remote get-url origin)",
-      "Bash(git rev-parse *)",
-      "Bash(git status *)",
+      // Git & Version Control - anything not explicitly denied
+      "Bash(git *)",
       // Github
       "Bash(gh issue list *)",
       "Bash(gh issue view *)",
@@ -111,6 +110,7 @@
       "Bash(just *)",
       "Bash(lsof *)",
       "Bash(test *)",
+      "Bash(xxd)", // this invocation can be used to read, but not to write (so no " *" after it)
       "Bash(zk *)",
       // Node.js
       "Bash(pnpm list *)",
@@ -172,6 +172,7 @@
       // Git & Version Control
       "Bash(git push -f *)",
       "Bash(git push --force*)",
+      "Bash(git push --tags*)",
       // Node.js
       "Bash(npm publish *)",
       // System Administration

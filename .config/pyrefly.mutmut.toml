@@ -1,0 +1,18 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
+# Used ONLY by mutmut's type_check_command
+# mutmut runs the checker from the `mutants/` subfolder. This config makes pyrefly check the generated
+# mutants tree (gitignored, so use-ignore-files must be off) instead of the real source.
+use-ignore-files = false
+disable-project-excludes-heuristics = true
+python-platform = "linux"
+project-includes = ["../mutants/src/**"]
+project-excludes = [
+    # paths are relative to this config file (in .config/), so prefix with ../ to anchor at the repo root
+    "../**/generated/**",
+]

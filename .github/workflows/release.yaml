@@ -1,0 +1,391 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-python-package-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (test the workflow, skip actual release)"
+        type: boolean
+        default: false
+
+env:
+  PYTHONUNBUFFERED: True
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: read # need to explicitly provide this whenever defining permissions because the default value is 'none' for anything not explicitly set when permissions are defined
+
+jobs:
+  guard:
+    name: Guard on a passing CI run
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    permissions:
+      contents: read # needed for checkout
+      actions: read # needed to query CI workflow runs
+    outputs:
+      version: ${{ steps.get-version.outputs.version }}
+      ci-run-id: ${{ steps.get-ci-run-id.outputs.ci-run-id }}
+    steps:
+      - name: Fail if real release is not on main
+        if: ${{ !inputs.dry_run && github.ref != 'refs/heads/main' }}
+        run: |
+          echo "Real releases must run from main. Current ref: ${{ github.ref }}"
+          exit 1
+      - name: Get CI run ID for this commit
+        id: get-ci-run-id
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ALL_RUNS=$(gh api "/repos/${{ github.repository }}/actions/workflows/ci.yaml/runs?head_sha=${{ github.sha }}")
+          echo "All ci.yaml runs for ${{ github.sha }}:"
+          echo "$ALL_RUNS" | jq '[.workflow_runs[] | {id, status, conclusion, created_at}]'
+          LATEST_RUN=$(echo "$ALL_RUNS" | jq '.workflow_runs | first')
+          RUN_ID=$(echo "$LATEST_RUN" | jq -r '.id')
+          STATUS=$(echo "$LATEST_RUN" | jq -r '.status')
+          CONCLUSION=$(echo "$LATEST_RUN" | jq -r '.conclusion')
+          echo "Most recent ci.yaml run: id=$RUN_ID status=$STATUS conclusion=$CONCLUSION"
+          if [ "$STATUS" != "completed" ] || [ "$CONCLUSION" != "success" ]; then
+            echo "Most recent ci.yaml run has not completed successfully. Wait for CI to pass before releasing."
+            exit 1
+          fi
+          echo "ci-run-id=$RUN_ID" >> $GITHUB_OUTPUT
+      - name: Verify workflow-summary passed in CI run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          JOBS=$(gh api "/repos/${{ github.repository }}/actions/runs/${{ steps.get-ci-run-id.outputs.ci-run-id }}/jobs")
+          echo "Jobs in CI run ${{ steps.get-ci-run-id.outputs.ci-run-id }}:"
+          echo "$JOBS" | jq '[.jobs[] | {name, conclusion}]'
+          CONCLUSION=$(echo "$JOBS" | jq -r '.jobs[] | select(.name == "workflow-summary") | .conclusion')
+          echo "workflow-summary conclusion: $CONCLUSION"
+          if [ "$CONCLUSION" != "success" ] && [ "${{ inputs.dry_run }}" != "true" ]; then
+            echo "workflow-summary did not succeed. Wait for CI to pass before releasing."
+            exit 1
+          fi
+      - name: Checkout code
+        uses: actions/checkout@v7.0.1
+      - name: Setup python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: 3.12.7
+      - name: Extract project version
+        id: get-version
+        run: |
+          VERSION=$(python3 .github/workflows/extract_project_version.py pyproject.toml)
+          echo "Project version: $VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      - name: Check version tag does not already exist
+        run: |
+          if python3 .github/workflows/git_tag.py --version "${{ steps.get-version.outputs.version }}" --confirm-tag-not-present; then
+            echo "Tag v${{ steps.get-version.outputs.version }} does not exist yet."
+          else
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              echo "Tag v${{ steps.get-version.outputs.version }} already exists (dry run, continuing)."
+            else
+              echo "Tag v${{ steps.get-version.outputs.version }} already exists. Bump the version before releasing."
+              exit 1
+            fi
+          fi
+
+
+  publish-to-staging:
+    name: Publish Python distribution to Staging Package Registry
+    timeout-minutes: 8
+    needs:
+      - guard
+    runs-on: ubuntu-24.04
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/pyalab
+    permissions:
+      attestations: write
+      id-token: write
+      actions: read # needed to download the distribution artifact from the CI run
+    steps:
+      - name: Download all the dists
+        uses: actions/download-artifact@v8.0.1
+        with:
+          name: python-package-distributions
+          path: dist/
+          run-id: ${{ needs.guard.outputs.ci-run-id }}
+          github-token: ${{ github.token }}
+
+      - name: Publish distribution to Test PyPI
+        uses: pypa/gh-action-pypi-publish@v1.14.0
+        with:
+          attestations: false
+          repository-url: https://test.pypi.org/legacy/
+
+
+  install-from-staging:
+    name: Install package from staging registry
+    timeout-minutes: 8
+    needs:
+      - publish-to-staging
+      - guard
+    strategy:
+      matrix:
+        os:
+          - "ubuntu-24.04"
+          - windows-2025-vs2026
+        python-version:
+
+          - 3.12.7
+
+          - 3.13.9
+
+          - 3.14.0
+
+        include:
+          - os: "ubuntu-24.04"
+            python-version: "3.12.7"
+            JOB_MATCHING_DEV_ENV: true
+
+    runs-on: ${{ matrix.os }}
+    env:
+      UV_PYTHON: ${{ matrix.python-version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7.0.1
+      - name: Setup python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Wait for Test PyPI to serve the new version
+        shell: bash
+        run: |
+          set -euo pipefail
+          PKG="pyalab"
+          VER="${{ needs.guard.outputs.version }}"
+          for i in $(seq 1 60); do
+            code="$(curl -fsS -o /dev/null -w '%{http_code}' "https://test.pypi.org/pypi/${PKG}/${VER}/json" || true)"
+            if [ "$code" = "200" ]; then
+              echo "Found ${PKG}==${VER} on Test PyPI."
+              break
+            fi
+            echo "Not yet available; sleeping 5s..."
+            sleep 5
+          done
+
+          if [ "$code" != "200" ]; then
+            echo "Timeout waiting for ${PKG}==${VER} on Test PyPI API."
+            exit 1
+          fi
+
+          # Then try to install with retries to ensure it's actually available in the index
+          DOWNLOAD_DIR="$(mktemp -d)"
+          for i in $(seq 1 12); do
+            if pip download --no-deps --index-url https://test.pypi.org/simple/ "${PKG}==${VER}" --dest "${DOWNLOAD_DIR}" --no-cache-dir --quiet; then
+              if pip install --index-url https://pypi.org/simple --find-links "${DOWNLOAD_DIR}" "${PKG}==${VER}" --no-cache-dir --quiet; then
+                echo "Successfully installed ${PKG}==${VER}"
+                exit 0
+              fi
+            fi
+            echo "Package not yet installable; sleeping 10s... (attempt $i/12)"
+            sleep 10
+          done
+
+          echo "Timeout waiting for ${PKG}==${VER} to be installable."
+          exit 1
+      - name: Display dependencies
+        run: pip list
+      - name: Confirm library can be imported successfully
+        env:
+          PYTHONPATH: ""  # avoid picking up local sources
+        shell: bash
+        run: |
+          python - <<'PY'
+          import sys, importlib, importlib.util, importlib.metadata as md, pathlib
+          print(f"Python version {sys.version}")
+          mod_name = "pyalab"
+          dist_name = mod_name
+          m = importlib.import_module(mod_name)
+          spec = importlib.util.find_spec(mod_name)
+          origin = (getattr(spec, "origin", None) or getattr(m, "__file__", "")) or ""
+          p = pathlib.Path(origin)
+          print(f"Imported from: {p}")
+          assert any(s in str(p) for s in ("site-packages", "dist-packages")), f"Expected site/dist-packages, got {p}"
+          expected = "${{ needs.guard.outputs.version }}"
+          installed = md.version(dist_name)
+          print(f"Installed distribution version: {installed} (expected {expected})")
+          assert installed == expected, f"Version mismatch: expected {expected}, got {installed}"
+          PY
+
+  create-tag:
+    name: Create the git tag
+    if: ${{ !inputs.dry_run }}
+    timeout-minutes: 8
+    needs:
+      - install-from-staging
+      - guard
+    permissions:
+      contents: write # needed to push the tag
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7.0.1
+      - name: Setup python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: 3.12.7
+      - name: Confirm tag not already present
+        run: python3 ./.github/workflows/git_tag.py --version "${{ needs.guard.outputs.version }}" --confirm-tag-not-present
+      - name: Create tag
+        run: python3 ./.github/workflows/git_tag.py --version "${{ needs.guard.outputs.version }}" --push-tag-to-remote
+
+  publish-to-primary:
+    name: Publish Python distribution to Primary Package Registry
+    if: ${{ !inputs.dry_run }}
+    needs:
+      - create-tag
+      - guard
+    timeout-minutes: 8
+    runs-on: ubuntu-24.04
+    environment:
+      name: pypi
+      url: https://pypi.org/p/pyalab
+    permissions:
+      attestations: write
+      id-token: write
+      actions: read # needed to download the distribution artifact from the CI run
+    steps:
+      - name: Download all the dists
+        uses: actions/download-artifact@v8.0.1
+        with:
+          name: python-package-distributions
+          path: dist/
+          run-id: ${{ needs.guard.outputs.ci-run-id }}
+          github-token: ${{ github.token }}
+
+      - name: Publish distribution to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.14.0
+        with:
+          attestations: false
+
+  install-from-primary:
+    name: Install package from primary registry
+    if: ${{ !inputs.dry_run }}
+    needs:
+      - publish-to-primary
+      - guard
+    strategy:
+      matrix:
+        os:
+          - "ubuntu-24.04"
+          - windows-2025-vs2026
+        python-version:
+
+          - 3.12.7
+
+          - 3.13.9
+
+          - 3.14.0
+
+        include:
+          - os: "ubuntu-24.04"
+            python-version: "3.12.7"
+            JOB_MATCHING_DEV_ENV: true
+
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 8
+    env:
+      UV_PYTHON: ${{ matrix.python-version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7.0.1
+      - name: Setup python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Wait for PyPI to serve the new version
+        shell: bash
+        run: |
+          set -euo pipefail
+          PKG="pyalab"
+          VER="${{ needs.guard.outputs.version }}"
+          for i in $(seq 1 60); do
+            code="$(curl -fsS -o /dev/null -w '%{http_code}' "https://pypi.org/pypi/${PKG}/${VER}/json" || true)"
+            if [ "$code" = "200" ]; then
+              echo "Found ${PKG}==${VER} on PyPI."
+              break
+            fi
+            echo "Not yet available; sleeping 5s..."
+            sleep 5
+          done
+
+          if [ "$code" != "200" ]; then
+            echo "Timeout waiting for ${PKG}==${VER} on PyPI API."
+            exit 1
+          fi
+
+          # Then try to install with retries to ensure it's actually available in the index
+          for i in $(seq 1 12); do
+            if pip install --index-url https://pypi.org/simple/ "${PKG}==${VER}" --no-cache-dir --quiet; then
+              echo "Successfully installed ${PKG}==${VER}"
+              exit 0
+            fi
+            echo "Package not yet installable; sleeping 10s... (attempt $i/12)"
+            sleep 10
+          done
+
+          echo "Timeout waiting for ${PKG}==${VER} to be installable."
+          exit 1
+      - name: Display dependencies
+        run: pip list
+      - name: Confirm library can be imported successfully
+        env:
+          PYTHONPATH: ""  # avoid picking up local sources
+        shell: bash
+        run: |
+          python - <<'PY'
+          import sys, importlib, importlib.util, importlib.metadata as md, pathlib
+          print(f"Python version {sys.version}")
+          mod_name = "pyalab"
+          dist_name = mod_name
+          m = importlib.import_module(mod_name)
+          spec = importlib.util.find_spec(mod_name)
+          origin = (getattr(spec, "origin", None) or getattr(m, "__file__", "")) or ""
+          p = pathlib.Path(origin)
+          print(f"Imported from: {p}")
+          assert any(s in str(p) for s in ("site-packages", "dist-packages")), f"Expected site/dist-packages, got {p}"
+          expected = "${{ needs.guard.outputs.version }}"
+          installed = md.version(dist_name)
+          print(f"Installed distribution version: {installed} (expected {expected})")
+          assert installed == expected, f"Version mismatch: expected {expected}, got {installed}"
+          PY
+
+
+  release:
+    name: Create GitHub Release
+    if: ${{ !inputs.dry_run }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    needs:
+      - guard
+      - create-tag
+      - install-from-primary
+    permissions:
+      contents: write # needed to create GitHub releases
+    steps:
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v3.0.0
+        with:
+          tag_name: v${{ needs.guard.outputs.version }}
+          target_commitish: ${{ github.sha }}
+          name: pyalab v${{ needs.guard.outputs.version }}
+          generate_release_notes: true

@@ -1,3 +1,10 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
 # Exclude a variety of commonly ignored directories.
 exclude = [
     ".bzr",
@@ -32,6 +39,9 @@ exclude = [
 line-length = 120
 indent-width = 4
 
+# resolved relative to the cwd where ruff runs (repo root under pre-commit), so this nests the cache under .config
+cache-dir = ".config/.ruff_cache"
+
 target-version = "py312"
 
 [lint]
@@ -40,6 +50,7 @@ ignore = [
     # rules that conflict with the Ruff formatter https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
     "W191","E111","E114","E117","D206","Q000","Q001","Q002","Q003","COM812","COM819","ISC001","ISC002","E501",
 
+    "CPY001", # We don't care about having copyright headers in every file # spellchecker:disable-line
     "D100", # Docstrings are not always necessary for public modules
     "D101", # Docstrings are not always necessary for public classes
     "D102", # Docstrings are not always necessary for public methods
@@ -59,11 +70,15 @@ ignore = [
     "N999", # Ignoring this since we are using jinja templates in the directory path which will eventually turn into a valid module name. # TODO: make a task in downstream templates to remove this
     "S101", # We do not use the -o optimize flag, so it's fine to use `assert` in the main code. It's especially helpful for static typing
     "SIM102", # Nested if statements can be better analyzed by coverage detectors than compound statements
+    "SIM103", # Explicit if/else branches let the coverage checker track both paths, unlike evaluating an expression
+    "SIM108", # Explicit if/else branches let the coverage checker track both paths, unlike a ternary
+    "SIM110", # Explicit if statements and loops let the coverage checker track both paths, unlike using `any` or `all` with a generator expression
+    "SIM114", # Using `or` statements to simplify this would confuse the coverage checker
+    "SIM401", # using dictionary getters to simplify this would inhibit the coverage checker from tracking both paths
     "TD002", # Adding author names to TODOs erodes shared ownership of codebase. Git history provides information about who originally created the TODO if that information is vitally needed
     "TD003", # Up to the author's judgement whether a TODO requires a link to an issue or not
     "TID252", # Sometimes it makes sense to use relative imports, that's a judgement call for us, not ruff
     "TC006", # Adding quotes around classes unnecessarily confuses the IDE for automatic refactoring
-    "SIM114", # Using `or` statements to simplify this would confuse the coverage checker
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.

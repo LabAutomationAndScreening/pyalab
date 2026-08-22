@@ -82,3 +82,13 @@ When refactoring implementation, watch for **Peeping Tom** tests that:
 - Break on any refactoring even when behavior is preserved
 
 If tests fail after a pure refactoring (no behavior change), consider whether the tests are testing implementation rather than behavior.
+
+<!--
+============== WARNING ==============================================================================
+File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+See .config/.copier-managed-files.json for details.
+
+You are welcome to make changes to this file in your repo if they are custom to your project,
+but if the change should be shared with other projects, please backport it to the template repo.
+=====================================================================================================
+-->
