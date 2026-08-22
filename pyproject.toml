@@ -35,7 +35,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     # Specific to this repository
-    "lxml-stubs>=0.5.1",
+    "types-lxml>=2026.2.16",
     "syrupy>=5.2.1",
     "pytest-mock>=3.15.1",
     "faker>=40.21.0",
