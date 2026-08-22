@@ -52,7 +52,7 @@ html_theme = "alabaster"
 html_static_path = ["_static"]
 
 
-def autodoc_skip_member(  # noqa: PLR0913 # Sphinx requires all these parameters in the callback signature
+def autodoc_skip_member(  # noqa: PLR0913, PLR0917 # Sphinx requires all these parameters, positionally, in the callback signature
     app: Sphinx,  # noqa: ARG001 # signature required by Sphinx autodoc-skip-member event
     what: Literal["module", "class", "exception", "function", "method", "attribute"],  # noqa: ARG001 # signature required by Sphinx autodoc-skip-member event
     name: str,
