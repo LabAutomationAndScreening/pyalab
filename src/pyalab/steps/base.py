@@ -155,15 +155,11 @@ class Step(BaseModel, ABC):
     @abstractmethod
     def _add_value_groups(self) -> None: ...
 
-    def _add_value_group(
-        self, *, group_name: str, values: list[tuple[str, str]]
-    ) -> None:
+    def _add_value_group(self, *, group_name: str, values: list[tuple[str, str]]) -> None:
         assert self._value_groups_node is not None, (
             "Should never happen, because this private method is only called after create_xml_for_program"
         )
-        group_node = etree.SubElement(
-            self._value_groups_node, "ValueGroup", attrib={"Key": group_name}
-        )
+        group_node = etree.SubElement(self._value_groups_node, "ValueGroup", attrib={"Key": group_name})
         values_node = etree.SubElement(group_node, "Values")
         for name, value in values:
             is_c_data_needed = any(char in value for char in SPECIAL_CHARS)
@@ -176,10 +172,7 @@ class Step(BaseModel, ABC):
             group_name="LLD",
             values=[
                 ("UseLLD", json.dumps(obj=False)),
-                (
-                    "LLDErrorHandling",
-                    json.dumps(LldErrorHandlingMode.PAUSE_AND_REPEAT.value),
-                ),
+                ("LLDErrorHandling", json.dumps(LldErrorHandlingMode.PAUSE_AND_REPEAT.value)),
                 ("LLDHeights", json.dumps(None)),
             ],
         )
@@ -196,11 +189,7 @@ class Step(BaseModel, ABC):
         )
 
     def _add_mix_group(
-        self,
-        *,
-        mix_location: MixLocation,
-        well_info: dict[str, Any],
-        deck_section_info: dict[str, Any],
+        self, *, mix_location: MixLocation, well_info: dict[str, Any], deck_section_info: dict[str, Any]
     ):
         values = [
             ("MixActive", json.dumps(obj=False)),
@@ -270,9 +259,7 @@ class Step(BaseModel, ABC):
             values=values,
         )
 
-    def _create_height_config_value_tuples(
-        self, *, deck_section_info: dict[str, Any]
-    ) -> list[tuple[str, str]]:
+    def _create_height_config_value_tuples(self, *, deck_section_info: dict[str, Any]) -> list[tuple[str, str]]:
         return [
             (
                 "SectionHeightConfig",
@@ -301,11 +288,7 @@ class Step(BaseModel, ABC):
         ]
 
     def _create_heights_value_tuple(
-        self,
-        *,
-        well_info: dict[str, Any],
-        deck_section_info: dict[str, Any],
-        start_height: float,
+        self, *, well_info: dict[str, Any], deck_section_info: dict[str, Any], start_height: float
     ) -> tuple[str, str]:
         end_height = start_height  # TODO: implement moving aspirate/dispense
         return (
@@ -323,23 +306,13 @@ class Step(BaseModel, ABC):
             ),
         )
 
-    def _add_location_group(
-        self,
-        *,
-        location: Location,
-        well_info: list[dict[str, Any]],
-        deck_section: DeckSection,
-    ):
+    def _add_location_group(self, *, location: Location, well_info: list[dict[str, Any]], deck_section: DeckSection):
         values = [
             ("MultiSelection", json.dumps(well_info)),
             (
                 "WellOffsets",
                 json.dumps(
-                    [
-                        WellOffsets(
-                            offset_x=0, offset_y=0, **deck_section.model_dump()
-                        ).model_dump(by_alias=True)
-                    ]
+                    [WellOffsets(offset_x=0, offset_y=0, **deck_section.model_dump()).model_dump(by_alias=True)]
                 ),
             ),
         ]
