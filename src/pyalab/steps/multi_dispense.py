@@ -1,8 +1,8 @@
 import json
-from typing import Any
 from typing import override
 
 from pydantic import Field
+from pydantic import JsonValue
 
 from .base import WORKING_DIRECTION_KWARGS
 from .base import DeckSection
@@ -60,7 +60,7 @@ class MultiDispense(LiquidTransferStep):
         destination_well = WellRowCol(column_index=self.destinations[0][0].column_index, row_index=0).model_dump(
             by_alias=True
         )  # TODO: handle row index
-        source_info: list[dict[str, Any]] = [
+        source_info: list[dict[str, JsonValue]] = [
             {
                 "Wells": [source_well],
                 **source_deck_section,
@@ -68,7 +68,7 @@ class MultiDispense(LiquidTransferStep):
                 **WORKING_DIRECTION_KWARGS,
             }
         ]
-        target_info: list[dict[str, Any]] = [
+        target_info: list[dict[str, JsonValue]] = [
             {
                 "Wells": [destination_well],
                 **destination_deck_section,

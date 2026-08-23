@@ -106,7 +106,7 @@ class TestSimpleTransferProgramSnapshots(ProgramSnapshot):
             )
         )
 
-        kwargs: dict[str, Any] = {}
+        kwargs: dict[str, Any] = {}  # pyrefly: ignore[explicit-any] # the values are heterogeneous by nature---this dict only exists to omit kwargs so the constructor defaults get exercised
         if aspirate_params is not None:
             kwargs["aspirate_parameters"] = aspirate_params
         if dispense_params is not None:

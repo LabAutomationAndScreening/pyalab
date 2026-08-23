@@ -4,7 +4,6 @@ import uuid
 from copy import deepcopy
 from functools import cached_property
 from pathlib import Path
-from typing import Any
 from typing import override
 from xml.dom import minidom
 
@@ -42,7 +41,7 @@ class Program(BaseModel):
     steps: list[Step] = Field(default_factory=list)
 
     @override
-    def model_post_init(self, _: Any) -> None:
+    def model_post_init(self, _: object) -> None:
         if self.is_d_one and isinstance(self.tip, Tip):
             raise InvalidTipInputFormatError(pipette_is_d_one=True)
         if not self.is_d_one and isinstance(self.tip, DOneTips):

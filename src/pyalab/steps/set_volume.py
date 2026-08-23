@@ -1,5 +1,4 @@
 import json
-from typing import Any
 from typing import override
 
 from pydantic import Field
@@ -45,7 +44,7 @@ class SetVolume(StepWithPipetteSpan):
             section=self.section_index,
             sub_section=-1,  # TODO: figure out what subsection means
         )
-        volume_info: list[dict[str, Any]] = [
+        volume_info = [
             {
                 "WellCoordinates": [
                     well.model_dump(by_alias=True),

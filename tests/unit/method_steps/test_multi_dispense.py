@@ -102,7 +102,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
                 )
             )
 
-        kwargs: dict[str, Any] = {
+        kwargs: dict[str, Any] = {  # pyrefly: ignore[explicit-any] # the values are heterogeneous by nature---this dict only exists to omit kwargs so the constructor defaults get exercised
             kwarg_name: value
             for value, kwarg_name in [
                 (aspirate_params, "aspirate_parameters"),
@@ -183,7 +183,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
             )
         )
 
-        kwargs: dict[str, Any] = {
+        kwargs: dict[str, Any] = {  # pyrefly: ignore[explicit-any] # the values are heterogeneous by nature---this dict only exists to omit kwargs so the constructor defaults get exercised
             kwarg_name: value
             for value, kwarg_name in [
                 (pipette_span, "pipette_span"),

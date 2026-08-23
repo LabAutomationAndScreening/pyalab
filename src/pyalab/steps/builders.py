@@ -1,6 +1,7 @@
 import json
 from abc import ABC
-from typing import Any
+
+from pydantic import JsonValue
 
 from ..plate import Labware
 from .base import Step
@@ -32,7 +33,7 @@ class LiquidTransferStep(StepWithPipetteSpan, ABC):
             ],
         )
 
-    def _add_tip_touch_target_group(self, deck_section_model_dict: dict[str, Any]) -> None:
+    def _add_tip_touch_target_group(self, deck_section_model_dict: dict[str, JsonValue]) -> None:
         self._add_value_group(
             group_name="TipTouchTarget",
             values=[
