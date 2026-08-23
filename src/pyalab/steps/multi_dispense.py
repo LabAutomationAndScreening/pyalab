@@ -78,10 +78,10 @@ class MultiDispense(LiquidTransferStep):
         ]
         # pylint:disable=duplicate-code # This seems decently DRY...there's just a bit of similarity between steps...which might disappear as more values are parametrized
         self._add_location_group(
-            location=Location.SOURCE, well_info=source_info, deck_section=source_deck_section_model
+            location=Location.SOURCE, multi_selection=source_info, deck_section=source_deck_section_model
         )
         self._add_location_group(
-            location=Location.DESTINATION, well_info=target_info, deck_section=destination_deck_section_model
+            location=Location.DESTINATION, multi_selection=target_info, deck_section=destination_deck_section_model
         )
 
         self._add_value_group(

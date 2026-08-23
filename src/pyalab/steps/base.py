@@ -307,10 +307,10 @@ class Step(BaseModel, ABC):
         )
 
     def _add_location_group(
-        self, *, location: Location, well_info: list[dict[str, JsonValue]], deck_section: DeckSection
+        self, *, location: Location, multi_selection: list[dict[str, JsonValue]], deck_section: DeckSection
     ):
         values = [
-            ("MultiSelection", json.dumps(well_info)),
+            ("MultiSelection", json.dumps(multi_selection)),
             (
                 "WellOffsets",
                 json.dumps(
