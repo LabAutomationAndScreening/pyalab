@@ -60,7 +60,7 @@ class MultiDispense(LiquidTransferStep):
         destination_well = WellRowCol(column_index=self.destinations[0][0].column_index, row_index=0).model_dump(
             by_alias=True
         )  # TODO: handle row index
-        source_info: list[dict[str, JsonValue]] = [
+        source_selection: list[dict[str, JsonValue]] = [
             {
                 "Wells": [source_well],
                 **source_deck_section,
@@ -68,7 +68,7 @@ class MultiDispense(LiquidTransferStep):
                 **WORKING_DIRECTION_KWARGS,
             }
         ]
-        target_info: list[dict[str, JsonValue]] = [
+        target_selection: list[dict[str, JsonValue]] = [
             {
                 "Wells": [destination_well],
                 **destination_deck_section,
@@ -78,10 +78,10 @@ class MultiDispense(LiquidTransferStep):
         ]
         # pylint:disable=duplicate-code # This seems decently DRY...there's just a bit of similarity between steps...which might disappear as more values are parametrized
         self._add_location_group(
-            location=Location.SOURCE, multi_selection=source_info, deck_section=source_deck_section_model
+            location=Location.SOURCE, multi_selection=source_selection, deck_section=source_deck_section_model
         )
         self._add_location_group(
-            location=Location.DESTINATION, multi_selection=target_info, deck_section=destination_deck_section_model
+            location=Location.DESTINATION, multi_selection=target_selection, deck_section=destination_deck_section_model
         )
 
         self._add_value_group(
