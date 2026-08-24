@@ -14,3 +14,11 @@ if ! bd ready; then
     # for some reason, the envvar for the server host isn't being picked up normally, so just passing it explicitly here
     rm -rf .claude/.beads && bd init --server-host="$BEADS_DOLT_SERVER_HOST" --database="$BEADS_DOLT_SERVER_DATABASE" --skip-hooks --stealth --prefix=work </dev/null && git -c core.hooksPath=/dev/null restore --source=HEAD --staged --worktree .claude/.beads
 fi
+
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================

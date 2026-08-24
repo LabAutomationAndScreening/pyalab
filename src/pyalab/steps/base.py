@@ -3,7 +3,6 @@ import uuid
 from abc import ABC
 from abc import abstractmethod
 from enum import Enum
-from typing import Any
 from typing import ClassVar
 
 from inflection import camelize
@@ -11,11 +10,12 @@ from lxml import etree
 from lxml.etree import _Element
 from pydantic import BaseModel
 from pydantic import Field
+from pydantic import JsonValue
 
-from pyalab.pipette import Pipette
-from pyalab.pipette import Tip
+from ..pipette import Pipette
+from ..pipette import Tip
 
-WORKING_DIRECTION_KWARGS: dict[str, Any] = {
+WORKING_DIRECTION_KWARGS = {
     "DeckId": "00000000-0000-0000-0000-000000000000",  # TODO: figure out if this has any meaning
     "WorkingDirectionExtended": 0,  # TODO: figure out what this is
     "WorkingDirectionOld": "false",  # TODO: figure out what this is
@@ -112,6 +112,7 @@ class Step(BaseModel, ABC):
     type: ClassVar[str]
     _tip: Tip | None = None
     _pipette: Pipette | None = None
+    _value_groups_node: _Element | None = None
 
     def set_pipette(self, pipette: Pipette) -> None:
         self._pipette = pipette
@@ -155,6 +156,9 @@ class Step(BaseModel, ABC):
     def _add_value_groups(self) -> None: ...
 
     def _add_value_group(self, *, group_name: str, values: list[tuple[str, str]]) -> None:
+        assert self._value_groups_node is not None, (
+            "Should never happen, because this private method is only called after create_xml_for_program"
+        )
         group_node = etree.SubElement(self._value_groups_node, "ValueGroup", attrib={"Key": group_name})
         values_node = etree.SubElement(group_node, "Values")
         for name, value in values:
@@ -185,7 +189,7 @@ class Step(BaseModel, ABC):
         )
 
     def _add_mix_group(
-        self, *, mix_location: MixLocation, well_info: dict[str, Any], deck_section_info: dict[str, Any]
+        self, *, mix_location: MixLocation, well_info: dict[str, JsonValue], deck_section_info: dict[str, JsonValue]
     ):
         values = [
             ("MixActive", json.dumps(obj=False)),
@@ -255,7 +259,7 @@ class Step(BaseModel, ABC):
             values=values,
         )
 
-    def _create_height_config_value_tuples(self, *, deck_section_info: dict[str, Any]) -> list[tuple[str, str]]:
+    def _create_height_config_value_tuples(self, *, deck_section_info: dict[str, JsonValue]) -> list[tuple[str, str]]:
         return [
             (
                 "SectionHeightConfig",
@@ -284,7 +288,7 @@ class Step(BaseModel, ABC):
         ]
 
     def _create_heights_value_tuple(
-        self, *, well_info: dict[str, Any], deck_section_info: dict[str, Any], start_height: float
+        self, *, well_info: dict[str, JsonValue], deck_section_info: dict[str, JsonValue], start_height: float
     ) -> tuple[str, str]:
         end_height = start_height  # TODO: implement moving aspirate/dispense
         return (
@@ -302,9 +306,11 @@ class Step(BaseModel, ABC):
             ),
         )
 
-    def _add_location_group(self, *, location: Location, well_info: list[dict[str, Any]], deck_section: DeckSection):
+    def _add_location_group(
+        self, *, location: Location, multi_selection: list[dict[str, JsonValue]], deck_section: DeckSection
+    ):
         values = [
-            ("MultiSelection", json.dumps(well_info)),
+            ("MultiSelection", json.dumps(multi_selection)),
             (
                 "WellOffsets",
                 json.dumps(

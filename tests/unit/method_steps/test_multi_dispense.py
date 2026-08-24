@@ -60,7 +60,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
             ),
         ],
     )
-    def test_arbitrary_params(  # noqa: PLR0913 # this is a lot of arguments to parametrize, but it makes it more efficient to not generate a bunch of separate snapshot files
+    def test_arbitrary_params(  # noqa: PLR0913, PLR0917 # this is a lot of arguments to parametrize, but it makes it more efficient to not generate a bunch of separate snapshot files. pytest injects them, so making them keyword-only would change nothing
         self,
         source_column_index: int,
         destination_column_indexes_and_volumes: list[tuple[int, float]],
@@ -102,7 +102,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
                 )
             )
 
-        kwargs: dict[str, Any] = {
+        kwargs: dict[str, Any] = {  # pyrefly: ignore[explicit-any] # the values are heterogeneous by nature---this dict only exists to omit kwargs so the constructor defaults get exercised
             kwarg_name: value
             for value, kwarg_name in [
                 (aspirate_params, "aspirate_parameters"),
@@ -183,7 +183,7 @@ class TestMultiDispenseProgramSnapshots(ProgramSnapshot):
             )
         )
 
-        kwargs: dict[str, Any] = {
+        kwargs: dict[str, Any] = {  # pyrefly: ignore[explicit-any] # the values are heterogeneous by nature---this dict only exists to omit kwargs so the constructor defaults get exercised
             kwarg_name: value
             for value, kwarg_name in [
                 (pipette_span, "pipette_span"),

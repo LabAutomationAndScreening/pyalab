@@ -18,12 +18,6 @@
       // view latest version https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
       "version": "2.34.34"
     },
-    "ghcr.io/devcontainers/features/python:1.8.0": {
-      // https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json
-      "version": "3.12.7",
-      "installTools": false,
-      "optimize": true
-    },
     // https://github.com/anthropics/devcontainer-features/blob/main/src/claude-code/devcontainer-feature.json
     "ghcr.io/anthropics/devcontainer-features/claude-code:1.0.5": {},
   },
@@ -34,18 +28,17 @@
         "-AmazonWebServices.aws-toolkit-vscode", // the AWS CLI feature installs this automatically, but it's causing problems in VS Code
         // basic tooling
         // "eamodio.gitlens@15.5.1",
-        "coderabbit.coderabbit-vscode@0.19.2",
+        "coderabbit.coderabbit-vscode@0.21.3",
         "ms-vscode.live-server@0.5.2025051301",
         "MS-vsliveshare.vsliveshare@1.0.5905",
-        "github.copilot@1.388.0",
-        "github.copilot-chat@0.44.2",
-        "anthropic.claude-code@2.1.145",
+        "anthropic.claude-code@2.1.238",
 
         // Python
-        "ms-python.python@2026.5.2026032701",
-        "ms-python.vscode-pylance@2026.2.100",
+        "-ms-python.vscode-pylance", // pyrefly is the language server for this project; ms-python.python auto-installs Pylance via its extension pack, and Pylance then warns on every boot that it's disabled
+        "ms-python.python@2026.5.2026052901",
+        "meta.pyrefly@1.2.9002",
         "ms-vscode-remote.remote-containers@0.414.0",
-        "charliermarsh.ruff@2026.44.0",
+        "charliermarsh.ruff@2026.68.0",
 
         // Misc file formats
         "bierner.markdown-mermaid@1.29.0",
@@ -64,9 +57,12 @@
           "editor.formatOnSave": true,
           "editor.defaultFormatter": "charliermarsh.ruff"
         },
+        "python.terminal.activateEnvironment": false, // uv manages the environment
         "ruff.nativeServer": "on",
         // TODO: see if there's a way to specify different configurations for different folders
-        "ruff.configuration": "/workspaces/pyalab/ruff-non-src.toml", // use the non-src configuration since it's less restrictive and won't show false positives and underline things
+        "ruff.configuration": "/workspaces/pyalab/.config/ruff-non-src.toml", // use the non-src configuration since it's less restrictive and won't show false positives and underline things
+        "python.pyrefly.configPath": "/workspaces/pyalab/.config/pyrefly.toml",
+        "prettier.configPath": "/workspaces/pyalab/.config/.prettierrc",
         "[jsonc][json][javascript][typescript][graphql][css][scss][html][vue]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true
@@ -77,5 +73,5 @@
   "initializeCommand": "sh .devcontainer/initialize-command.sh",
   "onCreateCommand": "sh .devcontainer/on-create-command.sh",
   "postStartCommand": "sh .devcontainer/post-start-command.sh"
-  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): 9696b7d9 # spellchecker:disable-line
+  // Devcontainer context hash (do not manually edit this, it's managed by a pre-commit hook): a73021d4 # spellchecker:disable-line
 }

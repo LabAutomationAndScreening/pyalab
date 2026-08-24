@@ -1,20 +1,41 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
 import re
 import subprocess
 import sys
 
 
-def owner_repo_from_remote() -> tuple[str, str]:
+def run_cmd(
+    cmd: list[str],
+    *,
+    timeout: int,
+    timeout_msg: str,
+) -> subprocess.CompletedProcess[str]:
     try:
-        result = subprocess.run(
-            ["git", "remote", "get-url", "origin"],  # noqa: S607 — git is expected on PATH
+        return subprocess.run(  # noqa: S603 — callers are responsible for only passing safe commands
+            cmd,
             capture_output=True,
             text=True,
             check=True,
-            timeout=15,
+            timeout=timeout,
         )
     except subprocess.TimeoutExpired:
-        _ = sys.stderr.write("Timed out reading git remote 'origin'.\n")
+        _ = sys.stderr.write(f"{timeout_msg}\n")
         sys.exit(1)
+
+
+def owner_repo_from_remote() -> tuple[str, str]:
+    try:
+        result = run_cmd(
+            ["git", "remote", "get-url", "origin"],
+            timeout=15,
+            timeout_msg="Timed out reading git remote 'origin'.",
+        )
     except subprocess.CalledProcessError:
         _ = sys.stderr.write("Cannot read git remote 'origin'. Ensure it exists and points to GitHub.\n")
         sys.exit(1)

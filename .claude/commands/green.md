@@ -39,8 +39,9 @@ The foundation of TDD is the Red-Green-Refactor cycle:
 1. **Red Phase**: Write ONE failing test that describes desired behavior
 
    - The test must fail for the RIGHT reason (not syntax/import errors)
-   - Only one test at a time - this is critical for TDD discipline
-     - Exception: For browser-level tests or expensive setup (e.g., Storybook `*.stories.tsx`), group multiple assertions within a single test block to avoid redundant setup - but only when adding assertions to an existing interaction flow. If new user interactions are required, still create a new test. Split files by category if they exceed ~1000 lines.
+   - Only one new behavior at a time - this is critical for TDD discipline. "One test" means one new Given/When, not one assertion: write only enough to fail for the right reason, whether that lands in a new test block or as an assertion added to an existing one.
+     - Before writing a new test block, look for an existing test with the same Arrange and Act. If one exists, add the failing assertion there. A block that repeats another's setup and action is not more disciplined, just more setup to maintain, and it hides that both cover one behavior. Reserve a new block for a different precondition (Given) or a different action (When).
+   - Split test files by category if they exceed ~1000 lines
    - **Adding a single test to a test file is ALWAYS allowed** - no prior test output needed
    - Starting TDD for a new feature is always valid, even if test output shows unrelated work
    - For DOM-based tests, use `data-testid` attributes to select elements rather than CSS classes, tag names, or text content
@@ -108,3 +109,13 @@ This phase is **not part of the regular TDD workflow** and must only be applied 
 - In the refactor phase, it is perfectly fine to refactor both test and implementation code. That said, completely new functionality is not allowed. Types, clean up, abstractions, and helpers are allowed as long as they do not introduce new behavior.
 - Adding types, interfaces, or a constant in order to replace magic values is perfectly fine during refactoring.
 - Provide the agent with helpful directions so that they do not get stuck when blocking them.
+
+<!--
+============== WARNING ==============================================================================
+File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+See .config/.copier-managed-files.json for details.
+
+You are welcome to make changes to this file in your repo if they are custom to your project,
+but if the change should be shared with other projects, please backport it to the template repo.
+=====================================================================================================
+-->

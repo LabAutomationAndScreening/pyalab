@@ -23,10 +23,25 @@ This project has a dev container. If you already have VS Code and Docker install
 
 To publish a new version of the repository, you can run the `Publish` workflow manually and publish to the staging registry from any branch, and you can check the 'Publish to Primary' option when on `main` to publish to the primary registry and create a git tag.
 
+The `Release` workflow reuses the checks from CI instead of re-running them: it requires that the `CI` workflow has already completed successfully for the current commit (including the `workflow-summary` job) and reuses the artifacts CI built rather than rebuilding. Trigger it manually with `workflow_dispatch`; a real release must be run from `main`, while the `dry_run` option lets you exercise the workflow from any branch without tagging or releasing. A real run publishes the CI-built distribution to the staging registry and verifies a fresh install, then pushes the `v<version>` git tag, publishes to the primary registry, verifies the install again, and finally creates a GitHub Release with auto-generated notes.
+
+<!-- TODO: migrate away from the `Publish` and `Publish to Staging` workflows and merge all of their functionality into the `Release` workflow. -->
+
+
 
 
 
 
 ## Updating from the template
 This repository uses a copier template. To pull in the latest updates from the template, use the command:
-`copier update --trust --conflict rej --defaults`
+`copier update --answers-file .config/.copier-answers.yml --trust --conflict rej --defaults`
+
+<!--
+============== WARNING ==============================================================================
+File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+See .config/.copier-managed-files.json for details.
+
+You are welcome to make changes to this file in your repo if they are custom to your project,
+but if the change should be shared with other projects, please backport it to the template repo.
+=====================================================================================================
+-->

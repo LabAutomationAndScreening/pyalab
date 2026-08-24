@@ -94,3 +94,13 @@ List all source links with brief descriptions. This section is required.
 - Write concise, actionable content
 - Use active voice throughout
 - **Do not create output files** - present findings directly in conversation unless user explicitly requests a file
+
+<!--
+============== WARNING ==============================================================================
+File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+See .config/.copier-managed-files.json for details.
+
+You are welcome to make changes to this file in your repo if they are custom to your project,
+but if the change should be shared with other projects, please backport it to the template repo.
+=====================================================================================================
+-->

@@ -1,0 +1,47 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
+project-excludes = [
+    # paths are relative to this config file (in .config/), so prefix with ../ to anchor at the repo root
+    # excludes managed by this repository
+    "../**/template",
+
+    # excludes managed by template
+    "../**/vendor_files",
+    "../**/generated",
+    "../**/copier_template_resources",
+    "../**/.claude/plugins", # similar to vendor_files, but these are gitignored and can contain arbitrary code, so exclude from type checking but not mutation testing
+]
+# without this explicit "project-includes" and "search-path", pyrefly struggles to understand the tests folder
+project-includes = [
+                    "../src",
+                    "../tests"
+                  ]
+search-path = [".."]
+disable-project-excludes-heuristics = true # with this being enabled by default, pyrefly thinks the src is excluded because it's an editable local install
+python-platform = "linux"
+infer-with-first-use = false # more similar to pyright. must define the empty list type when instantiated
+preset = "all"
+spec-compliant-overloads = true # not sure exactly what this does, but seems like a good idea to be more spec compliant
+ignore-errors-in-generated-code = true # not sure yet how effective this is
+
+[errors]
+no-access = "ignore" # (already covered by ruff SLF001)
+untyped-import = "ignore" # equivalent of reportMissingTypeStubs=false in pyright
+unannotated-return = "ignore" # ruff ANN2xx already requires this, but with suppress-none-returning so that None-returning functions don't need the noise. pyrefly has no equivalent option---the error kind is all-or-nothing.
+
+[[sub-config]]
+matches = "../**/tests/**"
+
+[sub-config.errors]
+implicitly-defined-attribute = "ignore" # doesn't make any sense for test cases. See https://github.com/microsoft/pyright/discussions/4834#discussioncomment-8496931
+# Tests are self-asserting: a value that isn't what the test assumed fails the very next assertion,
+# pointing at the exact line. The unknowns these rules flag also come almost entirely from mocking, where the value
+# genuinely is `Any` and no upstream typing fix is possible --- `spy_return` is set dynamically on the mock,
+# and `call_args[0]` is untyped by construction --- so enforcing here only buys narrowing ceremony at every spy.
+unknown-variable-type = "ignore"
+unknown-argument-type = "ignore"

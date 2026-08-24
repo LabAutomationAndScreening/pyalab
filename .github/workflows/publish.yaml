@@ -1,3 +1,10 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-python-package-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
 name: Publish to Package Registry
 
 on:
@@ -25,15 +32,15 @@ jobs:
       package-version: ${{ steps.extract-package-version.outputs.package_version }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
       - name: Setup python
-        uses: actions/setup-python@v6.2.0
+        uses: actions/setup-python@v7.0.0
         with:
           python-version: 3.12.7
       - name: Extract package version
         id: extract-package-version
         run: |
-          VERSION=$(python3 ./.github/workflows/git_tag.py)
+          VERSION=$(python3 ./.github/workflows/extract_project_version.py pyproject.toml)
           echo "Extracted version: $VERSION"
           echo "package_version=$VERSION" >> $GITHUB_OUTPUT
 
@@ -73,7 +80,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
 
       - name: Install python tooling
         uses: ./.github/actions/install_deps
@@ -90,7 +97,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
 
       - name: Install python tooling
         uses: ./.github/actions/install_deps
@@ -165,9 +172,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
       - name: Setup python
-        uses: actions/setup-python@v6.2.0
+        uses: actions/setup-python@v7.0.0
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -232,21 +239,23 @@ jobs:
     name: Create the git tag
     if: ${{ fromJSON(github.event.inputs.publish_to_primary) }}
     timeout-minutes: 8
-    needs: [ install-from-staging ]
+    needs:
+      - install-from-staging
+      - get-values
     permissions:
       contents: write # needed to push the tag
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
       - name: Setup python
-        uses: actions/setup-python@v6.2.0
+        uses: actions/setup-python@v7.0.0
         with:
           python-version: 3.12.7
       - name: Confirm tag not already present
-        run: python3 ./.github/workflows/git_tag.py --confirm-tag-not-present
+        run: python3 ./.github/workflows/git_tag.py --version "${{ needs.get-values.outputs.package-version }}" --confirm-tag-not-present
       - name: Create tag
-        run: python3 ./.github/workflows/git_tag.py --push-tag-to-remote
+        run: python3 ./.github/workflows/git_tag.py --version "${{ needs.get-values.outputs.package-version }}" --push-tag-to-remote
 
   publish-to-primary:
     name: Publish Python distribution to Primary Package Registry
@@ -301,9 +310,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
       - name: Setup python
-        uses: actions/setup-python@v6.2.0
+        uses: actions/setup-python@v7.0.0
         with:
           python-version: ${{ matrix.python-version }}
 

@@ -1,21 +1,16 @@
 {
+  // pyrefly is the type checker for src; pyright is a second checker run only on the test suite, per https://pyrefly.org/blog/too-many-type-checkers/
+  "include": ["tests"],
   "exclude": [
     // excludes managed by this repository
 
     // excludes managed by template
-    "**/node_modules",
-    "**/.precommit_cache",
-    "**/.ruff_cache",
-    "**/.npm_cache",
-    "**/.pipx_cache",
-    "**/__pycache__",
+    "tests/unit/vcrpy_fixtures.py", // configures vcrpy, which is untyped, and imports nothing from the package under test
+    "**/generated",
     "**/vendor_files",
-    "**/generated/graphql",
-    "**/generated/open_api",
-    "**/.venv",
-    "**/venv",
-    "**/copier_template_resources",
-    "**/.claude/plugins"
+    "**/node_modules",
+    "**/__pycache__",
+    "**/.*"
   ],
   "strictListInference": true,
   "strictDictionaryInference": true,
@@ -71,7 +66,6 @@
   "reportOverlappingOverload": true,
   "reportPossiblyUnboundVariable": true,
   "reportMissingSuperCall": true,
-  "reportUninitializedInstanceVariable": true,
   "reportInvalidStringEscapeSequence": true,
   "reportUnknownParameterType": true,
   "reportUnknownArgumentType": true,
@@ -101,12 +95,6 @@
   "reportUnnecessaryTypeIgnoreComment": true,
   "reportMatchNotExhaustive": true,
   "reportImplicitOverride": true,
-  "pythonPlatform": "Linux",
-  "executionEnvironments": [
-    {
-      "root": "tests",
-      // reportUninitializedInstanceVariable doesn't make any sense for test cases. See https://github.com/microsoft/pyright/discussions/4834#discussioncomment-8496931
-      "reportUninitializedInstanceVariable": false
-    }
-  ]
+  "reportUninitializedInstanceVariable": false, // doesn't apply to test code.  Keep an eye on this to see if it causes any downstream problems of not catching real typing problems in the actual library code that cause problems in consumers...but it'd be a pain to set this to true for a test suite
+  "pythonPlatform": "Linux"
 }

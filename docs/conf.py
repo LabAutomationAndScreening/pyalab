@@ -1,3 +1,10 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-python-package-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -45,7 +52,7 @@ html_theme = "alabaster"
 html_static_path = ["_static"]
 
 
-def autodoc_skip_member(  # noqa: PLR0913 # Sphinx requires all these parameters in the callback signature
+def autodoc_skip_member(  # noqa: PLR0913, PLR0917 # Sphinx requires all these parameters, positionally, in the callback signature
     app: Sphinx,  # noqa: ARG001 # signature required by Sphinx autodoc-skip-member event
     what: Literal["module", "class", "exception", "function", "method", "attribute"],  # noqa: ARG001 # signature required by Sphinx autodoc-skip-member event
     name: str,

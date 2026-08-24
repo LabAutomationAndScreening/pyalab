@@ -16,7 +16,7 @@ exclude_also =
     raise NotImplementedError
     raise AssertionError
 
-    # Don't complain about code specifically to help with pyright import resolution
+    # Don't complain about code specifically to help with pyrefly import resolution
     if TYPE_CHECKING:
 
     # Don't complain if non-runnable code isn't run:
@@ -28,3 +28,11 @@ exclude_also =
 fail_under = 100
 [html]
 directory = coverage-report-pytest
+
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================

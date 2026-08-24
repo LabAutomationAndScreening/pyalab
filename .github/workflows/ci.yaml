@@ -1,3 +1,10 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
 name: CI
 
 on:
@@ -31,7 +38,7 @@ jobs:
       should-run: ${{ steps.check.outputs.should-run }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       - id: check
@@ -83,7 +90,7 @@ jobs:
       UV_PYTHON: ${{ matrix.python-version }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
 
       - name: Install python tooling
         uses: ./.github/actions/install_deps
@@ -98,7 +105,7 @@ jobs:
       - name: Upload coverage to Codecov
         # only upload coverage from fastest job
         if: ${{ matrix.JOB_MATCHING_DEV_ENV && github.actor != 'dependabot[bot]' }} # dependabot by default doesn't have access to the necessary secret...and dependabot should never be changing coverage anyway so it's fine not uploading it
-        uses: codecov/codecov-action@v5.1.1
+        uses: codecov/codecov-action@v7.0.0
         with:
           files: ./coverage.xml
           flags: unittests
@@ -107,6 +114,40 @@ jobs:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: LabAutomationAndScreening/pyalab
+
+
+  build:
+    needs:
+      - test
+      - check-skip-duplicate
+    if: needs.check-skip-duplicate.outputs.should-run == 'true'
+    timeout-minutes: 8
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7.0.1
+
+      - name: Install python tooling
+        uses: ./.github/actions/install_deps
+        with:
+          skip-installing-ssm-plugin-manager: true
+          skip-installing-pulumi-cli: true
+          python-version: 3.12.7
+
+
+      - name: Build package
+        run: |
+
+          uv build --no-sources
+
+      - name: Upload build package
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: python-package-distributions
+          path: dist/
+          if-no-files-found: error
+
 
 
 
@@ -135,7 +176,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
 
       - name: Install python tooling
         uses: ./.github/actions/install_deps
@@ -157,6 +198,7 @@ jobs:
       - check-skip-duplicate
       - lint
       - test
+      - build
       - build-docs
       - confirm-on-tagged-copier-template
     permissions:
@@ -170,6 +212,7 @@ jobs:
           if [[ ! "${{ needs.get-values.result }}" =~ $success_pattern ]] ||
             [[ ! "${{ needs.check-skip-duplicate.result }}" =~ $success_pattern ]] ||
             [[ ! "${{ needs.lint.result }}" =~ $success_pattern ]] ||
+            [[ ! "${{ needs.build.result }}" =~ $success_pattern ]] ||
             [[ ! "${{ needs.build-docs.result }}" =~ $success_pattern ]] ||
             [[ ! "${{ needs.test.result }}" =~ $success_pattern ]] ||
             [[ ! "${{ needs.confirm-on-tagged-copier-template.result }}" =~ $success_pattern ]]; then

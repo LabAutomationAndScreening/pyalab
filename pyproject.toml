@@ -1,3 +1,10 @@
+# ============== WARNING ==============================================================================
+# File is managed by copier template: gh:LabAutomationAndScreening/copier-base-template.git
+# See .config/.copier-managed-files.json for details.
+#
+# You are welcome to make changes to this file in your repo if they are custom to your project,
+# but if the change should be shared with other projects, please backport it to the template repo.
+# =====================================================================================================
 [project]
 name = "pyalab"
 version = "0.2.6"
@@ -28,17 +35,19 @@ dependencies = [
 [dependency-groups]
 dev = [
     # Specific to this repository
-    "lxml-stubs>=0.5.1",
-    "syrupy>=5.2.1",
+    "types-lxml>=2026.2.16",
+    "syrupy>=6.0.0",
     "pytest-mock>=3.15.1",
-    "faker>=40.21.0",
+    "faker>=40.37.0",
     "autodoc_pydantic==2.2.0",
 
     # Managed by upstream template
-    "pyright>=1.1.409",
-    "pytest>=9.0.3",
+    "pyright>=1.1.411",
+    "pyrefly>=1.2.0",
+    "pytest>=9.1.1",
     "pytest-cov>=7.1.0",
     "pytest-randomly>=4.1.0",
+    "mutmut>=3.7.0",
     "sphinx==9.0.4",
 ]
 
