@@ -13,7 +13,7 @@
       // https://github.com/devcontainers/features/blob/main/src/git-lfs/README.md
       "autoPull": false
     },
-    "ghcr.io/devcontainers/features/aws-cli:1.1.2": {
+    "ghcr.io/devcontainers/features/aws-cli:1.2.0": {
       // https://github.com/devcontainers/features/blob/main/src/aws-cli/devcontainer-feature.json
       // view latest version https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
       "version": "2.34.34"
